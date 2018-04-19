@@ -1,0 +1,210 @@
+package com.aaa.web.script;
+
+import com.aaa.utilities.TestUtil;
+import com.aaa.web.lib.CRHomeLib;
+import com.aaa.web.lib.LoginLib;
+import com.aaa.web.lib.LoginRoleLib;
+
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import java.util.Hashtable;
+
+
+public class TC_CRLoginScript extends LoginLib {
+
+	/**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: loginWithValidUserNameAndInvalidPassword
+     * description :: valdUsernamewithInvalidPassword
+     * date :: 05-Nov-2017
+     * author :: Chandu Dendukuri
+     */
+    @DataProvider
+    public Object[][] getTestDataFor_loginWithValidUserNameAndInvalidPassword() {
+        return TestUtil.getData("validUsernameInvalidpassword", TestData, "D3CallRecieving");
+    }
+
+    @Test(dataProvider = "getTestDataFor_loginWithValidUserNameAndInvalidPassword")
+
+    public void loginWithValidUserNameAndInvalidPassword(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("CR Login");
+                CRHomeLib home = new CRHomeLib();
+                home.verifyandClickLogout();
+                loginValidation(data.get("LoginName"),data.get("Password"));
+                System.out.println("Test completed");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: loginWithInactiveUser
+     * description :: Validation for inactive user details
+     * date :: 05-Nov-2017
+     * author :: Chandu Dendukuri
+     */
+    @DataProvider
+    public Object[][] getTestDataFor_loginWithInactiveUser() {
+        return TestUtil.getData("loginWithInactiveUser", TestData, "D3CallRecieving");
+    }
+
+    @Test(dataProvider = "getTestDataFor_loginWithInactiveUser")
+
+    public void loginWithInactiveUser(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("CR Login");
+                loginValidation(data.get("LoginName"),data.get("Password"));
+                System.out.println("Test completed");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+       /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: sucessLogin
+     * description :: successful login functionality
+     * date :: 05-Nov-2017
+     * author :: Chandu Dendukuri
+     */
+    @DataProvider
+    public Object[][] getTestDataFor_successLogin() {
+        return TestUtil.getData("SuccessLogin", TestData, "D3CallRecieving");
+    }
+    @Test(dataProvider = "getTestDataFor_successLogin")
+
+    public void successLogin(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+
+                this.reporter.initTestCaseDescription("CR Login");
+                CRHomeLib home = new CRHomeLib();
+                home.verifyandClickLogout();
+                login(data.get("LoginName"),data.get("Password"));
+                home.logout();
+                /*home.allErrorAlerts();*/
+                System.out.println("Test completed");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: sucessLogin
+     * description :: successful login functionality
+     * date :: 05-Nov-2017
+     * author :: Chandu Dendukuri
+     */
+    @DataProvider
+    public Object[][] getTestDataFor_ChangePassword() {
+        return TestUtil.getData("Changepassword", TestData, "D3CallRecieving");
+    }
+    @Test(dataProvider = "getTestDataFor_ChangePassword")
+
+    public void changePassword(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("CR Login");
+                CRHomeLib home = new CRHomeLib();
+                home.verifyandClickLogout();
+                enterUserName(data.get("LoginName"));
+                enterPassword(data.get("Password"));
+                changePasswordButton();
+                verifyChangePassword(data.get("NewPassword"),data.get("Confirm password"),data.get("PasswordChangeAlert"));
+                home.allErrorAlerts();
+                System.out.println("Test completed");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+    @DataProvider
+    public Object[][] getTestDataFor_SessionTest() {
+        return TestUtil.getData("SessionTest", TestData, "D3CallRecieving");
+    }
+
+    @Test(dataProvider = "getTestDataFor_SessionTest")
+
+    public void sessionTest(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("CR Login");
+                CRHomeLib home = new CRHomeLib();
+                home.verifyandClickLogout();
+                sessionInNewTabverification(data.get("LoginName"),data.get("Password"));
+                home.sessionInNewTab();
+                home.logout();
+                System.out.println("Test completed");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+    @DataProvider
+    public Object[][] getTestDataFor_SelectRole() {
+        return TestUtil.getData("SelectRole", TestData, "D3CallRecieving");
+    }
+
+    @Test(dataProvider = "getTestDataFor_SelectRole")
+
+    public void SelectRole(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("CR Login");
+
+                CRHomeLib home = new CRHomeLib();
+                LoginRoleLib role = new LoginRoleLib();
+                home.verifyandClickLogout();
+                login(data.get("LoginName"),data.get("Password"));
+                role.roleSelection(data.get("RoleinDispatch"));
+                home.verifyHomeScreen();
+                //home.verifyLoggedInUserRole();
+                home.logout();
+                System.out.println("Test completed");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+    @DataProvider
+    public Object[][] getTestDataFor_multiSessionValidation() {
+        return TestUtil.getData("MAX_PSWD_TRIES", TestData, "D3CallRecieving");
+    }
+
+    @Test(dataProvider = "getTestDataFor_multiSessionValidation")
+
+    public void multiSessionValidation(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("CR Login");
+                CRHomeLib home = new CRHomeLib();
+                home.verifyandClickLogout();
+                mulipleLoginAttemps(data.get("LoginName"),data.get("Password"));
+                System.out.println("Test Completed");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+}

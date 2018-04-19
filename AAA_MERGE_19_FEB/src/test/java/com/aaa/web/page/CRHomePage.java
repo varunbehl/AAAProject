@@ -1,0 +1,162 @@
+package com.aaa.web.page;
+
+import org.openqa.selenium.By;
+
+public class CRHomePage {
+
+    // public static By dispatchContinueQueue;
+    // public static By searchCallsLink;
+    public static By lnkLogout;
+    public static By btnLogout;
+    public static By txtSearchMemberText;
+    public static By btnSearchButton;
+    public static By btnMemberSave;
+    public static By btnMemberCancel;
+    public static By btnMemberLeave;
+    public static By btnMemberDuplicate;
+    public static By alertConfirmation;
+    public static By alertConfirmationYesButton;
+    public static By alertConfirmationNoButton;
+    public static By alertConfirmationClose;
+    public static By memberPageManualEntry;
+    public static By closeMessages;
+    public static By workFlowDropDown;
+    public static By historyWorkFlow;
+    public static By drpdwnSearchCalls;
+    public static By txtSearchCallID;
+    public static By txtCallStatus;
+    public static By lblRetrieveCallStatus;
+    public static By linkCallIdOnSearchCalls;
+    public static By searchCallsLink;
+    public static By leaveCallMessage;
+    public static By memberDetailsOnSearchCalls;
+    public static By searchButtonForCallSearch;
+    public static By iconMsgClose;
+    public static By unDefinedError;
+    public static By btnKillCallContinue;
+    public static By lblDispatchCodeInSearchCallWindow;
+    public static By iconClickOnCloseIconOnSearchCalls;
+    public static By errorGeoCode;
+    public static By iconInernal;
+    public static By iconPTAFalg;
+    public static By lblPTAvalue;
+    public static By confirmationPopUp;
+    public static By drpdwnCanceling;
+    public static By txtAreaComments;
+    public static By txtSuccessfullyKilledCall;
+    public static By d3CallReceivingTxt;
+    public static By notificationMessage;
+    public static By etaTime;
+    public static By menuRapCallSelction;
+    public static By lblElapsedTime;
+    public static By btnCloseOnRecentCallsWindow;
+    public static By alertWarningWindow;
+    public static By linkExpandAllComments;
+    public static By txtCommentsStatusHistoryWindow;
+    public static By iconCloseOnStatusHostoryWindow;
+    public static By iconCallSummary;
+    public static By txtPaceSetterCodeOnCallSummary;
+    public static By txtVehicleOnCallSummary;
+    public static By btnSaveArchCall;
+    public static By editCommentWindow;
+    public static By btnSaveEditCommentWindow;
+    public static By ddnStatusInEditComment;
+    public static By ddnTypeInEditWindow;
+    public static By lblStatus;
+    public static By lblHiddenDeletedCount;
+    public static By chkboxHiddenDeleted;
+    public static By autospotFailMsgOk;
+    public static By autoCommentDownArrow;
+    public static By ddnselCannedComments;
+    public static By lblErrorMessage;
+    public static By lblErrorMessageOnUndefinedError;
+    public static By lblAddPhone;
+    public static By lblCurrentCall;
+    public static By lblDispatcherUpdateSatusInCurrentCall;
+
+    static {
+        //  dispatchContinueQueue = By.id("queue-select-button-continue");
+        // searchCallsLink = By.xpath("//*[@id='search-calls-lnk']/a/i");
+        //unDefinedError=By.cssSelector("div[id*='error-dialog-']+div div button"); //backup to verify undefined error
+        unDefinedError=By.cssSelector("div[id*='error-dialog-']+div[class='ui-dialog-buttonpane ui-widget-content ui-helper-clearfix'] div button");
+        btnKillCallContinue=By.cssSelector("div[id='generic-dialog'] + div div button");
+        lnkLogout = By.id("d3ui-unified-header-logout");
+        txtSearchMemberText = By.id("search_member_text");
+        btnSearchButton = By.xpath("//*[@id='search_button']");
+        btnLogout = By.id("confirmation-yes-btn");
+        alertConfirmation = By.id("ui-dialog-title-confirmation-box");
+        alertConfirmationYesButton = By.id("confirmation-yes-btn");
+        alertConfirmationNoButton = By.id("confirmation-no-btn");
+        alertConfirmationClose = By.cssSelector("div [id='ui-dialog-title-confirmation-box']+a span");
+        //workFlowSelection = By.id("workflow-select");
+        // lnkManualEntryonMem = By.xpath("//a[contains(@id,'member-manual-entry-a-link')][contains(text(),'Manual Entry')]");
+        // lnkManualEntryonLoc = By.xpath("//a[contains(@id,'loc-manual-toggle-link-1')][contains(text(),' Enter address manually')]");
+        // lnkManualEntryonTow = By.xpath("//a[contains(@id,'loc-manual-toggle-link-3')][contains(text(),' Enter address manually')]");
+        // lnkManualEntryonVehic = By.xpath("//a[contains(@id,'vi-manual-toggle-link')][contains(text(),'Manual Entry')]");
+        closeMessages = By.xpath("//*[@id='messages-panel']//i[@class='icon-remove-sign']");
+        historyWorkFlow = By.xpath("//li[@role='menuitem']/a[contains(text(),'History')]");
+        workFlowDropDown = By.cssSelector("#workflow-select+button");
+        /*Below locators are located on  left-side panel of the home page like (SAVE,CANCEL,lEAVE,DUPLICATE buttons) */
+        btnMemberSave = By.id("save-call");
+        btnMemberCancel = By.id("cancel-call");
+        btnMemberLeave = By.id("leave-call");
+        btnMemberDuplicate = By.id("dupl-call");
+        /*Below locator located at bottom of the page to enter the member details manually*/
+        memberPageManualEntry = By.id("member-manual-entry-a-link");
+        /*Added By E004118*/
+        drpdwnSearchCalls = By.xpath("//*[@id='application-content']/header/ul[1]/li[6]/a");
+        txtSearchCallID = By.xpath("//*[@id='call-search-call-id']");
+        txtCallStatus = By.xpath("//*[@id='call-search-call-status']");
+        lblRetrieveCallStatus = By.xpath("//*[@id='call-20171214-20001-r']/td[1]/span[1]");
+        iconMsgClose=By.xpath("//div[@id='messages-panel']/div/div/div/a[2]/i");
+        searchCallsLink = By.xpath("//*[@id='search-calls-btn']/a/span[2]");
+        leaveCallMessage=By.id("confirmation-dialog-question");
+        memberDetailsOnSearchCalls=By.cssSelector("table[id='call-search-results-table'] tbody tr[id*='call-'] td:nth-child(5)");
+        searchButtonForCallSearch=By.xpath("//*[@id='call-search-search-button']/span");
+        linkCallIdOnSearchCalls=By.xpath("//*[contains(@id,'call-')]/td[2]/a");
+        lblDispatchCodeInSearchCallWindow = By.xpath("//table[@id='call-search-results-table']//tr[1]/td[4]");
+        iconClickOnCloseIconOnSearchCalls = By.cssSelector("span[id='ui-dialog-title-call-search-dlg']+a");
+        errorGeoCode=By.xpath("//div[contains(@id,'error-dialog-')]/div[2]/div");
+        //iconInernal = By.xpath("//div[@id='comment-type-set']//label[@for='comments-type-internal']//span[2]");
+        iconInernal = By.xpath("//div[@id='comment-type-set']//label[@for='comments-type-internal']");
+
+        iconPTAFalg=By.xpath("//*[@id=\"d3calls-widget-pta\"]/span[1]");
+        lblPTAvalue=By.id("call-pta");
+        //confirmationPopUp = By.id("ui-dialog-title-confirmation-box");
+        confirmationPopUp = By.xpath("//span[@id='ui-dialog-title-confirmation-box']");
+        drpdwnCanceling = By.id("cancel-call-reason");
+        txtAreaComments = By.id("cancel-call-comment");
+        txtSuccessfullyKilledCall = By.id("generic-dialog-text");
+        d3CallReceivingTxt= By.xpath("//div[contains(@title,'D3 Call Management')]");
+        notificationMessage=By.className("d3ui-notification-message");
+        etaTime=By.className("call-eta");
+        menuRapCallSelction=By.xpath("//*[contains(@class, 'ui-corner-all')][contains(text(),'RAP')]");
+        lblElapsedTime = By.id("call-elapsed-time");
+        btnCloseOnRecentCallsWindow = By.xpath("//div[@class='ui-dialog-buttonset']//button[@id='call-search-close-btn']");
+        alertWarningWindow = By.id("generic-dialog-text");
+        linkExpandAllComments = By.xpath("//div[@id='status-panel']/div[2]/a[1]");
+        txtCommentsStatusHistoryWindow =By.xpath("//table[@id='status-table']//tr[@class='ui-subgrid']/td[2]/div");
+        iconCloseOnStatusHostoryWindow = By.xpath("//div[@id='status-panel']//div[@class='d3ui-panel-menu']/a");
+        iconCallSummary = By.xpath("//a[@title='Call Summary']");
+        txtPaceSetterCodeOnCallSummary = By.id("pacesetter1-hd-summary");
+        txtVehicleOnCallSummary = By.id("vi-type-hd-summary");
+        btnSaveArchCall = By.id("save-arch-call");
+        editCommentWindow = By.xpath("//div[@aria-labelledby='ui-dialog-title-comments-edit']");
+        btnSaveEditCommentWindow = By.xpath("//div[@aria-labelledby='ui-dialog-title-comments-edit']/div[3]/div/button[1]");
+        ddnStatusInEditComment = By.xpath("//div[@id='comments-edit']/table/tbody/tr[4]/td[2]/select");
+        ddnTypeInEditWindow = By.xpath("//div[@id='comments-edit']/table/tbody/tr[5]/td[2]/select");
+        lblStatus = By.xpath("//div[@id='comments-edit']/table/tbody/tr[4]/td[1]");
+        lblHiddenDeletedCount = By.xpath("//span[@id='deleted-hidden-comments-count']");
+        chkboxHiddenDeleted = By.id("deleted-hidden-comments-toggle-visibility");
+        autospotFailMsgOk=By.xpath("(//div[@class='ui-dialog-buttonset']/button)[last()]");
+        ddnselCannedComments = By.xpath("//li[@class='ui-menu-item']//a[contains(text(),'Alternate Location Used for Spot')]");
+        autoCommentDownArrow = By.id("auto-comments-btn");
+        lblErrorMessage=By.cssSelector("div[id*='error-dialog-'][data-error*='E213'] div[class='d3ui-modal-icon d3ui-modal-icon-error']+div div");
+        lblErrorMessageOnUndefinedError = By.cssSelector("div[id*='error-dialog-'] div[class='message']");
+        lblCurrentCall=By.xpath("(//i[contains(@class,'icon-caret-down')])[3]");
+        lblDispatcherUpdateSatusInCurrentCall=By.xpath("//span[contains(@class,'d3ui-menu-item-label')][text()='Dispatcher Update Status']");
+        lblAddPhone=By.xpath("//*[@id='mbr-contact-add-btn']");
+
+
+    }
+}

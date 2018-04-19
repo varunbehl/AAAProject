@@ -1,0 +1,174 @@
+
+
+package com.aaa.web.script;
+
+import com.aaa.accelerators.ActionEngine;
+import com.aaa.utilities.TestUtil;
+import com.aaa.web.lib.*;
+import com.aaa.web.page.DIHomePage;
+import com.aaa.web.page.DIProfilePage;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import java.util.Hashtable;
+
+public class TC_DICustomizedProfileColumns extends ActionEngine {
+
+	@DataProvider
+	public Object[][] getTestDataFor_DICustomizedProfileColumns() {
+		return TestUtil.getData("DICustomizedProfileColumns", TestData, "D3Dispatch");
+	}
+
+
+	@Test(dataProvider = "getTestDataFor_DICustomizedProfileColumns")
+	public void CreateNewProfile(Hashtable<String, String> data) throws Throwable {
+		try {
+			if (data.get("RunMode").equals("Y")) {
+				this.reporter.initTestCaseDescription("2018:TC-Create New Duplicate Profile");
+				DIHomeLib diHome = new DIHomeLib();
+				CRHomeLib home=new CRHomeLib();
+				DIProfileLib profile = new DIProfileLib();
+				LoginToApplication(data,data.get("LoginName"), data.get("Password"));
+
+				waitForVisibilityOfElement(DIHomePage.tabDiProfile, "Profile Menu Item");
+				click(DIHomePage.tabDiProfile, "Profile Menu Item");
+
+				diHome.clickOnOpenNewProfile();
+				type(DIProfilePage.txtName,data.get("ProfileName"),"Name");
+				click(DIHomePage.btnSaveAndContinueInSetProfileNameWindow,"Save & Continue");
+				Thread.sleep(4000);
+				boolean profileWindow = isVisible(DIProfilePage.DialogprofileWindow,"Profile Window");
+				assertTrue(profileWindow,"Profile Window Exists");
+				String profileNameCom  = getText(DIProfilePage.lblProfileName,"Profile Name displays on Profile Window");
+				String profileName = profileNameCom.substring(profileNameCom.lastIndexOf('-') + 1).trim();
+				assertTrue(profileName.equalsIgnoreCase(data.get("ProfileName")),"Profile Name exists on Profile Window");
+
+				click(DIProfilePage.iconCloseTheProfile,"Close The Profile");
+				Thread.sleep(5000);
+				waitForVisibilityOfElement(DIHomePage.tabDiProfile, "Profile Menu Item");
+				click(DIHomePage.tabDiProfile, "Profile Menu Item");
+				boolean profileNameExist = isVisible(DIProfilePage.lblProfileNameInProfileMenuItems(data.get("ProfileName")),"Profile Name in Profile Menu Items "+data.get("ProfileName"));
+				assertTrue(profileNameExist,"Profile created successfully, profile name is listed in Custom Profiles, Profile Name is: "+data.get("ProfileName"));
+				diHome.logOut();
+				Thread.sleep(5000);
+				acceptAlert();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+	}
+
+
+	@Test(dataProvider = "getTestDataFor_DICustomizedProfileColumns")
+	public void CustomizedProfileColumns(Hashtable<String, String> data) throws Throwable {
+		try {
+			if (data.get("RunMode").equals("Y")) {
+				this.reporter.initTestCaseDescription("2018:TC-Create New Duplicate Profile");
+				DIHomeLib diHome = new DIHomeLib();
+				CRHomeLib home=new CRHomeLib();
+				DIProfileLib profile = new DIProfileLib();
+				LoginToApplication(data,data.get("LoginName"), data.get("Password"));
+
+				waitForVisibilityOfElement(DIHomePage.tabDiProfile, "Profile Menu Item");
+				click(DIHomePage.tabDiProfile, "Profile Menu Item");
+
+				click(DIProfilePage.lblProfileNameInProfileMenuItems(data.get("ProfileName")),"Profile Name in Profile Menu Items "+data.get("ProfileName"));
+				Thread.sleep(5000);
+
+				waitForVisibilityOfElement(DIProfilePage.lblTabNameInProfileWindow(data.get("TabName")),""+data.get("TabName"));
+				String strAllCalls= getText(DIProfilePage.lblTabNameInProfileWindow(data.get("TabName")),""+data.get("TabName")).trim();
+				click(DIProfilePage.iconCustomizeTheProfile,"Customize the Profile");
+				//step 3
+				waitForVisibilityOfElement(DIProfilePage.lblTabNameInSettings,"Tab Name"+data.get("TabName"));
+				String TabInSettings = getText(DIProfilePage.lblTabNameInSettings,""+data.get("TabName")).trim();
+				assertTrue(strAllCalls.equalsIgnoreCase(TabInSettings),"Name of the tab is labeled in the top bar Settings for tab "+data.get("TabName"));
+
+				//
+
+				waitForVisibilityOfElement(DIProfilePage.lnkRemoveAll,"Remove All");
+				click(DIProfilePage.lnkRemoveAll,"Remove All");
+
+				waitForVisibilityOfElement(DIProfilePage.lblAvailableSectionColumnsNames(data.get("AvailableSectionCol1")),"Available Section Column "+data.get("AvailableSectionCol1"));
+				String colNameAvailableSection = getText(DIProfilePage.lblAvailableSectionColumnsNames(data.get("AvailableSectionCol1")),"Available Section Column Name: "+data.get("AvailableSectionCol1"));
+				click(DIProfilePage.lblAvailableSectionColumnsNames(data.get("AvailableSectionCol1")),"Available Section Column Name "+colNameAvailableSection);
+
+				// Validating if elected COl is highlighted or not
+				boolean colHighlighted = isEnabled(DIProfilePage.lblAvailableSectionHighlightedColumnsNames(data.get("AvailableSectionCol1")),"Highlighted Column in Available Section "+data.get("AvailableSectionCol1"));
+				assertTrue(colHighlighted,"selected item is highlighted yellow, item name is "+data.get("AvailableSectionCol1"));
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+	}
+
+
+	@Test(dataProvider = "getTestDataFor_DICreateNewDuplicateProfile")
+	public void DeleteUserProfiles(Hashtable<String, String> data) throws Throwable {
+		try {
+			if (data.get("RunMode").equals("Y")) {
+				this.reporter.initTestCaseDescription("2018:TC-Create New Duplicate Profile");
+				DIHomeLib diHome = new DIHomeLib();
+
+				LoginToApplication(data,data.get("LoginName"), data.get("Password"));
+				waitForVisibilityOfElement(DIHomePage.tabDiProfile, "Profile Tab");
+				click(DIHomePage.tabDiProfile, "Profile Menu Item");
+				waitForVisibilityOfElement(DIProfilePage.lblProfileNameInProfileMenuItems(data.get("ProfileName")),"Profile Name in Profile Menu Items "+data.get("ProfileName"));
+				click(DIProfilePage.lblProfileNameInProfileMenuItems(data.get("ProfileName")),"Profile Name in Profile Menu Items "+data.get("ProfileName"));
+
+				waitForVisibilityOfElement(DIProfilePage.DialogprofileWindow,"Profile Window");
+				Thread.sleep(3000);
+				waitForVisibilityOfElement(DIProfilePage.iconCustomizeTheProfile,"Customize the Profile");
+				//waitForElementToBeClickable(DIProfilePage.iconCustomizeTheProfile,"Customize the Profile");
+				mouseDoubleClick(DIProfilePage.iconCustomizeTheProfile,"Customize the Profile");
+				waitForVisibilityOfElement(DIProfilePage.btnDeleteThisUserProfile,"Delete This User Profile");
+				click(DIProfilePage.btnDeleteThisUserProfile,"Delete This User Profile");
+				waitForVisibilityOfElement(DIProfilePage.btnYesOnDeletePopUpWindow,"Yes Button on Delete Pop Up");
+				click(DIProfilePage.btnYesOnDeletePopUpWindow,"Yes Button on Delete Pop Up");
+				Thread.sleep(5000);
+				waitForVisibilityOfElement(DIHomePage.tabDiProfile, "Profile Tab");
+				click(DIHomePage.tabDiProfile, "Profile Menu Item");
+				waitForVisibilityOfElement(DIProfilePage.lblProfileNameInProfileMenuItems(data.get("ProfileNameDuplicate")),"Profile Name in Profile Menu Items "+data.get("ProfileNameDuplicate"));
+				click(DIProfilePage.lblProfileNameInProfileMenuItems(data.get("ProfileNameDuplicate")),"Profile Name in Profile Menu Items "+data.get("ProfileNameDuplicate"));
+				waitForVisibilityOfElement(DIProfilePage.DialogprofileWindow,"Profile Window");
+                Thread.sleep(3000);
+				//waitForElementToBeClickable(DIProfilePage.iconCustomizeTheProfile,"Customize the Profile");
+				waitForVisibilityOfElement(DIProfilePage.iconCustomizeTheProfile,"Customize the Profile");
+                mouseDoubleClick(DIProfilePage.iconCustomizeTheProfile,"Customize the Profile");
+				waitForVisibilityOfElement(DIProfilePage.btnDeleteThisUserProfile,"Delete This User Profile");
+				click(DIProfilePage.btnDeleteThisUserProfile,"Delete This User Profile");
+				waitForVisibilityOfElement(DIProfilePage.btnYesOnDeletePopUpWindow,"Yes Button on Delete Pop Up");
+				click(DIProfilePage.btnYesOnDeletePopUpWindow,"Yes Button on Delete Pop Up");
+
+				diHome.logOut();
+				Thread.sleep(5000);
+				acceptAlert();
+				Thread.sleep(5000);
+				acceptAlert();
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+	}
+
+
+		public void LoginToApplication(Hashtable<String, String> data,String username,String password) throws Throwable {
+		DILoginLib diLogin = new DILoginLib();
+		DIHomeLib diHome = new DIHomeLib();
+		LoginRoleLib loginRole=new LoginRoleLib();
+		navigateToApplication("DI");
+		diLogin.login(username, password);
+		Thread.sleep(5000);
+		loginRole.clickOnProceedBtnInDispatchRoleLogin();
+		Thread.sleep(10000);
+		diLogin.waitcloseAllBusyIcons();
+		Thread.sleep(3000);
+		diHome.clickOnCloseIconOnQueueSelection();
+		Thread.sleep(3000);
+	}
+
+}

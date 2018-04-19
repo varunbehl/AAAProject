@@ -1,0 +1,41 @@
+8
+
+dir
+1033
+https://certloadgen3.national.aaa.com/svn/CignitiAutomation/aaaAutomationCignitiOffShore/src/test/java/com/aaa/mobile/rsoredesign/script
+https://certloadgen3.national.aaa.com/svn/CignitiAutomation
+
+
+
+2018-01-16T21:17:15.084035Z
+628
+mharish
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+b79626d7-27ca-a047-864a-160d5a7d81c8
+
+TC_StandaloneSubmitLightServiceCall.java
+file
+
+
+
+
+2018-02-02T05:12:25.812000Z
+52a4873481cb289cbb11176bc51eef77
+2018-01-16T21:17:15.084035Z
+628
+mharish
+has-props
+

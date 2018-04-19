@@ -1,0 +1,289 @@
+package com.aaa.e2e.script;
+
+import com.aaa.accelerators.ReportControl;
+import com.aaa.accelerators.TestEngineWeb;
+import com.aaa.googledrive.ReportStatus;
+import com.aaa.utilities.TestUtil;
+import com.aaa.web.lib.*;
+import com.aaa.web.page.CRVehicleTriagePage;
+import com.aaa.web.page.DIMCDPage;
+import com.aaa.web.script.TC_CRSaveAppointmentCall;
+
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import java.util.Hashtable;
+
+public class CR_DI_ITU_Web extends LoginLib
+{
+    public static String callIDCreated;
+    public static String spotIDCreated;
+    public static String callDateCreated;
+    public static String callIDAndDateCombined;
+    public static String [] callandfacilityId = new String[3];
+    public static boolean verifyAddressAvailableForOtherLocationInMCDWindow;
+    public static boolean errorMessage;
+
+    //Declarations
+    CRLocationsLib crLocationsLib =new CRLocationsLib();
+    CRVehicleTriageLib crVehicleTriageLib = new CRVehicleTriageLib();
+    CRMemberSearchLib crMemberSearchLib =new CRMemberSearchLib();
+    CRServiceLib crServiceLib = new CRServiceLib();
+    CRHomeLib crHomeLib = new CRHomeLib();
+    CRTowDestinationLib crTowDestinationLib = new CRTowDestinationLib();
+    DILoginLib diLoginLib=new DILoginLib();
+    LoginRoleLib loginRoleLib = new LoginRoleLib();
+    DIMCDLib dimcdLib = new DIMCDLib();
+    DIHomeLib diHomeLib = new DIHomeLib();
+
+   
+    //*** Main FLow
+    @Parameters({"StartRow","EndRow","nextTestJoin"})
+    @Test()
+    public void CRDIITUEnd2End(int StartRow,String EndRow,boolean nextTestJoin) throws Throwable {
+    	try
+    	{
+    		int intStartRow=StartRow;
+    		int intEndRow=ReportControl.fnGetEndRowCunt(EndRow, "CRDIITUWeb", TestData, "e2eCRDIITUWeb");
+    		for(int intCounter=intStartRow;intCounter<=intEndRow;intCounter++)
+    		{
+    			try {
+    					ReportStatus.fnDefaultReportStatus();
+    					ReportControl.intRowCount=intCounter;
+    					Hashtable<String, String> data=TestUtil.getDataByRowNo("CRDIITUWeb", TestData, "e2eCRDIITUWeb",intCounter);
+		                TestEngineWeb.reporter.initTestCaseDescription("CR DI ITU End to End"+ " From Iteration " + StartRow + " to " + EndRow );
+		            	reporter.SuccessReport("Iteration Number : ","**************Iteration Number::  "+ intCounter+"   **************");
+			    		callReceivingLogin(data);
+			                crMemberSearchTab(data);
+			                crLocationsTab(data);
+			                crVehicleTab(data);
+			                crTowDestinationTab(data);
+			                crServiceTab(data);
+			                navigateToApplication("DI");
+			                dispatchLogin(data);
+			
+			                //Need to write code
+			                //Search for the created call
+			                //Assign to ITU Automation Driver
+			                //Validate whether Status is getting updated.
+			                //Logout
+			
+			                callFlow(data);
+			                spotDispatch(data.get("SpotDispatch"),data.get("ResoptFacilityID"),data.get("SPEnterReason"),data.get("ResoptFacilityIDNew") );
+			                dimcdLib.statusUpdateAsSP(data.get("StatusUpdateSP"));
+			                dimcdLib.statusUpdateAsAS(data.get("StatusUpdateAS"));
+			
+			
+			                /*dimcdLib.statusUpdateAsDI(data.get("StatusUpdateDI"));
+			                dimcdLib.statusUpdateAsER(data.get("StatusUpdateER"));
+			                dimcdLib.statusUpdateAsETA(data.get("StatusUpdateETA"));
+			                dimcdLib.statusUpdateAsOL(data.get("StatusUpdateOL"));
+			                dimcdLib.statusUpdateAsTW(data.get("StatusUpdateTW"));
+			                dimcdLib.statusUpdateAsCL(data.get("StatusUpdateCL"));
+			                dimcdLib.resolutionCode(data.get("ResolutionCode"),data.get("Reason"));
+			                dimcdLib.towConfirmation(data.get("TowConfirmation"),data.get("DITowConfComments"),data.get("DITowConfEnterAddress"),data.get("MCDLocationAddress"), data.get("MCDcrossStreet"), data.get("MCDsecondCrossStreet"), data.get("MCDCity"),data.get("DITowConfEnterOtherAddress"));
+			                dimcdLib.batteyInfo(data.get("BatteryInfo"),data.get("ODOMeterreading"),data.get("BatteryComments"));
+			                dispatchlogout(data.get("CallFlow"));
+			*/
+			                System.out.println("Test completed");
+    			}
+    			catch(Exception e)
+    			{
+    				ReportStatus.blnStatus=false;
+    			}
+    			ReportControl.fnEnableJoin();
+    			ReportStatus.fnUpdateResultStatus("CR_DI_ITU","7777",ReportStatus.strMethodName,intCounter,"EE");
+    		}
+    	}
+    	catch (Exception e) 
+    	{
+    		e.printStackTrace();
+    		throw new RuntimeException(e);
+    	}
+    	ReportControl.fnNextTestJoin(nextTestJoin);
+    }
+
+    public void callReceivingLogin(Hashtable<String, String> data) throws Throwable {
+        navigateToApplication("CR");
+        switch (data.get( "LoginRoleCallReceiving")) {
+            case "CR":
+                login(data.get("LoginName"),data.get("Password"));
+                break;
+            case "DI":
+                login(data.get("CR-DILoginName"),data.get("CR-DIPassword"));
+                loginRoleLib.roleSelection(data.get("CR-RoleinDispatch"));
+                Thread.sleep(4000);
+                loginRoleLib.clickOnProceedBtnInDispatchRoleLogin();
+                //autodi1	auto123!! DI-Dispatcher
+                break;
+            case "AD":
+                login(data.get("CR-ADLoginName"),data.get("CR-ADPassword"));
+                loginRoleLib.roleSelection(data.get("CR-RoleinDispatch"));
+                loginRoleLib.clickOnProceedBtnInDispatchRoleLogin();
+                //autoad1	auto123!!  AD-Administrator
+                break;
+            default:
+                break;
+        }
+        crMemberSearchLib.clickOnPartialCallCloseButton();
+    }
+
+
+    //*** Supporting Main Methods
+    public void crMemberSearchTab(Hashtable<String, String> data) throws Throwable
+    {
+        crMemberSearchLib.enterMembershipDetails(data.get("Member"),data.get("Membersearch"),data.get("dbServer"),data.get("dbqueryFileName"), data.get("colomnName"),data.get("PhoneNumber"),data.get("Primaryphonenum1"));
+    }
+
+    public void crLocationsTab(Hashtable<String, String> data) throws Throwable
+    {
+        crLocationsLib.breakdownLocTabSel();
+        crLocationsLib.breakdownSearchAndBreakdownType(data.get("BreakdownSearch"),data.get("BreakdownType"),data.get("crossStreet"),data.get("secondCrossStreet"),data.get("LandMark"),data.get("Address"));
+        crLocationsLib.verifyCompleteCheckLocation();
+    }
+
+    public void crVehicleTab(Hashtable<String, String> data) throws Throwable
+    {
+        crVehicleTriageLib.clickOnVehicleTriageTab();
+        //crVehicleTriageLib.enterVehicleDetailsManually(data.get("VehicleDetails"));
+        //crVehicleTriageLib.enterVehicleDetailsinSearchBar(data.get("VehicleDetails"));
+        crVehicleTriageLib.enterVehicleDetails(data.get("VehicleSearch"),data.get("VehicleDetails") );
+
+        crVehicleTriageLib.problemTriage(data.get( "ProblemTriage"),data.get("ProblemType"));
+        crVehicleTriageLib.verifyCompleteCheckVehicleTriage();
+        //crVehicleTriageLib.selectProblem(data.get("ProblemType"));
+    }
+
+    public void crTowDestinationTab(Hashtable<String, String> data) throws Throwable
+    {
+        crTowDestinationLib.clickOnTowDestinationTab();
+        crTowDestinationLib.enterTowDestinationAddress(data.get("WillThisCallBeATow"),data.get("TowDestination"),data.get("RSPReferral"),data.get("TowAddress"));
+    }
+
+    public void crServiceTab(Hashtable<String, String> data) throws Throwable
+    {
+        crServiceLib.clickOnServiceTab();
+        crServiceLib.enterpriority(data.get( "Priority"),data.get("PriorityRequired"));
+        crServiceLib.enterAppointment(data.get("Appointment"),data.get( "Hold"));
+        crServiceLib.clickRedFlag(data.get( "RedFlag"));
+        crServiceLib.enterPolicy(data.get( "Policy"),data.get( "PolicyValue"));
+        crServiceLib.callBack(data.get( "CallBack"),data.get( "CallBackMinutes"),data.get( "CallBackReqType"));
+        crServiceLib.spot(data.get("Spot"),data.get("ResoptFacilityID"),data.get("ManualSoptFacilityID"),data.get("ManualSoptFacilityIDNew"));
+        completeCall(data.get( "CompleteCall"));
+        callReceivingLogout();
+    }
+
+    public String[] completeCall(String CompleteCall) throws Throwable {
+        switch (CompleteCall) {
+            case "Save":
+                crHomeLib.saveButton();
+                crHomeLib.allErrorAlerts();
+                //crServiceLib.getCallId();
+                callIDCreated = crServiceLib.getCallId();
+                spotIDCreated = crServiceLib.getSpotFacilityId();
+                callDateCreated=crServiceLib.getCallDate();
+                crServiceLib.closeCall();
+                break;
+            case "Cancel":
+                crHomeLib.cancelButton();
+                //below function will click on Yes on confirmation window
+                crHomeLib.allErrorAlerts();
+                break;
+            default:
+                break;
+        }
+        callandfacilityId[0] = callIDCreated;
+        callandfacilityId[1] = spotIDCreated;
+        callandfacilityId[2] = callDateCreated;
+        return callandfacilityId;
+    }
+
+    public void callReceivingLogout() throws Throwable
+    {
+        crHomeLib.logout();
+
+    }
+
+    public void callFlow(Hashtable<String, String> data) throws Throwable {
+        //Map is out of scope
+        crHomeLib.messageDialogBoxClose();
+        switch (data.get("CallFlow") ){
+            case "Profile" :
+                diHomeLib.clickOnProfile();
+                callIDAndDateCombined = callandfacilityId[2].substring(0,4) + callandfacilityId[2].substring(5,7)+ callandfacilityId[2].substring(8,10)+callandfacilityId[2].substring(4,5)+callandfacilityId[0];
+                diHomeLib.searchAndClickOnCallIdOnProfileWindow(callIDAndDateCombined);
+                break;
+            case "MCD" :
+                diHomeLib.clickOnSearchCallsInDispatch();
+                diHomeLib.enterCallIDInfo(callandfacilityId[0]); //callIDCreated
+                diHomeLib.clickOnSearchInSearchCalls();
+                diHomeLib.clickOnCallDateOrIDLink();
+                break;
+            case "Truckload" :
+                diHomeLib.clickOnTruckLoad();
+                diHomeLib.enterSpotFacilityIDInfoOnTruckLoad(callandfacilityId[1]); //spotIDCreated
+                diHomeLib.clickOnSpotFacilityOntruckLoadTextBox();
+                Thread.sleep(5000);
+                diHomeLib.dateDecendingOrder();
+                callIDAndDateCombined = callandfacilityId[2].substring(0,4) + callandfacilityId[2].substring(5,7)+ callandfacilityId[2].substring(8,10)+callandfacilityId[2].substring(4,5)+callandfacilityId[0];
+                diHomeLib.searchAndClickOnCallIdOnTruckloadWindow(callIDAndDateCombined);
+                //diHomeLib.searchAndSelectCallIDOnTruckLoad(callandfacilityId[0]); //callIDCreated
+                break;
+            default :
+                break;
+        }
+    }
+
+    public void spotDispatch(String SpotDispatch, String ResoptFacilityID, String SPEnterReason, String ResoptFacilityIDNew ) throws Throwable {
+        switch (SpotDispatch){
+            case "Respot" :
+                dimcdLib.clickOnServiceTabInMCDWindow();
+                if(callandfacilityId[1]!=ResoptFacilityID) //spotIDCreated
+                {
+                    dimcdLib.verifyFacilityAndEnterReasonAndReSpot(SPEnterReason, ResoptFacilityID);
+                }
+                else
+                {
+                    dimcdLib.verifyFacilityAndEnterReasonAndReSpot(SPEnterReason, ResoptFacilityIDNew);
+                }
+                break;
+            default :
+                break;
+        }
+    }
+    /****************************************************** DISPATCH ******************************************************/
+    public void dispatchLogin(Hashtable<String, String> data) throws Throwable {
+        switch (data.get("LoginRoleDispatch")) {
+            case "DI":
+                diLoginLib.login(data.get("DILoginName"),data.get("DIPassword"));
+                loginRoleLib.clickOnProceedBtnInDispatchRoleLogin();
+                diLoginLib.waitcloseAllBusyIcons();
+                diHomeLib.clickOnCloseIconOnQueueSelection();
+                break;
+            case "AD":
+                diLoginLib.login(data.get("DI-ADLoginName"),data.get("DI-ADPassword"));
+                Thread.sleep(4000);
+                loginRoleLib.roleSelection(data.get("DI-RoleinDispatch"));
+                waitcloseAllBusyIcons();
+                diHomeLib.clickOnCloseIconOnQueueSelection();
+
+
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void dispatchlogout(String CallFlow) throws Throwable
+    {
+        dimcdLib.clickOnMCDCloseWindow();
+        if (CallFlow.equalsIgnoreCase("Truckload"))
+        {
+            diHomeLib.clickonCloseInTruckLoad();
+        }
+        diHomeLib.logOut();
+        acceptAlert();
+        acceptAlert();
+    }
+}

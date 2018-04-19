@@ -1,0 +1,226 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE suite SYSTEM 'http://testng.org/testng-1.0.dtd'>
+<suite name='AAA Automation test suite'>
+
+	<parameter name='suiteExecuted' value='Regression' />
+	<parameter name='executionType' value='Sequential' />
+	<listeners>
+		<listener class-name="org.uncommons.reportng.HTMLReporter" />
+		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+		<listener class-name="com.aaa.utilities.AssignTestPriorityTransformer" />
+	</listeners>
+	 <!-- <test name="Android-Native" preserve-order='true'>
+		  <parameter name="browserName" value="NA"></parameter>
+		  <parameter name="automationName" value="selenium"></parameter>
+		  <parameter name="browserVersion" value="NA"></parameter>
+		  <parameter name="platformName" value="Android"></parameter>
+		  <parameter name="environment" value="local"></parameter>
+		  <parameter name="app" value="AAA.apk"></parameter>
+		  <parameter name="appPackage" value="com.aaa.android.discounts"></parameter>
+		  <parameter name="appActivity" value="com.aaa.android.discounts.ui.sso.LoginFragmentActivity"></parameter>
+		  <parameter name="platformVersion" value="6.1"></parameter>
+		  <parameter name="appiumUrl" value="http://127.0.0.1:4723/wd/hub"></parameter>
+		<parameter name="udid" value="02157df2d2788f19"></parameter>
+		<parameter name="deviceName" value="Samsung_Galaxy_S6"></parameter>
+		<parameter name="seleniumgridurl" value="local"></parameter>
+		<classes>
+			&lt;!&ndash;<class name="com.aaa.mobile.script.TC_MemberNumberLogin">
+			<methods>
+					<include name="MemberNumberLogin"/>
+				</methods>
+			</class>&ndash;&gt;
+			<class name="com.aaa.mobile.script.TC_ClubHostedLogin">
+			<methods>
+					<include name="clubHostedLogin"/>
+				</methods>
+			</class>
+			<class name="com.aaa.mobile.script.TC_AddVehicle">
+			<methods>
+					<include name="addAndModifyVehicle"/>
+				</methods>
+			</class>
+			
+		</classes>
+	</test>-->
+	<!-- <test name="chromeWindowsLocal" preserve-order='true'>
+		 <parameter name="browser" value="chrome"></parameter>
+		 <parameter name="automationName" value="selenium"></parameter>
+		 <parameter name="browserVersion" value="60"></parameter>
+		 <parameter name="platformName" value="windows 10"></parameter>
+		 <parameter name="environment" value="local"></parameter>
+		 <parameter name="seleniumgridurl" value="local"></parameter>
+		 <classes>
+			 <class name="com.aaa.web.script.TC_CRERSBattery">
+				 <methods>
+						 <include name="ERSBatteryJumpStart"/>
+						 <include name="ERSBatteryTruck"/>
+				 </methods>
+			 </class>-->
+		<!--	 <class name="com.aaa.web.script.TC_LoginScript">
+			</class>
+			<class name="com.aaa.web.script.TC_WorkFlowScript">
+			</class> 
+			<class name="com.aaa.web.script.TC_MemberContactInfoScript">
+			</class>
+			<class name="com.aaa.web.script.TC_CRMemberScript">
+			</class>
+			<class name="com.aaa.web.script.TC1597_CRKeylockissue">
+			</class> -->
+       <!-- </classes>
+    </test> -->
+	<test name="chromeWindowsLocal" preserve-order='true'>
+    <parameter name="browser" value="chrome"></parameter>
+    <parameter name="automationName" value="selenium"></parameter>
+    <parameter name="browserVersion" value="60"></parameter>
+    <parameter name="platformName" value="windows 10"></parameter>
+    <parameter name="environment" value="local"></parameter>
+    <parameter name="seleniumgridurl" value="local"></parameter>
+    <classes>
+        <class name="com.aaa.web.script.TC_DILogin">
+            <methods>
+              <!--<include name="loginWithValidUserNameAndInvalidPassword" />
+               <include name="loginWithInactiveUser" />
+                <include name="changePassword" />
+				<include name="selectRole" />-->
+               <!--<include name="multiLoginAttemptsValidation" />-->
+               <include name="successLogin" />
+                <!--<include name="sessionTest" />-->
+            </methods>
+        </class>
+
+    </classes>
+</test>
+
+<!--<test name="chromeWindowsLocal1" preserve-order='true'>
+	<parameter name="browser" value="ie"></parameter>
+	<parameter name="automationName" value="selenium"></parameter>
+	<parameter name="browserVersion" value="60"></parameter>
+	<parameter name="platformName" value="windows 10"></parameter>
+	<parameter name="environment" value="local"></parameter>
+	<parameter name="seleniumgridurl" value="local"></parameter>
+	<classes>
+		<class name="com.aaa.web.script.TC_CRTimeZone">
+			<methods>
+				<include name="crTimeZone"/>
+			</methods>
+		</class>
+	</classes>
+</test>-->
+   <test name="chromeWindowsLocal2" preserve-order='true'>
+        <parameter name="browser" value="chrome"></parameter>
+        <parameter name="automationName" value="selenium"></parameter>
+        <parameter name="browserVersion" value="60"></parameter>
+        <parameter name="platformName" value="windows 10"></parameter>
+        <parameter name="environment" value="local"></parameter>
+        <parameter name="seleniumgridurl" value="local"></parameter>
+        <classes>
+           <!--<class name="com.aaa.web.script.TC_CRLeaveCall">
+                <methods>
+                    <include name="leaveCall"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_SaveERSCallLightService">
+                <methods>
+                    <include name="basicMemberCallLightServiceForFuelTrouble"/>
+                    <include name="plusOrPremierMemberCallLightServiceForFuelTrouble"/>
+                    <include name="basicMemberCallLightServiceForFlatTireSpare"/>
+                    <include name="basicMemberCallLightServiceForKeyLocked"/>
+                    <include name="plusMemberCallLightServiceForKeyLocked"/>
+                    <include name="premierMemberCallLightServiceForKeyLocked"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRMemberContactInfoScript">
+                <methods>
+                    <include name="memberContactInfoSearch"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CREntitlements">
+                <methods>
+                   <include name="entitlementsCallClear"/>
+                    <include name="entitlementsCallClearGOA"/>
+                </methods>
+            </class>
+
+
+            <class name="com.aaa.web.script.TC_CRLeaveCall">
+                <methods>
+                    <include name="leaveCall"/>
+                </methods>
+            </class>
+          <class name="com.aaa.web.script.TC_CRManualEnterMembershipSave">
+                <methods>
+                    <include name="memberFieldsSaveByManualEntry"/>
+                </methods>
+            </class>
+
+
+            <class name="com.aaa.web.script.TC_CRCDXMemberLookUp">
+                <methods>
+                    <include name="cdxMemberLookUp"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRScratchPad">
+                <methods>
+                    <include name="scratchPad"/>
+                </methods>
+            </class>
+         <class name="com.aaa.web.script.TC_CRSaveAppointmentCall">
+                <methods>
+                    <include name="crSaveAppointmentCall"/>
+                </methods>
+            </class>
+
+
+           <class name="com.aaa.web.script.TC_RSOWLaunchViaPartnerRedirect">
+                <methods>
+                    <include name="launchViaPartnerRedirect"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_RSOWLaunchViaPartnerRedirectAndVerifyMembership">
+                <methods>
+                    <include name="launchViaPartnerRedirectAndVerifyMembership"/>
+                </methods>
+            </class>-->
+           <!-- <class name="com.aaa.web.script.TC_DIProfileRedFlagCallsTab">
+            </class>
+            <class name="com.aaa.web.script.TC_DIProfileCallSorting">
+            </class>
+            <class name="com.aaa.web.script.TC_CRD3AutoSpotgrid">
+            </class>
+            <class name="com.aaa.web.script.TC_DIQueueSelection">
+                <methods>
+                    <include name="DIQueueSelection"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRLocations">
+            </class>
+
+            <class name="com.aaa.web.script.TC_DIProfileBeyondETATab">
+            </class>
+            <class name="com.aaa.web.script.TC_CRTriage">
+            </class>-->
+            <!-- <class name="com.aaa.web.script.TC_CRLocations">
+                <methods>
+                    <include name="addressLookUp"/>
+                    <include name="verifyFieldsWithCrossStreet"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRVehicleSearch">
+                <methods>
+                    <include name="CRVehicleSearch"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRTriage">
+                <methods>
+                    <include name="triage"/>
+                </methods>
+            </class>-->
+
+
+<!--Sprint 4-->
+           <!-- <class name="com.aaa.web.script.TC_CRManualSpot">
+            </class>-->
+        </classes>
+</test>
+
+</suite>

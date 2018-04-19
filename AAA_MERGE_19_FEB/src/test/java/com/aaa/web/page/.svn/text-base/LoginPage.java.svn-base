@@ -1,0 +1,62 @@
+package com.aaa.web.page;
+
+import org.openqa.selenium.By;
+
+public class LoginPage {
+	
+	public static By txtLoginName;
+	public static By txtLoginPassword;
+	public static By btnLogin;
+	public static By btnChangePassword;
+	public static By txtChangePassword;
+	public static By txtConfirmPassword;
+	public static By btnChangePasswordChangeButton;
+	public static By btnPasswordChangebuttonDisable;
+	public static By iconPwdCharCounTure;
+	public static By iconPwdCharCounFalse;
+	public static By iconPwdSpelCounFalse;
+	public static By iconPwdSpelCounTrue;
+	public static By iconPwdMatchFalse;
+	public static By iconPwdMatchTrue;
+	public static By btnCancel;
+	public static By alertChangePassword;
+	public static By btnChangePasswordContinueOnAlert;
+	public static By alertInvalidLogin;
+	public static By btnOkOnErrorAlert;
+	public static By txtLoginRole;
+	public static By btnProceedLogin;
+	public static By loadingSpinner;
+	public static By errorAlertDialogBox;
+	public static By errorAlertOK;
+	public static By btnErrorAlertOK;
+	public static By ddnLocation;
+
+	static {
+		txtLoginRole = By.id("login-role-input");
+		btnProceedLogin = By.id("login-selectRoleLoc-btn");
+		txtLoginName = By.id("login-name");
+		txtLoginPassword = By.id("login-password");
+		btnLogin = By.id("login-login-btn");
+		btnChangePassword =By.id("login-changepassword-btn");
+		txtChangePassword =By.id("password-1");
+		txtConfirmPassword =By.id("password-2");
+		btnChangePasswordChangeButton=By.cssSelector("[id='login-passwordchange-change-btn'][aria-disabled='false']");
+		btnPasswordChangebuttonDisable=By.cssSelector("[id='login-passwordchange-change-btn'][aria-disabled='true']");
+		iconPwdCharCounTure =By.cssSelector("div [id='password-character-count'][class='login-newpass-success']");
+		iconPwdCharCounFalse =By.cssSelector("div [id='password-character-count'][class='login-newpass-fail']");
+		iconPwdSpelCounFalse=By.cssSelector("div [id='password-special-character'][class='login-newpass-fail']");
+		iconPwdSpelCounTrue=By.cssSelector("div [id='password-special-character'][class='login-newpass-success']");
+		iconPwdMatchFalse = By.cssSelector("div [id='password-match'][class='login-newpass-fail']");
+		iconPwdMatchTrue = By.cssSelector("div [id='password-match'][class='login-newpass-success']");
+		btnCancel = By.id("login-passwordchange-cancel-btn");
+		alertChangePassword = By.cssSelector("div[id='change-password-message']");
+		btnChangePasswordContinueOnAlert = By.id("change-password-message-btn");
+		alertInvalidLogin= By.cssSelector("div[id*='error-dialog-'] div div");
+		btnOkOnErrorAlert =By.xpath("//div[4]/div[3]/div/button/span");
+		loadingSpinner = By.id("d3ui-preloader-spinner"); //this locator for spinner while initial loading
+		errorAlertDialogBox = By.cssSelector("span[id*='ui-dialog-title-error-dialog-']"); //this locator for spinner while initial loading
+		errorAlertOK = By.cssSelector("div[id*='error-dialog-'] + div div button span");
+		btnErrorAlertOK=By.xpath("//*[@class='ui-button-text'][contains(text(),'OK')]");
+		ddnLocation =By.xpath("//input[@id='login-loc-input']");
+	}
+}

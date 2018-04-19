@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Android-Native"
+           tests="6"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="599.555">
+  <properties />
+  
+  
+            <testcase name="sessionTest" time="78.641" classname="com.aaa.web.script.TC_CRLoginScript" />
+                <testcase name="loginWithInactiveUser" time="41.308" classname="com.aaa.web.script.TC_CRLoginScript" />
+                <testcase name="SelectRole" time="190.947" classname="com.aaa.web.script.TC_CRLoginScript" />
+                <testcase name="loginWithValidUserNameAndInvalidPassword" time="143.141" classname="com.aaa.web.script.TC_CRLoginScript" />
+                <testcase name="successLogin" time="84.658" classname="com.aaa.web.script.TC_CRLoginScript" />
+                <testcase name="multiSessionValidation" time="60.860" classname="com.aaa.web.script.TC_CRLoginScript" />
+      
+</testsuite>

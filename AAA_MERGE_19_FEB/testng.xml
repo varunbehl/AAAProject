@@ -1,0 +1,370 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE suite SYSTEM 'http://testng.org/testng-1.0.dtd'>
+<suite name='AAA Automation test suite'>
+
+	<parameter name='suiteExecuted' value='Regression' />
+	<parameter name='executionType' value='Sequential' />
+	<listeners>
+		<listener class-name="org.uncommons.reportng.HTMLReporter" />
+		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+		<listener class-name="com.aaa.utilities.AssignTestPriorityTransformer" />
+	</listeners>
+   <test name="chromeWindowsLocal" preserve-order='true'>
+        <parameter name="browser" value="chrome"></parameter>
+        <parameter name="automationName" value="selenium"></parameter>
+        <parameter name="browserVersion" value="60"></parameter>
+        <parameter name="platformName" value="windows 10"></parameter>
+        <parameter name="environment" value="local"></parameter>
+        <parameter name="seleniumgridurl" value="local"></parameter>
+        <classes>
+        <!-- Sprint 1 -->
+        
+        <class name="com.aaa.web.script.TC_CRLoginScript">
+			 <methods>						 
+					 <include name="loginWithValidUserNameAndInvalidPassword"/>
+					 <include name="loginWithInactiveUser"/>
+					 <include name="successLogin"/>
+					 <include name="sessionTest"/> 
+					 <include name="SelectRole"/> 
+					 <include name="multiSessionValidation"/>
+			 </methods>
+		</class>
+		<class name="com.aaa.web.script.TC_CRWorkFlowScript">
+		    <methods>
+		        <include name="FieldValidation"/>
+		    </methods>
+		</class>
+		<class name="com.aaa.web.script.TC_CRMemberScript">
+		    <methods>
+		        <include name="membnumSearch"/>
+		        <include name="membemailSearch"/>
+		        <include name="memnamesearch"/>
+		        <include name="nineDigitMemberSearch"/>
+		        <include name="memnameaddressSearch"/>
+		        <include name="memphoneSearch"/>
+		        <include name="historySearch"/>
+		    </methods>
+		</class>
+		<class name="com.aaa.web.script.TC_CRKeylock">
+			 <methods>
+					 <include name="keyLockIssueRadioButton"/>
+					 <include name="enterPacesetterCodeManuallyforKeyIssueScript"/>
+					 <include name="enterPacesetterCodeforTowManuallyforKeyIssueScript"/>
+			 </methods>
+		 </class>
+         <class name="com.aaa.web.script.TC_CRERSBattery">
+			 <methods>
+					 <include name="ERSBatteryJumpStart"/>
+					 <include name="ERSBatteryTruck"/>
+			 </methods>
+		 </class>
+        <class name="com.aaa.web.script.TC_CRHistoryCallSaveScript">
+            <methods>
+                <include name="HistoryCallSave"/>
+            </methods>
+        </class>
+        <class name="com.aaa.web.script.TC_CRPhoneTypesScript">
+             <methods>
+                 <include name="phoneTypeverification"/>
+             </methods>
+         </class>
+         <!-- Sprint 2 -->
+         <class name="com.aaa.web.script.TC_SaveERSCallLightService">
+             <methods>
+                 <include name="basicMemberCallLightServiceForFuelTrouble"/>
+                 <include name="plusOrPremierMemberCallLightServiceForFuelTrouble"/>
+                 <include name="basicMemberCallLightServiceForFlatTireSpare"/>
+                 <include name="basicMemberCallLightServiceForKeyLocked"/>
+                 <include name="plusMemberCallLightServiceForKeyLocked"/>
+                 <include name="premierMemberCallLightServiceForKeyLocked"/>
+             </methods>
+         </class>
+         <class name="com.aaa.web.script.TC_CRSaveAppointmentCall">
+               <methods>
+                   <include name="crSaveAppointmentCall"/>
+               </methods>
+           </class>
+           <class name="com.aaa.web.script.TC_CRManualEnterMembershipSave">
+                <methods>
+                    <include name="memberFieldsSaveByManualEntry"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRPhoneTempDelete">
+                <methods>
+                    <include name="memberContactInfoSearch"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRScratchPad">
+                <methods>
+                    <include name="scratchPad"/>
+                </methods>
+            </class>
+             <class name="com.aaa.web.script.TC_CRTimeZone">
+                <methods>
+                    <include name="crTimeZone"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRLeaveCall">
+                <methods>
+                    <include name="leaveCall"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CREntitlements">
+                <methods>
+                   <include name="entitlementsCallClear"/>
+                    <include name="entitlementsCallClearGOA"/>
+                </methods>
+            </class>
+			<class name="com.aaa.web.script.TC_CRCDXMemberLookUp">
+                <methods>
+                    <include name="cdxMemberLookUp"/>
+                </methods>
+            </class>
+			<class name="com.aaa.web.script.TC_DILogin">
+			 	<methods>						 
+					 <include name="loginWithValidUserNameAndInvalidPassword"/>
+					 <include name="loginWithInactiveUser"/>
+					 <include name="successLogin"/>
+					 <include name="sessionTest"/> 
+					 <include name="SelectRole"/> 
+					 <include name="multiLoginAttemptsValidation"/>
+				</methods>
+			</class>
+            
+            
+           <!-- Sprint 3 -->
+            
+             <class name="com.aaa.web.script.TC_CRLocations">
+             	<methods>
+                    <include name="membershipKnownLocations"/>
+                    <include name="verifyAddressWithLongitudeAndLatitude"/>
+                    <include name="verifyCityAlias"/>
+                    <include name="verifyFieldsWithCrossStreet"/>
+                    <include name="verifyLandMark"/>
+                    <include name="verifyLocationFields"/>
+                    <include name="verifyManualEntryAddressLookUp"/>
+                    <include name="verifyManualEntryCrossStreet"/>
+                    <include name="verifyManualEntryOfLandMark"/>
+                    <include name="verifyManualEntryOfSpecialCharactersOnAddress"/>
+                    <include name="verifyPointsOfInterest"/>
+                    <include name="verifySpecialCharactersOnAddress"/>
+                    <include name="verifyTheEmptyFields"/>
+                    <include name="verifyWildCardSearch"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRVehicleSearch">
+                <methods>
+                    <include name="CRVehicleSearch"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRLiveCallSearch">
+                <methods>
+                    <include name="liveCallSearch"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRTriage">
+                <methods>
+                    <include name="ValidateBatteryTriageQuestions"/>
+                    <include name="ValidateEngineTriageQuestions"/>
+                    <include name="ValidateFlatTireTriageQuestions"/>
+                    <include name="ValidateFuelTriageQuestions"/>
+                    <include name="ValidateKeyslTriageQuestions"/>
+                    <include name="ValidateShortCutslTriageQuestions"/>
+                    <include name="ValidateTowlTriageQuestions"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRPacesetterAndTroubleCodeMapping">
+                <methods>
+                    <include name="crPacesetterAndTroubleCodeMapping"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRD3AutoSpotgrid">
+                <methods>
+                    <include name="autoSpotGridForBattery"/>
+                    <include name="autoSpotGridForFullService"/>
+                    <include name="autoSpotGridForJumpStart"/>
+                    <include name="autoSpotGridForLightServiceFlatTyre"/>
+                    <include name="autoSpotGridForLightServicesFuel"/>
+                    <include name="autoSpotGridForLockOutServices"/>
+                    <include name="autoSpotGridForRVVehicle"/>
+                    <include name="autoSpotGridForSpecialEquipement"/>
+                </methods>
+            </class>
+             <class name="com.aaa.web.script.TC_DIQueueSelection">
+                <methods>
+                    <include name="DIQueueSelection"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_DIProfileBeyondETATab">
+             <methods>
+                    <include name="profileBeyondETATab"/>
+                    <include name="profileBeyondETATabOnPoppedOutWindow"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_DIProfileCallSorting">
+            	<methods>
+                    <include name="profileCallSorting"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_DIProfileRedFlagCallsTab">
+            	<methods>
+                    <include name="verifyCallWithoutRedFlag"/>
+                    <include name="verifyCallWithRedFlag"/>
+                </methods>
+            </class>
+            
+            <!-- Sprint 4 -->
+            
+            <class name="com.aaa.web.script.TC_CRManualSpot">
+            	<methods>
+                    <include name="activeManualSpot"/>
+                    <include name="inActiveManualSpot"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRSaveERSCallFullService">
+            	<methods>
+                    <include name="saveERSCallFullService"/>
+                    <include name="saveERSCallForBasicMemberLessThan5Miles"/>
+                    <include name="saveERSCallForBasicMemberGreaterThan5Miles"/>
+                    <include name="saveERSCallFullServiceForPlusMemberApproximately50Miles"/>
+                    <include name="saveERSCallFullServiceForPlusMemberBetween80To100Miles"/>
+                    <include name="saveERSCallFullServiceForPlusRvMemberLessThan100Miles"/>
+                    <include name="saveERSCallFullServiceForPremierMemberGreaterThan100Miles"/>
+                    <include name="saveERSCallFullServiceForPremierMemBetween180To200Miles"/>
+                    <include name="saveERSCallFullServiceForPremierRVMemberGreaterThan100Miles"/>
+                    <include name="saveERSCallFullServiceForPremierRVMemBetween180To200"/>                    
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRSaveRAPCall">
+            	<methods>
+            		<include name="saveRAPCallsLightService"/>
+                    <include name="saveRAPCallsForFullService"/>
+                    <include name="saveRAPCallsForLockOutServices"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRRecentCalls">
+            	<methods>
+            		<include name="recentCall"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRPTAScript">
+            	<methods>
+            		<include name="pta"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRETA">
+            	<methods>
+            		<include name="eta"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_SPPMCDDataPoints">
+            	<methods>
+            		<include name="SPPMCDDataPoints"/>
+                </methods>
+            </class>
+            <!-- <class name="com.aaa.web.script.TC_CRCreditCard">
+            	<methods>
+            		<include name="verifyCreditCard"/>
+                </methods>
+            </class> -->
+            <class name="com.aaa.web.script.TC_CRFacilityPreference">
+            	<methods>
+            		<include name="verifyPrecondition"/>
+            		<include name="verifyPostCondition"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRRules">
+            	<methods>
+            		<include name="verifyEndCall"/>
+            		<include name="verifyRedFlag"/>
+            		<include name="verifySMSOptIn"/>
+            		<include name="verifyTowDestinationExtricationT931"/>
+            		<include name="verifyTowDestinationExtricationT932"/>
+            		<include name="verifyTowDestinationRequiredExtricationService"/>
+            		<include name="verifyTowDestinationRequiredTowingService"/>
+            		<include name="verifyTowDestinationTabHidingTabForLightService"/>
+            		<include name="verifyTowDestinationTabShowingTabOfTowing"/>
+            		<include name="verifyTowDestinationUnrequiredFieldsExtrication"/>
+            		<include name="verifyTowDestinationUnrequiredLightService"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRServices">
+            	<methods>
+            		<include name="verifyCallbackRequest"/>
+            		<include name="verifyCallTypeAndPolicy"/>
+            		<include name="verifyHoldCall"/>
+            		<include name="verifyPriority"/>
+            		<include name="verifyRedFlagOnServices"/>
+            		<include name="verifySpecialEquipment"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRUpdateCalls">
+            	<methods>
+            		<include name="crUpdateCalls"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRArchivedCallSearchScript">
+            	<methods>
+            		<include name="archivedCallSearch"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRComments">
+            	<methods>
+            		<include name="CreateCall"/>
+            		<include name="ValidateAutoGeneratedComments"/>
+            		<include name="ValidateCannedCommentsInCR"/>
+            		<include name="ValidateCannedCommentsInDispatch"/>
+            		<include name="ValidateHiddenDeletedCommentsForCR"/>
+            		<include name="ValidateInternalCommentsInCR"/>
+            		<include name="ValidateInternalCommentsInDispatch"/>
+            		<include name="ValidateInternalCommentsNotVisibleNotAbleToCreatForCR"/>
+            		<include name="ValidateNormalCommentsInCR"/>
+            		<include name="ValidateNormalCommentsInDispatch"/>
+            		<include name="ValidateNormalCommentsInSPPDispatch"/>
+            		<include name="ValidateStatusTypeDateTimeLocationComment"/>
+                </methods>
+            </class>
+             <class name="com.aaa.web.script.TC_CRTowDestination">
+            	<methods>
+            		<include name="automaticSearch"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRCancelCalls">
+            	<methods>
+            		<include name="ValidateCancelProcessForCalls"/>
+            		<include name="ValidatekillProcessForCalls"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRCashCallService">
+            	<methods>
+            		<include name="cashCallService"/> 
+            		<include name="cashCallServiceCanceledEntitlements"/>
+            		<include name="cashCallServiceZeroEntitlements"/> 
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRDuplicateCall">
+            	<methods>
+            		<include name="cancelDuplicateCall"/> 
+            		<include name="duplicateAnArchivedCall"/>
+            		<include name="duplicateAnArchivedRAPCall"/> 
+            		<include name="duplicateFacilityCall"/> 
+            		<include name="DuplicateLiveCall"/> 
+            		<include name="DuplicateLiveCallAfterCallLoads"/> 
+                </methods>
+            </class>
+            
+            
+		<!--Clear Calls  -->
+		<!-- <class name="com.aaa.web.script.TC_DIClearCall">
+                <methods>
+                    <include name="ClearCalls"/>
+                </methods>
+            </class> -->
+
+           
+            
+   </classes>
+
+</test>
+
+</suite>

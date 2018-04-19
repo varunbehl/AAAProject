@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/CignitiAutomation/!svn/ver/1025/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/page
+END
+CRTowDestinationPage.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/CignitiAutomation/!svn/ver/886/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/page/CRTowDestinationPage.java
+END
+CRMemberSearchPage.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/CignitiAutomation/!svn/ver/847/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/page/CRMemberSearchPage.java
+END
+CRVehicleTriagePage.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/CignitiAutomation/!svn/ver/847/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/page/CRVehicleTriagePage.java
+END
+CRLocationsPage.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/CignitiAutomation/!svn/ver/847/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/page/CRLocationsPage.java
+END
+LoginRolePage.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/CignitiAutomation/!svn/ver/35/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/page/LoginRolePage.java
+END
+CRSearchCallsPage.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/CignitiAutomation/!svn/ver/936/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/page/CRSearchCallsPage.java
+END
+CRHomePage.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/CignitiAutomation/!svn/ver/868/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/page/CRHomePage.java
+END
+CRRecentCallsPage.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/CignitiAutomation/!svn/ver/542/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/page/CRRecentCallsPage.java
+END
+DIMCDPage.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/CignitiAutomation/!svn/ver/1025/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/page/DIMCDPage.java
+END
+LoginPage.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/CignitiAutomation/!svn/ver/948/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/page/LoginPage.java
+END
+DISearchCallsPage.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/CignitiAutomation/!svn/ver/974/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/page/DISearchCallsPage.java
+END
+CRServicePage.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/CignitiAutomation/!svn/ver/990/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/page/CRServicePage.java
+END
+DIProfilePage.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/CignitiAutomation/!svn/ver/1016/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/page/DIProfilePage.java
+END
+DIHomePage.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/CignitiAutomation/!svn/ver/988/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/page/DIHomePage.java
+END

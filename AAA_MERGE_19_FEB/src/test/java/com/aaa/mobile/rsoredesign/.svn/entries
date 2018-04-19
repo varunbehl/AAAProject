@@ -1,0 +1,37 @@
+8
+
+dir
+1033
+https://certloadgen3.national.aaa.com/svn/CignitiAutomation/aaaAutomationCignitiOffShore/src/test/java/com/aaa/mobile/rsoredesign
+https://certloadgen3.national.aaa.com/svn/CignitiAutomation
+
+
+
+2018-01-16T21:17:15.084035Z
+628
+mharish
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+b79626d7-27ca-a047-864a-160d5a7d81c8
+
+lib
+dir
+
+page
+dir
+
+script
+dir
+

@@ -1,0 +1,304 @@
+package com.aaa.web.script;
+
+import com.aaa.accelerators.ActionEngine;
+import com.aaa.utilities.TestUtil;
+import com.aaa.web.lib.*;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import java.util.Hashtable;
+
+public class TC_SaveERSCallLightService extends ActionEngine{
+
+    //Object Creations
+    LoginLib login = new LoginLib();
+    CRMemberSearchLib crMemberSearchLib =new CRMemberSearchLib();
+    CRHomeLib crHomeLib = new CRHomeLib();
+    CRLocationsLib crLocationsLib = new CRLocationsLib();
+    CRVehicleTriageLib crVehicleTriageLib = new CRVehicleTriageLib();
+    CRServiceLib services = new CRServiceLib();
+    DILoginLib diLoginLib = new DILoginLib();
+
+    public void callLightService(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("1628:TS-Save ERS Call Light Service");
+                Thread.sleep(5000);
+                login.login(data.get("LoginName"),data.get("Password"));
+                crHomeLib.messageDialogBoxClose();
+                crHomeLib.memberSearchTextBox(data.get("Membersearch"));
+                crMemberSearchLib.memberNumClick();
+                crMemberSearchLib.labelMemberLevelInMemberDetailsSection();
+                crLocationsLib.clickOnLocationTab();
+                crLocationsLib.clickonBrkdownLocLink();
+                crVehicleTriageLib.clickOnVehicleTriageTab();
+                crVehicleTriageLib.selectExistingVehicleModel();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * param :: Hashtable with string inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: basicMemberCallLightServiceForFuelTrouble
+     * description :: basicMemberCallLightServiceForFuelTrouble
+     * date :: 18-Dec-2017
+     * author :: Abhiram Vajrapu - E004118
+     */
+
+
+    @DataProvider
+    public Object[][] getTestDataFor_basicMemberCallLightServiceForFuelTrouble()
+    {
+        return TestUtil.getData("basicMemberCallLightServiceForFuelTrouble", TestData, "D3CallRecieving");
+    }
+
+    @Test(dataProvider = "getTestDataFor_basicMemberCallLightServiceForFuelTrouble")
+    public void basicMemberCallLightServiceForFuelTrouble(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                callLightService(data);
+                crVehicleTriageLib.clickOnFuel();
+                Thread.sleep(5000);
+                crVehicleTriageLib.clickOnOutOfGas();
+                Thread.sleep(5000);
+                crVehicleTriageLib.handleScriptErrorInVehicleTriagePage();
+                crHomeLib.saveButton();
+                Thread.sleep(5000);
+                //crHomeLib.allErrorAlerts();
+                crVehicleTriageLib.handleScriptErrorInVehicleTriagePage();
+                crHomeLib.allErrorAlerts();
+                services.closeCallWindow();
+                crHomeLib.logout();
+                System.out.println("Test completed");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * param :: Hashtable with string inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: plusOrPremierMemberCallLightServiceForFuelTrouble
+     * description :: plusOrPremierMemberCallLightServiceForFuelTrouble
+     * date :: 18-Dec-2017
+     * author :: Abhiram Vajrapu - E004118
+     */
+    @DataProvider
+    public Object[][] getTestDataFor_plusOrPremierMemberCallLightServiceForFuelTrouble()
+    {
+        return TestUtil.getData("plusOrPremierMemberCallLightServiceForFuelTrouble", TestData, "D3CallRecieving");
+    }
+
+    @Test(dataProvider = "getTestDataFor_plusOrPremierMemberCallLightServiceForFuelTrouble")
+    public void plusOrPremierMemberCallLightServiceForFuelTrouble(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("1628:TS-Save ERS Call Light Service");
+                callLightService(data);
+                crVehicleTriageLib.clickOnFuel();
+                crVehicleTriageLib.clickOnOutOfGas();
+                crHomeLib.saveButton();
+                Thread.sleep(5000);
+
+                //crHomeLib.allErrorAlerts();
+                crVehicleTriageLib.handleScriptErrorInVehicleTriagePage();
+                crHomeLib.allErrorAlerts();
+                services.closeCallWindow();
+                crHomeLib.logout();
+                System.out.println("Test completed");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * param :: Hashtable with string inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: basicMemberCallLightServiceForFlatTireSpare
+     * description :: basicMemberCallLightServiceForFlatTireSpare
+     * date :: 18-Dec-2017
+     * author :: Abhiram Vajrapu - E004118
+     */
+    @DataProvider
+    public Object[][] getTestDataFor_basicMemberCallLightServiceForFlatTireSpare()
+    {
+        return TestUtil.getData("basicMemberCallLightServiceForFlatTireSpare", TestData, "D3CallRecieving");
+    }
+
+    @Test(dataProvider = "getTestDataFor_basicMemberCallLightServiceForFlatTireSpare")
+    public void basicMemberCallLightServiceForFlatTireSpare(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("1628:TS-Save ERS Call Light Service");
+                callLightService(data);
+                crVehicleTriageLib.clickOnFlatTire();
+                crVehicleTriageLib.clickOnFlatTireFrontSide();
+                Thread.sleep(5000);
+                crVehicleTriageLib.clickOnFlatTireSpareTireYes();
+                Thread.sleep(5000);
+                crVehicleTriageLib.clickOnFlatTireLockingLugNuts();
+                Thread.sleep(5000);
+                crVehicleTriageLib.handleScriptErrorInVehicleTriagePage();
+                crHomeLib.saveButton();
+                Thread.sleep(5000);
+
+                //crHomeLib.allErrorAlerts();
+                crVehicleTriageLib.handleScriptErrorInVehicleTriagePage();
+                crHomeLib.allErrorAlerts();
+                services.closeCallWindow();
+                crHomeLib.logout();
+                System.out.println("Test completed");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * param :: Hashtable with string inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: basicMemberCallLightServiceForKeyLocked
+     * description :: basicMemberCallLightServiceForKeyLocked
+     * date :: 18-Dec-2017
+     * author :: Abhiram Vajrapu - E004118
+     */
+    @DataProvider
+    public Object[][] getTestDataFor_basicMemberCallLightServiceForKeyLocked()
+    {
+        return TestUtil.getData("basicMemberCallLightServiceForKeyLocked", TestData, "D3CallRecieving");
+    }
+
+    @Test(dataProvider = "getTestDataFor_basicMemberCallLightServiceForKeyLocked")
+    public void basicMemberCallLightServiceForKeyLocked(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("1628:TS-Save ERS Call Light Service");
+                callLightService(data);
+                crVehicleTriageLib.selectPaceSetterCode();
+                crHomeLib.saveButton();
+                Thread.sleep(5000);
+                // crHomeLib.allErrorAlerts();
+               // crVehicleTriageLib.handleScriptErrorInVehicleTriagePage();
+                crHomeLib.allErrorAlerts();
+                services.closeCallWindow();
+                crHomeLib.logout();
+                System.out.println("Test completed");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * param :: Hashtable with string inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: plusMemberCallLightServiceForKeyLocked
+     * description :: plusMemberCallLightServiceForKeyLocked
+     * date :: 18-Dec-2017
+     * author :: Abhiram Vajrapu - E004118
+     */
+    @DataProvider
+    public Object[][] getTestDataFor_plusMemberCallLightServiceForKeyLocked()
+    {
+        return TestUtil.getData("plusMemberCallLightServiceForKeyLocked", TestData, "D3CallRecieving");
+    }
+
+    @Test(dataProvider = "getTestDataFor_plusMemberCallLightServiceForKeyLocked")
+    public void plusMemberCallLightServiceForKeyLocked(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("1628:TS-Save ERS Call Light Service");
+                callLightService(data);
+                crVehicleTriageLib.selectPaceSetterCode();
+                crVehicleTriageLib.handleScriptErrorInVehicleTriagePage();
+                //crVehicleTriageLib.handleScriptErrorInVehicleTriagePage();
+                crHomeLib.saveButton();
+                Thread.sleep(5000);
+
+                //crHomeLib.allErrorAlerts();
+                crVehicleTriageLib.handleScriptErrorInVehicleTriagePage();
+                crHomeLib.allErrorAlerts();
+                services.closeCallWindow();
+                crHomeLib.logout();
+                System.out.println("Test completed");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * param :: Hashtable with string inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: premierMemberCallLightServiceForKeyLocked
+     * description :: premierMemberCallLightServiceForKeyLocked
+     * date :: 18-Dec-2017
+     * author :: Abhiram Vajrapu - E004118
+     */
+    @DataProvider
+    public Object[][] getTestDataFor_premierMemberCallLightServiceForKeyLocked()
+    {
+        return TestUtil.getData("premierMemberCallLightServiceForKeyLocked", TestData, "D3CallRecieving");
+    }
+
+    @Test(dataProvider = "getTestDataFor_premierMemberCallLightServiceForKeyLocked")
+    public void premierMemberCallLightServiceForKeyLocked(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("1628:TS-Save ERS Call Light Service");
+
+                callLightService(data);
+                crVehicleTriageLib.selectPaceSetterCode();
+                diLoginLib.closeErrorAlert();
+                crHomeLib.saveButton();
+                Thread.sleep(5000);
+
+                crHomeLib.allErrorAlerts();
+                crVehicleTriageLib.handleScriptErrorInVehicleTriagePage();
+                //crHomeLib.allErrorAlerts();
+                services.closeCallWindow();
+                crHomeLib.logout();
+                System.out.println("Test completed");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+}
+
+
+/* LoginLib login = new LoginLib();
+                CRMemberSearchLib crMemberSearchLib =new CRMemberSearchLib();
+                CRHomeLib crHomeLib = new CRHomeLib();
+                CRServiceLib services = new CRServiceLib();
+                CRLocationsLib crLocationsLib = new CRLocationsLib();
+                CRVehicleTriageLib crVehicleTriageLib = new CRVehicleTriageLib();
+                login.login(data.get("LoginName"),data.get("Password"));
+                crHomeLib.messageDialogBoxClose();
+                crHomeLib.memberSearchTextBox(data.get("Membersearch"));
+                crMemberSearchLib.memberNumClick();
+                crMemberSearchLib.labelMemberLevelInMemberDetailsSection();
+                crLocationsLib.clickOnLocationTab();
+                crLocationsLib.clickonBrkdownLocLink();
+                //crLocationsLib.enterTxtinBrkDowLocSrch(data.get("Breakdownaddress"));
+                crVehicleTriageLib.clickOnVehicleTriageTab();
+                crVehicleTriageLib.selectExistingVehicle();*/

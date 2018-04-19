@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE suite SYSTEM 'http://testng.org/testng-1.0.dtd'>
+<suite name='AAA Automation test suite'>
+
+	<parameter name='suiteExecuted' value='Regression' />
+	<parameter name='executionType' value='Sequential' />
+	<listeners>
+		<listener class-name="org.uncommons.reportng.HTMLReporter" />
+		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+		<listener class-name="com.aaa.utilities.AssignTestPriorityTransformer" />
+	</listeners>
+	 <test name="Android-Native" preserve-order='true'>
+		  <parameter name="browserName" value="chrome"></parameter>
+		  <parameter name="automationName" value="selenium"></parameter>
+		  <parameter name="browserVersion" value="NA"></parameter>
+		  <parameter name="platformNameMobile" value="Android"></parameter>
+		  <parameter name="environment" value="local"></parameter>
+		  <parameter name="app" value="AAA.apk"></parameter>
+		  <parameter name="appPackage" value="com.aaa.android.discounts"></parameter>
+		  <parameter name="appActivity" value="com.aaa.android.discounts.ui.sso.LoginFragmentActivity"></parameter>
+		  <parameter name="platformVersion" value="6.1"></parameter>
+		  <parameter name="appiumUrl" value="http://127.0.0.1:4723/wd/hub"></parameter>
+	      <parameter name="udid" value="330030d996c89347"></parameter>
+		  <parameter name="deviceName" value="Samsung_Galaxy_J7"></parameter>
+		  <parameter name="seleniumgridurl" value="local"></parameter>
+		  <parameter name="browser" value="chrome"></parameter>
+          <parameter name="browserVersion" value="60"></parameter>
+          <parameter name="platformName" value="windows 10"></parameter>
+          <parameter name="seleniumgridurl" value="local"></parameter>
+           <parameter name="autoStart" value="mobile"></parameter>
+		 <classes>
+		 			<class name="test.mobile.TC_Mobile1">
+						<methods>
+								<include name="clubHostedLogin"/>
+						</methods>	
+		 			</class>
+		 				<class name="test.mobile.TC_Mobile2">
+						<methods>
+							<include name="clubHostedLoginnew"/>
+						</methods>
+					</class>
+		 					 								
+		 </classes>
+	</test>
+</suite>

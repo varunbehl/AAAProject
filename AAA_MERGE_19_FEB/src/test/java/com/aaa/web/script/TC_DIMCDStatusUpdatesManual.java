@@ -1,0 +1,367 @@
+package com.aaa.web.script;
+
+import com.aaa.accelerators.ActionEngine;
+import com.aaa.accelerators.ReportControl;
+import com.aaa.googledrive.ReportStatus;
+import com.aaa.utilities.TestUtil;
+import com.aaa.web.lib.*;
+import com.aaa.web.page.CRLocationsPage;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import java.util.Hashtable;
+
+public class TC_DIMCDStatusUpdatesManual extends ActionEngine {
+	/************************************************************************
+	* Script Name :-
+	* Method Name :-
+	* Module	  :- DI 
+	* Test Case ID:-
+	* Script Date :- 
+	* Author      :- 
+	* @param StartRow
+	* @param EndRow
+	* @param nextTestJoin
+	* @throws Throwable
+	*************************************************************************/
+    @Parameters({"StartRow","EndRow","nextTestJoin"})
+    @Test()
+    public void mcdStatusUpdate(int StartRow,String EndRow,boolean nextTestJoin) throws Throwable {
+    	try
+    	{
+    		int intStartRow=StartRow;
+    		int intEndRow=ReportControl.fnGetEndRowCunt(EndRow, "DIMCDStatusUpdateManual", TestData, "D3Dispatch");
+    		for(int intCounter=intStartRow;intCounter<=intEndRow;intCounter++)
+    		{
+    			try {
+    					ReportStatus.fnDefaultReportStatus();
+    					ReportControl.intRowCount=intCounter;
+    					Hashtable<String, String> data=TestUtil.getDataByRowNo("DIMCDStatusUpdateManual", TestData, "D3Dispatch",intCounter);
+		    	
+		                this.reporter.initTestCaseDescription("1796: DI MCD STATUS UPDATE MANUAL"+ " From Iteration " + StartRow + " to " + EndRow );
+		                reporter.SuccessReport("Iteration Number : ","**************Iteration Number::  "+ intCounter+"   **************");
+		                DIHomeLib diHome = new DIHomeLib();
+		                DIMCDLib diMCD = new DIMCDLib();
+		                DILoginLib diLogin = new DILoginLib();
+		                LoginLib login = new LoginLib();
+		                CRHomeLib home = new CRHomeLib();
+		                CRMemberSearchLib memeber = new CRMemberSearchLib();
+		                CRLocationsLib locations = new CRLocationsLib();
+		                CRTowDestinationLib towdestination = new CRTowDestinationLib();
+		                CRVehicleTriageLib vehicle = new CRVehicleTriageLib();
+		                CRServiceLib service = new CRServiceLib();
+		                LoginRoleLib loginRole = new LoginRoleLib();
+		
+		                String callID1 = enterIntoNewTowCall(data);
+		                navigateToApplication("DI");
+		                login.login(data.get("LoginNameForDI"), data.get("PasswordForDI"));
+		                loginRole.clickOnProceedBtnInDispatchRoleLogin();
+		                diLogin.waitcloseAllBusyIcons();
+		                diHome.clickOnCloseIconOnQueueSelection();
+		                diHome.clickOnSearchCallsInDispatch();
+		                diHome.searchAndSelectCallIDInDI(callID1);
+		                enterStatusUpdatesManually(data);
+		                diMCD.clickOnMCDCloseWindow();
+		                diHome.logOut();
+		                acceptAlert();
+		                acceptAlert();
+		                String callID2 = enterIntoNewTowCall(data);
+		                navigateToApplication("DI");
+		                login.login(data.get("LoginNameForDI"), data.get("PasswordForDI"));
+		                loginRole.clickOnProceedBtnInDispatchRoleLogin();
+		                diLogin.waitcloseAllBusyIcons();
+		                diHome.clickOnCloseIconOnQueueSelection();
+		                diHome.clickOnSearchCallsInDispatch();
+		                diHome.searchAndSelectCallIDInDI(callID2);
+		                verifyCancelCall(data);
+		                diMCD.clickOnMCDCloseWindow();
+		                diHome.logOut();
+		                acceptAlert();
+		                acceptAlert();
+		                String callID3 = enterIntoNewTowCall(data);
+		                navigateToApplication("DI");
+		                login.login(data.get("LoginNameForDI"), data.get("PasswordForDI"));
+		                loginRole.clickOnProceedBtnInDispatchRoleLogin();
+		                diLogin.waitcloseAllBusyIcons();
+		                diHome.clickOnCloseIconOnQueueSelection();
+		                diHome.clickOnSearchCallsInDispatch();
+		                diHome.searchAndSelectCallIDInDI(callID3);
+		                diMCD.maximizeMCDWindow();
+		                Thread.sleep(5000);
+		                switchToWindow();
+		                enterStatusUpdatesManually(data);
+		                diMCD.minimizeMCDWindow();
+		                Thread.sleep(5000);
+		                switchToWindow();
+		                diMCD.clickOnMCDCloseWindow();
+		                diHome.logOut();
+		                acceptAlert();
+		                acceptAlert();
+		                String callID4 = enterIntoNewTowCall(data);
+		                navigateToApplication("DI");
+		                login.login(data.get("LoginNameForDI"), data.get("PasswordForDI"));
+		                loginRole.clickOnProceedBtnInDispatchRoleLogin();
+		                diLogin.waitcloseAllBusyIcons();
+		                diHome.clickOnCloseIconOnQueueSelection();
+		                diHome.clickOnSearchCallsInDispatch();
+		                diHome.searchAndSelectCallIDInDI(callID4);
+		                diMCD.maximizeMCDWindow();
+		                Thread.sleep(5000);
+		                switchToWindow();
+		                verifyCancelCall(data);
+		                diMCD.minimizeMCDWindow();
+		                switchToWindow();
+		                Thread.sleep(5000);
+		                diMCD.clickOnMCDCloseWindow();
+		                diHome.logOut();
+		                acceptAlert();
+		                acceptAlert();
+		                System.out.println("Test completed");
+    			}
+    			catch(Exception e)
+    			{
+    				ReportStatus.blnStatus=false;
+    			}
+    			ReportControl.fnEnableJoin();
+    			ReportStatus.fnUpdateResultStatus("DI","1796",ReportStatus.strMethodName,intCounter,browser);
+    		}
+    	}
+    	catch (Exception e) 
+    	{
+    		e.printStackTrace();
+    		throw new RuntimeException(e);
+    	}
+    	ReportControl.fnNextTestJoin(nextTestJoin);
+    }
+
+    public void enterVehicleDetailsInVehicleTraige(Hashtable<String, String> data) throws Throwable {
+        CRVehicleTriageLib vehicle = new CRVehicleTriageLib();
+        vehicle.clickOnVehicleTriageTab();
+        Thread.sleep(3000);
+        vehicle.clickOnManualEntryLinkOnVehicle();
+        Thread.sleep(3000);
+        vehicle.enterVehicleType(data.get("VehicleType"));
+        vehicle.clickOnTheTypeSearchFromDropDown();
+        vehicle.enterVehicleYear(data.get("VehicleYear"));
+        Thread.sleep(2000);
+        vehicle.enterVehicleMake(data.get("VehicleMake"));
+        vehicle.enterVehicleModel(data.get("VehicleModel"));
+        vehicle.enterVehicleColor(data.get("VehicleColor"));
+
+    }
+
+    public void enterBreakDownLocationandCode(String breakDownAddress, String breakDownLocationCode) throws Throwable {
+        CRLocationsLib locations = new CRLocationsLib();
+        locations.enterTxtinBrkDowLocSrch(breakDownAddress);
+        locations.brkDowLocSrchBtn();
+        locations.brkdowLocAddrLink();
+        locations.brkdownLocationCode(breakDownLocationCode);
+    }
+
+
+    public void enterStatusUpdatesManually(Hashtable<String, String> data) throws Throwable {
+        DIHomeLib diHome = new DIHomeLib();
+        DIMCDLib diMCD = new DIMCDLib();
+        DILoginLib diLogin = new DILoginLib();
+        diMCD.getCallStatusOnMCDwindow();
+        Thread.sleep(3000);
+        String facilityBefore = diMCD.getFacilityIDAndNameOnSummaryTabOfMCDWindow();
+        diMCD.clickOnStatusUpdateTab();
+        boolean statusDropDown = diMCD.verifyDropDownButtonOfStatusOnStatusUpdateTab();
+        assertTrue(statusDropDown, "Status dropdown is available");
+        boolean reason = diMCD.verifyReasonTextBoxOnStatusUpdateTab();
+        assertTrue(reason, "Reason Field is available");
+        boolean facility = diMCD.verifyFacilityTextBoxOnStatusUpdateTab();
+        assertTrue(facility, "Facility Field is available");
+        boolean truck = diMCD.verifyTruckTextBoxOnStatusUpdateTab();
+        assertTrue(truck, "Truck Field is available");
+        boolean zone = diMCD.verifyZoneTextBoxOnStatusUpdateTab();
+        assertTrue(zone, "Zone Field is available");
+        boolean tech = diMCD.verifyTechTextBoxOnStatusUpdateTab();
+        assertTrue(tech, "Tech Field is available");
+        boolean eta = diMCD.verifyETATextBoxOnStatusUpdateTab();
+        assertTrue(eta, "eta Field is available");
+        boolean date = diMCD.verifyDateTextBoxOnStatusUpdateTab();
+        assertTrue(date, "Date Field is available");
+        boolean time = diMCD.verifyTimeTextBoxOnStatusUpdateTab();
+        assertTrue(time, "Time Field is available");
+        boolean Comments = diMCD.verifyCommentsOnStatusUpdateTab();
+        assertTrue(Comments, "Comments Field is available");
+        boolean update = diMCD.verifyUpdateButtoOnStatusUpdateTab();
+        assertTrue(update, "update buttonis available");
+        boolean cancel = diMCD.verifyCancelButtoOnStatusUpdateTab();
+        assertTrue(cancel, "Cancel button is available");
+        diMCD.clickOnStatusDropdownOnStatusUpdateTab();
+        diMCD.enterStatusOnStatusUpdateTab(data.get("SPStatus"));
+        diMCD.clickOnReasonDropdownOnStatusUpdateTab();
+        diMCD.enterReasonOnStatusUpdateTab(data.get("FSReason"));
+        diMCD.enterfacilityOnStatusUpdateWindow(data.get("NewFacilityID"));
+        diMCD.clickOnUpdate();
+        Thread.sleep(3000);
+        String facilityAfter = diMCD.getFacilityIDAndNameOnSummaryTabOfMCDWindow();
+        assertTrue(facilityBefore != facilityAfter, "New Facility is Updated");
+        //step to verify new facility entered
+        diMCD.getCallStatusOnMCDwindow();
+        Thread.sleep(3000);
+        diMCD.clickOnStatusUpdateTab();
+        diMCD.enterStatusOnStatusUpdateTab(data.get("ASStatus"));
+        diMCD.clickOnReasonDropdownOnStatusUpdateTab();
+        diMCD.enterReasonOnStatusUpdateTab(data.get("01Reason"));
+        diMCD.clickOnUpdate();
+        diMCD.verifyNoTruckErrorMessage();
+        diMCD.getCallStatusOnMCDwindow();
+        diMCD.enterTruckIDOnStatusUpdateTab(data.get("TruckID"));
+        diMCD.clickOnUpdate();
+        Thread.sleep(3000);
+        diMCD.getCallStatusOnMCDwindow();
+        Thread.sleep(3000);
+        diMCD.clickOnStatusUpdateTab();
+        diMCD.enterStatusOnStatusUpdateTab(data.get("DIStatus"));
+        diMCD.clickOnReasonDropdownOnStatusUpdateTab();
+        diMCD.enterReasonOnStatusUpdateTab(data.get("01Reason"));
+        diMCD.clickOnUpdate();
+        Thread.sleep(3000);
+        diMCD.getCallStatusOnMCDwindow();
+        Thread.sleep(3000);
+        diMCD.clickOnStatusUpdateTab();
+        diMCD.enterStatusOnStatusUpdateTab(data.get("ERStatus"));
+        boolean reasonDrpdwnForER = diMCD.verifyReasonDropdownIsGrayedOutOnStatusTab();
+        assertTrue(reasonDrpdwnForER, "Reason Dropdown is grayed out For ER");
+        diMCD.clickOnUpdate();
+        boolean etaAlert = diMCD.verifyETAAlertOnStatusTab();
+        assertTrue(etaAlert, "ETA Mandatory Field Alert");
+        diMCD.enterETATimeOnStatusUpdateTab(data.get("ETATime"));
+        diMCD.clickOnUpdate();
+        Thread.sleep(3000);
+        diMCD.getCallStatusOnMCDwindow();
+        diMCD.verifyETAIsUpdatedOnMCDWindow();
+        Thread.sleep(3000);
+        diMCD.clickOnStatusUpdateTab();
+        diMCD.enterStatusOnStatusUpdateTab(data.get("OLStatus"));
+        Thread.sleep(3000);
+        boolean reasonTextBoxForOL = diMCD.verifyReasonDropdownIsGrayedOutOnStatusTab();
+        assertTrue(reasonTextBoxForOL, "Reason is grayed out For OL");
+        diMCD.clickOnUpdate();
+        Thread.sleep(3000);
+        diMCD.getCallStatusOnMCDwindow();
+        Thread.sleep(3000);
+        diMCD.clickOnStatusUpdateTab();
+        diMCD.enterStatusOnStatusUpdateTab(data.get("TWStatus"));
+        Thread.sleep(3000);
+        boolean reasonTextBoxForTW = diMCD.verifyReasonDropdownIsGrayedOutOnStatusTab();
+        assertTrue(reasonTextBoxForTW, "Reason is grayed out For TW");
+        diMCD.clickOnUpdate();
+        Thread.sleep(3000);
+        diMCD.getCallStatusOnMCDwindow();
+        Thread.sleep(3000);
+        diMCD.clickOnStatusUpdateTab();
+        diMCD.enterStatusOnStatusUpdateTab(data.get("CLStatus"));
+        diMCD.clickOnReasonDropdownOnStatusUpdateTab();
+        diMCD.enterReasonOnStatusUpdateTab(data.get("01Reason"));
+        diMCD.clickOnUpdate();
+        diMCD.clickOnNoGo();
+        diMCD.selectExitCode();
+        diMCD.clickOnContinue();
+        diMCD.clickOnOriginalTowDestination();
+        diMCD.clickOnContinue();
+        Thread.sleep(5000);
+        diMCD.clickOnSubmitButton();
+        Thread.sleep(3000);
+        diMCD.getCallStatusOnMCDwindow();
+
+
+    }
+
+    public void verifyCancelCall(Hashtable<String, String> data) throws Throwable {
+        DIHomeLib diHome = new DIHomeLib();
+        DIMCDLib diMCD = new DIMCDLib();
+        DILoginLib diLogin = new DILoginLib();
+        diMCD.getCallStatusOnMCDwindow();
+        Thread.sleep(3000);
+        diMCD.clickOnStatusUpdateTab();
+        diMCD.enterStatusOnStatusUpdateTab(data.get("UPStatus"));
+        diMCD.enterReasonOnStatusUpdateTab(data.get("X1Reason"));
+        diMCD.enterCommentsOnStatusUpdateTab(data.get("Comments"));
+        diMCD.clickOnUpdate();
+        Thread.sleep(3000);
+        diMCD.getCallStatusOnMCDwindow();
+        diMCD.clickOnStatusHistoryLinkOnMCDWindow();
+        diMCD.getStatusFromStatusHistoryTab();
+        diMCD.getReasonFromStatusHistoryTab();
+        diMCD.clickOnPlusIconInStatusHistoryTab();
+        String comments = diMCD.verifyCommentsFromStatusHistoryTab();
+        assertTrue(comments.equalsIgnoreCase(data.get("Comments")), "Comments Entered");
+
+    }
+
+    public String enterIntoNewTowCall(Hashtable<String, String> data) throws Throwable {
+
+        DIHomeLib diHome = new DIHomeLib();
+        DIMCDLib diMCD = new DIMCDLib();
+        DILoginLib diLogin = new DILoginLib();
+        LoginLib login = new LoginLib();
+        CRHomeLib home = new CRHomeLib();
+        CRMemberSearchLib memeber = new CRMemberSearchLib();
+        CRLocationsLib locations = new CRLocationsLib();
+        CRTowDestinationLib towdestination = new CRTowDestinationLib();
+        CRVehicleTriageLib vehicle = new CRVehicleTriageLib();
+        CRServiceLib service = new CRServiceLib();
+        LoginRoleLib loginRole = new LoginRoleLib();
+
+        navigateToApplication("CR");
+        login.login(data.get("LoginName"), data.get("Password"));
+        home.messageDialogBoxClose();
+        String Member = "";
+        if (data.get("Member").equals("db")) {
+            //fetch member details from db
+            //generating a random number everytime to fetch a new record everytime
+            int rownum = IntRandomNumberGenerator(50, 1000);
+            //member from db
+            Member = CommonDb.selectRandomMemberFromDB(data.get("dbServer"), data.get("dbqueryFileName"), data.get("colomnName"), rownum);
+            System.out.println("member : " + Member);
+        } else {
+            Member = data.get("MemberNumber");
+        }
+        home.memberSearchTextBox(Member);
+        memeber.memberNumClick();
+        locations.clickOnLocationTab();
+        Thread.sleep(5000);
+        locations.clickOnManualEntryLinkInLocation();
+        locations.enterNonMandatoryFieldsInLocations(data.get("LandMark"), data.get("Address"), data.get("crossStreet"), data.get("secondCrossStreet"), data.get("Zip"));
+        locations.enterAndSaveLocationMandatoryFields(data.get("StreetAddress"), data.get("City"), data.get("State"), data.get("LocationCode"));
+        locations.enterBKDownLocCode(data.get("LocationCode"));
+       /* Thread.sleep(2000);
+        locations.clickOnLocationCodeDropDown();*/
+        // enterBreakDownLocationandCode(data.get("BreakdownAddress"),data.get("BreakdownLocation"));
+        //vehicle
+        enterVehicleDetailsInVehicleTraige(data);
+        vehicle.clickonProblemTypeButton(data.get("ProblemType7"));
+        Thread.sleep(2000);
+        vehicle.clickonProblemTypeOptions(data.get("ProblemType7Option1"));
+        Thread.sleep(2000);
+        vehicle.handleScriptErrorInVehicleTriagePage();
+        Thread.sleep(1000);
+        towdestination.clickOnTowDestinationTab();
+        Thread.sleep(3000);
+        vehicle.handleScriptErrorInVehicleTriagePage();
+        Thread.sleep(3000);
+        towdestination.clickOnManualEntryLinkOnTowDestination();
+        Thread.sleep(3000);
+        towdestination.enterTowLocationName(data.get("TDLocationAddress"));
+        towdestination.enterFirstCrossStreet(data.get("TDcrossStreet"));
+        towdestination.enterSecondCrossStreet(data.get("TDsecondCrossStreet"));
+        towdestination.enterCityCodeInTow(data.get("TDCity"));
+        towdestination.enterStateInTow(data.get("TDState"));
+        towdestination.enterLandMarkInTow(data.get("TDLandMark"));
+        towdestination.enterTowPassengers(data.get("Towpassengers"));
+        Thread.sleep(3000);
+        home.saveButton();
+        home.allErrorAlerts();
+        String callIDTow = service.getCallId();
+        service.closeCall();
+        home.logout();
+        return callIDTow;
+    }
+
+}

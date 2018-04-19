@@ -1,0 +1,349 @@
+package com.aaa.web.lib;
+
+import com.aaa.accelerators.ActionEngine;
+import com.aaa.web.page.CRMemberSearchPage;
+import com.aaa.web.page.LoginPage;
+
+
+public class DILoginLib extends ActionEngine {
+	int count;
+
+/**
+ * param :: String inputs
+ * return ::void
+ * throws :: throwable
+ * methodName :: Login
+ * description :: This is for Login into the application
+ * date :: 18-Dec-2017
+ * author :: Chandrasekhar Dendukuri
+ */
+    public void login(String userName,String password) throws Throwable {
+    enterUserName(userName);
+    enterPassword(password);
+    loginButton();
+
+    }
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: LoginValidation
+     * description :: This is to validate login functionality with difference combinations
+     * date :: 18-Dec-2017
+     * author :: Chandrasekhar Dendukuri
+     */
+    public void loginValidation(String userName,String password) throws Throwable {
+        enterUserName(userName);
+        enterPassword(password);
+        loginButton();
+        errorLoginMessage();
+    }
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: changePasswordVerification
+     * description :: This is to validate login functionality with difference combinations
+     * date :: 18-Dec-2017
+     * author :: Chandrasekhar Dendukuri
+     */
+    public void changePasswordVerification(String newPassword,String confirmPassword,String passwordChangeAlert,String userName, String password) throws Throwable {
+        enterUserName(userName);
+        enterPassword(password);
+        changePasswordButton();
+        errorLoginMessage();
+        verifyChangePassword(newPassword,confirmPassword,passwordChangeAlert);
+        errorLoginMessage();
+    }
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: sessionInNewTabverification
+     * description :: This is for Login into the application
+     * date :: 18-Dec-2017
+     * author :: Chandrasekhar Dendukuri
+     */
+    public void sessionInNewTabverification(String userName,String password) throws Throwable {
+        enterUserName(userName);
+        enterPassword(password);
+        loginButton();
+        /*homepage.sessionInNewTab();*/
+    }
+    /**
+ * param :: String inputs
+ * return ::void
+ * throws :: throwable
+ * methodName :: UserID
+ * description :: UserIDTextField
+ * date :: 18-Dec-2017
+ * author :: Chandrasekhar Dendukuri
+ */
+
+    public void enterUserName(String userName) throws Throwable {
+        waitForVisibilityOfElement(LoginPage.txtLoginName,"User Name Text Field");
+        type(LoginPage.txtLoginName,userName,"User Name");
+    }
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: Password
+     * description :: passwordField
+     * date :: 18-Dec-2017
+     * author :: Chandrasekhar Dendukuri
+     */
+
+    public void enterPassword(String password) throws Throwable {
+        waitForVisibilityOfElement(LoginPage.txtLoginPassword,"Login password Text Field");
+        type(LoginPage.txtLoginPassword,password,"Password text field");
+    }
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: LoginButton
+     * description :: LoginButton
+     * date :: 18-Dec-2017
+     * author ::Chandrasekhar Dendukuri
+     */
+    public void loginButton() throws Throwable {
+        waitForVisibilityOfElement(LoginPage.btnLogin,"Login button");
+        click(LoginPage.btnLogin,"Login Button");
+    }
+
+    public void enterLoginDetails(String UserName, String password) throws Throwable {
+        enterUserName(UserName);
+        enterPassword(password);
+        loginButton();
+    }
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: errorLoginMessage
+     * description :: errorLoginMessage
+     * date :: 18-Dec-2017
+     * author ::Chandrasekhar Dendukuri
+     */
+	public void errorLoginMessage() throws Throwable {
+		waitForVisibilityOfElement(LoginPage.alertInvalidLogin,"Invalid Login");
+		boolean errorMessageApearence = isVisibleOnly(LoginPage.alertInvalidLogin,"Invalid Login");
+		if(errorMessageApearence)
+		{
+			String error = getText(LoginPage.alertInvalidLogin,"Invalid Login");
+			assertTrue(errorMessageApearence, error +":Not Active/Invalid");
+			click(LoginPage.btnOkOnErrorAlert,"Error alert OK button");
+		}else{
+			assertFalse(errorMessageApearence,"Error message not appeared");
+		}
+	}
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: changePasswordButton
+     * description :: changePasswordButton
+     * date :: 18-Dec-2017
+     * author ::Chandrasekhar Dendukuri
+     */
+    public void changePasswordButton() throws Throwable {
+
+        waitForVisibilityOfElement(LoginPage.btnChangePassword, "Change Password");
+        click(LoginPage.btnChangePassword, "Change password");
+    }
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: changePassword
+     * description :: changePassword
+     * date :: 18-Dec-2017
+     * author ::Chandrasekhar Dendukuri
+     */
+    public void verifyChangePassword(String newPassword,String confirmPassword,String passwordChangeAlert) throws Throwable {
+
+		waitForInVisibilityOfElement(LoginPage.txtChangePassword,"changePassword");
+		click(LoginPage.txtChangePassword,"Change password text box");
+		type(LoginPage.txtChangePassword, newPassword, "NewPassword");
+		type(LoginPage.txtConfirmPassword, confirmPassword, "Confirm password");
+		boolean charcount = isVisibleOnly(LoginPage.iconPwdCharCounTure, "Password character count");
+		if(charcount) {
+			assertTrue(charcount, "You entered Valid password character count");
+		}else {
+			assertFalse(charcount, "Password length should be in 8-10 characters");
+		}
+		boolean specialChar = isVisibleOnly(LoginPage.iconPwdSpelCounTrue, "Special characters");
+		if(specialChar){
+			assertTrue(specialChar, "You entered password with given special characters ");
+		}else
+		{
+			assertFalse(specialChar,"Special character (number or punctuation)");
+		}
+		boolean passwdMatch = isVisibleOnly(LoginPage.iconPwdMatchTrue, "New password and Confirm password Not matched");
+		if (passwdMatch) {
+			assertTrue(passwdMatch, "New password and Confirm password Not matched");
+		}else
+		{
+			assertFalse(passwdMatch,"Passwords must match");
+		}
+		boolean passChangeBtn = isVisibleOnly(LoginPage.btnChangePasswordChangeButton, "Password change button Enabled");
+		if(passChangeBtn){
+			assertTrue(passChangeBtn,"Password change button is Enabled");
+
+            click(LoginPage.btnCancel,"Cancel button");
+			waitForInVisibilityOfElement(LoginPage.alertChangePassword,"Alert");
+			String alert = getText(LoginPage.alertChangePassword,"Change password success message");
+			assertTrue(alert.contains(passwordChangeAlert),"Successfully updated");
+
+		}else {
+			assertFalse(passChangeBtn, "Password change button is disabled");
+			click(LoginPage.btnCancel,"Cancel button");
+		}
+    }
+	/**
+	 * param :: String inputs
+	 * return ::void
+	 * throws :: throwable
+	 * methodName :: multipleLoginAttempts
+	 * description :: To Verify multiple login attempts
+	 * date :: 18-Dec-2017
+	 * author ::Chandrasekhar Dendukuri
+	 */
+	public void mulipleLoginAttemps(String userName,String password) throws Throwable {
+
+		for (int i = 0; i <2; i++) {
+			enterUserName(userName);
+			enterPassword(password);
+		    loginButton();
+			errorLoginMessage();
+		}
+	}
+
+
+	/**
+	 * param :: String inputs
+	 * return ::void
+	 * throws :: throwable
+	 * methodName :: waitcloseAllBusyIcons
+	 * description :: Application loading wait
+	 * date :: 28-Nov-2017
+	 * author :: Chandrasekhar Dendukuri
+	 */
+	public void waitcloseAllBusyIcons() throws Throwable {
+		int iCounter = 0, loading;
+		boolean status = true;
+		do {
+			iCounter++;
+			loading = getElementsSize(CRMemberSearchPage.loadingspinner);
+			if (loading == 0) {
+				status = true;
+				break;
+			}
+			else{
+				status=false;
+			}
+			if (iCounter > 400) {
+				status = false;
+				break;
+			}
+		}
+		while (iCounter <= 400);
+		if (status) {
+			LOG.info("All spinners are closed");
+		}else{
+			LOG.info("All spinners are not closed");
+		}
+	}
+
+	/**
+	 * param :: String inputs
+	 * return ::void
+	 * throws :: throwable
+	 * methodName :: waitcloseAllBusyIconsResults
+	 * description :: Application loading wait for memberseatch results
+	 * date :: 29-Nov-2017
+	 * author :: Chandrasekhar Dendukuri
+	 */
+	protected void waitcloseAllBusyIconsResults() throws Throwable {
+		int iCounter = 0, loading;
+		boolean status = true;
+		do {
+			iCounter++;
+			loading = getElementsSize(CRMemberSearchPage.iconResultLoadingSpinner);
+			if (loading == 0) {
+				status = true;
+				break;
+			}
+			else{
+				status=false;
+				/*LOG.info("iCounter appearStatus " + iCounter);*/
+			}
+			if (iCounter > 400) {
+				status = false;
+				break;
+			}
+		}
+		while (iCounter <= 400);
+		if (status) {
+			LOG.info("All spinners are closed");
+		}else{
+			LOG.info("All spinners are not closed");
+		}
+	}
+	/**
+	 * param :: String inputs
+	 * return ::void
+	 * throws :: throwable
+	 * methodName :: closeErrorAlert
+	 * description :: closeErrorAlert
+	 * date :: 20-Dec-2017
+	 * author ::Abhiram
+	 */
+	public void closeErrorAlert() throws Throwable {
+		waitForVisibilityOfElement(LoginPage.errorAlertOK,"OK Button");
+		if(isVisibleOnly(LoginPage.errorAlertOK,"OK Button"))
+		{
+			assertTrue(isVisibleOnly(LoginPage.errorAlertOK,"Error alert"), ":OK Button");
+			click(LoginPage.errorAlertOK,"Error alert OK button");
+		}else{
+			assertFalse(isVisibleOnly(LoginPage.errorAlertOK,"Error alert"), ":OK Button");
+		}
+	}
+
+	/**
+	 * param :: String inputs
+	 * return ::void
+	 * throws :: throwable
+	 * methodName :: closeErrorAlert
+	 * description :: closeErrorAlert
+	 * date :: 20-Dec-2017
+	 * author ::Abhiram
+	 */
+	public void closeErrorAlertOKButton() throws Throwable {
+		//waitForVisibilityOfElement(LoginPage.btnErrorAlertOK,"OK Button");
+		if(isVisibleOnly(LoginPage.btnErrorAlertOK,"OK Button"))
+		{
+			click(LoginPage.btnErrorAlertOK,"Error alert OK button");
+		}
+	}
+
+	/**
+	 * param :: String inputs
+	 * return ::void
+	 * throws :: throwable
+	 * methodName :: closeErrorAlert
+	 * description :: closeErrorAlert
+	 * date :: 20-Dec-2017
+	 * author ::Abhiram
+	 */
+	public boolean verifyOkErrorAlert() throws Throwable {
+		//waitForVisibilityOfElement(LoginPage.btnErrorAlertOK,"OK Button");
+		boolean okErrorAlertAvailable = isVisibleOnly(LoginPage.btnErrorAlertOK, "Existing Vehicles are Not Visible");
+		return okErrorAlertAvailable;
+	}
+
+
+}

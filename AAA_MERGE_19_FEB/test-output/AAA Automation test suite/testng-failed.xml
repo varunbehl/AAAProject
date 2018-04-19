@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [AAA Automation test suite]">
+  <parameter name="app" value="AAA.apk"/>
+  <parameter name="appPackage" value="com.aaa.android.discounts"/>
+  <parameter name="suiteExecuted" value="Regression"/>
+  <parameter name="executionType" value="Sequential"/>
+  <parameter name="platformNameMobile" value="Android"/>
+  <parameter name="deviceName" value="Samsung_Galaxy_S6"/>
+  <parameter name="autoStart" value="web"/>
+  <parameter name="appActivity" value="com.aaa.android.discounts.ui.sso.LoginFragmentActivity"/>
+  <parameter name="seleniumgridurl" value="local"/>
+  <parameter name="environment" value="local"/>
+  <parameter name="appiumUrl" value="http://127.0.0.1:4723/wd/hub"/>
+  <parameter name="browserVersion" value="60"/>
+  <parameter name="platformVersion" value="6.1"/>
+  <parameter name="browser" value="chrome"/>
+  <parameter name="automationName" value="selenium"/>
+  <parameter name="browserName" value="chrome"/>
+  <parameter name="udid" value="02157df2d2788f19"/>
+  <parameter name="platformName" value="windows 10"/>
+  <listeners>
+    <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+    <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+    <listener class-name="com.aaa.utilities.AssignTestPriorityTransformer"/>
+  </listeners>
+  <test name="Android-Native(failed)">
+    <parameter name="app" value="AAA.apk"/>
+    <parameter name="appPackage" value="com.aaa.android.discounts"/>
+    <parameter name="platformNameMobile" value="Android"/>
+    <parameter name="deviceName" value="Samsung_Galaxy_S6"/>
+    <parameter name="autoStart" value="web"/>
+    <parameter name="appActivity" value="com.aaa.android.discounts.ui.sso.LoginFragmentActivity"/>
+    <parameter name="seleniumgridurl" value="local"/>
+    <parameter name="environment" value="local"/>
+    <parameter name="appiumUrl" value="http://127.0.0.1:4723/wd/hub"/>
+    <parameter name="browserVersion" value="60"/>
+    <parameter name="platformVersion" value="6.1"/>
+    <parameter name="browser" value="chrome"/>
+    <parameter name="automationName" value="selenium"/>
+    <parameter name="browserName" value="chrome"/>
+    <parameter name="udid" value="02157df2d2788f19"/>
+    <parameter name="platformName" value="windows 10"/>
+    <classes>
+      <class name="test.webmobile.TC_CRCancelCalls">
+        <methods>
+          <include name="afterClass"/>
+          <include name="beforeSuite"/>
+          <include name="beforeClass"/>
+          <include name="afterMethod"/>
+          <include name="afterSuite"/>
+          <include name="ValidatekillProcessForCalls"/>
+          <include name="beforeMethod"/>
+        </methods>
+      </class> <!-- test.webmobile.TC_CRCancelCalls -->
+    </classes>
+  </test> <!-- Android-Native(failed) -->
+</suite> <!-- Failed suite [AAA Automation test suite] -->

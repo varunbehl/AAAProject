@@ -1,0 +1,260 @@
+package com.aaa.web.script;
+
+import com.aaa.accelerators.ActionEngine;
+import com.aaa.utilities.TestUtil;
+import com.aaa.web.lib.*;
+import com.aaa.web.page.CRLocationsPage;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import java.util.Hashtable;
+
+/**
+ * Created by E002734 on 1/29/2018.
+ */
+public class TC_DIMCDStatusUpdates  extends ActionEngine {
+
+	LoginLib login = new LoginLib();
+	CRMemberSearchLib member = new CRMemberSearchLib();
+	CRVehicleTriageLib vehicle = new CRVehicleTriageLib();
+	CRLocationsLib location = new CRLocationsLib();
+	CRTowDestinationLib towdestination = new CRTowDestinationLib();
+	CRHomeLib home = new CRHomeLib();
+	CRServiceLib service = new CRServiceLib();
+	CRServiceLib services = new CRServiceLib();
+	DIMCDLib dimcdLib = new DIMCDLib();
+	DIHomeLib diHome = new DIHomeLib();
+	DILoginLib diLoginLib = new DILoginLib();
+	LoginRoleLib role = new LoginRoleLib();
+	public static String callID;
+	public static String Member = "";
+
+	@DataProvider
+	public Object[][] getTestDataFor_diMcdStatusUpdates() {
+		return TestUtil.getData("diMcdStatusUpdates", TestData, "D3Dispatch");
+	}
+
+	@Test(dataProvider = "getTestDataFor_diMcdStatusUpdates")
+	public void diMcdStatusUpdates(Hashtable<String, String> data) throws Throwable {
+		try {
+			if (data.get("RunMode").equals("Y")) {
+				this.reporter.initTestCaseDescription("1788: TC-DI_MCD_Status updates");
+				login.login(data.get("LoginName"), data.get("Password"));
+				member.clickOnPartialCallCloseButton();
+				home.messageDialogBoxClose();
+				Member = "";
+				if (data.get("Member").equals("db")) {
+					//fetch member details from db
+					//generating a random number everytime to fetch a new record everytime
+					int rownum = IntRandomNumberGenerator(50, 1000);
+					//member from db
+					Member = CommonDb.selectRandomMemberFromDB(data.get("dbServer"), data.get("dbqueryFileName"), data.get("colomnName"), rownum);
+					System.out.println("member : " + Member);
+				} else {
+					Member = data.get("Membersearch");
+				}
+				home.memberSearchTextBox(Member);
+				//home.memberSearchTextBox(data.get("Membersearch"));
+				member.memberNumClick();
+				member.currentCallClose();
+				member.clickPrimRadioBtnSecondRow();
+				location.clickOnLocationTab();
+				Thread.sleep(5000);
+				location.clickOnManualEntryLinkInLocation();
+				location.enterNonMandatoryFieldsInLocations(data.get("LandMark"), data.get("Address"), data.get("crossStreet"), data.get("secondCrossStreet"), data.get("Zip"));
+				location.enterAndSaveLocationMandatoryFields(data.get("StreetAddress"), data.get("City"), data.get("State"), data.get("LocationCode"));
+				location.enterBKDownLocCode(data.get("LocationCode"));
+				Thread.sleep(2000);
+				location.clickOnLocationCodeDropDown();
+				Thread.sleep(5000);
+				//vehicle
+				enterVehicleDetailsInVehicleTraige(data);
+				vehicle.clickonProblemTypeButton(data.get("ProblemType7"));
+				Thread.sleep(2000);
+				vehicle.clickonProblemTypeOptions(data.get("ProblemType7Option1"));
+				Thread.sleep(2000);
+				vehicle.handleScriptErrorInVehicleTriagePage();
+				Thread.sleep(1000);
+				towdestination.clickOnTowDestinationTab();
+				Thread.sleep(3000);
+				vehicle.handleScriptErrorInVehicleTriagePage();
+				Thread.sleep(3000);
+				towdestination.clickOnManualEntryLinkOnTowDestination();
+				Thread.sleep(3000);
+				towdestination.enterTowLocationName(data.get("TDLocationAddress"));
+				towdestination.enterFirstCrossStreet(data.get("TDcrossStreet"));
+				towdestination.enterSecondCrossStreet(data.get("TDsecondCrossStreet"));
+				towdestination.enterCityCodeInTow(data.get("TDCity"));
+				towdestination.enterStateInTow(data.get("TDState"));
+				towdestination.enterLandMarkInTow(data.get("TDLandMark"));
+				towdestination.enterTowPassengers(data.get("Towpassengers"));
+
+				home.saveButton();
+				home.allErrorAlerts();
+				//services.getCallId();
+				callID = services.getCallId();
+				services.clickOnRemainInCall();
+				home.logout();
+
+
+				navigateToApplication("DI");
+				diLoginLib.login(data.get("DILoginName"),data.get("DIPassword"));
+				role.clickOnProceedBtnInDispatchRoleLogin();
+				diLoginLib.waitcloseAllBusyIcons();
+				diHome.clickOnCloseIconOnQueueSelection();
+				diHome.clickOnSearchCallsInDispatch();
+				diHome.enterCallIDInfo(callID);
+				diHome.clickOnSearchInSearchCalls();
+				diHome.clickOnCallDateOrIDLink();
+				dimcdLib.clickOnAssign();
+				dimcdLib.getCallStatusOnMCDwindow();
+				dimcdLib.selectFacility();
+				dimcdLib.getCallStatusOnMCDwindow();
+				dimcdLib.selectDispatch();
+				dimcdLib.getCallStatusOnMCDwindow();
+				dimcdLib.selectEnroute();
+				dimcdLib.getCallStatusOnMCDwindow();
+				dimcdLib.selectEnrouteTime();
+				dimcdLib.getCallStatusOnMCDwindow();
+				dimcdLib.selectOnLocation();
+				dimcdLib.getCallStatusOnMCDwindow();
+				dimcdLib.selectClearCall();
+				dimcdLib.clickOnNoGo();
+				dimcdLib.selectExitCodeandEnterReasonandClickonContinue(data.get("reason"));
+				dimcdLib.clickOnOriginalTowDestination();
+				dimcdLib.clickOnSubmitButton();
+				Thread.sleep(4000);
+				dimcdLib.labelCallCleared();
+				dimcdLib.clickOnMCDCloseWindow();
+				diHome.logOut();
+				acceptAlert();
+				acceptAlert();
+
+				navigateToApplication("CR");
+
+				login.login(data.get("LoginName"), data.get("Password"));
+				member.clickOnPartialCallCloseButton();
+				home.messageDialogBoxClose();
+			    Member = "";
+				if (data.get("Member").equals("db")) {
+					//fetch member details from db
+					//generating a random number everytime to fetch a new record everytime
+					int rownum = IntRandomNumberGenerator(50, 1000);
+					//member from db
+					Member = CommonDb.selectRandomMemberFromDB(data.get("dbServer"), data.get("dbqueryFileName"), data.get("colomnName"), rownum);
+					System.out.println("member : " + Member);
+				} else {
+					Member = data.get("Membersearch");
+				}
+				home.memberSearchTextBox(Member);
+				//home.memberSearchTextBox(data.get("Membersearch"));
+				member.memberNumClick();
+				member.currentCallClose();
+				member.clickPrimRadioBtnSecondRow();
+				location.clickOnLocationTab();
+				Thread.sleep(5000);
+				location.clickOnManualEntryLinkInLocation();
+				location.enterNonMandatoryFieldsInLocations(data.get("LandMark"), data.get("Address"), data.get("crossStreet"), data.get("secondCrossStreet"), data.get("Zip"));
+				location.enterAndSaveLocationMandatoryFields(data.get("StreetAddress"), data.get("City"), data.get("State"), data.get("LocationCode"));
+				location.enterBKDownLocCode(data.get("LocationCode"));
+				Thread.sleep(2000);
+				location.clickOnLocationCodeDropDown();
+				Thread.sleep(5000);
+				//vehicle
+				enterVehicleDetailsInVehicleTraige(data);
+				vehicle.clickonProblemTypeButton(data.get("ProblemType1"));
+				Thread.sleep(2000);
+				vehicle.clickonProblemTypeOptions(data.get("ProblemTypeOpton1"));
+				Thread.sleep(2000);
+				vehicle.handleScriptErrorInVehicleTriagePage();
+				Thread.sleep(1000);
+				home.saveButton();
+				home.allErrorAlerts();
+				//services.getCallId();
+				callID = services.getCallId();
+				services.clickOnRemainInCall();
+				home.logout();
+
+
+				navigateToApplication("DI");
+				diLoginLib.login(data.get("DILoginName"),data.get("DIPassword"));
+				role.clickOnProceedBtnInDispatchRoleLogin();
+				diLoginLib.waitcloseAllBusyIcons();
+				diHome.clickOnCloseIconOnQueueSelection();
+				diHome.clickOnSearchCallsInDispatch();
+				diHome.enterCallIDInfo(callID);
+				diHome.clickOnSearchInSearchCalls();
+				diHome.clickOnCallDateOrIDLink();
+
+				/*dimcdLib.clickOnAssign();
+				dimcdLib.getCallStatusOnMCDwindow();
+				dimcdLib.selectFacility();
+				dimcdLib.getCallStatusOnMCDwindow();
+				dimcdLib.selectDispatch();
+				dimcdLib.getCallStatusOnMCDwindow();
+				dimcdLib.selectEnroute();
+				dimcdLib.getCallStatusOnMCDwindow();
+				dimcdLib.selectEnrouteTime();
+				dimcdLib.getCallStatusOnMCDwindow();
+				dimcdLib.selectOnLocation();
+				dimcdLib.getCallStatusOnMCDwindow();
+				dimcdLib.selectClearCall();
+				dimcdLib.clickOnNoGo();
+				dimcdLib.selectExitCodeandEnterReasonandClickonContinue(data.get("reason"));
+				dimcdLib.clickOnSubmitButton();*/
+
+				//dimcdLib.selectExitCode();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+	}
+
+
+
+	/*public void SaveAndValidateCallId(Hashtable<String, String> data, String code)throws Throwable{
+
+		CRHomeLib home = new CRHomeLib();
+
+		CRVehicleTriageLib vehicle = new CRVehicleTriageLib();
+		CRServiceLib service = new CRServiceLib();
+		CRSearchCallsLib servicecalls = new CRSearchCallsLib();
+
+		home.saveButton();
+		Thread.sleep(6000);
+		home.allErrorAlerts();
+		vehicle.handleScriptErrorInVehicleTriagePage();
+		String callID = service.getCallId();
+		service.closeCallWindow();
+		servicecalls.clickOnSearchCalls();
+		Thread.sleep(3000);
+		home.enterCallIdForSearch(callID);
+		home.clickOnSearchButtonOnSearchCalls();
+		Thread.sleep(5000);
+		home.validateDispatchCodeInSearchCallsPoPUpWindow(code);// Add Dynamic Parameter Later
+		home.clickOnCloseIconOnSearchCallsWindow();
+		home.logout();
+	}
+*/
+
+
+	public void enterVehicleDetailsInVehicleTraige(Hashtable<String, String> data) throws Throwable{
+
+
+		vehicle.clickOnVehicleTriageTab();
+		Thread.sleep(3000);
+		vehicle.clickOnManualEntryLinkOnVehicle();
+		Thread.sleep(3000);
+		vehicle.enterVehicleType(data.get("VehicleType"));
+		vehicle.clickOnTheTypeSearchFromDropDown();
+		vehicle.enterVehicleYear(data.get("VehicleYear"));
+		Thread.sleep(2000);
+		vehicle.enterVehicleMake(data.get("VehicleMake"));
+		vehicle.enterVehicleModel(data.get("VehicleModel"));
+		vehicle.enterVehicleColor(data.get("VehicleColor"));
+
+	}
+
+
+}

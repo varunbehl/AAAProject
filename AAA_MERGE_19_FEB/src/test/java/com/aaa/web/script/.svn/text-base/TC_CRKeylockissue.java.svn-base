@@ -1,0 +1,190 @@
+package com.aaa.web.script;
+
+import com.aaa.utilities.TestUtil;
+import com.aaa.web.lib.*;
+import com.aaa.web.page.CRLocationsPage;
+import com.aaa.web.page.CRVehicleTriagePage;
+import com.aaa.web.page.CRVehicleTriagePage;
+
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+
+
+
+
+
+import java.util.Hashtable;
+
+
+public class TC_CRKeylockissue extends LoginLib
+{
+	String callId;
+
+//String text = dataBean.getValue(,"text");
+	@DataProvider
+    public Object[][] getTestDataFor_keyLockIssueRadioButton() {
+        return TestUtil.getData("keyLockIssueRadioButton", TestData, "D3CallRecieving");
+    }
+
+    @Test(dataProvider = "getTestDataFor_keyLockIssueRadioButton")
+	public void keyLockIssueRadioButton(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("ERS Cal Locksmith");
+                enterMembershipDetailsandVehicleDetails(data);
+                selectRadioButtonKeysIssue(data);
+                validateAutoSpotanCallisSaved(data);
+            	}
+            
+            } catch (Exception e) {
+                e.printStackTrace();
+                throw new RuntimeException(e);
+            }
+        }
+    
+    @DataProvider
+    public Object[][] getTestDataFor_enterPacesetterCodeManuallyforKeyIssueScript() {
+        return TestUtil.getData("enterPacesetterCodeManuallyforKeyIssueScript", TestData, "D3CallRecieving");
+    }
+
+    @Test(dataProvider = "getTestDataFor_enterPacesetterCodeManuallyforKeyIssueScript")
+	public void enterPacesetterCodeManuallyforKeyIssueScript(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("ERS Cal Locksmith");
+                enterMembershipDetailsandVehicleDetails(data);
+                enterPacesetterCodeManuallyforKeyIssue(data);
+                validateAutoSpotanCallisSaved(data);
+            	}
+            
+            } catch (Exception e) {
+                e.printStackTrace();
+                throw new RuntimeException(e);
+            }
+        }
+    
+    @DataProvider
+    public Object[][] getTestDataFor_enterPacesetterCodeforTowManuallyforKeyIssueScript() {
+        return TestUtil.getData("enterPacesetterCodeforTowManuallyforKeyIssueScript", TestData, "D3CallRecieving");
+    }
+
+    @Test(dataProvider = "getTestDataFor_enterPacesetterCodeforTowManuallyforKeyIssueScript")
+	public void enterPacesetterCodeforTowManuallyforKeyIssueScript(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("ERS Cal Locksmith");
+                enterMembershipDetailsandVehicleDetails(data);
+                enterPacesetterCodeManuallyTowforKeyIssue(data);
+                validateAutoSpotanCallisSaved(data);
+            	}
+            
+            } catch (Exception e) {
+                e.printStackTrace();
+                throw new RuntimeException(e);
+            }
+        }
+                
+    public void enterMembershipDetailsandVehicleDetails(Hashtable<String, String> data) throws Throwable {
+    	CRMemberSearchLib mem=new CRMemberSearchLib();
+        CRLocationsLib loc=new CRLocationsLib();
+        CRVehicleTriageLib veh=new CRVehicleTriageLib();
+        CRServiceLib ser=new CRServiceLib();
+        CRHomeLib home = new CRHomeLib();
+        //launch application
+        navigateToApplication("CR");
+        //login to Application
+        login(dataBean.getValue(data,"LoginName"),dataBean.getValue(data,"Password"));
+        home.verifyHomeScreen();
+        //enter and search member 
+        home.memberSearchTextBox(dataBean.getValue(data,"Membersearch"));
+        //search and close alert member
+        mem.memberNumClick();
+        //Enter primary phone number
+        mem.enterMemberContactInfoPrimaryPhoneNumber(dataBean.getValue(data, "Primaryphonenum"));
+        //enter prime phone type
+        mem.membContInfoEnterPrimPhoneTypeCellular();
+       //enter prime phone radio button
+        mem.clickPrimRadioBtnRowOne();
+        //enter breakdown location
+        loc.breakdownLocTabSel();
+        if(isElementPresent(CRLocationsPage.linkBrkDowLocAddr, "breakdown loacation address"))
+        {
+            loc.clickonBrkdownLocLink();
+            loc.brkdownLocationCode(dataBean.getValue(data, "Breakdownlocationcode"));
+        }
+        else
+        {
+        	loc.enterTxtinBrkDowLocSrch(dataBean.getValue(data, "Breakdownaddress"));
+            loc.brkDowLocSrchBtn();
+            loc.brkdowLocAddrLink();
+            loc.brkdownLocationCode(dataBean.getValue(data, "Breakdownlocationcode"));
+        }
+        //enter vehicle information
+        veh.vehicletriageTabsel();
+        if(isElementPresent(CRVehicleTriagePage.linkVehicleModel, "vehicle model")) 
+        {
+            veh.Vehicleinfolink();
+            veh.Vehicletype(dataBean.getValue(data, "Vehicletype"));
+            veh.enterVehicleColor(dataBean.getValue(data, "Vehiclecolor"));
+        }
+        else
+        {
+        	veh.Entervehicleinfomanually(dataBean.getValue(data, "Vehiclemodel"));
+            veh.clickVehicleSearchButton();
+            veh.availableVehicleaftersrch();
+            veh.vehicleColor(dataBean.getValue(data, "Vehiclecolor"));
+        } 
+    }
+
+    public void selectRadioButtonKeysIssue(Hashtable<String, String> data) throws Throwable {
+    	//declarations
+    	CRVehicleTriageLib veh=new CRVehicleTriageLib();
+    	
+    	veh.pacesetterCodegeneration_Keysissue();
+        veh.validatePacesetterCode(data.get("Pacesettercode"));
+    }
+    
+    public void enterPacesetterCodeManuallyforKeyIssue(Hashtable<String, String> data) throws Throwable {
+    	//declarations
+    	CRVehicleTriageLib veh=new CRVehicleTriageLib();
+    	
+    	veh.manualPacesetterCodekey(data.get("Pacesettercode"));
+        veh.validatePacesetterCode(data.get("Pacesettercode"));
+    }
+    
+    public void enterPacesetterCodeManuallyTowforKeyIssue(Hashtable<String, String> data) throws Throwable {
+    	//declarations
+    	CRVehicleTriageLib veh=new CRVehicleTriageLib();
+    	CRTowDestinationLib Towlib=new CRTowDestinationLib();
+    	
+    	veh.manpacecodeTow_enterpacesettcode(data.get("Pacesettercode"));
+        veh.validatePacesetterCode(data.get("Pacesettercode"));
+        veh.manupacecodeTow_btn();
+        Towlib.towLocation(data.get("Towpassengers"));
+    }
+    
+    public void validateAutoSpotanCallisSaved(Hashtable<String, String> data) throws Throwable {
+        //Declarations
+    	CRVehicleTriageLib veh=new CRVehicleTriageLib();
+        CRServiceLib ser=new CRServiceLib();
+        LoginRoleLib ll = new LoginRoleLib();
+        DIHomeLib dih = new DIHomeLib();
+        DISearchCallsLib dis = new DISearchCallsLib();
+        CRHomeLib crh = new CRHomeLib();
+        
+        ser.validateFacilityAutospot();
+        ser.clickOnSaveBtn();
+        callId = ser.getCallId();
+        crh.logout();
+        navigateToApplication("DI");
+        enterLoginDetails(data.get("DILoginName"), data.get("DIPassword"));
+        ll.selectRoleAndProceed(dataBean.getValue(data, "RoleinDispatch"));
+        dih.clickOnContinueQueuesInDispatch();
+        dih.clickOnSearchCallsInDispatch();
+        dis.searchAndSelectCallID(callId);
+        dih.logOut();
+        
+        
+    }
+}

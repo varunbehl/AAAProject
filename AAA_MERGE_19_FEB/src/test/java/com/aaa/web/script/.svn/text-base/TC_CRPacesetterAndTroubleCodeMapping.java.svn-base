@@ -1,0 +1,86 @@
+package com.aaa.web.script;
+
+import com.aaa.accelerators.ActionEngine;
+import com.aaa.utilities.TestUtil;
+import com.aaa.web.lib.*;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import java.util.Hashtable;
+
+public class TC_CRPacesetterAndTroubleCodeMapping extends ActionEngine {
+
+    public static String PaceSetterCodeInSummaryCallWindow;
+    public static String PaceSetterCodeInExcel;
+    public static String PaceSetterCodes;
+    public static int totalPaceSetterCodes;
+
+
+
+    @DataProvider
+    public Object[][] getTestDataFor_CRPacesetterAndTroubleCodeMapping()
+    {
+        return TestUtil.getData("CRPacesetterAndTroubleCodeMapping", TestData, "D3CallRecieving");
+    }
+
+    @Test(dataProvider = "getTestDataFor_CRPacesetterAndTroubleCodeMapping")
+    public void crPacesetterAndTroubleCodeMapping(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("1938: TC-CR Pacesetter & Trouble Code Mapping");
+                Thread.sleep(5000);
+                LoginLib login = new LoginLib();
+                CRMemberSearchLib crMemberSearchLib =new CRMemberSearchLib();
+                CRHomeLib crHomeLib = new CRHomeLib();
+                CRLocationsLib crLocationsLib = new CRLocationsLib();
+                CRVehicleTriageLib crVehicleTriageLib = new CRVehicleTriageLib();
+                CRServiceLib services = new CRServiceLib();
+                DILoginLib diLoginLib = new DILoginLib();
+                navigateToApplication("CR");
+                login.login(data.get("LoginName"),data.get("Password"));
+                crHomeLib.messageDialogBoxClose();
+                String Member = "";
+                if (data.get("Member").equals("db")){
+        	        //fetch member details from db
+        	        //generating a random number everytime to fetch a new record everytime
+        	        int rownum = IntRandomNumberGenerator(50,1000);       
+        	        //member from db
+        	        Member = CommonDb.selectRandomMemberFromDB(data.get("dbServer"),data.get("dbqueryFileName"),data.get("colomnName"),rownum);
+        	        System.out.println("member : "+Member);
+                }
+                else
+                {
+                	Member = data.get("Membersearch");
+                }
+                crHomeLib.memberSearchTextBox(Member);
+                //crHomeLib.memberSearchTextBox(data.get("Membersearch"));
+                crMemberSearchLib.memberNumClick();
+                crMemberSearchLib.labelMemberLevelInMemberDetailsSection();
+                crVehicleTriageLib.clickOnVehicleTriageTab();
+                PaceSetterCodes=data.get("TotalPacesetterCodes");
+                totalPaceSetterCodes=Integer.parseInt(PaceSetterCodes);
+                for(int i=1;i<=totalPaceSetterCodes;i++)
+                {
+                    Thread.sleep(30000);
+                    crVehicleTriageLib.enterPaceSetterCode(data.get("PaceSetterCode"+i));
+                    crVehicleTriageLib.clickOnTheSelectedPaceSetterCodeFromDropDown();
+                    crVehicleTriageLib.handleScriptErrorInVehicleTriagePage();
+                    crVehicleTriageLib.clickOnCallSummary();
+                    PaceSetterCodeInSummaryCallWindow = crVehicleTriageLib.lblCallSummaryPaceSetterCodes();
+                    PaceSetterCodeInExcel = data.get("PaceSetterCode"+i);
+                    boolean paceSetterValue = PaceSetterCodeInExcel.equalsIgnoreCase(PaceSetterCodeInSummaryCallWindow);
+                    assertTrue(true, "Pacesetter Codes summery on the sidebar" + PaceSetterCodeInSummaryCallWindow + " and Pacesetter Code Maps are correct" + PaceSetterCodeInExcel);
+                    crVehicleTriageLib.clickOnCloseCallSummary();
+                    crVehicleTriageLib.clickCloseIconInSelectedPaceSetterCodeSection();
+                    Thread.sleep(3000);
+                }
+                crHomeLib.logout();
+                System.out.println("Test Completed");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+}

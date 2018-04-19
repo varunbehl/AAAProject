@@ -1,0 +1,182 @@
+package com.aaa.web.script;
+
+import com.aaa.accelerators.ActionEngine;
+import com.aaa.utilities.TestUtil;
+import com.aaa.web.lib.*;
+import com.aaa.web.page.CRSearchCallsPage;
+import com.aaa.web.page.DIHomePage;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import java.util.Hashtable;
+
+/**
+ * Created by E002734 on 1/29/2018.
+ */
+public class TC_DIEditCallInCallReceiving  extends ActionEngine {
+
+
+
+
+	LoginLib login = new LoginLib();
+	CRMemberSearchLib member = new CRMemberSearchLib();
+	CRVehicleTriageLib vehicle = new CRVehicleTriageLib();
+	CRLocationsLib location = new CRLocationsLib();
+	CRTowDestinationLib towdestination = new CRTowDestinationLib();
+	CRHomeLib home = new CRHomeLib();
+	CRServiceLib service = new CRServiceLib();
+	CRServiceLib services = new CRServiceLib();
+	DIMCDLib dimcdLib = new DIMCDLib();
+	DIHomeLib diHome = new DIHomeLib();
+	DILoginLib diLoginLib = new DILoginLib();
+	LoginRoleLib role = new LoginRoleLib();
+	public static String callID;
+	CRSearchCallsLib  searchCall=new CRSearchCallsLib();
+
+	@DataProvider
+	public Object[][] getTestDataFor_diEditCallInCallReceving() {
+		return TestUtil.getData("diEditCallInCallReceving", TestData, "D3Dispatch");
+	}
+
+	@Test(dataProvider = "getTestDataFor_diEditCallInCallReceving")
+	public void diEditCallInCallReceving(Hashtable<String, String> data) throws Throwable {
+		try {
+			if (data.get("RunMode").equals("Y")) {
+				this.reporter.initTestCaseDescription("1745: TC-DI_Edit Call In Call Receving");
+				login.login(data.get("LoginName"), data.get("Password"));
+				member.clickOnPartialCallCloseButton();
+				home.messageDialogBoxClose();
+				String Member = "";
+				if (data.get("Member").equals("db")) {
+					//fetch member details from db
+					//generating a random number everytime to fetch a new record everytime
+					int rownum = IntRandomNumberGenerator(50, 1000);
+					//member from db
+					Member = CommonDb.selectRandomMemberFromDB(data.get("dbServer"), data.get("dbqueryFileName"), data.get("colomnName"), rownum);
+					System.out.println("member : " + Member);
+				} else {
+					Member = data.get("Membersearch");
+				}
+				home.memberSearchTextBox(Member);
+				//home.memberSearchTextBox(data.get("Membersearch"));
+				member.memberNumClick();
+				member.currentCallClose();
+				member.clickPrimRadioBtnSecondRow();
+				location.clickOnLocationTab();
+				Thread.sleep(5000);
+				location.clickOnManualEntryLinkInLocation();
+				location.enterNonMandatoryFieldsInLocations(data.get("LandMark"), data.get("Address"), data.get("crossStreet"), data.get("secondCrossStreet"), data.get("Zip"));
+				location.enterAndSaveLocationMandatoryFields(data.get("StreetAddress"), data.get("City"), data.get("State"), data.get("LocationCode"));
+				location.enterBKDownLocCode(data.get("LocationCode"));
+				Thread.sleep(2000);
+				location.clickOnLocationCodeDropDown();
+				Thread.sleep(5000);
+				//vehicle
+				enterVehicleDetailsInVehicleTraige(data);
+				vehicle.clickonProblemTypeButton(data.get("ProblemType7"));
+				Thread.sleep(2000);
+				vehicle.clickonProblemTypeOptions(data.get("ProblemType7Option1"));
+				Thread.sleep(2000);
+				vehicle.handleScriptErrorInVehicleTriagePage();
+				Thread.sleep(1000);
+				towdestination.clickOnTowDestinationTab();
+				Thread.sleep(3000);
+				vehicle.handleScriptErrorInVehicleTriagePage();
+				Thread.sleep(3000);
+				towdestination.clickOnManualEntryLinkOnTowDestination();
+				Thread.sleep(3000);
+				towdestination.enterTowLocationName(data.get("TDLocationAddress"));
+				towdestination.enterFirstCrossStreet(data.get("TDcrossStreet"));
+				towdestination.enterSecondCrossStreet(data.get("TDsecondCrossStreet"));
+				towdestination.enterCityCodeInTow(data.get("TDCity"));
+				towdestination.enterStateInTow(data.get("TDState"));
+				towdestination.enterLandMarkInTow(data.get("TDLandMark"));
+				towdestination.enterTowPassengers(data.get("Towpassengers"));
+
+				home.saveButton();
+				home.allErrorAlerts();
+				//services.getCallId();
+				callID = services.getCallId();
+				services.clickOnRemainInCall();
+				diHome.logOut();
+
+				openURLInNewTab("https://qaautoap1.national.aaa.com:8443/D3Dispatch/login.jsp");
+				//navigateToApplication("DI");
+				diLoginLib.login(data.get("DILoginName"),data.get("DIPassword"));
+				role.clickOnProceedBtnInDispatchRoleLogin();
+				diLoginLib.waitcloseAllBusyIcons();
+				diHome.clickOnCloseIconOnQueueSelection();
+				diHome.clickOnSearchCallsInDispatch();
+
+				//live
+				diHome.enterCallTypeAsLiveOnlyInDispatch(data.get("LiveOnly"));
+				diHome.enterCallIDInfo(callID);
+				diHome.clickOnSearchInSearchCalls();
+				diHome.clickOnCallDateOrIDLink();
+				dimcdLib.mousehoverAndClickOnPencil();
+
+				String callIdValue=	searchCall.getCallIdInSearchCall();
+				assertTextStringMatching(callID,callIdValue);
+
+				vehicle.clickOnVehicleTriageTab();
+				vehicle.selectExistingVehicleModel();
+				Thread.sleep(2000);
+				vehicle.clickonProblemTypeButton(data.get("ProblemType1"));
+				Thread.sleep(3000);
+				vehicle.clickonProblemTypeOptions(data.get("ProblemTypeOption1"));
+				service.clickOnServiceTab();
+				Thread.sleep(3000);
+				service.validateNoFacilityAutoSpot();
+				Thread.sleep(2000);
+				home.saveButton();
+				service.clickOnCancel();
+				home.allErrorAlerts();
+				driver.close();
+
+				searchCall.enterCallTypeAsLiveOnly(data.get("LiveOnly"));
+				/*searchCall.enterStartDateOnSearchCallsWindow(data.get("InvalidStartDate"));
+				searchCall.enterEndDateOnSearchCallsWindow(data.get("InvalidEndDate"));*/
+				searchCall.enterCallIdOnSearchCallsWindow(data.get("CallIDvalue"));
+				searchCall.clickOnSearchBtnOnSearchCallsWindow();
+				searchCall.getTextNoMatchingRecords();
+				searchCall.clickSearchAgainOnSearchCalls();
+				searchCall.clickOnFirstRowInSearchCalls();
+
+				dimcdLib.clickOnAddButton();
+				dimcdLib.enterAddCommentAndSave(data.get("AddComment"));
+				dimcdLib.clickOnCommentedData();
+
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+	}
+
+
+
+
+
+
+	public void enterVehicleDetailsInVehicleTraige(Hashtable<String, String> data) throws Throwable{
+
+
+		vehicle.clickOnVehicleTriageTab();
+		Thread.sleep(3000);
+		vehicle.clickOnManualEntryLinkOnVehicle();
+		Thread.sleep(3000);
+		vehicle.enterVehicleType(data.get("VehicleType"));
+		vehicle.clickOnTheTypeSearchFromDropDown();
+		vehicle.enterVehicleYear(data.get("VehicleYear"));
+		Thread.sleep(2000);
+		vehicle.enterVehicleMake(data.get("VehicleMake"));
+		vehicle.enterVehicleModel(data.get("VehicleModel"));
+		vehicle.enterVehicleColor(data.get("VehicleColor"));
+
+	}
+
+
+
+
+}

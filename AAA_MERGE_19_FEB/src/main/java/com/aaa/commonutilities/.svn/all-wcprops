@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/CignitiAutomation/!svn/ver/447/aaaAutomationCignitiOffShore/src/main/java/com/aaa/commonutilities
+END
+DB.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/CignitiAutomation/!svn/ver/447/aaaAutomationCignitiOffShore/src/main/java/com/aaa/commonutilities/DB.java
+END
+DBResultSetProcessor.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/CignitiAutomation/!svn/ver/447/aaaAutomationCignitiOffShore/src/main/java/com/aaa/commonutilities/DBResultSetProcessor.java
+END
+CoreUtilities.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/CignitiAutomation/!svn/ver/34/aaaAutomationCignitiOffShore/src/main/java/com/aaa/commonutilities/CoreUtilities.java
+END
+CustomTestListenerCT.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/CignitiAutomation/!svn/ver/34/aaaAutomationCignitiOffShore/src/main/java/com/aaa/commonutilities/CustomTestListenerCT.java
+END
+ExtentReportThread.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/CignitiAutomation/!svn/ver/34/aaaAutomationCignitiOffShore/src/main/java/com/aaa/commonutilities/ExtentReportThread.java
+END
+DBMethods.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/CignitiAutomation/!svn/ver/447/aaaAutomationCignitiOffShore/src/main/java/com/aaa/commonutilities/DBMethods.java
+END
+DBUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/CignitiAutomation/!svn/ver/447/aaaAutomationCignitiOffShore/src/main/java/com/aaa/commonutilities/DBUtils.java
+END
+ExtentManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/CignitiAutomation/!svn/ver/34/aaaAutomationCignitiOffShore/src/main/java/com/aaa/commonutilities/ExtentManager.java
+END
+KnownBugs.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/CignitiAutomation/!svn/ver/34/aaaAutomationCignitiOffShore/src/main/java/com/aaa/commonutilities/KnownBugs.java
+END

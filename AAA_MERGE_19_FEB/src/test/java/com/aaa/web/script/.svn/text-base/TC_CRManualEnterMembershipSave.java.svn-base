@@ -1,0 +1,158 @@
+package com.aaa.web.script;
+
+import com.aaa.accelerators.ActionEngine;
+import com.aaa.utilities.TestUtil;
+import com.aaa.web.lib.*;
+
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import java.util.Hashtable;
+
+public class TC_CRManualEnterMembershipSave extends ActionEngine {
+    String callId;
+    String callsAllowedBeforeMemberCall;
+    String callsAllowedAfterMemberCall;
+    @DataProvider
+    public Object[][] getTestDataFor_memberSave()
+    {
+        return TestUtil.getData("MemberFieldsSave", TestData, "D3CallRecieving");
+    }
+
+    @Test(dataProvider = "getTestDataFor_memberSave")
+    public void memberFieldsSaveByManualEntry(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("Manual Enter Membership Save");
+                LoginLib login = new LoginLib();
+                CRMemberSearchLib member = new CRMemberSearchLib();
+                CRVehicleTriageLib vehicle = new CRVehicleTriageLib();
+                CRLocationsLib location = new CRLocationsLib();
+                CRTowDestinationLib towdestination = new CRTowDestinationLib();
+                CRHomeLib home = new CRHomeLib();
+                CRServiceLib service = new CRServiceLib();
+                Thread.sleep(5000);
+                login.login(data.get("LoginName"),data.get("Password"));
+                home.messageDialogBoxClose();
+                String Member = "";
+                if (data.get("Member").equals("db")){
+        	        //fetch member details from db
+        	        //generating a random number everytime to fetch a new record everytime
+        	        int rownum = IntRandomNumberGenerator(50,1000);       
+        	        //member from db
+        	        Member = CommonDb.selectRandomMemberFromDB(data.get("dbServer"),data.get("dbqueryFileName"),data.get("colomnName"),rownum);
+        	        System.out.println("member : "+Member);
+                }
+                else
+                {
+                	Member = data.get("Membersearch");
+                }
+                home.memberSearchTextBox(Member);
+                //home.memberSearchTextBox(data.get("Membersearch"));
+                member.memberNumClick();
+                member.currentCallClose();
+                callsAllowedBeforeMemberCall =member.memberCallsAllowedInMemberDetailsSection();
+                System.out.println("callsAllowedBeforeMemberCall"+callsAllowedBeforeMemberCall);
+                member.verifyManualEntryLink();
+                member.clickOnManualEntryLinkInMember();
+                member.memFieldsVerification();
+               // member.enterPhoneNumber(data.get("PhoneNumber"));
+               // member.selectType(data.get("PhoneType"));
+                //member.clickPrimRadioBtnRowOne();
+                member.enterMemberMandatoryFields(data.get("FirstName"),data.get("LastName"),data.get("Address"),data.get("City"),
+                        data.get("State"),data.get("Zip"),data.get("Email"), data.get("PhoneNumber"),
+                        data.get("PhoneType"),Member,
+                        data.get("MemberLevel"),data.get("Expiration"),data.get("Status"));
+
+                location.clickOnLocationTab();
+                location.clickonBrkdownLocLink();
+
+		location.brkdownLocationCode(data.get("BKDownLocCode"));    
+	        vehicle.clickOnVehicleTriageTab();
+
+                vehicle.selectExistingVehicleModel();
+                vehicle.clickOnFuel();
+                vehicle.clickOnOutOfGas();
+                home.waitCloseAllBusyIconsResults();
+                //service.clickOnServiceTab();
+
+                home.saveButton();
+                home.allErrorAlerts();
+                callId = service.getCallId();
+                service.closeCallWindow();
+                //To Check Number of calls allowed
+                home.memberSearchTextBox(Member);
+                member.memberNumClick();
+                //member.currentCallClose();
+                callsAllowedAfterMemberCall =member.memberCallsAllowedInMemberDetailsSection();
+				String callsActiveAfterCall = member.getCurrentCallsForMember();                
+		System.out.println("callsAllowedAfterMemberCall"+callsAllowedAfterMemberCall);
+                //verify the calls count(entitlement)
+                member.veryfyCallCountForMember(callsAllowedBeforeMemberCall,callsAllowedAfterMemberCall);
+
+ 				//member.veryfyCallCountForMember(callsActiveBeforeCall,callsActiveAfterCall);
+
+ 				/*member.veryfyCallCountForMember(callsActiveBeforeCall,callsActiveAfterCall);
+
+ 		member.veryfyCallCountForMember(callsActiveBeforeCall,callsActiveAfterCall);*/
+
+                //Member search with wrongId
+                Thread.sleep(5000);
+                home.memberSearchTextBox(data.get("Membersearch_wrongId"));
+               // member.memberNumClick();member.currentCallRecord(callId);
+
+                member.clickOnManualEntryLinkInMember();
+
+                member.enterMemberMandatoryFields(data.get("FirstName"),data.get("LastName"),data.get("Address"),data.get("City"),
+                        data.get("State"),data.get("Zip"),data.get("Email"), data.get("PhoneNumber"),
+                        data.get("PhoneType"),Member,
+                        data.get("MemberLevel"),data.get("Expiration"),data.get("Status"));
+                location.clickOnLocationTab();
+                location.clickOnManualEntryLinkInLocation();
+                location.enterAndSaveLocationMandatoryFields(data.get("BKDownStreetAddress"), data.get("BKDownCityLocation"), data.get("BKDownState"), data.get("BKDownLocCode"));
+                vehicle.clickOnVehicleTriageTab();
+                vehicle.clickOnManualEntryLinkOnVehicle();
+                vehicle.enterandSaveVehicleMandatoryFields(data.get("VehicleType"),data.get("VehicleYear"),data.get("VehicleMake"),data.get("VehicleModel"),data.get("VehicleColor"),data.get("PaceSettercode"));
+                towdestination.clickOnTowDestinationTab();
+                Thread.sleep(5000);
+                login.waitcloseAllBusyIconsResults();
+				acceptAlert();               
+		towdestination.clickOnManualEntryLinkOnTowDestination();
+                towdestination.enterTowDestinationMandatoryFields(data.get("TowPassengers"));
+                service.clickOnServiceTab();
+                service.enterServiceMandatoryFields(data.get("Facilitty"));
+
+                home.saveButton();
+                home.allErrorAlerts();
+                callId = service.getCallId();
+                service.closeCallWindow();
+
+                //Verify call saved or not
+                home.clickOnSearchCallDroupDown();
+                home.clickOnSearchCallsLink();
+                home.enterCallIdForSearch(callId);
+                home.clickOnSearchButtonOnSearchCalls();
+                member.verifyTheCreatedCall(callId);
+                member.closeSearchCallsWindow();
+
+
+                home.logout();
+
+
+
+
+
+                System.out.println("Test completed");
+
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+}
+
+
+

@@ -1,0 +1,353 @@
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/CignitiAutomation/!svn/ver/1028/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script
+END
+TC_DICreateNewDuplicateProfile.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/CignitiAutomation/!svn/ver/1003/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_DICreateNewDuplicateProfile.java
+END
+TC_DICustomizedProfileColumns.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/CignitiAutomation/!svn/ver/1010/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_DICustomizedProfileColumns.java
+END
+TC_CRDuplicateCall.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/CignitiAutomation/!svn/ver/849/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_CRDuplicateCall.java
+END
+TC_CRWorkFlowScript.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/CignitiAutomation/!svn/ver/860/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_CRWorkFlowScript.java
+END
+TC_CRCreditCard.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/CignitiAutomation/!svn/ver/921/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_CRCreditCard.java
+END
+TC_DILiveCallSearch.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/CignitiAutomation/!svn/ver/1012/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_DILiveCallSearch.java
+END
+TC_CRManualEnterMembershipSave.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/CignitiAutomation/!svn/ver/860/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_CRManualEnterMembershipSave.java
+END
+TC_DIProfileBeyondETATab.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/CignitiAutomation/!svn/ver/860/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_DIProfileBeyondETATab.java
+END
+TC_DIMCDStatusUpdatesManual.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/CignitiAutomation/!svn/ver/1014/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_DIMCDStatusUpdatesManual.java
+END
+TC_CRD3AutoSpotgrid.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/CignitiAutomation/!svn/ver/860/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_CRD3AutoSpotgrid.java
+END
+TC_CRSaveRAPCall.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/CignitiAutomation/!svn/ver/793/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_CRSaveRAPCall.java
+END
+TC_CRSaveAppointmentCall.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/CignitiAutomation/!svn/ver/860/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_CRSaveAppointmentCall.java
+END
+TC_DIEditCallInCallReceiving.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/CignitiAutomation/!svn/ver/1026/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_DIEditCallInCallReceiving.java
+END
+TC_CRLocations.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/CignitiAutomation/!svn/ver/921/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_CRLocations.java
+END
+TC_CRCancelCalls.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/CignitiAutomation/!svn/ver/921/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_CRCancelCalls.java
+END
+TC_CRHistoryCallSaveScript.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/CignitiAutomation/!svn/ver/990/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_CRHistoryCallSaveScript.java
+END
+TC_DICallClearingRAP.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/CignitiAutomation/!svn/ver/1004/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_DICallClearingRAP.java
+END
+TC_CRRules.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/CignitiAutomation/!svn/ver/921/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_CRRules.java
+END
+TC_CRTimeZone.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/CignitiAutomation/!svn/ver/860/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_CRTimeZone.java
+END
+TC_DIActionRequiredProfileTab.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/CignitiAutomation/!svn/ver/1013/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_DIActionRequiredProfileTab.java
+END
+TC_DIClearCall.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/CignitiAutomation/!svn/ver/921/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_DIClearCall.java
+END
+TC_CRLeaveCall.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/CignitiAutomation/!svn/ver/860/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_CRLeaveCall.java
+END
+TC_CRLoginScript.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/CignitiAutomation/!svn/ver/635/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_CRLoginScript.java
+END
+TC_CRComments.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/CignitiAutomation/!svn/ver/950/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_CRComments.java
+END
+TC_CRETA.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/CignitiAutomation/!svn/ver/921/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_CRETA.java
+END
+TC_CRTriage.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/CignitiAutomation/!svn/ver/860/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_CRTriage.java
+END
+TC_CRArchivedCallSearchScript.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/CignitiAutomation/!svn/ver/959/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_CRArchivedCallSearchScript.java
+END
+TC_CRLiveCallSearch.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/CignitiAutomation/!svn/ver/938/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_CRLiveCallSearch.java
+END
+TC_CRPacesetterAndTroubleCodeMapping.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/CignitiAutomation/!svn/ver/860/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_CRPacesetterAndTroubleCodeMapping.java
+END
+TC_DIQueueSelection.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/CignitiAutomation/!svn/ver/467/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_DIQueueSelection.java
+END
+TC_CRPhoneTempDelete.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/CignitiAutomation/!svn/ver/860/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_CRPhoneTempDelete.java
+END
+TC_CRKeylockissue.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/CignitiAutomation/!svn/ver/434/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_CRKeylockissue.java
+END
+TC_CRUpdateCalls.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/CignitiAutomation/!svn/ver/921/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_CRUpdateCalls.java
+END
+TC_CRCDXMemberLookUp.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/CignitiAutomation/!svn/ver/635/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_CRCDXMemberLookUp.java
+END
+TC_CRKeylock.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/CignitiAutomation/!svn/ver/925/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_CRKeylock.java
+END
+TC_CRPTAScript.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/CignitiAutomation/!svn/ver/921/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_CRPTAScript.java
+END
+TC_DIProfileRedFlagCallsTab.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/CignitiAutomation/!svn/ver/921/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_DIProfileRedFlagCallsTab.java
+END
+TC_DICallClearingLightService.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/CignitiAutomation/!svn/ver/1027/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_DICallClearingLightService.java
+END
+TC_CRManualSpot.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/CignitiAutomation/!svn/ver/921/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_CRManualSpot.java
+END
+TC_CRSaveERSCallLightService.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/CignitiAutomation/!svn/ver/860/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_CRSaveERSCallLightService.java
+END
+TC_CRERSBattery.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/CignitiAutomation/!svn/ver/925/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_CRERSBattery.java
+END
+TC_CRCashCallService.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/CignitiAutomation/!svn/ver/921/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_CRCashCallService.java
+END
+TC_CREntitlements.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/CignitiAutomation/!svn/ver/860/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_CREntitlements.java
+END
+TC_CRMemberScript.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/CignitiAutomation/!svn/ver/860/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_CRMemberScript.java
+END
+TC_DIMCDStatusUpdates.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/CignitiAutomation/!svn/ver/993/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_DIMCDStatusUpdates.java
+END
+TC_DICallClearingFullService.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/CignitiAutomation/!svn/ver/1028/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_DICallClearingFullService.java
+END
+TC_CRSaveERSCallFullService.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/CignitiAutomation/!svn/ver/921/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_CRSaveERSCallFullService.java
+END
+TC_CRFacilityPreference.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/CignitiAutomation/!svn/ver/921/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_CRFacilityPreference.java
+END
+TC_CRServices.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/CignitiAutomation/!svn/ver/921/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_CRServices.java
+END
+TC_CRRecentCalls.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/CignitiAutomation/!svn/ver/921/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_CRRecentCalls.java
+END
+TC_CRScratchPad.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/CignitiAutomation/!svn/ver/860/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_CRScratchPad.java
+END
+TC_SPPMCDDataPoints.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/CignitiAutomation/!svn/ver/823/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_SPPMCDDataPoints.java
+END
+TC_SaveERSCallLightService.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/CignitiAutomation/!svn/ver/203/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_SaveERSCallLightService.java
+END
+TC_CRPhoneTypesScript.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/CignitiAutomation/!svn/ver/860/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_CRPhoneTypesScript.java
+END
+TC_CRVehicleSearch.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/CignitiAutomation/!svn/ver/860/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_CRVehicleSearch.java
+END
+TC_DILogin.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/CignitiAutomation/!svn/ver/635/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_DILogin.java
+END
+TC_DIProfileCallSorting.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/CignitiAutomation/!svn/ver/434/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_DIProfileCallSorting.java
+END
+TC_CRTowDestination.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/CignitiAutomation/!svn/ver/921/aaaAutomationCignitiOffShore/src/test/java/com/aaa/web/script/TC_CRTowDestination.java
+END

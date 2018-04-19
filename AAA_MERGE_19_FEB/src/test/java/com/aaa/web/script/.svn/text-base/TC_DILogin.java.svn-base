@@ -1,0 +1,247 @@
+package com.aaa.web.script;
+
+import com.aaa.utilities.TestUtil;
+import com.aaa.web.lib.*;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import java.util.Hashtable;
+
+/**
+ * Created by E001133 on 27-11-2017.
+ */
+public class TC_DILogin extends DILoginLib {
+
+	/**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: loginWithValidUserNameAndInvalidPassword
+     * description :: valdUsernamewithInvalidPassword
+     * date :: 18-Dec-2017
+     * author :: Chandu Dendukuri
+     */
+    @DataProvider
+    public Object[][] getTestDataFor_loginWithValidUserNameAndInvalidPassword() {
+        return TestUtil.getData("DIvalidUsernameInvalidpassword", TestData, "D3Dispatch");
+    }
+
+    @Test(dataProvider = "getTestDataFor_loginWithValidUserNameAndInvalidPassword")
+
+    public void loginWithValidUserNameAndInvalidPassword(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("DI Login");
+                navigateToApplication("DI");
+                DIHomeLib diHome = new DIHomeLib();
+                loginValidation(data.get("LoginName"),data.get("Password"));
+                diHome.logOut();
+                System.out.println("Test completed");
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: loginWithInactiveUser
+     * description :: Validation for inactive user details
+     * date :: 18-Dec-2017
+     * author :: Chandu Dendukuri
+     */
+    @DataProvider
+    public Object[][] getTestDataFor_loginWithInactiveUser() {
+        return TestUtil.getData("DIloginWithInactiveUser", TestData, "D3Dispatch");
+    }
+
+    @Test(dataProvider = "getTestDataFor_loginWithInactiveUser")
+
+    public void loginWithInactiveUser(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("DI Login");
+                navigateToApplication("DI");
+                loginValidation(data.get("LoginName"),data.get("Password"));
+                System.out.println("Test completed");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+       /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: sucessLogin
+     * description :: successful login functionality
+     * date :: 18-12-2017
+     * author :: Chandu Dendukuri
+     */
+    @DataProvider
+    public Object[][] getTestDataFor_successLogin() {
+        return TestUtil.getData("DISuccessLogin", TestData, "D3Dispatch");
+    }
+    @Test(dataProvider = "getTestDataFor_successLogin")
+
+    public void successLogin(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+
+                this.reporter.initTestCaseDescription("DI Login");
+                navigateToApplication("DI");
+                CRHomeLib home = new CRHomeLib();
+                LoginRoleLib role = new LoginRoleLib();
+                DIHomeLib diHome = new DIHomeLib();
+                login(data.get("LoginName"),data.get("Password"));
+                role.clickOnProceedBtnInDispatchRoleLogin();
+                waitcloseAllBusyIcons();
+                diHome.clickOnCloseIconOnQueueSelection();
+                diHome.logOut();
+                /*home.allErrorAlerts();*/
+                System.out.println("Test completed");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: sucessLogin
+     * description :: successful login functionality
+     * date :: 18-12-2017
+     * author :: Chandu Dendukuri
+     */
+   /* @DataProvider
+    public Object[][] getTestDataFor_ChangePassword() {
+        return TestUtil.getData("Changepassword", TestData, "D3Dispatch");
+    }
+    @Test(dataProvider = "getTestDataFor_ChangePassword")
+
+    public void changePassword(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("DI Login");
+                CRHomeLib home=new CRHomeLib();
+                navigateToApplication("DI");
+                enterUserName(data.get("LoginName"));
+                enterPassword(data.get("Password"));
+                changePasswordButton();
+                verifyChangePassword(data.get("NewPassword"),data.get("Confirm password"),data.get("PasswordChangeAlert"));
+                home.allErrorAlerts();
+                System.out.println("Test completed");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }*/
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: sessionTest
+     * description :: Session testing
+     * date :: 18-12-2017
+     * author :: Chandu Dendukuri
+     */
+    @DataProvider
+    public Object[][] getTestDataFor_SessionTest() {
+        return TestUtil.getData("DISessionTest", TestData, "D3Dispatch");
+    }
+
+    @Test(dataProvider = "getTestDataFor_SessionTest")
+
+    public void sessionTest(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("DI Login");
+                CRHomeLib home = new CRHomeLib();
+                LoginRoleLib role = new LoginRoleLib();
+                DIHomeLib diHome = new DIHomeLib();
+                navigateToApplication("DI");
+                login(data.get("LoginName"),data.get("Password"));
+                role.clickOnProceedBtnInDispatchRoleLogin();
+                diHome.clickOnCloseIconOnQueueSelection();
+                diHome.sessionInNewTab();
+                diHome.logOut();
+                System.out.println("Test completed");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: SelectROle
+     * description :: SelectRole
+     * date :: 18-12-2017
+     * author :: Chandu Dendukuri
+     */
+    @DataProvider
+    public Object[][] getTestDataFor_SelectRole() {
+        return TestUtil.getData("DISelectRole", TestData, "D3Dispatch");
+    }
+
+    @Test(dataProvider = "getTestDataFor_SelectRole")
+
+    public void SelectRole(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("DI Login");
+                DIHomeLib diHome = new DIHomeLib();
+                CRHomeLib home = new CRHomeLib();
+                LoginRoleLib role = new LoginRoleLib();
+                navigateToApplication("DI");
+                login(data.get("LoginName"),data.get("Password"));
+                role.roleSelection(data.get("RoleinDispatch"));
+                waitcloseAllBusyIcons();
+                diHome.clickOnCloseIconOnQueueSelection();
+                diHome.logOut();
+                System.out.println("Test completed");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: multiLoingAttemptsValidation
+     * description :: multiple login attempts
+     * date :: 18-12-2017
+     * author :: Chandu Dendukuri
+     */
+    @DataProvider
+    public Object[][] getTestDataFor_multiLoginAttemptsValidation() {
+        return TestUtil.getData("DIMAX_PSWD_TRIES", TestData, "D3Dispatch");
+    }
+
+    @Test(dataProvider = "getTestDataFor_multiLoginAttemptsValidation")
+
+    public void multiLoginAttemptsValidation(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("DI Login");
+                navigateToApplication("DI");
+                mulipleLoginAttemps(data.get("LoginName"),data.get("Password"));
+                System.out.println("Test Completed");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+}

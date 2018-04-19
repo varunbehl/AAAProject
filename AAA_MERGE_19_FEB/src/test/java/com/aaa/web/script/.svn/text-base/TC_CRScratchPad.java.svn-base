@@ -1,0 +1,87 @@
+package com.aaa.web.script;
+
+import com.aaa.utilities.TestUtil;
+import com.aaa.web.lib.*;
+import com.aaa.web.page.CRLocationsPage;
+import com.aaa.web.page.CRMemberSearchPage;
+
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import java.util.Hashtable;
+
+/**
+ * Created by E003999 on 18-12-2017.
+ */
+public class TC_CRScratchPad extends LoginLib {
+    @DataProvider
+    public Object[][] getTestDataFor_scratchPad() {
+        return TestUtil.getData("scratchPad",TestData, "D3CallRecieving");
+    }
+
+    @Test(dataProvider = "getTestDataFor_scratchPad")
+    public void scratchPad(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("CR ScratchPad");
+                CRHomeLib home = new CRHomeLib();
+                CRMemberSearchLib memeber = new CRMemberSearchLib();
+                CRLocationsLib locations = new CRLocationsLib();
+                CRVehicleTriageLib vehicle = new CRVehicleTriageLib();
+                CRServiceLib service = new CRServiceLib();
+                navigateToApplication("CR");
+                login(data.get("LoginName"), data.get("Password"));
+                home.verifyHomeScreen();
+                String Member = "";
+                if (data.get("Member").equals("db")){
+        	        //fetch member details from db
+        	        //generating a random number everytime to fetch a new record everytime
+        	        int rownum = IntRandomNumberGenerator(50,1000);       
+        	        //member from db
+        	        Member = CommonDb.selectRandomMemberFromDB(data.get("dbServer"),data.get("dbqueryFileName"),data.get("colomnName"),rownum);
+        	        System.out.println("member : "+Member);
+                }
+                else
+                {
+                	Member = data.get("MemberNumber");
+                }
+                home.memberSearchTextBox(Member);
+                //home.memberSearchTextBox(data.get("MemberNumber"));
+                memeber.memberNumClick();
+                memeber.verifyScratchPad();
+                memeber.enterTextInScratchPad(data.get("BreakdownAddress"));
+                locations.clickOnLocationTab();
+                dragAndDropFromScratchPad(data);
+                vehicle.selectVehicleModel();
+                service.clickOnServiceTab();
+                home.saveButton();
+                service.closeCall();
+                home.memberSearchTextBox(Member);
+                memeber.memberNumClick();
+                memeber.verifyScratchPad();
+                home.logout();
+                System.out.println("Test completed");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    public void dragAndDropFromScratchPad(Hashtable<String, String> data) throws Throwable {
+        CRLocationsLib locations = new CRLocationsLib();
+        dragAndDrop(CRMemberSearchPage.txtScratchPad, CRLocationsPage.txtBrkDowLocSrch, "BreakdownLocation search bar");
+        type(CRLocationsPage.txtBrkDowLocSrch,data.get("BreakdownAddress"),"Breakdown location");
+        clearData(CRMemberSearchPage.txtScratchPad);
+        boolean closeScratchPad = isVisibleOnly(CRMemberSearchPage.iconScratchPadClose,"Scrach Pad Close icon");
+        if (closeScratchPad){
+        	click(CRMemberSearchPage.iconScratchPadClose,"Scrach Pad Close icon");
+        }
+        click(CRLocationsPage.btnBrkDowLocSrch, "Breakdown Location search button");
+        click(CRLocationsPage.linkBrkDowSrchAddress, "BreakDown location");
+        locations.enterBKDownLocCode(data.get("LocationCode"));
+
+    }
+}
+

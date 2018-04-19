@@ -1,0 +1,119 @@
+package com.aaa.mobile.script;
+
+import com.aaa.mobile.lib.*;
+import com.aaa.mobile.page.*;
+import com.aaa.utilities.TestUtil;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+import java.util.Hashtable;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+import com.aaa.mobile.lib.BreakDownLocationLib;
+import com.aaa.mobile.lib.ClubSelectionLib;
+import com.aaa.mobile.lib.HomeLib;
+import com.aaa.mobile.lib.LaunchLib;
+import com.aaa.mobile.lib.MembershipInfoLib;
+import com.aaa.mobile.lib.NotificationsLib;
+import com.aaa.mobile.lib.TellAboutVehicleLib;
+import com.aaa.mobile.lib.VehicleInformationLib;
+import com.aaa.mobile.page.LaunchPage;
+import com.aaa.mobile.page.NotificationsPage;
+import com.aaa.utilities.TestUtil;
+
+import java.util.Hashtable;
+
+/**
+ * Created by E002734 on 12/20/2017.
+ */
+public class TC_SubmitLightRSORequests extends VehicleInformationLib {
+	//Object Creation for LaunchLib
+	LaunchLib launch = new LaunchLib();
+	NotificationsLib notifications = new NotificationsLib();
+	MembershipInfoLib membershipinfo =new MembershipInfoLib();
+	ClubSelectionLib club=new ClubSelectionLib();
+	NotificationsLib popup=new NotificationsLib();
+	HomeLib home=new HomeLib();
+	BreakDownLocationLib breakdownlocation=new BreakDownLocationLib();
+	MembershipInfoLib memberInfo=new MembershipInfoLib();
+	VehicleInformationLib vehicleinformation = new VehicleInformationLib();
+	ProblemDescriptionLib primaryProblem=new ProblemDescriptionLib();
+	AnxietyManagementScreenLib anxietyScreen=new AnxietyManagementScreenLib();
+	SecondaryProblemDiscriptionLib secondaryProblem=new SecondaryProblemDiscriptionLib();
+	ContactInformationLib contactInformation=new ContactInformationLib();
+
+		@AfterMethod(alwaysRun = true)
+		public void afterMethod() throws Throwable {
+			//logOut();
+			this.appiumDriver.resetApp();
+			super.afterMethod();
+		}
+		public static final int WAITTIME = 50000;
+
+		/**
+		 * param testContext
+		 * param data
+		 * throws Throwable
+		 * description: 1622 : TC - Submit Light RSO Requests
+		 * author :Ravi
+		 */
+		@DataProvider
+		public Object[][] getTestDataFor_submitLightRSORequest() {
+			return TestUtil.getData("submitLightRSORequest", TestData, "RSOMobile");
+		}
+
+		@Test(dataProvider = "getTestDataFor_submitLightRSORequest")
+		public void submitLightRSORequest(Hashtable<String, String> data) throws Throwable {
+			try {
+				if (data.get("RunMode").equals("Y")) {
+					this.reporter.initTestCaseDescription("1622-TC-Submit Light RSO Requests");
+
+
+					if (!isVisibleOnly(LaunchPage.continueButton, "launch page continue btn")) {
+						click(NotificationsPage.allowButton,"Allow Permissions");
+					}
+
+					if(isVisibleOnly(HomePage.loginButton, "fetch logininHomePage"))
+					{
+						home.clickLogin();
+					}
+					launch.enterZIPCodeandselectContinue(data.get("ZIPCode"));
+					club.verifySelectedClubName();
+					club.clickOnSelectedClub();
+					if(waitForVisibilityOfElement(NotificationsPage.allowButton,"Allow Permissions"))
+					{
+						click(NotificationsPage.allowButton,"Allow Permissions");
+						Thread.sleep(1000);
+					}
+					if(isVisibleOnly(HomePage.loginButton, "fetch logininHomePage"))
+					{
+						home.clickLogin();
+						club.clickOnSelectedClub();
+					}
+
+					memberInfo.clickAndEnterMembershipNumber(data.get("MemberNumber"));
+					memberInfo.clickContinueButton();
+					notifications.verifyPushNotificationsLabel();
+					notifications.yesPushNotificationsLabel();
+					home.clickRoadSideAssistance();
+					notifications.clickUntillOkDisappears();
+					breakdownlocation.enterAndSelectBreakDownLocation(data.get("BreakdownLocation"));
+					vehicleinformation.clickExistingVehicle();
+					primaryProblem.clickOnBattary();
+					secondaryProblem.needJumpStart();
+					contactInformation.getContactNumber();
+					contactInformation.clickonSendRequest();
+					anxietyScreen.estimatedTimeToArrive();
+					anxietyScreen.verifyDidYouKnow();
+					anxietyScreen.didYouKnowUpdatesLabel();
+					}
+			} catch (Exception e) {
+				e.printStackTrace();
+				throw new RuntimeException(e);
+			}
+		}
+
+
+	}
+

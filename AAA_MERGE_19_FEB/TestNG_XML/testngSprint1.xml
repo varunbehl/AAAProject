@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE suite SYSTEM 'http://testng.org/testng-1.0.dtd'>
+<suite name='AAA Automation test suite'>
+
+	<parameter name='suiteExecuted' value='Regression' />
+	<parameter name='executionType' value='Sequential' />
+	<listeners>
+		<listener class-name="org.uncommons.reportng.HTMLReporter" />
+		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+		<listener class-name="com.aaa.utilities.AssignTestPriorityTransformer" />
+	</listeners>
+	
+
+   <test name="chromeWindowsLocal" preserve-order='true'>
+        <parameter name="browser" value="chrome"></parameter>
+        <parameter name="automationName" value="selenium"></parameter>
+        <parameter name="browserVersion" value="60"></parameter>
+        <parameter name="platformName" value="windows 10"></parameter>
+        <parameter name="environment" value="local"></parameter>
+        <parameter name="seleniumgridurl" value="local"></parameter>
+        <classes>
+        <!-- Sprint 1 -->
+        
+        <class name="com.aaa.web.script.TC_CRLoginScript">
+			 <methods>						 
+					 <include name="loginWithValidUserNameAndInvalidPassword"/>
+					 <include name="loginWithInactiveUser"/>
+					 <include name="successLogin"/>
+					 <include name="sessionTest"/> 
+					 <include name="SelectRole"/> 
+					 <include name="multiSessionValidation"/>
+			 </methods>
+		</class>
+		<class name="com.aaa.web.script.TC_CRWorkFlowScript">
+		    <methods>
+		        <include name="FieldValidation"/>
+		    </methods>
+		</class>
+		<class name="com.aaa.web.script.TC_CRMemberScript">
+		    <methods>
+		        <include name="membnumSearch"/>
+		        <include name="membemailSearch"/>
+		        <include name="memnamesearch"/>
+		        <include name="nineDigitMemberSearch"/>
+		        <include name="memnameaddressSearch"/>
+		        <include name="memphoneSearch"/>
+		        <include name="historySearch"/>
+		    </methods>
+		</class>
+		<class name="com.aaa.web.script.TC_CRKeylock">
+			 <methods>
+					 <include name="keyLockIssueRadioButton"/>
+					 <include name="enterPacesetterCodeManuallyforKeyIssueScript"/>
+					 <include name="enterPacesetterCodeforTowManuallyforKeyIssueScript"/>
+			 </methods>
+		 </class>
+         <class name="com.aaa.web.script.TC_CRERSBattery">
+			 <methods>
+					 <include name="ERSBatteryJumpStart"/>
+					 <include name="ERSBatteryTruck"/>
+			 </methods>
+		 </class>
+        <class name="com.aaa.web.script.TC_CRHistoryCallSaveScript">
+            <methods>
+                <include name="HistoryCallSave"/>
+            </methods>
+        </class>
+        <class name="com.aaa.web.script.TC_CRPhoneTypesScript">
+             <methods>
+                 <include name="phoneTypeverification"/>
+             </methods>
+         </class>
+   </classes>
+
+</test>
+
+</suite>

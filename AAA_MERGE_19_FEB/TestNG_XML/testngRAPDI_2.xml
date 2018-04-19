@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE suite SYSTEM 'http://testng.org/testng-1.0.dtd'>
+<suite name='AAA1 Automation test suite'>
+
+	<parameter name='suiteExecuted' value='Regression' />
+	<parameter name='executionType' value='Sequential' />
+	<listeners>
+		<listener class-name="org.uncommons.reportng.HTMLReporter" />
+		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+		<listener class-name="com.aaa.utilities.AssignTestPriorityTransformer" />
+	</listeners>
+	 <test name="Android-Native" preserve-order='true'>
+		   <parameter name="browserName" value="chrome"></parameter>
+		  <parameter name="automationName" value="selenium"></parameter>
+		  <parameter name="browserVersion" value="NA"></parameter>
+		  <parameter name="platformNameMobile" value="Android"></parameter>
+		  <parameter name="environment" value="local"></parameter>
+		  <parameter name="app" value="AAA.apk"></parameter>
+		  <parameter name="appPackage" value="com.aaa.android.discounts"></parameter>
+		  <parameter name="appActivity" value="com.aaa.android.discounts.ui.sso.LoginFragmentActivity"></parameter>
+		  <parameter name="platformVersion" value="6.1"></parameter>
+		  <parameter name="appiumUrl" value="http://127.0.0.1:4723/wd/hub"></parameter>
+	      <parameter name="udid" value="02157df2d2788f19"></parameter>
+		  <parameter name="deviceName" value="Samsung_Galaxy_S6"></parameter>
+		  <parameter name="seleniumgridurl" value="local"></parameter>
+		  <parameter name="browser" value="chrome"></parameter>
+          <parameter name="browserVersion" value="60"></parameter>
+          <parameter name="platformName" value="windows 10"></parameter>
+          <parameter name="seleniumgridurl" value="local"></parameter>
+          <parameter name="autoStart" value="web"></parameter>
+    	 <classes>
+			<class name="com.aaa.e2e.script.RAP_DI">
+				<methods>
+						<parameter name="nextTestJoin" value="false"></parameter>
+						<parameter name="StartRow" value="6"></parameter>
+						<parameter name="EndRow" value="10"></parameter>
+						<include name="RAPDIEnd2End"/>										
+				</methods>				
+			</class>							
+		 </classes>
+	</test>
+</suite>

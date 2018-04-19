@@ -1,0 +1,99 @@
+package com.aaa.web.page;
+import org.openqa.selenium.By;
+
+public class DIProfilePage {
+
+
+
+    public static By dialogSetProfileName;
+    public static By btnSaveAndContinue;
+    public static By txtBoxHighligetedInRed;
+    public static By lblUserProfileNameEmpty;
+    public static By txtName;
+    public static By lblIDSelectedSection;
+    public static By lblStsSelectedSts;
+    public static By DialogprofileWindow;
+    public static By lblProfileName;
+    public static By lblProfileNameInProfileMenuItems;
+    public static By iconOpenDuplicateProfile;
+    public static By iconCustomizeTheProfile;
+    public static By btnArrowId;
+    public static By drpdwnPriority;
+    public static By drpdwnOrder;
+    public static By btnSave;
+    public static By btnSaveSettings;
+    public static By iconCloseTheProfile;
+    public static By lblFirstColumn;
+    public static By btnDeleteThisUserProfile;
+    public static By btnYesOnDeletePopUpWindow;
+    public static By lblPriority;
+    public static By lblOrder;
+    public static By lblTabNameInProfileWindow;
+    public static By lblTabNameInSettings;
+    public static By lnkRemoveAll;
+    public static By lblSecondListItemInAvailableSection;
+    public static By lblAvailableSectionColumnsNames;
+    public static By lblSelectedSectionColumnsNames;
+    public static By lblAvailableSectionHighlightedColumnsNames;
+    public static By btnAdd;
+    static {
+        dialogSetProfileName = By.xpath("//div[@aria-labelledby = 'ui-dialog-title-new-user-profile-dlg']");
+        btnSaveAndContinue = By.id("new-user-profile-dlg-open");
+        txtBoxHighligetedInRed = By.xpath("//input[@class='text ui-state-error ui-state-error-text']");
+        lblUserProfileNameEmpty = By.id("new-user-profile-dlg-error");
+        txtName = By.id("new-user-profile-dlg-name");
+        lblIDSelectedSection = By.xpath("//div[@class='d3ui-panelsettings-container']//ul[@class='selected selectable-list ui-sortable']//span[contains(text(),'ID')]/../..");
+        lblStsSelectedSts = By.xpath("//div[@class='d3ui-panelsettings-container']//ul[@class='selected selectable-list ui-sortable']//span[text()='Sts']/../..");
+        DialogprofileWindow = By.xpath("//div[@class='profile-window-panel d3ui-panel ui-draggable ui-resizable top-displayed-panel']");
+        lblProfileName = By.xpath("//div[@class='profile-window-name d3ui-panel-title']//span[@class='panel-title-label']");
+        iconOpenDuplicateProfile = By.xpath("//a[@title='Open a duplicate profile']");
+        iconCustomizeTheProfile = By.xpath("//a[@title='Customize the profile']");
+        btnArrowId=By.cssSelector("ul[class='selected selectable-list ui-sortable'] li:nth-child(1) button");
+        drpdwnPriority=By.xpath("//span[@class='priority-title']/../select");
+        drpdwnOrder=By.xpath("//span[@class='order-title']/../select");
+        btnSave =By.xpath("//div[@class='ui-dialog-buttonpane ui-widget-content ui-helper-clearfix']/div[@class='ui-dialog-buttonset']//button[2]/span[(text()='Save')]");
+        btnSaveSettings = By.xpath("//button[@title='Save profile settings']");
+        iconCloseTheProfile = By.xpath("//div[@class='d3ui-panel-menu profile-menu']/a[@title='Close the profile']");
+        lblFirstColumn = By.xpath("//div[@class='d3ui-datagrid-header']/div[@class='d3ui-datagrid-header-content']/div[1]");
+        btnDeleteThisUserProfile = By.xpath("//button[@title='Permanently deletes user profile']");
+        btnYesOnDeletePopUpWindow = By.id("confirmation-yes-btn");
+        lblPriority = By.xpath("//span[@class='priority-title']");
+        lblOrder = By.xpath("//span[@class='order-title']");
+        //lblAllCalls = By.xpath("//label[text()='All Calls']");
+        lblTabNameInSettings = By.xpath("//div[@class='profile-tab-title']/i");
+        lnkRemoveAll = By.xpath("//div[@class='d3ui-panelsettings-container']//a[@class='remove-all-link']");
+        lblSecondListItemInAvailableSection = By.xpath("//ul[@class='unselected selectable-list ui-sortable']/li[2]");
+        btnAdd = By.xpath("//button[@title='Adds selected properties to the displayed properties list']");
+
+    }
+    public static By lblProfileNameInProfileMenuItems(String ProfileName){
+        String xpath = "//ul[@id='profile-dropdown-menu']//li//span[text()='"+ProfileName+"']";
+        lblProfileNameInProfileMenuItems=By.xpath(xpath);
+        return lblProfileNameInProfileMenuItems;
+    }
+
+    public static By lblTabNameInProfileWindow(String TabName){
+        String xpath = "//label[text()='"+TabName+"']";
+        lblTabNameInProfileWindow=By.xpath(xpath);
+        return lblTabNameInProfileWindow;
+    }
+
+    public static By lblAvailableSectionColumnsNames(String ColName){
+        String xpath = "//ul[@class='unselected selectable-list ui-sortable']//span[text()='"+ColName+"']/../..";
+        lblAvailableSectionColumnsNames=By.xpath(xpath);
+        return lblAvailableSectionColumnsNames;
+    }
+
+
+    public static By lblSelectedSectionColumnsNames(String ColName){
+        String xpath = "//ul[@class='selected selectable-list ui-sortable']//span[text()='"+ColName+"']/../..";
+        lblSelectedSectionColumnsNames=By.xpath(xpath);
+        return lblSelectedSectionColumnsNames;
+    }
+
+    public static By lblAvailableSectionHighlightedColumnsNames(String ColName){
+        String xpath = "//a[@class='field-item-btn ui-button ui-widget ui-state-default ui-button-text-only ui-corner-left ui-selected']//span[text()='"+ColName+"']";
+        lblAvailableSectionHighlightedColumnsNames=By.xpath(xpath);
+        return lblAvailableSectionHighlightedColumnsNames;
+    }
+}

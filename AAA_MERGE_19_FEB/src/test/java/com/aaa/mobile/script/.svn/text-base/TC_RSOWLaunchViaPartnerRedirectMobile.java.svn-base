@@ -1,0 +1,72 @@
+package com.aaa.mobile.script;
+
+import java.util.Hashtable;
+
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import com.aaa.accelerators.ActionEngine;
+import com.aaa.accelerators.ActionEngineMobile;
+import com.aaa.accelerators.AppiumActionEngine;
+import com.aaa.utilities.TestUtil;
+import com.aaa.mobile.lib.RSOMembershipLib;
+import com.aaa.mobile.lib.RSOWebHomeLib;
+import com.aaa.mobile.lib.RSOWebLoginLib;
+
+public class TC_RSOWLaunchViaPartnerRedirectMobile extends ActionEngine{
+	
+
+	/**
+	 *methodName :: launchViaPartnerRedirect
+	 *date :: 18-Dec-2017
+	 * author :: E002490
+	 *@param
+	 * throws Throwable
+	 */
+	
+	@DataProvider
+    public Object[][] getTestDataFor_launchViaPartnerRedirect() {
+        return TestUtil.getData("launchViaPartnerRedirect", TestData, "RSOWeb");
+    }
+
+    @Test(dataProvider = "getTestDataFor_launchViaPartnerRedirect")
+
+    public void launchViaPartnerRedirect(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("1668 : TC -Launch via Partner Redirect");
+                //driver.manage().deleteAllCookies();
+    			
+    			
+                //Launch  http://<domain>.aaa.com/stop.
+                navigateToApplication("RSOWEBMestag");
+                
+                //Object Creation
+                RSOWebHomeLib hml =new RSOWebHomeLib();
+                RSOWebLoginLib wl =new RSOWebLoginLib();
+                RSOMembershipLib ml =new RSOMembershipLib();
+                
+                //Enter club code and go
+                hml.enterClubCodeAndClickGo(data.get("clubCode"));
+                
+                //Club login page
+                hml.clickGiftMembershipPopUpCross();
+                
+                //Launch the browser to https://<domain>.aaa.com/scripts/WebObjects.dll/AAAOnline.woa?association=<association>&club=<clubNumber>&page=PartnerRedirect&PID=1147
+                navigateToApplication("RSOWEB");
+                
+                //Club login page
+                hml.clickFeedbackPopUpCross();
+                 wl.clickSignIn();
+                
+                //Verify Club login page
+                wl.verifyClubLogin();
+                System.out.println("Test Completed");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+}

@@ -1,0 +1,72 @@
+package com.aaa.web.script;
+
+import com.aaa.accelerators.ActionEngine;
+import com.aaa.utilities.TestUtil;
+import com.aaa.web.lib.CRHomeLib;
+import com.aaa.web.lib.DIHomeLib;
+import com.aaa.web.lib.DILoginLib;
+import com.aaa.web.lib.LoginRoleLib;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import java.util.Hashtable;
+
+
+public class TC_DIProfileCallSorting extends DILoginLib {
+    @DataProvider
+    public Object[][] getTestDataFor_profileCallSorting() {
+        return TestUtil.getData("DIProfileCallsorting", TestData, "D3Dispatch");
+    }
+    @Test(dataProvider = "getTestDataFor_profileCallSorting")
+    public void profileCallSorting(Hashtable<String, String> data)throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("1807: DI Profile call Sorting");
+                navigateToApplication("DI");
+                DIHomeLib diHome = new DIHomeLib();
+                CRHomeLib home=new CRHomeLib();
+                LoginRoleLib loginRole=new LoginRoleLib();
+                login(data.get("LoginName"),data.get("Password"));
+                loginRole.clickOnProceedBtnInDispatchRoleLogin();
+                waitcloseAllBusyIcons();
+                diHome.clickOnCloseIconOnQueueSelection();
+                diHome.clickOnProfile();
+                Thread.sleep(10000);
+                diHome.clickOnGearIconOfProfileWindow();
+                Thread.sleep(10000);
+                diHome.clickOnArrowButtonOfID();
+                diHome.verifyLabelPriorityOfIDOnProfileWindow();
+                diHome.verifyLabelOrderOfIDOnProfileWindow();
+                diHome.selectPriority(data.get("Priority"));
+                diHome.selectOrder(data.get("AscendingOrder"));
+                diHome.clickOnSaveButtonOfIDAndDateOnProfileWindow();
+                diHome.verifyIdTextOnprofileWindow(data.get("IDPriorityOrder"));
+                diHome.clickOnArrowButtonOfDate();
+                diHome.selectOrder(data.get("DescendingOrder"));
+                diHome.clickOnSaveButtonOfIDAndDateOnProfileWindow();
+                diHome.verifyIdTextOnprofileWindow(data.get("IDPriorityOrder"));
+                diHome.verifyDateTextOnprofileWindow(data.get("DatePriorityOrder"));
+                diHome.clickOnSaveSettingsButtonOfProfileWindow();
+                home.allErrorAlerts();
+                diHome.validateAscendingDescendingIcons();
+                diHome.clickOnTabNextToAllCallsInProfileWindow();
+                Thread.sleep(5000);
+                diHome.validateSortingIsRemoved();
+                diHome.validateAscendingOrderofColumn();
+                diHome.verifyTinyPointerPointingUp();
+                diHome.clickOnCallIDColumnOfProfileWindow();
+                diHome.validateDescendingOrderofColumn();
+                diHome.clickOnCallIDColumnOfProfileWindow();
+                diHome.validateSortingIsRemoved();
+                diHome.clickOnAllCallsTab();
+                diHome.validateAscendingDescendingIcons();
+                diHome.logOut();
+                System.out.println("Test completed");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+}
+

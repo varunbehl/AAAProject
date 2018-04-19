@@ -1,0 +1,123 @@
+
+package com.aaa.web.script;
+
+import com.aaa.utilities.TestUtil;
+import com.aaa.web.lib.*;
+import com.aaa.web.page.CRMemberSearchPage;
+
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import java.util.Hashtable;
+
+
+public class TC_CRPhoneTypesScript extends CRHomeLib{
+    String callId;
+
+    @DataProvider
+    public Object[][] getTestDataFor_callSaving()
+    {
+        return TestUtil.getData("validatePhoneTypes", TestData, "D3CallRecieving");
+    }
+
+    @Test(dataProvider = "getTestDataFor_callSaving")
+    public void phoneTypeverification(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("CR Phone Types");
+                LoginLib login = new LoginLib();
+                CRHomeLib crhome = new CRHomeLib();
+                DIHomeLib dihome = new DIHomeLib();
+                LoginRoleLib loginrole = new LoginRoleLib();
+                CRMemberSearchLib member = new CRMemberSearchLib();
+                CRVehicleTriageLib vehicle = new CRVehicleTriageLib();
+                CRLocationsLib location = new CRLocationsLib();
+                CRTowDestinationLib tow = new CRTowDestinationLib();
+                CRServiceLib service = new CRServiceLib();
+                
+                navigateToApplication("CR");
+                login.login(dataBean.getValue(data,"LoginName"),dataBean.getValue(data,"Password"));
+                crhome.verifyHomeScreen();
+                String Member = "";
+                if (data.get("Member").equals("db")){
+        	        //fetch member details from db
+        	        //generating a random number everytime to fetch a new record everytime
+        	        int rownum = IntRandomNumberGenerator(50,1000);       
+        	        //member from db
+        	        Member = CommonDb.selectRandomMemberFromDB(data.get("dbServer"),data.get("dbqueryFileName"),data.get("colomnName"),rownum);
+        	        System.out.println("member : "+Member);
+                }
+                else
+                {
+                	Member = data.get("Membersearch");
+                }
+                crhome.memberSearchTextBox(Member);
+                //member.memberNumClick();
+
+                member.memberSrchPageMandDetails(dataBean.getValue(data, "Primaryphonenum1"));
+                //member.currentCallClose();
+                location.breakdownLocTabSel();
+                location.enterLocationDetails(dataBean.getValue(data, "Breakdownlocationcode"),dataBean.getValue(data, "Breakdownaddress"));
+
+                vehicle.enterVehicleDetails(dataBean.getValue(data, "Vehicletype"),dataBean.getValue(data, "Vehiclecolor"),dataBean.getValue(data, "Vehiclemodel"));
+                //vehicle.selectPaceSetterCode();
+                vehicle.selectJumpStartFromBattery();
+                if (isVisibleOnly(CRMemberSearchPage.scriptError, "Script Error OKAY button"))
+                    click(CRMemberSearchPage.scriptError, "Script error Okay button");
+                service.validateFacilityAutospot();
+                crhome.saveButton();
+                login.waitcloseAllBusyIconsResults();
+                //service.errorAlertHandlingAfterSave();
+                callId = service.getCallId();
+                service.closeCallWindow();
+                //LogOut
+                crhome.logout();
+                navigateToApplication("DI");
+                //login.diLogin(data);
+                login.login(data.get("DILoginName"), data.get("DIPassword"));
+                loginrole.roleSelection(data.get("RoleinDispatch"));
+                dihome.clickOnContinueQueuesInDispatch();
+                //Verify Phonetype on Search Tab
+                dihome.clickOnSearchCallsInDispatch();
+                dihome.searchAndSelectCallIDInDI(callId);
+                dihome.verifyPhoneTypeOnDIMCD(data.get("PhoneType"));
+                //Verify on Profile Tab
+                dihome.clickOnProfile();
+                dihome.searchAndSelectCallIDOnProfile(callId);
+                dihome.verifyPhoneTypeOnProfile(data.get("PhoneType"));
+                //Verify Phone Type on TruckLoad Tab
+                dihome.clickOnTruckLoad();
+                dihome.verifyPhoneTypeOnTruckLoad(data.get("PhoneType"));
+                //LogOut DI Application
+                crhome.logout();
+
+                //Navigate To SPP and Login With SPP Login Credentials
+                navigateToApplication("DI");
+                //login.sppLogin(data);
+                //SPP -- verify Phone Type on SearchCall Tab
+                login.login(data.get("sppLogin"), data.get("sppPassword"));
+                dihome.clickForSearchCallID();
+                dihome.searchAndSelectCallIDInSPPDI(callId);
+                dihome.verifyPhoneTypeOnSPPDIMCD(data.get("PhoneType"));
+
+                //SPP -- TruckLoad Tab
+                dihome.clickOnTruckLoad();
+                dihome.verifyPhoneTypeInSPPTruckLoadDefault(data.get("PhoneType"));
+
+                //SPP -- Verify PhoneType In Profile
+                dihome.clickOnProfileInSPPDI();
+                dihome.searchAndSelectCallIDOnProfile(callId);
+                dihome.verifyPhoneTypeOnProfileInSPPDI(data.get("PhoneType"));
+                crhome.logout();
+                System.out.println("Test completed");
+
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+}
+

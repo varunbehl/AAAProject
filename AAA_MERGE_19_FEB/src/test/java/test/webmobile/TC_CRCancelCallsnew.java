@@ -1,0 +1,383 @@
+
+
+package test.webmobile;
+
+import com.aaa.accelerators.ActionEngine;
+import com.aaa.accelerators.ReportControl;
+import com.aaa.utilities.TestUtil;
+import com.aaa.web.lib.*;
+import com.aaa.web.page.CRHomePage;
+import com.aaa.web.page.CRServicePage;
+import com.aaa.web.page.CRVehicleTriagePage;
+
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import java.util.Hashtable;
+
+public class TC_CRCancelCallsnew extends ActionEngine {
+	String problemTypes;
+
+	@DataProvider
+	public Object[][] getTestDataFor_cancelCalls() {
+		return TestUtil.getData("crCancelCalls", TestData, "D3CallRecieving");
+	}
+
+	@Parameters({"counter"})
+	@Test(dataProvider = "getTestDataFor_cancelCalls")
+	public void ValidatekillProcessForCallsnew(Hashtable<String, String> data) throws Throwable {
+		try {
+			if (data.get("RunMode").equals("Y")) {
+
+				this.reporter.initTestCaseDescription("1707:TC-CRCancelCallsnew");
+				CRHomeLib home = new CRHomeLib();
+				CRLocationsLib locations = new CRLocationsLib();
+				CRVehicleTriageLib vehicle = new CRVehicleTriageLib();
+				CRMemberSearchLib memeber = new CRMemberSearchLib();
+				CRSearchCallsLib search = new CRSearchCallsLib();
+				CRServiceLib service = new CRServiceLib();
+				// Logging into the application
+				LoginToApplication(data);
+				//EnteringRequiredFieldsForCall(data);
+			//	home.cancelButton();
+
+				Thread.sleep(5000);
+			/*	boolean isExists = isVisible(CRHomePage.confirmationPopUp, "Confirmation Pop Up Window");
+				assertTrue(isExists,"Confirmation Pop Up Window displays");
+
+				boolean dropDownExists = isVisibleOnly(CRHomePage.drpdwnCanceling,"Drop Down for Cancelling");
+				assertTrue(dropDownExists,"Dropdown to select an option for canceling Exists");
+				home.SetCommentsConfirmationWindow(data.get("Comments"));
+				String strCommentsActual = home.GetCommentsConfirmationWindow();
+				assertTrue(data.get("Comments").equalsIgnoreCase(strCommentsActual),"Comments entered, there is a section to enter in a comment");
+				home.ClickOnYesButtonOnConfirmationWindow();
+				Thread.sleep(7000);
+				String popUpMessage = getText(CRHomePage.txtSuccessfullyKilledCall,"Save Pop Up message Successfully Killed Call");
+				assertTrue(data.get("PopUpMessageKill").equalsIgnoreCase(popUpMessage),"Popup displays Successfully killed call message");
+				Thread.sleep(3000);
+				home.clickOnContinueButtonOnKillCallPopup();
+				String elapsedTimeActual = home.GetCallElapsedTime();
+				assertTrue(data.get("ElapsedTime").equalsIgnoreCase(elapsedTimeActual),"Call is cleared from screen");
+				search.clickOnRecentCallsInSearchCalls();/// JUmping
+				Thread.sleep(5000);
+				String callIdAndDate = search.getCallIdAndDateFromRecentCalls();
+				String callID = callIdAndDate.substring(callIdAndDate.lastIndexOf('#') + 1);
+				assertTrue(callID != "","Killed call received a unique call ID "+callID);
+				search.ClickOnCallIdOnRecentCallsWindow();
+				Thread.sleep(5000);
+				String strWarningMessageActual = getText(CRHomePage.alertWarningWindow,"");
+				assertTrue(data.get("WarningMessage").equalsIgnoreCase(strWarningMessageActual),"Warning message is displayed with following text"+strWarningMessageActual);
+				home.clickOnContinueButtonOnWarningWindow();
+				boolean saveButton = isVisibleOnly(CRHomePage.btnMemberSave, "Save Button");
+				assertTrue(!saveButton, "Save button not displayed");
+				String strCallStatusActual = service.GetCallStatus();
+				assertTrue(data.get("CallStatusKill").equalsIgnoreCase(strCallStatusActual),"Call has status KI");
+				service.clickOnCallStatusButton();
+				Thread.sleep(5000);
+				home.clickOnExpandAllCommentsInStausHistoryWindow();
+				String strComments = home.GetCommentsFromStatusHistoryWindow();
+				String strcomment = strComments.substring(strComments.lastIndexOf(':') + 1).trim();
+				assertTrue(data.get("Comments").equalsIgnoreCase(strcomment),"Comments are displayed on status update page as a subset comment of the KI update line item");
+				home.clickOnCloseIconOnStatusHistoryPage();
+				locations.enterCallComments(data.get("NewComments"));
+				locations.clickOnCallCommentsAddButton();
+				locations.clickOnCallCommentsButton();
+				locations.validateComentsInCommentPopUp(data.get("NewComments"));
+				locations.clickIconMessageWindowClose();
+				boolean savebutton = isVisibleOnly(CRHomePage.btnSaveArchCall, "Save Button");
+				assertTrue(savebutton, "Save button is displayed");
+				vehicle.clickOnVehicleTriageTab();
+				vehicle.clickCloseIconInSelectedPaceSetterCodeSection();
+				vehicle.enterVehicleType(data.get("VehicleTypeUpdated"));
+				Thread.sleep(3000);
+				vehicle.enterVehicleYear(data.get("VehicleYearUpdated"));
+				Thread.sleep(1000);
+				vehicle.enterVehicleMake(data.get("VehicleMakeUpdated"));
+				Thread.sleep(1000);
+				vehicle.enterVehicleModel(data.get("VehicleModelUpdated"));
+				Thread.sleep(1000);
+				vehicle.enterVehicleColor(data.get("VehicleColorUpdated"));
+				Thread.sleep(1000);
+				vehicle.clickTag();
+				vehicle.clickonProblemTypeButton(data.get("TriageTypeNew"));
+				Thread.sleep(2000);
+				vehicle.clickonProblemTypeOptions(data.get("TriageTypeOptionNew"));
+				home.allErrorAlerts();
+				vehicle.handleScriptErrorInVehicleTriagePage();
+				home.savButton();
+				boolean  notification = isVisible(CRVehicleTriagePage.notificationCommentsSaved,"Save Call Notification ");
+				assertTrue(notification,"Save notification displayed");
+				home.leaveButton();
+				home.ClickOnYesButtonOnConfirmationWindow();
+				//Step 17 Closing and reloading the call
+				search.clickOnSearchCalls();
+				Thread.sleep(5000);
+				search.enterCallIdOnSearchCallsWindow(callID);
+				search.clickOnSearchBtnOnSearchCallsWindow();
+				Thread.sleep(2000);
+				search.ClickOnCallIdOnSearchCallsWindow();
+				Thread.sleep(9000);
+				home.clickOnContinueButtonOnWarningWindow();
+				Thread.sleep(3000);
+				locations.clickOnCallCommentsButton();
+				locations.validateComentsInCommentPopUp(data.get("Comments"));
+				locations.validateComentsInCommentPopUp(data.get("NewComments"));
+				locations.clickIconMessageWindowClose();
+				home.clickOnCallSummaryButton();
+
+				String strVehicle = getText(CRHomePage.txtVehicleOnCallSummary,"Vehicle Type in Call Summary Window");
+				assertTrue(data.get("VehicleTypeAfterUpdation").equalsIgnoreCase(strVehicle),"Changed Vehicle Type did not save to the call");
+
+				String strPaceSetter = getText(CRHomePage.txtPaceSetterCodeOnCallSummary,"Vehicle Type in Call Summary Window");
+				assertTrue(data.get("PaceSetterCode").equalsIgnoreCase(strPaceSetter),"Changed PaceSetterCode field did not save to the call");
+				home.clickOnCallSummaryButton();
+				home.duplicateButton();
+				//Step 18
+				home.ClickOnYesButtonOnConfirmationWindow();
+				memeber.currentCallClose();
+				String strCallStatus = service.GetCallStatus();
+				Thread.sleep(2000);
+				assertTrue(data.get("CallStatusDuplicate").equalsIgnoreCase(strCallStatus),"Call has status NA");
+				home.logout();*/
+				home.logout();
+				acceptAlert();
+				Thread.sleep(5000);
+	            System.out.println("Test completed");	
+	            ReportControl.fnEnableJoin();
+	            ReportControl.fnSwitchToMobile();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+	}
+
+	/*@Test(dataProvider = "getTestDataFor_cancelCalls")
+	public void ValidateCancelProcessForCalls(Hashtable<String, String> data) throws Throwable {
+		try {
+			if (data.get("RunMode").equals("Y")) {
+
+				this.reporter.initTestCaseDescription("1707:TC-CRCancelCalls");
+				CRHomeLib home = new CRHomeLib();
+				CRLocationsLib locations = new CRLocationsLib();
+				CRVehicleTriageLib vehicle = new CRVehicleTriageLib();
+				CRMemberSearchLib memeber = new CRMemberSearchLib();
+				CRSearchCallsLib search = new CRSearchCallsLib();
+				CRServiceLib service = new CRServiceLib();
+				LoginToApplication(data);
+
+				EnteringRequiredFieldsForCall(data);
+				home.saveButton();
+				Thread.sleep(3000);
+
+				service.clickOnRemainInCall();
+				home.cancelButton();
+
+				Thread.sleep(5000);
+				boolean isExists = isVisible(CRHomePage.confirmationPopUp, "Confirmation Pop Up Window");
+				assertTrue(isExists,"Confirmation Pop Up Window displays");
+
+				boolean dropDownExists = isVisibleOnly(CRHomePage.drpdwnCanceling,"Drop Down for Cancelling");
+				assertTrue(dropDownExists,"Dropdown to select an option for canceling Exists");
+
+				home.SetCommentsConfirmationWindow(data.get("Comments"));
+				String strCommentsActual = home.GetCommentsConfirmationWindow();
+				assertTrue(data.get("Comments").equalsIgnoreCase(strCommentsActual),"Comments entered, there is a section to enter in a comment");
+				home.ClickOnYesButtonOnConfirmationWindow();
+				Thread.sleep(7000);
+				String popUpMessage = getText(CRHomePage.txtSuccessfullyKilledCall,"Save Pop Up message: Successfully Cancelled Call");
+				assertTrue(data.get("PopUpMessageCancel").equalsIgnoreCase(popUpMessage),"Popup displays Successfully Cancelled call message");
+				Thread.sleep(3000);
+				home.clickOnContinueButtonOnKillCallPopup();
+
+				String elapsedTimeActual = home.GetCallElapsedTime();
+				assertTrue(data.get("ElapsedTime").equalsIgnoreCase(elapsedTimeActual),"Call is cleared from screen");
+				//search.clickOnSearchCalls();
+				search.clickOnRecentCallsInSearchCalls();
+				Thread.sleep(5000);
+				//home.clickOnSearchButtonOnSearchCalls();
+				// Step 8 Validation
+				String callIdAndDate = search.getCallIdAndDateFromRecentCalls();
+				String callID = callIdAndDate.substring(callIdAndDate.lastIndexOf('#') + 1);
+				assertTrue(callID != "","Cancelled call received a unique call ID "+callID);
+				search.ClickOnCallIdOnRecentCallsWindow();
+				Thread.sleep(5000);
+
+				boolean saveButton = isVisibleOnly(CRHomePage.btnMemberSave, "Save Button");
+				assertTrue(saveButton, "Save button displayed"); /// 30
+				//Step 11
+				String strCallStatusActual = service.GetCallStatus();
+				assertTrue(data.get("CallStatusCA").equalsIgnoreCase(strCallStatusActual),"Call has status CA");
+
+				service.clickOnCallStatusButton();
+				Thread.sleep(5000);
+				home.clickOnExpandAllCommentsInStausHistoryWindow();
+				// Step 12
+				String strComments = home.GetCommentsFromStatusHistoryWindow();
+				String strcomment = strComments.substring(strComments.lastIndexOf(':') + 1).trim();
+				assertTrue(data.get("Comments").equalsIgnoreCase(strcomment),"Comments are displayed on status update page as a subset comment of the CA update line item");
+				home.clickOnCloseIconOnStatusHistoryPage();
+				// Step 13 Validation Pending
+				locations.enterCallComments(data.get("NewComments")); ///  COmment 33
+				locations.clickOnCallCommentsAddButton();
+				locations.clickOnCallCommentsButton();
+				locations.validateComentsInCommentPopUp(data.get("NewComments"));
+				locations.clickIconMessageWindowClose();
+
+				vehicle.clickOnVehicleTriageTab();
+				vehicle.clickCloseIconInSelectedPaceSetterCodeSection();
+				vehicle.enterVehicleType(data.get("VehicleTypeUpdated"));
+				Thread.sleep(3000);
+				vehicle.enterVehicleYear(data.get("VehicleYearUpdated"));
+				Thread.sleep(1000);
+				vehicle.enterVehicleMake(data.get("VehicleMakeUpdated"));
+				Thread.sleep(1000);
+				vehicle.enterVehicleModel(data.get("VehicleModelUpdated"));
+				Thread.sleep(1000);
+				vehicle.enterVehicleColor(data.get("VehicleColorUpdated"));
+				Thread.sleep(1000);
+				vehicle.clickTag();
+				vehicle.clickonProblemTypeButton(data.get("TriageTypeNew"));
+				Thread.sleep(2000);
+				vehicle.clickonProblemTypeOptions(data.get("TriageTypeOptionNew"));
+				vehicle.handleScriptErrorInVehicleTriagePage();
+
+				boolean  notification = isVisible(CRVehicleTriagePage.notificationCommentsSaved,"Save Call Notification ");
+				assertTrue(notification,"Save notification displayed");
+
+				//home.savButton(); // Step 35
+				home.saveButton();
+				Thread.sleep(7000);
+				home.ClickOnYesButtonOnConfirmationWindow();
+				// Validating POp UP
+				boolean statusField = isVisible(CRServicePage.lblSpStatus,"Status Field on Call Status Update window");
+				assertTrue(statusField,"Status Field exist on Call Status Update window");
+
+				boolean reasonForStatus = isVisible(CRServicePage.txtResonForStatus,"Reason for Status Field on Call Status Update window");
+				assertTrue(statusField,"Reason for Status Field exist on Call Status Update window");
+
+				boolean comments = isVisible(CRServicePage.txtCommentsInStatusUpdate,"Comments for Status Field on Call Status Update window");
+				assertTrue(statusField,"Comments Field exist on Call Status Update window");
+
+				service.enterInResonForStatusStatus(data.get("ReasonForStatus"));
+				Thread.sleep(4000);
+				service.enterInCommentStatus(data.get("UpdateComments"));
+				service.clickOnComment();
+				//service.clickUpdateButton();
+				service.clickOnUpdateButtonOnCallStatusWindow();// 37
+				service.closeCall();
+				Thread.sleep(7000);
+				//service.closeCallWindow();
+				search.clickOnSearchCalls();
+				Thread.sleep(5000);
+				search.enterCallIdOnSearchCallsWindow(callID);
+				search.clickOnSearchBtnOnSearchCallsWindow();
+				Thread.sleep(2000);
+				search.ClickOnCallIdOnSearchCallsWindow();
+				Thread.sleep(9000);
+				vehicle.handleScriptErrorInVehicleTriagePage();
+				//home.clickOnContinueButtonOnWarningWindow();
+
+				locations.clickOnCallCommentsButton();
+				locations.validateComentsInCommentPopUp(data.get("UpdateComments"));
+				locations.validateComentsInCommentPopUp(data.get("NewComments"));
+				locations.validateComentsInCommentPopUp(data.get("Comments"));
+				locations.clickIconMessageWindowClose();
+				//Step 17 Closing and reloading the call
+
+				Thread.sleep(3000);
+
+				home.clickOnCallSummaryButton();
+				String strVehicle = getText(CRHomePage.txtVehicleOnCallSummary,"Vehicle Type in Call Summary Window");
+				assertTrue(data.get("VehicleTypeUpdated").equalsIgnoreCase(strVehicle),"Changed Vehicle Type saved to the call");
+				String strPaceSetter = getText(CRHomePage.txtPaceSetterCodeOnCallSummary,"Vehicle Type in Call Summary Window");
+				assertTrue(data.get("PaceSetterCodeUpdated").equalsIgnoreCase(strPaceSetter),"Changed PaceSetterCode field saved to the call");
+				home.clickOnCallSummaryButton();
+				//home.messageDialogBoxClose();
+				home.duplicateButton();
+				Thread.sleep(5000);
+				home.ClickOnYesButtonOnConfirmationWindow();
+				Thread.sleep(5000);
+				memeber.currentCallClose();
+				String strCallStatus = service.GetCallStatus();
+				assertTrue(data.get("CallStatusDuplicate").equalsIgnoreCase(strCallStatus),"Call has status NA");
+				
+				home.logout();
+				acceptAlert();
+				Thread.sleep(5000);
+	            System.out.println("Test completed");
+	            driver.quit();
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+	}*/
+
+	public void LoginToApplication(Hashtable<String, String> data) throws Throwable {
+		LoginLib login = new LoginLib();
+		CRHomeLib home = new CRHomeLib();
+		// Logging into the application
+		navigateToApplication("CR");
+		login.login(data.get("LoginName"), data.get("Password"));
+		Thread.sleep(5000);
+		home.allErrorAlertsNoButton();
+		home.messageDialogBoxClose();
+	}
+
+	public void EnteringRequiredFieldsForCall(Hashtable<String, String> data)throws Throwable {
+
+		//this.reporter.initTestCaseDescription("1707:TC-Cancel Calls");
+		CRHomeLib home = new CRHomeLib();
+		CRLocationsLib locations = new CRLocationsLib();
+		CRVehicleTriageLib vehicle = new CRVehicleTriageLib();
+		CRMemberSearchLib memeber = new CRMemberSearchLib();
+		CRSearchCallsLib search = new CRSearchCallsLib();
+		CRServiceLib service = new CRServiceLib();
+		// Logging into the application
+		String Member = "";
+        if (data.get("Member").equals("db")){
+	        //fetch member details from db
+	        //generating a random number everytime to fetch a new record everytime
+	        int rownum = IntRandomNumberGenerator(50,1000);       
+	        //member from db
+	        Member = CommonDb.selectRandomMemberFromDB(data.get("dbServer"),data.get("dbqueryFileName"),data.get("colomnName"),rownum);
+	        System.out.println("member : "+Member);
+        }
+        else
+        {
+        	Member = data.get("MemberNumber");
+        }
+        home.memberSearchTextBox(Member);
+		//home.memberSearchTextBox(data.get("MemberNumber"));
+		memeber.memberNumClick();
+		memeber.currentCallClose();
+		memeber.clickPrimRadioBtnSecondRow();
+		// Locations Page Starts
+		locations.clickOnLocationTab();
+		Thread.sleep(3000);
+		locations.clickOnSecondKownBrkDowLocation();
+		Thread.sleep(3000);
+		// Vehicle Triage Page Starts here
+		vehicle.clickOnVehicleTriageTab();
+		//vehicle.selectExistingVehicleModel();
+		vehicle.clickOnManualEntryLinkOnVehicle();
+		vehicle.enterVehicleType(data.get("VehicleType"));
+		Thread.sleep(3000);
+		vehicle.enterVehicleYear(data.get("VehicleYear"));
+		Thread.sleep(1000);
+		vehicle.enterVehicleMake(data.get("VehicleMake"));
+		Thread.sleep(1000);
+		vehicle.enterVehicleModel(data.get("VehicleModel"));
+		Thread.sleep(1000);
+		vehicle.enterVehicleColor(data.get("VehicleColor"));
+		Thread.sleep(1000);
+		vehicle.clickTag();
+		vehicle.clickonProblemTypeButton(data.get("TriageType"));
+		Thread.sleep(2000);
+		vehicle.clickonProblemTypeOptions(data.get("TriageTypeOption"));
+	}
+
+}

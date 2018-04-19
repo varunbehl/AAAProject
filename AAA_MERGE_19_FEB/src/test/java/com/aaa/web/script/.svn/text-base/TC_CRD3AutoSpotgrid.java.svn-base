@@ -1,0 +1,1148 @@
+package com.aaa.web.script;
+
+import com.aaa.utilities.TestUtil;
+import com.aaa.web.lib.*;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import java.util.Hashtable;
+
+
+public class TC_CRD3AutoSpotgrid extends DILoginLib {
+    public static String callID;
+    public static String pstTimeZone;
+    public static String newZone;
+    public static String autoSpotId;
+    public static String numberOfSpecialEquipment;
+    public static int totalnumberOfSpecialEquipment;
+
+/*	*//**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: loginWithValidUserNameAndInvalidPassword
+     * description :: valdUsernamewithInvalidPassword
+     * date :: 18-Dec-2017
+     * author :: Chandu Dendukuri
+     *//*
+    @DataProvider
+    public Object[][] getTestDataFor_autoSpotGrid() {
+        return TestUtil.getData("autoSpotGrid", TestData, "D3CallRecieving");
+    }
+
+    @Test(dataProvider = "getTestDataFor_autoSpotGrid")
+
+    public void autoSpotgrid(Hashtable<String, String> data) throws Throwable {
+
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("1978: Auto Spot Grid Verification ");
+
+                CRHomeLib home = new CRHomeLib();
+                LoginRoleLib role = new LoginRoleLib();
+                DIHomeLib diHome = new DIHomeLib();
+                CRHomeLib crHomeLib = new CRHomeLib();
+                CRMemberSearchLib member = new CRMemberSearchLib();
+                CRLocationsLib locations = new CRLocationsLib();
+                CRVehicleTriageLib crVehicleTriageLib = new CRVehicleTriageLib();
+                CRServiceLib services = new CRServiceLib();
+                CRTowDestinationLib tow = new CRTowDestinationLib();
+
+                navigateToApplication("CR");
+                login(data.get("CRLoginName"), data.get("Password"));
+                waitcloseAllBusyIcons();
+                home.messageDialogBoxClose();
+         //Full Service
+                home.memberSearchTextBox(data.get("Membersearch"));
+                member.memberNumClick();
+                member.currentCallClose();
+                member.enterMemberContactInfoPrimaryPhoneNumber(data.get("PhoneNumber"));
+                member.selectType(data.get("PhoneType"));
+                locations.breakdownLocTabSel();
+                locations.clickOnManualEntryLinkInLocation();
+                locations.enterNonMandatoryFieldsInLocations(data.get("LandMark"),data.get("Address"),data.get("crossStreet"),data.get("secondCrossStreet"),data.get("Zip"));
+                locations.enterAndSaveLocationMandatoryFields(data.get("StreetAddress"),data.get("City"),data.get("State"),data.get("LocationCode"));
+                locations.enterBKDownLocCode(data.get("LocationCode"));
+                Thread.sleep(2000);
+                locations.clickOnLocationCodeDropDown();
+                Thread.sleep(5000);
+                //locations.clickOnVerifyItButton();
+                //locations.clickOnLocationCodeDropDown();
+                Thread.sleep(1000);
+                crVehicleTriageLib.clickOnVehicleTriageTab();
+                crVehicleTriageLib.selectExistingVehicleModel();
+                crVehicleTriageLib.clickOnTow();
+                crVehicleTriageLib.clickOnBrakeFailurOnTow();
+                crVehicleTriageLib.scriptErrorHandle();
+                Thread.sleep(1000);
+                tow.clickOnTowDestinationTab();
+                Thread.sleep(5000);
+                crVehicleTriageLib.scriptErrorHandle();
+                tow.clickOnManualEntryLinkOnTowDestination();
+                tow.enterTowPassengers(data.get("Towpassengers"));
+                Thread.sleep(2000);
+                services.clickOnServiceTab();
+                services.validateFacilityAutospotID();
+                services.getFacilityType();
+
+                //home.allErrorAlerts();
+                tow.clickOnTowDestinationTab();
+                tow.enterTowLocationName(data.get("LocationAddress"));
+                tow.enterFirstCrossStreet(data.get("crossStreet"));
+                tow.enterSecondCrossStreet(data.get("secondCrossStreet"));
+                tow.enterCityCodeInTow(data.get("City"));
+                tow.enterStateInTow(data.get("State"));
+                tow.enterLandMarkInTow(data.get("LandMark"));
+                Thread.sleep(2000);
+                tow.getLatitudeValueInTow();
+                tow.getLogitudeValueInTow();
+                home.saveButton();
+                Thread.sleep(1000);
+                services.getCallId();
+                services.closeCall();
+                //home.allErrorAlerts();
+
+                //Light service
+                //Flat Tire
+                home.memberSearchTextBox(data.get("Membersearch"));
+                member.memberNumClick();
+                member.currentCallClose();
+                member.enterMemberContactInfoPrimaryPhoneNumber(data.get("PhoneNumber"));
+                member.selectType(data.get("PhoneType"));
+                locations.breakdownLocTabSel();
+                locations.clickOnManualEntryLinkInLocation();
+                locations.enterNonMandatoryFieldsInLocations(data.get("LandMark"),data.get("Address"),data.get("crossStreet"),data.get("secondCrossStreet"),data.get("Zip"));
+                locations.enterAndSaveLocationMandatoryFields(data.get("StreetAddress"),data.get("City"),data.get("State"),data.get("LocationCode"));
+                locations.enterBKDownLocCode(data.get("LocationCode"));
+                Thread.sleep(2000);
+                locations.clickOnLocationCodeDropDown();
+                Thread.sleep(5000);
+
+                //locations.clickOnCallBox();
+                Thread.sleep(1000);
+                crVehicleTriageLib.clickOnVehicleTriageTab();
+                crVehicleTriageLib.selectExistingVehicleModel();
+                crVehicleTriageLib.clickOnFlatTire();
+                crVehicleTriageLib.clickOnAirOnlyOptionInFlatTyreType();
+                Thread.sleep(5000);
+                crVehicleTriageLib.scriptErrorHandle();
+                Thread.sleep(2000);
+                services.clickOnServiceTab();
+                services.validateFacilityAutospotID();
+                services.validateFacilityAutospotAddress();
+                Thread.sleep(2000);
+                home.saveButton();
+                services.getCallId();
+                services.closeCall();
+                //Light service
+                //fuel Service
+                home.memberSearchTextBox(data.get("Membersearch"));
+                member.memberNumClick();
+                member.currentCallClose();
+                member.enterMemberContactInfoPrimaryPhoneNumber(data.get("PhoneNumber"));
+                member.selectType(data.get("PhoneType"));
+                locations.breakdownLocTabSel();
+                locations.clickOnManualEntryLinkInLocation();
+                locations.enterNonMandatoryFieldsInLocations(data.get("LandMark"),data.get("Address"),data.get("crossStreet"),data.get("secondCrossStreet"),data.get("Zip"));
+                locations.enterAndSaveLocationMandatoryFields(data.get("StreetAddress"),data.get("City"),data.get("State"),data.get("LocationCode"));
+                locations.enterBKDownLocCode(data.get("LocationCode"));
+                locations.clickOnLocationCodeDropDown();
+                Thread.sleep(5000);
+
+                //locations.clickOnCallBox();
+                //locations.clickOnLocationCodeDropDown();
+                Thread.sleep(1000);
+                crVehicleTriageLib.clickOnVehicleTriageTab();
+                crVehicleTriageLib.selectExistingVehicleModel();
+                crVehicleTriageLib.clickOnFuel();
+                crVehicleTriageLib.clickOnOutOfGas();
+                Thread.sleep(5000);
+                crVehicleTriageLib.scriptErrorHandle();
+                Thread.sleep(2000);
+                services.clickOnServiceTab();
+                services.validateFacilityAutospotID();
+                services.validateFacilityAutospotAddress();
+                services.getFacilityType();
+                Thread.sleep(2000);
+                home.saveButton();
+                Thread.sleep(1000);
+                services.getCallId();
+                services.closeCall();
+                //Light Services
+                //JumpStart Service
+                home.memberSearchTextBox(data.get("Membersearch"));
+                member.memberNumClick();
+                member.currentCallClose();
+                member.enterMemberContactInfoPrimaryPhoneNumber(data.get("PhoneNumber"));
+                member.selectType(data.get("PhoneType"));
+                locations.breakdownLocTabSel();
+                locations.clickOnManualEntryLinkInLocation();
+                locations.enterNonMandatoryFieldsInLocations(data.get("LandMark"),data.get("Address"),data.get("crossStreet"),data.get("secondCrossStreet"),data.get("Zip"));
+                locations.enterAndSaveLocationMandatoryFields(data.get("StreetAddress"),data.get("City"),data.get("State"),data.get("LocationCode"));
+                locations.enterBKDownLocCode(data.get("LocationCode"));
+                Thread.sleep(2000);
+                locations.clickOnLocationCodeDropDown();
+                Thread.sleep(5000);
+
+                Thread.sleep(1000);
+                //locations.clickOnCallBox();
+                crVehicleTriageLib.clickOnVehicleTriageTab();
+                crVehicleTriageLib.selectExistingVehicleModel();
+                crVehicleTriageLib.clickOnBatteryButton();
+                crVehicleTriageLib.clickOnJumpStartRadioButton();
+                Thread.sleep(5000);
+                crVehicleTriageLib.scriptErrorHandle();
+                Thread.sleep(2000);
+                services.clickOnServiceTab();
+                services.validateFacilityAutospotID();
+                services.validateFacilityAutospotAddress();
+                services.getFacilityType();
+                Thread.sleep(2000);
+                home.saveButton();
+                Thread.sleep(1000);
+                services.getCallId();
+                services.closeCall();
+
+                //Light Services
+                //JumpStart Service
+                home.memberSearchTextBox(data.get("Membersearch"));
+                member.memberNumClick();
+                member.currentCallClose();
+                member.enterMemberContactInfoPrimaryPhoneNumber(data.get("PhoneNumber"));
+                member.selectType(data.get("PhoneType"));
+                locations.breakdownLocTabSel();
+                locations.clickOnManualEntryLinkInLocation();
+                locations.enterNonMandatoryFieldsInLocations(data.get("LandMark"),data.get("Address"),data.get("crossStreet"),data.get("secondCrossStreet"),data.get("Zip"));
+                locations.enterAndSaveLocationMandatoryFields(data.get("StreetAddress"),data.get("City"),data.get("State"),data.get("LocationCode"));
+                Thread.sleep(2000);
+                locations.enterBKDownLocCode(data.get("LocationCode"));
+                Thread.sleep(2000);
+                locations.clickOnLocationCodeDropDown();
+                Thread.sleep(5000);
+
+                Thread.sleep(1000);
+                //locations.clickOnCallBox();
+                crVehicleTriageLib.clickOnVehicleTriageTab();
+                crVehicleTriageLib.selectExistingVehicleModel();
+                crVehicleTriageLib.clickOnBatteryButton();
+                crVehicleTriageLib.clickOnLeftLightOnRadioBtnOfBattery();
+                Thread.sleep(5000);
+                crVehicleTriageLib.scriptErrorHandle();
+                Thread.sleep(2000);
+                services.clickOnServiceTab();
+                services.validateFacilityAutospotID();
+                services.validateFacilityAutospotAddress();
+                services.getFacilityType();
+                Thread.sleep(2000);
+                home.saveButton();
+                Thread.sleep(1000);
+                services.getCallId();
+                services.closeCall();
+
+                //Light Services
+                //Lockout Service
+                home.memberSearchTextBox(data.get("Membersearch"));
+                member.memberNumClick();
+                member.currentCallClose();
+                member.enterMemberContactInfoPrimaryPhoneNumber(data.get("PhoneNumber"));
+                member.selectType(data.get("PhoneType"));
+                locations.breakdownLocTabSel();
+                locations.clickOnManualEntryLinkInLocation();
+                locations.enterNonMandatoryFieldsInLocations(data.get("LandMark"),data.get("Address"),data.get("crossStreet"),data.get("secondCrossStreet"),data.get("Zip"));
+                locations.enterAndSaveLocationMandatoryFields(data.get("StreetAddress"),data.get("City"),data.get("State"),data.get("LocationCode"));
+
+                locations.enterBKDownLocCode(data.get("LocationCode"));
+                Thread.sleep(2000);
+                locations.clickOnLocationCodeDropDown();
+                Thread.sleep(5000);
+                Thread.sleep(1000);
+                //locations.clickOnCallBox();
+                Thread.sleep(1000);
+                crVehicleTriageLib.clickOnVehicleTriageTab();
+                crVehicleTriageLib.selectExistingVehicleModel();
+                crVehicleTriageLib.clickOnKeysButton();
+                crVehicleTriageLib.clickOnKeysLockedRadioButton();
+                Thread.sleep(5000);
+                crVehicleTriageLib.scriptErrorHandle();
+                Thread.sleep(2000);
+                services.clickOnServiceTab();
+                services.validateFacilityAutospotID();
+                services.validateFacilityAutospotAddress();
+                services.getFacilityType();
+                Thread.sleep(2000);
+                home.saveButton();
+                Thread.sleep(1000);
+                services.getCallId();
+                services.closeCall();
+//Special Equipment
+                home.memberSearchTextBox(data.get("Membersearch"));
+                member.memberNumClick();
+                member.currentCallClose();
+                member.enterMemberContactInfoPrimaryPhoneNumber(data.get("PhoneNumber"));
+                member.selectType(data.get("PhoneType"));
+                locations.breakdownLocTabSel();
+                locations.clickOnManualEntryLinkInLocation();
+                locations.enterNonMandatoryFieldsInLocations(data.get("LandMark"), data.get("Address"), data.get("crossStreet"), data.get("secondCrossStreet"), data.get("Zip"));
+                locations.enterAndSaveLocationMandatoryFields(data.get("StreetAddress"), data.get("City"), data.get("State"), data.get("LocationCode"));
+                locations.enterBKDownLocCode(data.get("LocationCode"));
+                Thread.sleep(2000);
+                locations.clickOnLocationCodeDropDown();
+                Thread.sleep(5000);
+                Thread.sleep(1000);
+                //locations.clickOnCallBox();
+                Thread.sleep(1000);
+                crVehicleTriageLib.clickOnVehicleTriageTab();
+                crVehicleTriageLib.selectExistingVehicleModel();
+                crVehicleTriageLib.clickOnTow();
+                crVehicleTriageLib.clickOnBrakeFailurOnTow();
+                crVehicleTriageLib.scriptErrorHandle();
+                Thread.sleep(1000);
+                tow.clickOnTowDestinationTab();
+                Thread.sleep(5000);
+                crVehicleTriageLib.scriptErrorHandle();
+                tow.clickOnManualEntryLinkOnTowDestination();
+                tow.enterTowPassengers(data.get("Towpassengers"));
+                Thread.sleep(2000);
+                services.clickOnServiceTab();
+                autoSpotId = services.validateFacilityAutospotID();
+                numberOfSpecialEquipment = data.get("NumberOfSpecialEquipment");
+                totalnumberOfSpecialEquipment = Integer.parseInt(numberOfSpecialEquipment);
+                for (int i = 1; i <= totalnumberOfSpecialEquipment; i++) {
+                    services.enterSpeciLEquipment(data.get("SpecialEquipment"+i));
+                    home.allErrorAlerts();
+                    Thread.sleep(6000);
+                    home.waitCloseAllBusyIconsResults();
+                    String specialEquipmentAutoSpotId = services.validateFacilityAutospotID();
+                    services.verifySpeciLEquipmentWithAutoSpotID(autoSpotId, specialEquipmentAutoSpotId);
+                }
+                services.getFacilityType();
+                Thread.sleep(2000);
+                home.saveButton();
+                Thread.sleep(1000);
+                services.getCallId();
+                services.closeCall();
+//RV VehicleType
+                home.memberSearchTextBox(data.get("Membersearch"));
+                member.memberNumClick();
+                member.currentCallClose();
+                member.enterMemberContactInfoPrimaryPhoneNumber(data.get("PhoneNumber"));
+                member.selectType(data.get("PhoneType"));
+                locations.breakdownLocTabSel();
+                locations.clickOnManualEntryLinkInLocation();
+                locations.enterNonMandatoryFieldsInLocations(data.get("LandMark"), data.get("Address"), data.get("crossStreet"), data.get("secondCrossStreet"), data.get("Zip"));
+                locations.enterAndSaveLocationMandatoryFields(data.get("StreetAddress"), data.get("City"), data.get("State"), data.get("LocationCode"));
+                locations.enterBKDownLocCode(data.get("LocationCode"));
+                Thread.sleep(2000);
+                locations.clickOnLocationCodeDropDown();
+                Thread.sleep(5000);
+                //locations.clickOnCallBox();
+                Thread.sleep(1000);
+                //locations.clickOnLocationCodeDropDown();
+                //locations.clickOnVerifyItButton();
+                Thread.sleep(1000);
+                crVehicleTriageLib.clickOnVehicleTriageTab();
+                crVehicleTriageLib.clickOnManualEntryLinkOnVehicle();
+                *//*crVehicleTriageLib.selectExistingVehicleModel();*//*
+
+                // crVehicleTriageLib.selectExistingVehicleModel();
+                Thread.sleep(1000);
+                crVehicleTriageLib.enterVehicleType(data.get("ReEnterType"));
+                crVehicleTriageLib.clickOnTheTypeSearchFromDropDown();
+                Thread.sleep(3000);
+                crVehicleTriageLib.handleScriptErrorInVehicleTriagePage();
+                crVehicleTriageLib.getMoreInfoTab();
+                crVehicleTriageLib.handleScriptErrorInVehicleTriagePage();
+                crVehicleTriageLib.enterVehicleYear(data.get("ReEnterYear"));
+                Thread.sleep(2000);
+                crVehicleTriageLib.enterVehicleMake(data.get("ReEnterMake"));
+                crVehicleTriageLib.enterVehicleModel(data.get("ReEnterModel"));
+                crVehicleTriageLib.enterVehicleColor(data.get("Color"));
+
+                Thread.sleep(2000);
+                crVehicleTriageLib.clickOnTow();
+                crVehicleTriageLib.clickOnBreakDownForRVType();
+                crVehicleTriageLib.scriptErrorHandle();
+                Thread.sleep(1000);
+                tow.clickOnTowDestinationTab();
+                Thread.sleep(5000);
+                crVehicleTriageLib.scriptErrorHandle();
+                Thread.sleep(1000);
+                tow.clickOnManualEntryLinkOnTowDestination();
+                tow.enterTowPassengers(data.get("Towpassengers"));
+                Thread.sleep(2000);
+                services.clickOnServiceTab();
+                services.validateFacilityAutospotID();
+                services.validateFacilityAutospotAddress();
+                services.getFacilityType();
+                Thread.sleep(2000);
+                home.saveButton();
+                Thread.sleep(1000);
+                services.getCallId();
+                services.closeCall();
+
+                diHome.logOut();
+                System.out.println("Test completed");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }*/
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: autoSpotGridForFullService
+     * description :: autoSpotGridForFullService
+     * date :: 09-01-2018
+     * author :: Chandu Dendukuri
+     */
+
+    @DataProvider
+    public Object[][] getTestDataFor_autoSpotGridForFullService() {
+        return TestUtil.getData("autoSpotGrid", TestData, "D3CallRecieving");
+    }
+
+    @Test(dataProvider = "getTestDataFor_autoSpotGridForFullService")
+
+    public void autoSpotGridForFullService(Hashtable<String, String> data) throws Throwable {
+
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("1978: Auto Spot Grid Verification ");
+
+                CRHomeLib home = new CRHomeLib();
+                LoginRoleLib role = new LoginRoleLib();
+                DIHomeLib diHome = new DIHomeLib();
+                CRHomeLib crHomeLib = new CRHomeLib();
+                CRMemberSearchLib member = new CRMemberSearchLib();
+                CRLocationsLib locations = new CRLocationsLib();
+                CRVehicleTriageLib crVehicleTriageLib = new CRVehicleTriageLib();
+                CRServiceLib services = new CRServiceLib();
+                CRTowDestinationLib tow = new CRTowDestinationLib();
+
+                navigateToApplication("CR");
+                login(data.get("CRLoginName"), data.get("Password"));
+                waitcloseAllBusyIcons();
+                home.messageDialogBoxClose();
+                String Member = "";
+                if (data.get("Member").equals("db")){
+        	        //fetch member details from db
+        	        //generating a random number everytime to fetch a new record everytime
+        	        int rownum = IntRandomNumberGenerator(50,1000);       
+        	        //member from db
+        	        Member = CommonDb.selectRandomMemberFromDB(data.get("dbServer"),data.get("dbqueryFileName"),data.get("colomnName"),rownum);
+        	        System.out.println("member : "+Member);
+                }
+                else
+                {
+                	Member = data.get("Membersearch");
+                }
+                home.memberSearchTextBox(Member);
+                //home.memberSearchTextBox(data.get("Membersearch"));
+                member.memberNumClick();
+                member.currentCallClose();
+                member.enterMemberContactInfoPrimaryPhoneNumber(data.get("PhoneNumber"));
+                member.selectType(data.get("PhoneType"));
+                locations.breakdownLocTabSel();
+                locations.clickOnManualEntryLinkInLocation();
+                locations.enterNonMandatoryFieldsInLocations(data.get("LandMark"), data.get("Address"), data.get("crossStreet"), data.get("secondCrossStreet"), data.get("Zip"));
+                locations.enterAndSaveLocationMandatoryFields(data.get("StreetAddress"), data.get("City"), data.get("State"), data.get("LocationCode"));
+                locations.enterBKDownLocCode(data.get("LocationCode"));
+                Thread.sleep(2000);
+                locations.clickOnLocationCodeDropDown();
+                Thread.sleep(5000);
+                crVehicleTriageLib.clickOnVehicleTriageTab();
+                crVehicleTriageLib.selectExistingVehicleModel();
+                crVehicleTriageLib.clickOnTow();
+                crVehicleTriageLib.clickOnBrakeFailurOnTow();
+                crVehicleTriageLib.scriptErrorHandle();
+                Thread.sleep(1000);
+                tow.clickOnTowDestinationTab();
+                Thread.sleep(5000);
+                crVehicleTriageLib.scriptErrorHandle();
+                tow.clickOnManualEntryLinkOnTowDestination();
+                tow.enterTowPassengers(data.get("Towpassengers"));
+                Thread.sleep(2000);
+                services.clickOnServiceTab();
+                services.validateFacilityAutospotID();
+                services.getFacilityType();
+
+                tow.clickOnTowDestinationTab();
+                tow.enterTowLocationName(data.get("LocationAddress"));
+                tow.enterFirstCrossStreet(data.get("crossStreet"));
+                tow.enterSecondCrossStreet(data.get("secondCrossStreet"));
+                tow.enterCityCodeInTow(data.get("City"));
+                tow.enterStateInTow(data.get("State"));
+                tow.enterLandMarkInTow(data.get("LandMark"));
+                Thread.sleep(5000);
+                tow.getLatitudeValueInTow();
+                tow.getLogitudeValueInTow();
+                home.saveButton();
+                Thread.sleep(2000);
+                services.getCallId();
+                services.closeCall();
+                home.logout();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: autoSpotGridForLightService
+     * description :: autoSpotGridForLightService
+     * date :: 09-01-2018
+     * author :: Chandu Dendukuri
+     */
+
+    @DataProvider
+    public Object[][] getTestDataFor_autoSpotGridForLightServiceFlatTyre() {
+        return TestUtil.getData("autoSpotGrid", TestData, "D3CallRecieving");
+    }
+
+    @Test(dataProvider = "getTestDataFor_autoSpotGridForLightServiceFlatTyre")
+
+    public void autoSpotGridForLightServiceFlatTyre(Hashtable<String, String> data) throws Throwable {
+
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("1978: Auto Spot Grid Verification ");
+
+                CRHomeLib home = new CRHomeLib();
+                LoginRoleLib role = new LoginRoleLib();
+                DIHomeLib diHome = new DIHomeLib();
+                CRHomeLib crHomeLib = new CRHomeLib();
+                CRMemberSearchLib member = new CRMemberSearchLib();
+                CRLocationsLib locations = new CRLocationsLib();
+                CRVehicleTriageLib crVehicleTriageLib = new CRVehicleTriageLib();
+                CRServiceLib services = new CRServiceLib();
+                CRTowDestinationLib tow = new CRTowDestinationLib();
+
+                navigateToApplication("CR");
+                login(data.get("CRLoginName"), data.get("Password"));
+                waitcloseAllBusyIcons();
+                home.messageDialogBoxClose();
+                String Member = "";
+                if (data.get("Member").equals("db")){
+        	        //fetch member details from db
+        	        //generating a random number everytime to fetch a new record everytime
+        	        int rownum = IntRandomNumberGenerator(50,1000);       
+        	        //member from db
+        	        Member = CommonDb.selectRandomMemberFromDB(data.get("dbServer"),data.get("dbqueryFileName"),data.get("colomnName"),rownum);
+        	        System.out.println("member : "+Member);
+                }
+                else
+                {
+                	Member = data.get("Membersearch");
+                }
+                home.memberSearchTextBox(Member);
+                //home.memberSearchTextBox(data.get("Membersearch"));
+                member.memberNumClick();
+                member.currentCallClose();
+                member.enterMemberContactInfoPrimaryPhoneNumber(data.get("PhoneNumber"));
+                member.selectType(data.get("PhoneType"));
+                locations.breakdownLocTabSel();
+                locations.clickOnManualEntryLinkInLocation();
+                locations.enterNonMandatoryFieldsInLocations(data.get("LandMark"), data.get("Address"), data.get("crossStreet"), data.get("secondCrossStreet"), data.get("Zip"));
+                locations.enterAndSaveLocationMandatoryFields(data.get("StreetAddress"), data.get("City"), data.get("State"), data.get("LocationCode"));
+                locations.enterBKDownLocCode(data.get("LocationCode"));
+                Thread.sleep(2000);
+                locations.clickOnLocationCodeDropDown();
+                Thread.sleep(5000);
+
+                Thread.sleep(1000);
+                crVehicleTriageLib.clickOnVehicleTriageTab();
+                crVehicleTriageLib.selectExistingVehicleModel();
+                crVehicleTriageLib.clickOnFlatTire();
+                crVehicleTriageLib.clickOnAirOnlyOptionInFlatTyreType();
+                Thread.sleep(5000);
+                crVehicleTriageLib.scriptErrorHandle();
+                Thread.sleep(2000);
+                services.clickOnServiceTab();
+                services.validateFacilityAutospotID();
+                services.validateFacilityAutospotAddress();
+                services.getFacilityType();
+                Thread.sleep(2000);
+                home.saveButton();
+                Thread.sleep(2000);
+                services.getCallId();
+                services.closeCall();
+                home.logout();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: autoSpotGridForJumpStart
+     * description :: autoSpotGridForJumpStart
+     * date :: 09-01-2018
+     * author :: Chandu Dendukuri
+     */
+
+    @DataProvider
+    public Object[][] getTestDataFor_autoSpotGridForJumpStart() {
+        return TestUtil.getData("autoSpotGrid", TestData, "D3CallRecieving");
+    }
+
+    @Test(dataProvider = "getTestDataFor_autoSpotGridForJumpStart")
+
+    public void autoSpotGridForJumpStart(Hashtable<String, String> data) throws Throwable {
+
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("1978: Auto Spot Grid Verification ");
+
+                CRHomeLib home = new CRHomeLib();
+                LoginRoleLib role = new LoginRoleLib();
+                DIHomeLib diHome = new DIHomeLib();
+                CRHomeLib crHomeLib = new CRHomeLib();
+                CRMemberSearchLib member = new CRMemberSearchLib();
+                CRLocationsLib locations = new CRLocationsLib();
+                CRVehicleTriageLib crVehicleTriageLib = new CRVehicleTriageLib();
+                CRServiceLib services = new CRServiceLib();
+                CRTowDestinationLib tow = new CRTowDestinationLib();
+
+                navigateToApplication("CR");
+                login(data.get("CRLoginName"), data.get("Password"));
+                waitcloseAllBusyIcons();
+                home.messageDialogBoxClose();
+                String Member = "";
+                if (data.get("Member").equals("db")){
+        	        //fetch member details from db
+        	        //generating a random number everytime to fetch a new record everytime
+        	        int rownum = IntRandomNumberGenerator(50,1000);       
+        	        //member from db
+        	        Member = CommonDb.selectRandomMemberFromDB(data.get("dbServer"),data.get("dbqueryFileName"),data.get("colomnName"),rownum);
+        	        System.out.println("member : "+Member);
+                }
+                else
+                {
+                	Member = data.get("Membersearch");
+                }
+                home.memberSearchTextBox(Member);
+                //home.memberSearchTextBox(data.get("Membersearch"));
+                member.memberNumClick();
+                member.currentCallClose();
+                member.enterMemberContactInfoPrimaryPhoneNumber(data.get("PhoneNumber"));
+                member.selectType(data.get("PhoneType"));
+                locations.breakdownLocTabSel();
+                locations.clickOnManualEntryLinkInLocation();
+                locations.enterNonMandatoryFieldsInLocations(data.get("LandMark"), data.get("Address"), data.get("crossStreet"), data.get("secondCrossStreet"), data.get("Zip"));
+                locations.enterAndSaveLocationMandatoryFields(data.get("StreetAddress"), data.get("City"), data.get("State"), data.get("LocationCode"));
+                locations.enterBKDownLocCode(data.get("LocationCode"));
+                locations.clickOnLocationCodeDropDown();
+                Thread.sleep(5000);
+
+                Thread.sleep(1000);
+                crVehicleTriageLib.clickOnVehicleTriageTab();
+                crVehicleTriageLib.selectExistingVehicleModel();
+                crVehicleTriageLib.clickOnFuel();
+                crVehicleTriageLib.clickOnOutOfGas();
+                Thread.sleep(5000);
+                crVehicleTriageLib.scriptErrorHandle();
+                Thread.sleep(2000);
+                services.clickOnServiceTab();
+                services.validateFacilityAutospotID();
+                services.validateFacilityAutospotAddress();
+                services.getFacilityType();
+                Thread.sleep(2000);
+                home.saveButton();
+                Thread.sleep(2000);
+                services.getCallId();
+                services.closeCall();
+                home.logout();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: autoSpotGridForLockOutServices
+     * description :: autoSpotGridForLockOutServices
+     * date :: 09-01-2018
+     * author :: Chandu Dendukuri
+     */
+
+    @DataProvider
+    public Object[][] getTestDataFor_autoSpotGridForLockOutServices() {
+        return TestUtil.getData("autoSpotGrid", TestData, "D3CallRecieving");
+    }
+
+    @Test(dataProvider = "getTestDataFor_autoSpotGridForLockOutServices")
+
+    public void autoSpotGridForLockOutServices(Hashtable<String, String> data) throws Throwable {
+
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("1978: Auto Spot Grid Verification ");
+
+                CRHomeLib home = new CRHomeLib();
+                LoginRoleLib role = new LoginRoleLib();
+                DIHomeLib diHome = new DIHomeLib();
+                CRHomeLib crHomeLib = new CRHomeLib();
+                CRMemberSearchLib member = new CRMemberSearchLib();
+                CRLocationsLib locations = new CRLocationsLib();
+                CRVehicleTriageLib crVehicleTriageLib = new CRVehicleTriageLib();
+                CRServiceLib services = new CRServiceLib();
+                CRTowDestinationLib tow = new CRTowDestinationLib();
+
+                navigateToApplication("CR");
+                login(data.get("CRLoginName"), data.get("Password"));
+                waitcloseAllBusyIcons();
+                home.messageDialogBoxClose();
+                String Member = "";
+                if (data.get("Member").equals("db")){
+        	        //fetch member details from db
+        	        //generating a random number everytime to fetch a new record everytime
+        	        int rownum = IntRandomNumberGenerator(50,1000);       
+        	        //member from db
+        	        Member = CommonDb.selectRandomMemberFromDB(data.get("dbServer"),data.get("dbqueryFileName"),data.get("colomnName"),rownum);
+        	        System.out.println("member : "+Member);
+                }
+                else
+                {
+                	Member = data.get("Membersearch");
+                }
+                home.memberSearchTextBox(Member);
+                //home.memberSearchTextBox(data.get("Membersearch"));
+                member.memberNumClick();
+                member.currentCallClose();
+                member.enterMemberContactInfoPrimaryPhoneNumber(data.get("PhoneNumber"));
+                member.selectType(data.get("PhoneType"));
+                locations.breakdownLocTabSel();
+                locations.clickOnManualEntryLinkInLocation();
+                locations.enterNonMandatoryFieldsInLocations(data.get("LandMark"), data.get("Address"), data.get("crossStreet"), data.get("secondCrossStreet"), data.get("Zip"));
+                locations.enterAndSaveLocationMandatoryFields(data.get("StreetAddress"), data.get("City"), data.get("State"), data.get("LocationCode"));
+
+                locations.enterBKDownLocCode(data.get("LocationCode"));
+                Thread.sleep(2000);
+                locations.clickOnLocationCodeDropDown();
+                Thread.sleep(5000);
+                Thread.sleep(1000);
+                Thread.sleep(1000);
+                crVehicleTriageLib.clickOnVehicleTriageTab();
+                crVehicleTriageLib.selectExistingVehicleModel();
+                crVehicleTriageLib.clickOnKeysButton();
+                crVehicleTriageLib.clickOnKeysLockedRadioButton();
+                Thread.sleep(5000);
+                crVehicleTriageLib.scriptErrorHandle();
+                Thread.sleep(2000);
+                services.clickOnServiceTab();
+                services.validateFacilityAutospotID();
+                services.validateFacilityAutospotAddress();
+                services.getFacilityType();
+                Thread.sleep(2000);
+                home.saveButton();
+                Thread.sleep(2000);
+                services.getCallId();
+                services.closeCall();
+                home.logout();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: autoSpotGridForSpecialEquipement
+     * description :: autoSpotGridForSpecialEquipement
+     * date :: 09-01-2018
+     * author :: Chandu Dendukuri
+     */
+
+    @DataProvider
+    public Object[][] getTestDataFor_autoSpotGridForSpecialEquipement() {
+        return TestUtil.getData("autoSpotGrid", TestData, "D3CallRecieving");
+    }
+
+    @Test(dataProvider = "getTestDataFor_autoSpotGridForSpecialEquipement")
+
+    public void autoSpotGridForSpecialEquipement(Hashtable<String, String> data) throws Throwable {
+
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("1978: Auto Spot Grid Verification ");
+
+                CRHomeLib home = new CRHomeLib();
+                LoginRoleLib role = new LoginRoleLib();
+                DIHomeLib diHome = new DIHomeLib();
+                CRHomeLib crHomeLib = new CRHomeLib();
+                CRMemberSearchLib member = new CRMemberSearchLib();
+                CRLocationsLib locations = new CRLocationsLib();
+                CRVehicleTriageLib crVehicleTriageLib = new CRVehicleTriageLib();
+                CRServiceLib services = new CRServiceLib();
+                CRTowDestinationLib tow = new CRTowDestinationLib();
+
+                navigateToApplication("CR");
+                login(data.get("CRLoginName"), data.get("Password"));
+                waitcloseAllBusyIcons();
+                home.messageDialogBoxClose();
+                String Member = "";
+                if (data.get("Member").equals("db")){
+        	        //fetch member details from db
+        	        //generating a random number everytime to fetch a new record everytime
+        	        int rownum = IntRandomNumberGenerator(50,1000);       
+        	        //member from db
+        	        Member = CommonDb.selectRandomMemberFromDB(data.get("dbServer"),data.get("dbqueryFileName"),data.get("colomnName"),rownum);
+        	        System.out.println("member : "+Member);
+                }
+                else
+                {
+                	Member = data.get("Membersearch");
+                }
+                home.memberSearchTextBox(Member);
+                //home.memberSearchTextBox(data.get("Membersearch"));
+                member.memberNumClick();
+                member.currentCallClose();
+                member.enterMemberContactInfoPrimaryPhoneNumber(data.get("PhoneNumber"));
+                member.selectType(data.get("PhoneType"));
+                locations.breakdownLocTabSel();
+                locations.clickOnManualEntryLinkInLocation();
+                locations.enterNonMandatoryFieldsInLocations(data.get("LandMark"), data.get("Address"), data.get("crossStreet"), data.get("secondCrossStreet"), data.get("Zip"));
+                locations.enterAndSaveLocationMandatoryFields(data.get("StreetAddress"), data.get("City"), data.get("State"), data.get("LocationCode"));
+                locations.enterBKDownLocCode(data.get("LocationCode"));
+                Thread.sleep(2000);
+                locations.clickOnLocationCodeDropDown();
+                Thread.sleep(5000);
+                Thread.sleep(1000);
+                Thread.sleep(1000);
+                crVehicleTriageLib.clickOnVehicleTriageTab();
+                crVehicleTriageLib.selectExistingVehicleModel();
+                crVehicleTriageLib.clickOnTow();
+                crVehicleTriageLib.clickOnBrakeFailurOnTow();
+                crVehicleTriageLib.scriptErrorHandle();
+                Thread.sleep(1000);
+                tow.clickOnTowDestinationTab();
+                Thread.sleep(5000);
+                crVehicleTriageLib.scriptErrorHandle();
+                tow.clickOnManualEntryLinkOnTowDestination();
+                tow.enterTowPassengers(data.get("Towpassengers"));
+                Thread.sleep(2000);
+                services.clickOnServiceTab();
+                autoSpotId = services.validateFacilityAutospotID();
+                numberOfSpecialEquipment = data.get("NumberOfSpecialEquipment");
+                totalnumberOfSpecialEquipment = Integer.parseInt(numberOfSpecialEquipment);
+                for (int i = 1; i <= totalnumberOfSpecialEquipment; i++) {
+                    services.enterSpeciLEquipment(data.get("SpecialEquipment" + i));
+                    home.allErrorAlerts();
+                    Thread.sleep(6000);
+                    home.waitCloseAllBusyIconsResults();
+                    String specialEquipmentAutoSpotId = services.validateFacilityAutospotID();
+                    services.verifySpeciLEquipmentWithAutoSpotID(autoSpotId, specialEquipmentAutoSpotId);
+                }
+                services.getFacilityType();
+                Thread.sleep(2000);
+                home.saveButton();
+                Thread.sleep(2000);
+                services.getCallId();
+                services.closeCall();
+                home.logout();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: autoSpotGridForRVVehicle
+     * description :: autoSpotGridForRVVehicle
+     * date :: 09-01-2018
+     * author :: Chandu Dendukuri
+     */
+
+    @DataProvider
+    public Object[][] getTestDataFor_autoSpotGridForRVVehicle() {
+        return TestUtil.getData("autoSpotGrid", TestData, "D3CallRecieving");
+    }
+
+    @Test(dataProvider = "getTestDataFor_autoSpotGridForRVVehicle")
+
+    public void autoSpotGridForRVVehicle(Hashtable<String, String> data) throws Throwable {
+
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("1978: Auto Spot Grid Verification ");
+
+                CRHomeLib home = new CRHomeLib();
+                LoginRoleLib role = new LoginRoleLib();
+                DIHomeLib diHome = new DIHomeLib();
+                CRHomeLib crHomeLib = new CRHomeLib();
+                CRMemberSearchLib member = new CRMemberSearchLib();
+                CRLocationsLib locations = new CRLocationsLib();
+                CRVehicleTriageLib crVehicleTriageLib = new CRVehicleTriageLib();
+                CRServiceLib services = new CRServiceLib();
+                CRTowDestinationLib tow = new CRTowDestinationLib();
+
+                navigateToApplication("CR");
+                login(data.get("CRLoginName"), data.get("Password"));
+                waitcloseAllBusyIcons();
+                home.messageDialogBoxClose();
+                String Member = "";
+                if (data.get("Member").equals("db")){
+        	        //fetch member details from db
+        	        //generating a random number everytime to fetch a new record everytime
+        	        int rownum = IntRandomNumberGenerator(50,1000);       
+        	        //member from db
+        	        Member = CommonDb.selectRandomMemberFromDB(data.get("dbServer"),data.get("dbqueryFileName"),data.get("colomnName"),rownum);
+        	        System.out.println("member : "+Member);
+                }
+                else
+                {
+                	Member = data.get("Membersearch");
+                }
+                home.memberSearchTextBox(Member);
+                //home.memberSearchTextBox(data.get("Membersearch"));
+                member.memberNumClick();
+                member.currentCallClose();
+                member.enterMemberContactInfoPrimaryPhoneNumber(data.get("PhoneNumber"));
+                member.selectType(data.get("PhoneType"));
+                locations.breakdownLocTabSel();
+                locations.clickOnManualEntryLinkInLocation();
+                locations.enterNonMandatoryFieldsInLocations(data.get("LandMark"), data.get("Address"), data.get("crossStreet"), data.get("secondCrossStreet"), data.get("Zip"));
+                locations.enterAndSaveLocationMandatoryFields(data.get("StreetAddress"), data.get("City"), data.get("State"), data.get("LocationCode"));
+                locations.enterBKDownLocCode(data.get("LocationCode"));
+                Thread.sleep(2000);
+                locations.clickOnLocationCodeDropDown();
+                Thread.sleep(5000);
+                Thread.sleep(1000);
+                Thread.sleep(1000);
+                crVehicleTriageLib.clickOnVehicleTriageTab();
+                crVehicleTriageLib.clickOnManualEntryLinkOnVehicle();
+
+                Thread.sleep(1000);
+                crVehicleTriageLib.enterVehicleType(data.get("ReEnterType"));
+                crVehicleTriageLib.clickOnTheTypeSearchFromDropDown();
+                Thread.sleep(3000);
+                crVehicleTriageLib.handleScriptErrorInVehicleTriagePage();
+                crVehicleTriageLib.getMoreInfoTab();
+                crVehicleTriageLib.handleScriptErrorInVehicleTriagePage();
+                Thread.sleep(2000);
+                crVehicleTriageLib.enterVehicleYear(data.get("ReEnterYear"));
+                Thread.sleep(2000);
+                crVehicleTriageLib.enterVehicleMake(data.get("ReEnterMake"));
+                crVehicleTriageLib.enterVehicleModel(data.get("ReEnterModel"));
+                crVehicleTriageLib.enterVehicleColor(data.get("Color"));
+
+                Thread.sleep(3000);
+                crVehicleTriageLib.clickOnTow();
+                crVehicleTriageLib.clickOnBreakDownForRVType();
+                crVehicleTriageLib.scriptErrorHandle();
+                Thread.sleep(5000);
+                tow.clickOnTowDestinationTab();
+                Thread.sleep(5000);
+                crVehicleTriageLib.scriptErrorHandle();
+                Thread.sleep(1000);
+                tow.clickOnManualEntryLinkOnTowDestination();
+                tow.enterTowPassengers(data.get("Towpassengers"));
+                Thread.sleep(2000);
+                services.clickOnServiceTab();
+                services.validateFacilityAutospotID();
+                services.validateFacilityAutospotAddress();
+                services.getFacilityType();
+                Thread.sleep(2000);
+                home.saveButton();
+                Thread.sleep(2000);
+                services.getCallId();
+                services.closeCall();
+                home.logout();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: autoSpotGridForLightServicesFuel
+     * description :: autoSpotGridForLightServicesFuel
+     * date :: 09-01-2018
+     * author :: Chandu Dendukuri
+     */
+
+    @DataProvider
+    public Object[][] getTestDataFor_autoSpotGridForLightServicesFuel() {
+        return TestUtil.getData("autoSpotGrid", TestData, "D3CallRecieving");
+    }
+
+    @Test(dataProvider = "getTestDataFor_autoSpotGridForLightServicesFuel")
+
+    public void autoSpotGridForLightServicesFuel(Hashtable<String, String> data) throws Throwable {
+
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("1978: Auto Spot Grid Verification ");
+
+                CRHomeLib home = new CRHomeLib();
+                LoginRoleLib role = new LoginRoleLib();
+                DIHomeLib diHome = new DIHomeLib();
+                CRHomeLib crHomeLib = new CRHomeLib();
+                CRMemberSearchLib member = new CRMemberSearchLib();
+                CRLocationsLib locations = new CRLocationsLib();
+                CRVehicleTriageLib crVehicleTriageLib = new CRVehicleTriageLib();
+                CRServiceLib services = new CRServiceLib();
+                CRTowDestinationLib tow = new CRTowDestinationLib();
+
+                navigateToApplication("CR");
+                login(data.get("CRLoginName"), data.get("Password"));
+                waitcloseAllBusyIcons();
+                home.messageDialogBoxClose();
+                String Member = "";
+                if (data.get("Member").equals("db")){
+        	        //fetch member details from db
+        	        //generating a random number everytime to fetch a new record everytime
+        	        int rownum = IntRandomNumberGenerator(50,1000);       
+        	        //member from db
+        	        Member = CommonDb.selectRandomMemberFromDB(data.get("dbServer"),data.get("dbqueryFileName"),data.get("colomnName"),rownum);
+        	        System.out.println("member : "+Member);
+                }
+                else
+                {
+                	Member = data.get("Membersearch");
+                }
+                home.memberSearchTextBox(Member);
+                //home.memberSearchTextBox(data.get("Membersearch"));
+                member.memberNumClick();
+                member.currentCallClose();
+                member.enterMemberContactInfoPrimaryPhoneNumber(data.get("PhoneNumber"));
+                member.selectType(data.get("PhoneType"));
+                locations.breakdownLocTabSel();
+                locations.clickOnManualEntryLinkInLocation();
+                locations.enterNonMandatoryFieldsInLocations(data.get("LandMark"), data.get("Address"), data.get("crossStreet"), data.get("secondCrossStreet"), data.get("Zip"));
+                locations.enterAndSaveLocationMandatoryFields(data.get("StreetAddress"), data.get("City"), data.get("State"), data.get("LocationCode"));
+                locations.enterBKDownLocCode(data.get("LocationCode"));
+                Thread.sleep(2000);
+                locations.clickOnLocationCodeDropDown();
+                Thread.sleep(5000);
+
+                Thread.sleep(1000);
+                crVehicleTriageLib.clickOnVehicleTriageTab();
+                crVehicleTriageLib.selectExistingVehicleModel();
+                crVehicleTriageLib.clickOnFuel();
+                crVehicleTriageLib.clickOnOutOfGas();
+                Thread.sleep(5000);
+                crVehicleTriageLib.scriptErrorHandle();
+                Thread.sleep(2000);
+                services.clickOnServiceTab();
+                services.validateFacilityAutospotID();
+                services.validateFacilityAutospotAddress();
+                services.getFacilityType();
+                Thread.sleep(2000);
+                home.saveButton();
+                Thread.sleep(2000);
+                services.getCallId();
+                services.closeCall();
+                home.logout();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+    @DataProvider
+    public Object[][] getTestDataFor_autoSpotGridForBattery() {
+        return TestUtil.getData("autoSpotGrid", TestData, "D3CallRecieving");
+    }
+
+    @Test(dataProvider = "getTestDataFor_autoSpotGridForBattery")
+
+    public void autoSpotGridForBattery(Hashtable<String, String> data) throws Throwable {
+
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("1978: Auto Spot Grid Verification ");
+
+                CRHomeLib home = new CRHomeLib();
+                LoginRoleLib role = new LoginRoleLib();
+                DIHomeLib diHome = new DIHomeLib();
+                CRHomeLib crHomeLib = new CRHomeLib();
+                CRMemberSearchLib member = new CRMemberSearchLib();
+                CRLocationsLib locations = new CRLocationsLib();
+                CRVehicleTriageLib crVehicleTriageLib = new CRVehicleTriageLib();
+                CRServiceLib services = new CRServiceLib();
+                CRTowDestinationLib tow = new CRTowDestinationLib();
+
+                navigateToApplication("CR");
+                login(data.get("CRLoginName"), data.get("Password"));
+                waitcloseAllBusyIcons();
+                home.messageDialogBoxClose();
+                String Member = "";
+                if (data.get("Member").equals("db")){
+        	        //fetch member details from db
+        	        //generating a random number everytime to fetch a new record everytime
+        	        int rownum = IntRandomNumberGenerator(50,1000);       
+        	        //member from db
+        	        Member = CommonDb.selectRandomMemberFromDB(data.get("dbServer"),data.get("dbqueryFileName"),data.get("colomnName"),rownum);
+        	        System.out.println("member : "+Member);
+                }
+                else
+                {
+                	Member = data.get("Membersearch");
+                }
+                home.memberSearchTextBox(Member);
+                //home.memberSearchTextBox(data.get("Membersearch"));
+                member.memberNumClick();
+                member.currentCallClose();
+                member.enterMemberContactInfoPrimaryPhoneNumber(data.get("PhoneNumber"));
+                member.selectType(data.get("PhoneType"));
+                locations.breakdownLocTabSel();
+                locations.clickOnManualEntryLinkInLocation();
+                locations.enterNonMandatoryFieldsInLocations(data.get("LandMark"), data.get("Address"), data.get("crossStreet"), data.get("secondCrossStreet"), data.get("Zip"));
+                locations.enterAndSaveLocationMandatoryFields(data.get("StreetAddress"), data.get("City"), data.get("State"), data.get("LocationCode"));
+                Thread.sleep(2000);
+                locations.enterBKDownLocCode(data.get("LocationCode"));
+                Thread.sleep(2000);
+                locations.clickOnLocationCodeDropDown();
+                Thread.sleep(5000);
+                Thread.sleep(1000);
+                //locations.clickOnCallBox();
+                crVehicleTriageLib.clickOnVehicleTriageTab();
+                crVehicleTriageLib.selectExistingVehicleModel();
+                crVehicleTriageLib.clickOnBatteryButton();
+                crVehicleTriageLib.clickOnLeftLightOnRadioBtnOfBattery();
+                Thread.sleep(5000);
+                crVehicleTriageLib.scriptErrorHandle();
+                Thread.sleep(2000);
+                services.clickOnServiceTab();
+                services.validateFacilityAutospotID();
+                services.validateFacilityAutospotAddress();
+                services.getFacilityType();
+                Thread.sleep(2000);
+                home.saveButton();
+                Thread.sleep(1000);
+                services.getCallId();
+                services.closeCall();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+}

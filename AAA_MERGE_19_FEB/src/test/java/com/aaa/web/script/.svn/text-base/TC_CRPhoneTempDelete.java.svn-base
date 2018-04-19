@@ -1,0 +1,63 @@
+package com.aaa.web.script;
+
+import com.aaa.utilities.TestUtil;
+import com.aaa.web.lib.*;
+import com.aaa.web.page.CRMemberSearchPage;
+import com.aaa.web.page.CRServicePage;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import java.util.Hashtable;
+
+public class TC_CRPhoneTempDelete extends LoginLib {
+    @DataProvider
+    public Object[][] getTestDataFor_memberContactInfoSearch() {
+        return TestUtil.getData("phoneTempDelete",TestData,"D3CallRecieving");
+    }
+
+    @Test(dataProvider = "getTestDataFor_memberContactInfoSearch")
+    public void memberContactInfoSearch(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("MemberContactInfo");
+                CRHomeLib home = new CRHomeLib();
+                CRMemberSearchLib member = new CRMemberSearchLib();
+                CRLocationsLib crLocationsLib=new CRLocationsLib();
+                CRVehicleTriageLib crVehicletriageLib=new CRVehicleTriageLib();
+                CRServiceLib crServiceLib =new CRServiceLib();
+                home.verifyandClickLogout();
+                login(data.get("LoginName"),data.get("Password"));
+                home.messageDialogBoxClose();
+                String Member = "";
+                if (data.get("Member").equals("db")){
+        	        //fetch member details from db
+        	        //generating a random number everytime to fetch a new record everytime
+        	        int rownum = IntRandomNumberGenerator(50,1000);       
+        	        //member from db
+        	        Member = CommonDb.selectRandomMemberFromDB(data.get("dbServer"),data.get("dbqueryFileName"),data.get("colomnName"),rownum);
+        	        System.out.println("member : "+Member);
+                }
+                else
+                {
+                	Member = data.get("Membersearch");
+                }
+                home.memberSearchTextBox(Member);
+                //home.memberSearchTextBox(data.get("Membersearch"));
+                member.memberNumberColNullValueCheck();
+                member.tempDelete();
+                crLocationsLib.searchBreakDownLocation(data.get("Breakdownlocationcode")); //DW
+                crVehicletriageLib.selectVehicleModel();
+                crVehicletriageLib.handleScriptErrorInVehicleTriagePage();
+                home.saveButton();
+                crServiceLib.closeCall();
+                //crServiceLib.clickonSaveBtn();
+                home.memberSearchTextBox(Member);
+                member.memberNumberColNullValueCheck();
+                System.out.println("Test completed");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+}

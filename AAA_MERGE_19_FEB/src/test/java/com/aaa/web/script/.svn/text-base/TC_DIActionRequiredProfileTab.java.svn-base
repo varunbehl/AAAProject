@@ -1,0 +1,119 @@
+package com.aaa.web.script;
+
+
+import com.aaa.e2e.script.CR_DI;
+import com.aaa.utilities.TestUtil;
+import com.aaa.web.lib.*;
+import com.aaa.web.page.DIHomePage;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import java.util.Hashtable;
+
+public class TC_DIActionRequiredProfileTab extends DILoginLib {
+    String newCallId;
+    @DataProvider
+    public Object[][] getTestDataFor_verifyREstatusOnProfileActionRequired() {
+        return TestUtil.getData("verifyREstatusOnProfileActionRequired", TestData, "D3Dispatch");
+    }
+
+    @Test(dataProvider = "getTestDataFor_verifyREstatusOnProfileActionRequired")
+
+    public void verifyREstatusOnProfileActionRequired(Hashtable<String, String> data) throws Throwable {
+
+        try {
+
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("1743: Action Required Profile Tab ");
+
+                CRHomeLib home = new CRHomeLib();
+                LoginRoleLib role = new LoginRoleLib();
+                DIHomeLib diHome = new DIHomeLib();
+                CRHomeLib crHomeLib = new CRHomeLib();
+                CRMemberSearchLib member = new CRMemberSearchLib();
+                CRLocationsLib location = new CRLocationsLib();
+                CRTowDestinationLib tow = new CRTowDestinationLib();
+                CRSearchCallsLib crSearchCall = new CRSearchCallsLib();
+                CR_DI crDI = new CR_DI();
+                DIMCDLib dimcd = new DIMCDLib();
+                LoginRoleLib loginRole = new LoginRoleLib();
+                DILoginLib diLogin = new DILoginLib();
+
+                CRVehicleTriageLib vehicle = new CRVehicleTriageLib();
+                CRServiceLib service = new CRServiceLib();
+
+                login(data.get("LoginName"), data.get("Password"));
+                member.clickOnPartialCallCloseButton();
+                home.messageDialogBoxClose();
+                waitcloseAllBusyIcons();
+                home.messageDialogBoxClose();
+                home.memberSearchTextBox(data.get("Membersearch"));
+                member.memberNumClick();
+                member.currentCallClose();
+
+
+                location.clickOnLocationTab();
+                location.clickOnManualEntryLinkInLocation();
+                location.enterBlockRange(data.get("StreetNumber1"));
+                String streenNumber = location.getBlockRange();
+                boolean streenNumberValue = streenNumber != null;
+                assertTrue(streenNumberValue,"verified the Streen Number that is entered in Breakdown Location & entered StreenNumber    "+streenNumber);
+                location.enterBKDownStreetAddress(data.get("StreetAddress1"));
+                String streetAddressValue=location.getBKDownStreetAddress();
+                boolean streetAddress = streetAddressValue != null;
+                assertTrue(streetAddress,"Verified the Street Address That is entered in Breakdown Location & entered StreetAddress   "+streetAddressValue);
+                location.enterBKDownCityLocation(data.get("City1"));
+                String cityValue=location.getCityValue();
+                boolean city=cityValue != null;
+                assertTrue(city,"Verified the City That is entered in Breakdown Location & entered city   "+cityValue);
+                location.enterBKDownState(data.get("State1"));
+                String stateValue=location.getStateValue();
+                boolean state = stateValue != null;
+                assertTrue(state,"Verified the State That is entered in Breakdown Location & entered State  "+stateValue);
+                location.enterBKDownLocCode(data.get("LocationCode1"));
+                String locationCodeValue=location.getLocationCode();
+                boolean locationCode=locationCodeValue != null;
+                assertTrue(locationCode,"Verified the Location Code that is entered in Breakdown Location & entered LocationCode   "+locationCodeValue);
+                vehicle.clickOnVehicleTriageTab();
+                vehicle.selectExistingVehicleModel();
+                Thread.sleep(2000);
+                vehicle.clickonProblemTypeButton(data.get("ProblemType1"));
+                Thread.sleep(3000);
+                vehicle.clickonProblemTypeOptions(data.get("ProblemTypeOption1"));
+                service.clickOnServiceTab();
+                Thread.sleep(3000);
+                service.validateNoFacilityAutoSpot();
+                Thread.sleep(2000);
+                home.saveButton();
+                home.allErrorAlerts();
+                newCallId = service.getCallId();
+                service.clickOnRemainInCall();
+                Thread.sleep(2000);
+
+                home.allErrorAlerts();
+                service.clickOnCallStatusButton();
+                service.verifyToGetCallStatus(data.get("CallStatusForRE"));
+                service.getTextOfStatusValue();
+
+                home.logout();
+                acceptAlert();
+                navigateToApplication("DI");
+                login(data.get("LoginNameForDI"), data.get("PasswordForDI"));
+                loginRole.clickOnProceedBtnInDispatchRoleLogin();
+                Thread.sleep(10000);
+                //diHome.closeFacilityWindow();
+                diHome.clickOnCloseIconOnQueueSelection();
+                diLogin.waitcloseAllBusyIcons();
+                Thread.sleep(5000);
+                waitForVisibilityOfElement(DIHomePage.tabDiProfile, "Profile Menu Item");
+                click(DIHomePage.tabDiProfile, "Profile Menu Item");
+
+
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+}

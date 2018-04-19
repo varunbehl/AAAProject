@@ -1,0 +1,173 @@
+package com.aaa.web.script;
+
+import com.aaa.accelerators.TestEngineWeb;
+import com.aaa.utilities.TestUtil;
+import com.aaa.web.lib.*;
+import com.aaa.web.page.CRLocationsPage;
+import com.aaa.web.page.CRVehicleTriagePage;
+
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+
+
+
+
+
+import java.util.Hashtable;
+
+public class TC_CRERSBattery extends LoginLib
+{
+	String callId;
+    @DataProvider
+    public Object[][] getTestDataFor_ERSBatteryJumpStart() {
+        return TestUtil.getData("ERSBatteryJumpStart", TestData, "D3CallRecieving");
+    }
+
+    @Test(dataProvider = "getTestDataFor_ERSBatteryJumpStart")
+    public void ERSBatteryJumpStart(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                TestEngineWeb.reporter.initTestCaseDescription("CR ERS Battery");
+                //declarations
+                CRVehicleTriageLib veh=new CRVehicleTriageLib();
+                //enter membership details
+                enterMembershipDetailsandVehicleDetails(data);
+                //select problem 
+                veh.selectJumpStartFromBattery();
+                //validate pacesettercode
+                veh.validatePacesetterCode(dataBean.getValue(data,"Pacesettercode") );
+                //validate auto spot and call is saved
+                validateAutoSpotanCallisSaved(data);
+                
+                System.out.println("Test completed");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+    
+    @DataProvider
+    public Object[][] getTestDataFor_ERSBatteryTruck() {
+        return TestUtil.getData("ERSBatteryTruck", TestData, "D3CallRecieving");
+    }
+
+    @Test(dataProvider = "getTestDataFor_ERSBatteryTruck")
+    public void ERSBatteryTruck(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                TestEngineWeb.reporter.initTestCaseDescription("CR ERS Battery");
+                //declarations
+                CRVehicleTriageLib veh=new CRVehicleTriageLib();
+                CRServiceLib ser=new CRServiceLib();
+                enterMembershipDetailsandVehicleDetails(data);
+                veh.enterPacesetterCodeBattery(dataBean.getValue(data,"Pacesettercode") );
+              //validate pacesettercode
+                veh.validatePacesetterCode(dataBean.getValue(data,"Pacesettercode") );
+                validateAutoSpotanCallisSaved(data);
+                System.out.println("Test completed");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+    
+
+    public void enterMembershipDetailsandVehicleDetails(Hashtable<String, String> data) throws Throwable {
+    	CRMemberSearchLib mem=new CRMemberSearchLib();
+        CRLocationsLib loc=new CRLocationsLib();
+        CRVehicleTriageLib veh=new CRVehicleTriageLib();
+        CRServiceLib ser=new CRServiceLib();
+        CRHomeLib home = new CRHomeLib();
+        home.verifyandClickLogout();
+        //launch application
+        navigateToApplication("CR");
+        //login to Application
+        login(dataBean.getValue(data,"LoginName"),dataBean.getValue(data,"Password"));
+        home.verifyHomeScreen();
+        //enter and search member 
+        String Member = "";
+        if (data.get("Member").equals("db")){
+	        //fetch member details from db
+	        //generating a random number everytime to fetch a new record everytime
+	        int rownum = IntRandomNumberGenerator(50,1000);       
+	        //member from db
+	        Member = CommonDb.selectRandomMemberFromDB(data.get("dbServer"),data.get("dbqueryFileName"),data.get("colomnName"),rownum);
+	        System.out.println("member : "+Member);
+        }
+        else
+        {
+        	Member = data.get("Membersearch");
+        }
+        home.memberSearchTextBox(Member);
+        //home.memberSearchTextBox(dataBean.getValue(data,"Membersearch"));
+        //search and close alert member
+        mem.memberNumClick();
+        //Enter primary phone number
+        mem.enterMemberContactInfoPrimaryPhoneNumber(dataBean.getValue(data, "Primaryphonenum1"));
+        //enter prime phone type cellular
+        mem.membContInfoEnterPrimPhoneTypeCellular();
+       //enter prime phone radio button
+        mem.clickPrimRadioBtnRowOne();
+        //enter breakdown location
+        loc.breakdownLocTabSel();
+        if(isVisibleOnly(CRLocationsPage.linkBrkDowLocAddr, "breakdown location address"))
+        {
+            loc.clickonBrkdownLocLink();
+            loc.brkdownLocationCode(dataBean.getValue(data, "Breakdownlocationcode"));
+        }
+        else
+        {
+            loc.enterTxtinBrkDowLocSrch(dataBean.getValue(data, "Breakdownaddress"));
+            loc.brkDowLocSrchBtn();
+            loc.brkdowLocAddrLink();
+            loc.brkdownLocationCode(dataBean.getValue(data, "Breakdownlocationcode"));
+        }
+        //enter vehicle information
+        veh.vehicletriageTabsel();
+        if(isElementPresent(CRVehicleTriagePage.linkVehicleModel, "vehicle model")) 
+        {
+            veh.Vehicleinfolink();
+            veh.Vehicletype(dataBean.getValue(data, "Vehicletype"));
+            veh.enterVehicleColor(dataBean.getValue(data, "Vehiclecolor"));
+        }
+        else
+        {
+            veh.Entervehicleinfomanually(dataBean.getValue(data, "Vehiclemodel"));
+            veh.clickVehicleSearchButton();
+            veh.availableVehicleaftersrch();
+            veh.vehicleColor(dataBean.getValue(data, "Vehiclecolor"));
+        } 
+    }
+    
+    public void validateAutoSpotanCallisSaved(Hashtable<String, String> data) throws Throwable {
+        //Declarations
+    	CRVehicleTriageLib veh=new CRVehicleTriageLib();
+        CRServiceLib ser=new CRServiceLib();
+        LoginRoleLib ll = new LoginRoleLib();
+        DIHomeLib dih = new DIHomeLib();
+        DISearchCallsLib dis = new DISearchCallsLib();
+        CRHomeLib crh = new CRHomeLib();
+        
+        //veh.validatePaceSetterCode(data.get("Pacesettercode"));
+        ser.validateFacilityAutospot();
+        ser.clickOnSaveBtn();
+        callId = ser.getCallId();
+        ser.closeCallWindow();
+        crh.logout();
+        navigateToApplication("DI");
+        enterLoginDetails(data.get("DILoginName"), data.get("DIPassword"));
+        ll.selectRoleAndProceed(dataBean.getValue(data, "RoleinDispatch"));
+        dih.clickOnContinueQueuesInDispatch();
+        dih.clickOnSearchCallsInDispatch();
+        dis.searchAndSelectCallID(callId);
+        dih.logOut();
+        
+        
+        //navigateTo(CALL_RECEIVING_URL);
+        
+    }
+    
+}

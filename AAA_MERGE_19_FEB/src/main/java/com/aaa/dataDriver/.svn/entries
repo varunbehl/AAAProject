@@ -1,0 +1,54 @@
+8
+
+dir
+1033
+https://certloadgen3.national.aaa.com/svn/CignitiAutomation/aaaAutomationCignitiOffShore/src/main/java/com/aaa/dataDriver
+https://certloadgen3.national.aaa.com/svn/CignitiAutomation
+
+
+
+2017-12-07T22:31:43.523076Z
+28
+mharish
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+b79626d7-27ca-a047-864a-160d5a7d81c8
+
+DataTable.java
+file
+
+
+
+
+2018-02-02T05:12:26.421000Z
+90a55128fa0df2543200b69f383c8849
+2017-12-07T22:31:43.523076Z
+28
+mharish
+has-props
+
+ExcelFileReadWrite.java
+file
+
+
+
+
+2018-02-02T05:12:26.424000Z
+8343c8d61b92e3ff2f1cb1f819625b87
+2017-12-07T22:31:43.523076Z
+28
+mharish
+has-props
+

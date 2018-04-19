@@ -1,0 +1,44 @@
+8
+
+dir
+1033
+https://certloadgen3.national.aaa.com/svn/CignitiAutomation/aaaAutomationCignitiOffShore/src/test/java
+https://certloadgen3.national.aaa.com/svn/CignitiAutomation
+
+
+
+2018-02-01T21:17:29.345149Z
+1032
+mharish
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+b79626d7-27ca-a047-864a-160d5a7d81c8
+
+com
+dir
+
+log4j.properties
+file
+
+
+
+
+2018-02-02T05:12:25.894000Z
+c3660373d4415b60868f1f63db1d3d4d
+2017-12-07T22:31:43.523076Z
+28
+mharish
+has-props
+

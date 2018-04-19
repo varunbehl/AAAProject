@@ -1,0 +1,45 @@
+package com.aaa.e2e.script;
+
+import com.aaa.accelerators.TestEngineWeb;
+import com.aaa.d3itu.lib.LaunchITULib;
+import com.aaa.d3itu.lib.LoginITULib;
+import com.aaa.utilities.TestUtil;
+import com.aaa.web.lib.*;
+import com.aaa.web.page.CRVehicleTriagePage;
+import com.aaa.web.script.TC_CRSaveAppointmentCall;
+
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import java.util.Hashtable;
+
+public class CR_DI_ITU_Mobile extends LaunchITULib
+{
+    public static String callIDCreated;
+    public static String spotIDCreated;
+    public static String [] callandfacilityId = new String[2];
+    public static boolean verifyAddressAvailableForOtherLocationInMCDWindow;
+
+    LoginITULib loginITU =new LoginITULib();
+   
+
+    @DataProvider
+    public Object[][] getTestDataFor_CRDIITUMobileEnd2End() {
+        return TestUtil.getData("CRDIITUMobile", TestData, "e2eCRDIITUMobile");
+    }
+    @Test(dataProvider = "getTestDataFor_CRDIITUMobileEnd2End")
+    public void CRDIITUMobileEnd2End(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                reporter.initTestCaseDescription("CR DI ITU End to End");
+                selectEnvironment(data.get("ITUEnvironment"));
+                loginITU.enterLoginDetails(data.get("UserName"),data.get("Password"));
+                System.out.println("Test completed");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+}

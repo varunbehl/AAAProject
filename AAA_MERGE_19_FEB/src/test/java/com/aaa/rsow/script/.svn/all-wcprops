@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/CignitiAutomation/!svn/ver/923/aaaAutomationCignitiOffShore/src/test/java/com/aaa/rsow/script
+END
+TC_RSOMPushNotifications.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/CignitiAutomation/!svn/ver/923/aaaAutomationCignitiOffShore/src/test/java/com/aaa/rsow/script/TC_RSOMPushNotifications.java
+END
+TC_RSOWLaunchViaPartnerRedirectAndVerifyMembership.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/CignitiAutomation/!svn/ver/634/aaaAutomationCignitiOffShore/src/test/java/com/aaa/rsow/script/TC_RSOWLaunchViaPartnerRedirectAndVerifyMembership.java
+END
+TC_RSOMServiceTracker.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/CignitiAutomation/!svn/ver/923/aaaAutomationCignitiOffShore/src/test/java/com/aaa/rsow/script/TC_RSOMServiceTracker.java
+END
+TC_RSOWLaunchViaPartnerRedirect.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/CignitiAutomation/!svn/ver/634/aaaAutomationCignitiOffShore/src/test/java/com/aaa/rsow/script/TC_RSOWLaunchViaPartnerRedirect.java
+END

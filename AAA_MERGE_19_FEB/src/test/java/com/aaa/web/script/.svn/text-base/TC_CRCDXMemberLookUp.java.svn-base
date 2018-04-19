@@ -1,0 +1,110 @@
+package com.aaa.web.script;
+
+import com.aaa.utilities.TestUtil;
+import com.aaa.web.lib.*;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import java.util.Hashtable;
+
+
+public class TC_CRCDXMemberLookUp extends LoginLib {
+    @DataProvider
+    public Object[][] getTestDataFor_cdxMemberLookUp() {
+        return TestUtil.getData("cdxMemberLookUp", TestData, "D3CallRecieving");
+    }
+
+    @Test(dataProvider = "getTestDataFor_cdxMemberLookUp")
+    public void cdxMemberLookUp(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("cdxMemberLookUp");
+                CRHomeLib home = new CRHomeLib();
+                CRMemberSearchLib memeber = new CRMemberSearchLib();
+                CRLocationsLib locations = new CRLocationsLib();
+                CRVehicleTriageLib vehicle = new CRVehicleTriageLib();
+                CRServiceLib service = new CRServiceLib();
+
+ 				navigateToApplication("CR");          
+			    login(data.get("LoginName"), data.get("Password"));
+                home.messageDialogBoxClose();
+				home.verifyHomeScreen();    
+	            home.memberSearchTextBox(data.get("CdxMember"));
+                memeber.verifyClubCodeForCdxmember(data.get("CityClubcode"));
+                memeber.memberNumber();
+                memeber.memberNumClick();
+                fieldValidations();
+                home.leaveButton();
+                home.allErrorAlerts();
+                memeber.enterDataInClubCode(data.get("CityClubcode"));
+                home.memberSearchTextBox(data.get("9DigitMemberID"));
+                memeber.memberNumber();
+                memeber.memberNumClick();
+                fieldValidations();
+                home.leaveButton();
+                home.allErrorAlerts();
+                memeber.verifyClubCode();
+                memeber.enterDataInClubCode(data.get("ClubCode"));
+                home.memberSearchTextBox(data.get("10DigitValidPhoneNumber"));
+                memeber.verifyListOfMembernames();
+                home.leaveButton();
+                home.allErrorAlerts();
+                memeber.enterDataInClubCode(data.get("ClubCode"));
+                home.memberSearchTextBox(data.get("LessThan7DigitNumber"));
+                memeber.emptySearchResults();
+                home.memberSearchTextBox(data.get("10DigitInValidPhoneNumber"));
+                memeber.emptySearchResults();
+                home.leaveButton();
+                home.allErrorAlerts();
+                memeber.enterDataInClubCode(data.get("CityClubcode"));
+                home.memberSearchTextBox(data.get("ValidLastName"));
+                memeber.verifyWildCardForLastName();
+                memeber.memberNumClick();
+                fieldValidations();
+                home.leaveButton();
+                home.allErrorAlerts();
+                memeber.enterDataInClubCode(data.get("CityClubcode"));
+                home.memberSearchTextBox(data.get("LastNameDontExist"));
+                memeber.emptySearchResults();
+                home.leaveButton();
+                home.allErrorAlerts();
+                home.memberSearchTextBox(data.get("LastNameFirstName"));
+                memeber.verifyWildCardForLastName();
+                memeber.memberNumClick();
+                fieldValidations();
+                home.leaveButton();
+                home.allErrorAlerts();
+                memeber.enterDataInClubCode(data.get("CityClubcode"));
+                home.memberSearchTextBox(data.get("CdxMember"));
+                memeber.memberNumClick();
+                fieldValidations();
+				home.logout();                System.out.println("Test completed");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void fieldValidations() throws Throwable {
+        CRMemberSearchLib memeber = new CRMemberSearchLib();
+        memeber.labelMemberShipNumberInMemberDetailsSection();
+        memeber.labelMemberSinceInMemberDetailsSection();
+        memeber.labelMemberLevelInMemberDetailsSection();
+        memeber.labelMemberTypeInMemberDetailsSection();
+        memeber.labelMemberExpirationInMemberDetailsSection();
+        memeber.labelMemberStatusInMemberDetailsSection();
+        memeber.memberCallsAllowedInMemberDetailsSection();
+        memeber.memberCallsRemainingInMemberDetailsSection();
+        memeber.memberCallsUsedInMemberDetailsSection();
+        memeber.memberCurrentCallsInMemberDetailsSection();
+        memeber.memberChargeableCallsInMemberDetailsSection();
+        memeber.labelMemberFirstNameInMemberDetailsSection();
+        memeber.labelMemberLastNameInMemberDetailsSection();
+        memeber.labelMemberZipCodeInMemberDetailsSection();
+        memeber.labelMemberStateInMemberDetailsSection();
+        memeber.labelMemberCityInMemberDetailsSection();
+    }
+}
+
+

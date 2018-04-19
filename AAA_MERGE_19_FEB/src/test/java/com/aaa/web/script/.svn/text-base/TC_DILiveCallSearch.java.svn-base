@@ -1,0 +1,681 @@
+package com.aaa.web.script;
+
+import com.aaa.accelerators.ActionEngine;
+import com.aaa.utilities.TestUtil;
+import com.aaa.web.lib.*;
+import org.openqa.selenium.Keys;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import java.util.Hashtable;
+
+public class TC_DILiveCallSearch extends ActionEngine {
+    String callId = null;
+    public static long rapNumber;
+    String startDate = null;
+    String endDate = null;
+    String facility = null;
+    String memberNumber = null;
+
+    DIHomeLib diHome = new DIHomeLib();
+    LoginLib login = new LoginLib();
+    DILoginLib diLogin = new DILoginLib();
+    LoginRoleLib loginRole = new LoginRoleLib();
+    DISearchCallsLib diSearchCalls = new DISearchCallsLib();
+    DIMCDLib mcdlib = new DIMCDLib();
+    CRServiceLib service = new CRServiceLib();
+    CRTowDestinationLib tow = new CRTowDestinationLib();
+
+    CRMemberSearchLib crMemberSearchLib = new CRMemberSearchLib();
+    CRHomeLib crHomeLib = new CRHomeLib();
+    CRLocationsLib crLocationsLib = new CRLocationsLib();
+    CRVehicleTriageLib crVehicleTriageLib = new CRVehicleTriageLib();
+
+    //Common Functionality
+    public void diLiveCallSearch(Hashtable<String, String> data) throws Throwable {
+
+        //DI
+        navigateToApplication("DI");
+        Thread.sleep(2000);
+        login.login(data.get("LoginName"), data.get("Password"));
+        loginRole.clickOnProceedBtnInDispatchRoleLogin();
+        diLogin.waitcloseAllBusyIcons();
+        diHome.clickOnCloseIconOnQueueSelection();
+        diHome.clickOnSearchCallsInDispatch();
+        Thread.sleep(2000);
+        startDate = diSearchCalls.getStartDate();
+        endDate = diSearchCalls.getEndDate();
+    }
+    @DataProvider
+    public Object[][] getTestDataFor_basicMemberCallLightServiceForFuelTrouble()
+    {
+        return TestUtil.getData("saveCallForLiveCallSearch", TestData, "D3CallRecieving");
+    }
+
+    @Test(dataProvider = "getTestDataFor_basicMemberCallLightServiceForFuelTrouble")
+    public void saveCallForLiveCallSearch(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("CR-Save ERS Call Light Service");
+
+                navigateToApplication("CR");
+                login.login(data.get("LoginName"),data.get("Password"));
+                crMemberSearchLib.clickOnPartialCallCloseButton();
+                crHomeLib.verifyHomeScreen();
+                String Member = "";
+                if (data.get("Member").equals("db")){
+                    //fetch member details from db
+                    //generating a random number everytime to fetch a new record everytime
+                    int rownum = IntRandomNumberGenerator(50,1000);
+                    //member from db
+                    Member = CommonDb.selectRandomMemberFromDB(data.get("dbServer"),data.get("dbqueryFileName"),data.get("colomnName"),rownum);
+                    System.out.println("member : "+Member);
+                }
+                else
+                {
+                    Member = data.get("Membersearch");
+                }
+                crHomeLib.memberSearchTextBox(Member);
+                crMemberSearchLib.memberNumClick();
+                crMemberSearchLib.labelMemberLevelInMemberDetailsSection();
+                Thread.sleep(2000);
+                memberNumber=crMemberSearchLib.labelMemberShipNumberInMemberDetailsSection();
+                crLocationsLib.clickOnLocationTab();
+                crLocationsLib.enterTxtinBrkDowLocSrch(data.get("Breakdownaddress"));
+                crLocationsLib.brkDowLocSrchBtn();
+                crLocationsLib.brkdowLocAddrLink();
+                crLocationsLib.brkdownLocationCode(dataBean.getValue(data, "Breakdownlocationcode"));
+                crVehicleTriageLib.clickOnVehicleTriageTab();
+                crVehicleTriageLib.selectExistingVehicleModel();
+                //*crVehicleTriageLib.clickOnFuel();
+                //crVehicleTriageLib.clickOnOutOfGas();//
+                crVehicleTriageLib.clickonProblemTypeButton(data.get("ProblemType"));
+                Thread.sleep(3000);
+                crVehicleTriageLib.clickonProblemTypeOptions(data.get("ProblemTypeOption1"));
+                Thread.sleep(3000);
+                crHomeLib.allErrorAlerts();
+                tow.clickOnTowDestinationTab();
+                crHomeLib.waitCloseAllBusyIconsResults();
+                Thread.sleep(2000);
+                crVehicleTriageLib.scriptErrorHandle();
+                crHomeLib.allErrorAlerts();
+                tow.clickOnManualEntryLinkOnTowDestination();
+                tow.enterTowPassengers(data.get("TowPassengers"));
+                Thread.sleep(2000);
+                service.clickOnServiceTab();
+                facility = service.validateFacilityAutospot();
+                crHomeLib.saveButton();
+                crHomeLib.waitCloseAllBusyIconsResults();
+                callId = service.getCallId();
+                service.closeCall();
+                crHomeLib.logout();
+                acceptAlert();
+                Thread.sleep(2000);
+                acceptAlert();
+                System.out.println("Test completed");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+    @DataProvider
+    public Object[][] getTestDataFor_saveRAPCallsLightService() {
+        return TestUtil.getData("saveRAPCallsForDiLivaCallSearch", TestData, "D3CallRecieving");
+    }
+
+    @Test(dataProvider = "getTestDataFor_saveRAPCallsLightService")
+
+    public void saveRAPCallsForDiLivaCallSearch(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("1924-Save RAP Call");
+                CRHomeLib home = new CRHomeLib();
+                LoginLib login = new LoginLib();
+                CRLocationsLib locations = new CRLocationsLib();
+                CRVehicleTriageLib crVehicleTriageLib=new CRVehicleTriageLib();
+                CRMemberSearchLib member = new CRMemberSearchLib();
+                CRTowDestinationLib tow = new CRTowDestinationLib();
+                CRServiceLib services = new CRServiceLib();
+
+                home.verifyandClickLogout();
+                navigateToApplication("CR");
+                login.login(dataBean.getValue(data,"LoginName"),dataBean.getValue(data,"Password"));
+                crMemberSearchLib.clickOnPartialCallCloseButton();
+                home.verifyHomeScreen();
+                home.workFlowSelectionForRAP();
+                member.verifyIsRapWorkFlowSet();
+                member.enterDataInClubCode(data.get("clubCode"));
+                member.clickOnClubClodeSuggestedOption();
+                rapNumber=generateRandomNumber();
+                member.mandatoryFieldsForRAPCall(data.get("firstName"),data.get("lastName"),rapNumber,data.get("paymentCode"));
+                member.enterMemberContactInfoPrimaryPhoneNumber(data.get("phoneNumber"));
+                Thread.sleep(2000);
+                member.selectType(data.get("phoneType"));
+                Thread.sleep(2000);
+                member.clickPrimRadioBtnRowOne();
+                //member.clickPrimRadioBtnSecondRow();
+                locations.clickOnLocationTab();
+                Thread.sleep(2000);
+                locations.clickOnManualEntryLinkInLocation();
+                locations.enterNonMandatoryFieldsInLocations(data.get("LandMark"), data.get("Address"), data.get("crossStreet"), data.get("secondCrossStreet"), data.get("Zip"));
+                locations.enterAndSaveLocationMandatoryFields(data.get("StreetAddress"), data.get("City"), data.get("State"), data.get("LocationCode"));
+                Thread.sleep(2000);
+                locations.clickOnLocationCodeDropDown();
+                crVehicleTriageLib.clickOnVehicleTriageTab();
+                crVehicleTriageLib.clickOnManualEntryLinkOnVehicle();
+                Thread.sleep(1000);
+                crVehicleTriageLib.enterVehicleType(data.get("ReEnterType"));
+                crVehicleTriageLib.clickOnTheTypeSearchFromDropDown();
+                Thread.sleep(3000);
+                crVehicleTriageLib.enterVehicleYear(data.get("ReEnterYear"));
+                Thread.sleep(2000);
+                crVehicleTriageLib.enterVehicleMake(data.get("ReEnterMake"));
+                crVehicleTriageLib.enterVehicleModel(data.get("ReEnterModel"));
+                crVehicleTriageLib.enterVehicleColor(data.get("Color"));
+                Thread.sleep(3000);
+                crVehicleTriageLib.clickonProblemTypeButton(data.get("ProblemType"));
+                Thread.sleep(3000);
+                crVehicleTriageLib.clickonProblemTypeOptions(data.get("ProblemTypeOption1"));
+                Thread.sleep(5000);
+                crHomeLib.allErrorAlerts();
+                tow.clickOnTowDestinationTab();
+                home.waitCloseAllBusyIconsResults();
+                crVehicleTriageLib.scriptErrorHandle();
+                crHomeLib.allErrorAlerts();
+                Thread.sleep(2000);
+                tow.clickOnManualEntryLinkOnTowDestination();
+                tow.enterTowPassengers(data.get("Towpassengers"));
+                Thread.sleep(2000);
+                services.clickOnServiceTab();
+                //facility = services.validateFacilityAutospot();
+                home.saveButton();
+                Thread.sleep(1000);
+                services.getCallId();
+                services.closeCall();
+                Thread.sleep(4000);
+                home.logout();
+                acceptAlert();
+                Thread.sleep(2000);
+                acceptAlert();
+                System.out.println("Test completed");
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+
+    //dateRange Search
+    @DataProvider
+    public Object[][] getTestDataFor_DILiveCallSearchWithDate() {
+        return TestUtil.getData("DILiveCallSearchWithDateRange", TestData, "D3Dispatch");
+    }
+
+    @Test(dataProvider = "getTestDataFor_DILiveCallSearchWithDate",enabled = true)
+    public void dateRangeSearch(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("1747: DILive Call Search");
+
+                diLiveCallSearch(data);
+                diSearchCalls.enterStartDate(startDate);
+                diSearchCalls.enterEndDate(endDate);
+                Thread.sleep(2000);
+                String combineKeys3 = Keys.chord(Keys.TAB);
+                sendKeys(combineKeys3, "Tab");
+                Thread.sleep(2000);
+                String currentDate = diSearchCalls.getStartDate();
+                diSearchCalls.clickOnSearchButtonInSearchCallDispatch();
+                crHomeLib.waitCloseAllBusyIconsResults();
+                boolean currentDateFlag = diSearchCalls.verifyResultsWithCurrentDate(currentDate);
+                assertTrue(currentDateFlag, "Verified the results returned & all results are for the current day   "+currentDate);
+                diSearchCalls.clickCloseBtnOnSearchCallwindow();
+                diHome.logOut();
+                acceptAlert();
+                Thread.sleep(2000);
+                acceptAlert();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+    // Search With CallID
+    @DataProvider
+    public Object[][] getTestDataFor_DILiveCallSearchWithCallID() {
+        return TestUtil.getData("DILiveCallSearchWithCallID", TestData, "D3Dispatch");
+    }
+
+    @Test(dataProvider = "getTestDataFor_DILiveCallSearchWithCallID",enabled = true)
+    public void callIdSearch(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("1747: DILive Call Search");
+
+                diLiveCallSearch(data);
+                diSearchCalls.enterStartDate(startDate);
+                diSearchCalls.enterEndDate(endDate);
+                Thread.sleep(2000);
+                String combineKeys3 = Keys.chord(Keys.TAB);
+                sendKeys(combineKeys3, "Tab");
+                Thread.sleep(2000);
+                diSearchCalls.clickAndEnterCallIDInfo(callId);
+                String callId= diSearchCalls.getCallID();
+                diSearchCalls.clickOnSearchButtonInSearchCallDispatch();
+                crHomeLib.waitCloseAllBusyIconsResults();
+                boolean callIdFlag = diSearchCalls.verifyResultsWithCallID(callId);
+                assertTrue(callIdFlag, "Verified the results returned & one call is returned for the call ID    " + callId);
+                diSearchCalls.clickCloseBtnOnSearchCallwindow();
+                diHome.logOut();
+                acceptAlert();
+                Thread.sleep(2000);
+                acceptAlert();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+//Time Range Search
+    @DataProvider
+    public Object[][] getTestDataFor_DILiveCallSearchWithTimeRange() {
+        return TestUtil.getData("DILiveCallSearchWithTimeRange", TestData, "D3Dispatch");
+    }
+
+    @Test(dataProvider = "getTestDataFor_DILiveCallSearchWithTimeRange",enabled = true)
+    public void timeRangeSearch(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("1747: DILive Call Search");
+
+                diLiveCallSearch(data);
+                diSearchCalls.enterStartDate(startDate);
+                diSearchCalls.enterEndDate(endDate);
+                Thread.sleep(2000);
+                String combineKeys3 = Keys.chord(Keys.TAB);
+                sendKeys(combineKeys3, "Tab");
+                Thread.sleep(2000);
+                diSearchCalls.enterStartTimeOnSearchCallsWindow(data.get("StartTime"));
+                diSearchCalls.enterEndTimeOnSearchCallsWindow(data.get("EndTime"));
+                diSearchCalls.clickOnSearchButtonInSearchCallDispatch();
+                crHomeLib.waitCloseAllBusyIconsResults();
+                diSearchCalls.verifyTheTimeRange(data.get("StartTime"),data.get("EndTime"));
+                mcdlib.clickOnMCDCloseWindow();
+                diHome.logOut();
+                acceptAlert();
+                Thread.sleep(2000);
+                acceptAlert();
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+//RapId search
+    @DataProvider
+    public Object[][] getTestDataFor_DILiveCallSearchWithRapId() {
+        return TestUtil.getData("DILiveCallSearchWithRapNumber", TestData, "D3Dispatch");
+    }
+
+    @Test(dataProvider = "getTestDataFor_DILiveCallSearchWithRapId",enabled = true)
+    public void rapNumberSearch(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("1747: DILive Call Search");
+
+                diLiveCallSearch(data);
+                diSearchCalls.enterStartDate(data.get("RAPStartDate"));
+                String rapId = String.valueOf(rapNumber);
+                diSearchCalls.enterRAPNumberOnSearchCallsWindow(rapId);
+                String rapNumberFronList = diSearchCalls.getRapNumber();
+                diSearchCalls.clickOnSearchButtonInSearchCallDispatch();
+                crHomeLib.waitCloseAllBusyIconsResults();
+                boolean rapIdFlag = diSearchCalls.verifyResultsWithRAPId(rapNumberFronList);
+                assertTrue(rapIdFlag, "Verified the results returned & RAP call is returned in the search results    " + rapNumber);
+                diSearchCalls.clickCloseBtnOnSearchCallwindow();
+                diHome.logOut();
+                acceptAlert();
+                Thread.sleep(2000);
+                acceptAlert();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+    //facility Search
+    @DataProvider
+    public Object[][] getTestDataFor_DILiveCallSearchWithFacility() {
+        return TestUtil.getData("DILiveCallSearchWithFacility", TestData, "D3Dispatch");
+    }
+
+    @Test(dataProvider = "getTestDataFor_DILiveCallSearchWithFacility",enabled = true)
+    public void facilitySearch(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("1747: DILive Call Search");
+
+                diLiveCallSearch(data);
+                diSearchCalls.enterStartDate(startDate);
+                diSearchCalls.enterEndDate(endDate);
+                Thread.sleep(2000);
+                String combineKeys3 = Keys.chord(Keys.TAB);
+                sendKeys(combineKeys3, "Tab");
+                Thread.sleep(2000);
+                diSearchCalls.enterFacilityOnSearchCallsWindow(facility);
+                String facilityFromSearch = diSearchCalls.getFacility();
+                diSearchCalls.clickOnSearchButtonInSearchCallDispatch();
+                crHomeLib.waitCloseAllBusyIconsResults();
+                boolean facilityFlag = diSearchCalls.verifyResultsWithFacility(facilityFromSearch);
+                assertTrue(facilityFlag, " Results matched the criteria :: Facility " + facilityFromSearch + "Exists in Selected List");
+                diSearchCalls.clickCloseBtnOnSearchCallwindow();
+                diHome.logOut();
+                acceptAlert();
+                Thread.sleep(2000);
+                acceptAlert();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+    //TruckSearch
+    @DataProvider
+    public Object[][] getTestDataFor_DILiveCallSearchWithTruck() {
+        return TestUtil.getData("DILiveCallSearchWithTruckId", TestData, "D3Dispatch");
+    }
+
+    @Test(dataProvider = "getTestDataFor_DILiveCallSearchWithTruck",enabled = true)
+    public void truckSearch(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("1747: DILive Call Search");
+
+                diLiveCallSearch(data);
+                diSearchCalls.enterTruckOnSearchCallsWindow(data.get("TruckID"));
+                String truck = diSearchCalls.getTruckFromSearchCallsWindow();
+                diSearchCalls.clickOnSearchButtonInSearchCallDispatch();
+                crHomeLib.waitCloseAllBusyIconsResults();
+                boolean truckIdFlag = diSearchCalls.verifyResultsWithTruckId(truck);
+                assertTrue(truckIdFlag, " Call is Serviced by the Truck,Truck Id is     " +truck);
+                diSearchCalls.clickCloseBtnOnSearchCallwindow();
+                diHome.logOut();
+                acceptAlert();
+                Thread.sleep(2000);
+                acceptAlert();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+    //Call Taker Search
+    @DataProvider
+    public Object[][] getTestDataFor_DILiveCallSearchWithUserId() {
+        return TestUtil.getData("DILiveCallSearchWithCallTaker", TestData, "D3Dispatch");
+    }
+
+    @Test(dataProvider = "getTestDataFor_DILiveCallSearchWithUserId",enabled = true)
+    public void callTakerSearch(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("1747: DILive Call Search");
+
+                diLiveCallSearch(data);
+                diSearchCalls.enterUserIDOnSearchCallsWindow(data.get("CallTaker"));
+                String userId = diSearchCalls.getUserId();
+                diSearchCalls.clickOnSearchButtonInSearchCallDispatch();
+                crHomeLib.waitCloseAllBusyIconsResults();
+                diSearchCalls.ClickOnCallIdOnSearchCallsWindow();
+                crHomeLib.waitCloseAllBusyIconsResults();
+                boolean callTakerFlag = diSearchCalls.verifyResultsWithCallTakerID(userId);
+                assertTrue(callTakerFlag, "calls are returned based on the user id   " + userId);
+                diSearchCalls.clickCloseBtnOnSearchCallwindow();
+                diHome.logOut();
+                acceptAlert();
+                Thread.sleep(2000);
+                acceptAlert();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+    //Phone Number search
+    @DataProvider
+    public Object[][] getTestDataFor_DILiveCallSearchWithPhoneNumber() {
+        return TestUtil.getData("DILiveCallSearchWithPhoneNumber", TestData, "D3Dispatch");
+    }
+
+    @Test(dataProvider = "getTestDataFor_DILiveCallSearchWithPhoneNumber", enabled = true)
+    public void phoneNumberSearch(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("1747: DILive Call Search");
+
+                diLiveCallSearch(data);
+                diSearchCalls.enterPhoneNumberOnSearchCallsWindow(data.get("PhoneNumber"));
+                String phoneNumber = diSearchCalls.getPhoneNumber();
+                diSearchCalls.clickOnSearchButtonInSearchCallDispatch();
+                crHomeLib.waitCloseAllBusyIconsResults();
+                diSearchCalls.ClickOnCallIdOnSearchCallsWindow();
+                crHomeLib.waitCloseAllBusyIconsResults();
+                String phoneNumFromMCD = mcdlib.getphoneNumber();
+                boolean phoneNumberFlag = diSearchCalls.verifyResultsWithphoneNumber(phoneNumber, phoneNumFromMCD);
+                assertTrue(phoneNumberFlag, "Verified the results returned & call is returned for that specific member  ");
+                diSearchCalls.clickCloseBtnOnSearchCallwindow();
+                diHome.logOut();
+                acceptAlert();
+                Thread.sleep(2000);
+                acceptAlert();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+   //Club search
+    @DataProvider
+    public Object[][] getTestDataFor_DILiveCallSearchWithClubNumber() {
+        return TestUtil.getData("DILiveCallSearchWithClubCode", TestData, "D3Dispatch");
+    }
+
+    @Test(dataProvider = "getTestDataFor_DILiveCallSearchWithClubNumber",enabled = true)
+    public void clubSearch(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("1747: DILive Call Search");
+
+                diLiveCallSearch(data);
+                diSearchCalls.enterClubNumberOnSearchCallsWindow(data.get("ClubNumber"));
+                String clubCode = diSearchCalls.getClubCode();
+                diSearchCalls.clickOnSearchButtonInSearchCallDispatch();
+                crHomeLib.waitCloseAllBusyIconsResults();
+                boolean clubCodeFlag = diSearchCalls.verifyResultsWithClubCode(clubCode);
+                assertTrue(clubCodeFlag, "Verified the calls & Call is returned with club Code    "+clubCode);
+                diSearchCalls.clickCloseBtnOnSearchCallwindow();
+                diHome.logOut();
+                acceptAlert();
+                Thread.sleep(2000);
+                acceptAlert();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+    //Last name Search
+    @DataProvider
+    public Object[][] getTestDataFor_DILiveCallSearchWithLastName() {
+        return TestUtil.getData("DILiveCallSearchWithLastNamesearch", TestData, "D3Dispatch");
+    }
+
+        @Test(dataProvider = "getTestDataFor_DILiveCallSearchWithLastName",enabled = true)
+        public void lastNameSearch(Hashtable<String, String> data) throws Throwable {
+            try {
+                if (data.get("RunMode").equals("Y")) {
+                    this.reporter.initTestCaseDescription("1747: DILive Call Search");
+
+                    diLiveCallSearch(data);
+                    diSearchCalls.enterMemberLastNameSearchOnSearchCallsWindow(data.get("MemberLastName"));
+                    String lastName = diSearchCalls.getLaseNameFromSearchCallsWindow();
+                    diSearchCalls.clickOnSearchButtonInSearchCallDispatch();
+                    crHomeLib.waitCloseAllBusyIconsResults();
+                    boolean lastnameFlag = diSearchCalls.verifyResultsWithLastName(lastName);
+                    assertTrue(lastnameFlag, "Verified the results & call(s) is returned matching the last name    "+lastName);
+                    diSearchCalls.clickCloseBtnOnSearchCallwindow();
+                    diHome.logOut();
+                    acceptAlert();
+                    Thread.sleep(2000);
+                    acceptAlert();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                throw new RuntimeException(e);
+            }
+        }
+
+    //Member Number Search
+    @DataProvider
+    public Object[][] getTestDataFor_DILiveCallSearchWithMemNumber() {
+        return TestUtil.getData("DILiveCallSearchWithMemNumber", TestData, "D3Dispatch");
+    }
+
+    @Test(dataProvider = "getTestDataFor_DILiveCallSearchWithMemNumber",enabled = true)
+    public void memberNumberSearch(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("1747: DILive Call Search");
+
+                diLiveCallSearch(data);
+                diSearchCalls.enterMemberNumberOnSearchCallsWindow(memberNumber);
+                String memNumber = diSearchCalls.getMemberNumberFromSearCalls();
+                diSearchCalls.clickOnSearchButtonInSearchCallDispatch();
+                crHomeLib.waitCloseAllBusyIconsResults();
+                boolean memberFlag = diSearchCalls.verifyResultsWithMemberNumber(memNumber);
+                assertTrue(memberFlag, "Verified the results & Call record is returned for the member    "+memNumber);
+                diSearchCalls.clickCloseBtnOnSearchCallwindow();
+                diHome.logOut();
+                acceptAlert();
+                Thread.sleep(2000);
+                acceptAlert();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+    //vehicle Search
+    @DataProvider
+    public Object[][] getTestDataFor_DILiveCallSearchWithVehicle() {
+        return TestUtil.getData("DILiveCallSearchWithVehicle", TestData, "D3Dispatch");
+    }
+
+    @Test(dataProvider = "getTestDataFor_DILiveCallSearchWithVehicle",enabled = true)
+    public void vehicleSearch(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("1747: DILive Call Search");
+
+                diLiveCallSearch(data);
+                diSearchCalls.enterYearVehicleInforationOnSearchCallsWindow(data.get("VehicleYear"));
+                diSearchCalls.enterMakeVehicleInforationOnSearchCallsWindow(data.get("VehicleMake"));
+                Thread.sleep(3000);
+                diSearchCalls.enterModelVehicleInforationOnSearchCallsWindow(data.get("VehicleModel"));
+                Thread.sleep(3000);
+                String year = diSearchCalls.getVehicleYearFromSearCalls();
+                String make = diSearchCalls.getVehicleMakeFromSearCalls();
+                String model = diSearchCalls.getVehicleModelFromSearCalls();
+                diSearchCalls.clickOnSearchButtonInSearchCallDispatch();
+                crHomeLib.waitCloseAllBusyIconsResults();
+               boolean vehicleFlag = diSearchCalls.verifyResultsWithVehicle(year,make,model);
+                assertTrue(vehicleFlag, "Verified the result & Call is returned for  Vehicle Search  with     "+year+"   "+make+"   "+model);
+                diSearchCalls.clickCloseBtnOnSearchCallwindow();
+                diHome.logOut();
+                acceptAlert();
+                Thread.sleep(2000);
+                acceptAlert();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+//Breakdown location
+@DataProvider
+public Object[][] getTestDataFor_DILiveCallSearchWithBreakdownLocation() {
+    return TestUtil.getData("DILiveCallSearchWithBreakdownLocation", TestData, "D3Dispatch");
+}
+
+    @Test(dataProvider = "getTestDataFor_DILiveCallSearchWithBreakdownLocation",enabled = true)
+    public void breakdownLocationSearch(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("1747: DILive Call Search");
+
+                diLiveCallSearch(data);
+                diSearchCalls.enterLocationOnSearchCallsWindow(data.get("BKDownStreetAddress"));
+                diSearchCalls.enterCityOnSearchCallsWindow(data.get("BKDownCityLocation"));
+                String bkDwnStreetAddress = diSearchCalls.getStreetAddressFromSearCalls();
+                String bkDownCity = diSearchCalls.getCityLocationFromSearCalls();
+                diSearchCalls.clickOnSearchButtonInSearchCallDispatch();
+                crHomeLib.waitCloseAllBusyIconsResults();
+                boolean locationFlag = diSearchCalls.verifyResultsWithBreakdownLocation(bkDwnStreetAddress,bkDownCity);
+                assertTrue(locationFlag, "Verified the result & Call is returned for Breakdown location Search  with     "+bkDwnStreetAddress+"   "+bkDownCity);
+                diSearchCalls.clickCloseBtnOnSearchCallwindow();
+                diHome.logOut();
+                acceptAlert();
+                Thread.sleep(2000);
+                acceptAlert();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+    //Wrong clubcode search
+    @DataProvider
+    public Object[][] getTestDataFor_DILiveCallSearchWithWrongInfo() {
+        return TestUtil.getData("DILiveCallSearchWithWrongInfo", TestData, "D3Dispatch");
+    }
+
+    @Test(dataProvider = "getTestDataFor_DILiveCallSearchWithWrongInfo",enabled = true)
+    public void errorScenario(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("1747: DILive Call Search");
+
+                diLiveCallSearch(data);
+                diSearchCalls.enterClubNumberOnSearchCallsWindow(data.get("WrongClubCode"));
+                String wrongClubCode = diSearchCalls.getClubCode();
+                diSearchCalls.clickOnSearchButtonInSearchCallDispatch();
+                crHomeLib.waitCloseAllBusyIconsResults();
+                boolean clubCodeFlag = diSearchCalls.verifyResultsWithClubCode(wrongClubCode);
+                assertFalse(clubCodeFlag, "Verified the results &  Error displayed In the search results as No matching records found,try refining your search"+wrongClubCode);
+                diSearchCalls.clickCloseBtnOnSearchCallwindow();
+                diHome.logOut();
+                acceptAlert();
+                Thread.sleep(2000);
+                acceptAlert();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+}
+

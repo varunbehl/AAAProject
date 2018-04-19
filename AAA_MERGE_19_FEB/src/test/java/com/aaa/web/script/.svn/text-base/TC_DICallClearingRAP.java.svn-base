@@ -1,0 +1,171 @@
+package com.aaa.web.script;
+
+import com.aaa.e2e.script.CR_DI;
+import com.aaa.utilities.TestUtil;
+import com.aaa.web.lib.*;
+import com.aaa.web.page.CRMemberSearchPage;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import java.util.Hashtable;
+
+/**
+ * Created by e002222 on 29-01-2018.
+ */
+public class TC_DICallClearingRAP extends DILoginLib {
+
+    String callIDCallReceiving;
+    String callIDDispatch;
+    public static long ran;
+
+    @DataProvider
+    public Object[][] getTestDataFor_clearCallRAP() {
+        return TestUtil.getData("clearCallRAP", TestData, "D3Dispatch");
+    }
+
+    @Test(dataProvider = "getTestDataFor_clearCallRAP")
+
+    public void clearCallRAP(Hashtable<String, String> data) throws Throwable {
+
+        try {
+
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("1915: DI Call Clearing RAP ");
+
+                CRHomeLib home = new CRHomeLib();
+                LoginRoleLib role = new LoginRoleLib();
+                DIHomeLib diHome = new DIHomeLib();
+                CRHomeLib crHomeLib = new CRHomeLib();
+                CRMemberSearchLib member = new CRMemberSearchLib();
+                CRLocationsLib locations = new CRLocationsLib();
+                CRVehicleTriageLib crVehicleTriageLib = new CRVehicleTriageLib();
+                CRServiceLib services = new CRServiceLib();
+                CRTowDestinationLib tow = new CRTowDestinationLib();
+                CRSearchCallsLib crSearchCall = new CRSearchCallsLib();
+                CR_DI crDI = new CR_DI();
+                DIMCDLib dimcd = new DIMCDLib();
+                LoginRoleLib loginRole=new LoginRoleLib();
+                DILoginLib diLogin = new DILoginLib();
+
+
+
+                //navigateToApplication("CR");
+                login(data.get("CRLoginName"), data.get("Password"));
+                waitcloseAllBusyIcons();
+                home.messageDialogBoxClose();
+                home.verifyHomeScreen();
+                home.workFlowSelectionForRAP();
+                member.verifyIsRapWorkFlowSet();
+                member.enterDataInClubCode(data.get("clubCode"));
+                member.clickOnClubClodeSuggestedOption();
+                ran=generateRandomNumber();
+                member.mandatoryFieldsForRAPCall(data.get("firstName"),data.get("lastName"),ran,data.get("paymentCode"));
+                member.enterMemberContactInfoPrimaryPhoneNumber(data.get("phoneNumber"));
+                member.selectType(data.get("phoneType"));
+                member.clickPrimRadioBtnRowOne();
+                locations.clickOnLocationTab();
+                locations.clickOnManualEntryLinkInLocation();
+                locations.enterNonMandatoryFieldsInLocations(data.get("LandMark"), data.get("Address"), data.get("crossStreet"), data.get("secondCrossStreet"), data.get("Zip"));
+                locations.enterAndSaveLocationMandatoryFields(data.get("StreetAddress"), data.get("City"), data.get("State"), data.get("LocationCode"));
+                Thread.sleep(2000);
+                locations.clickOnLocationCodeDropDown();
+                crVehicleTriageLib.clickOnVehicleTriageTab();
+                crVehicleTriageLib.clickOnManualEntryLinkOnVehicle();
+                Thread.sleep(1000);
+                crVehicleTriageLib.enterVehicleType(data.get("ReEnterType"));
+                crVehicleTriageLib.clickOnTheTypeSearchFromDropDown();
+                Thread.sleep(3000);
+                crVehicleTriageLib.enterVehicleYear(data.get("ReEnterYear"));
+                Thread.sleep(2000);
+                crVehicleTriageLib.enterVehicleMake(data.get("ReEnterMake"));
+                crVehicleTriageLib.enterVehicleModel(data.get("ReEnterModel"));
+                crVehicleTriageLib.enterVehicleColor(data.get("Color"));
+                Thread.sleep(3000);
+                crVehicleTriageLib.clickOnFlatTire();
+                crVehicleTriageLib.clickOnAirOnlyOptionInFlatTyreType();
+                Thread.sleep(5000);
+                tow.clickOnTowDestinationTab();
+                Thread.sleep(5000);
+                crVehicleTriageLib.scriptErrorHandle();
+                Thread.sleep(1000);
+                tow.clickOnManualEntryLinkOnTowDestination();
+                tow.enterTowPassengers(data.get("Towpassengers"));
+                Thread.sleep(2000);
+                services.clickOnServiceTab();
+                services.getFacilityType();
+                home.saveButton();
+                Thread.sleep(1000);
+                services.getCallId();
+                services.closeCall();
+                Thread.sleep(4000);
+                home.logout();
+                acceptAlert();
+                navigateToApplication("DI");
+                login(data.get("LoginNameForDI"), data.get("PasswordForDI"));
+                loginRole.clickOnProceedBtnInDispatchRoleLogin();
+                Thread.sleep(10000);
+                //diHome.closeFacilityWindow();
+                diHome.clickOnCloseIconOnQueueSelection();
+                diLogin.waitcloseAllBusyIcons();
+                Thread.sleep(5000);
+
+                diHome.clickOnSearchCallsLink();
+
+
+
+                String numberAsString = new Long(ran).toString();
+
+
+
+                crSearchCall.enterRAPNumberOnSearchCallsWindow(numberAsString);
+                crSearchCall.clickOnSearchBtnOnSearchCallsWindow();
+                Thread.sleep(4000);
+                crSearchCall.clickCallIDLinkOnSearchCallsWindow();
+
+
+                String troubleCodeBefore=dimcd.captureTroubleCodeInDispatch();
+                String paceSetterCodeBefore=dimcd.capturePaceSetterCodeDispatchSummary();
+
+                dimcd.statusUpdateAsSP(data.get("StatusUpdateSP"));
+                dimcd.statusUpdateAsAS(data.get("StatusUpdateAS"));
+                dimcd.statusUpdateAsDI(data.get("StatusUpdateDI"));
+                dimcd.statusUpdateAsER(data.get("StatusUpdateER"));
+                dimcd.statusUpdateAsOL(data.get("StatusUpdateOL"));
+                dimcd.statusUpdateAsCL(data.get("StatusUpdateCL"));
+                dimcd.resolutionCode(data.get("ResolutionCode"),data.get("Reason"), data.get("BatteryInfo"));
+
+                crHomeLib.allErrorAlerts();
+
+
+                dimcd.clickPaymentonAPD();
+                dimcd.selectServicesDrpDwnOnPaymentonAPD(data.get("Services"));
+                dimcd.enterCashCollectedOnPaymentonAPD(data.get("CashCollected"));
+                dimcd.enterServiceCostOnPaymentonAPD(data.get("Amount"));
+                dimcd.clickSaveBtnOnPaymentonAPD();
+                dimcd.clickCloseBtnOnPaymentonAPD();
+                dimcd.statusUpdateAsCL(data.get("StatusUpdateCL"));
+                String troubleCodeDrpDwn=dimcd.captureTroubleCodeInDropdownDispatch();
+                String reasonCodeDrpdwn=dimcd.captureReasonDispatchDrpDwn();
+                assertTrue(troubleCodeBefore.equalsIgnoreCase(troubleCodeDrpDwn), "Expected Trouble Code: " + troubleCodeBefore + "Actual trouble code is " + troubleCodeDrpDwn);
+
+
+                dimcd.clickOnContinue();
+                Thread.sleep(5000);
+                dimcd.clickSubmitBtnOnPaymentonAPD();
+                dimcd.labelCallCleared();
+                home.logout();
+                //crDI.dispatchlogout();
+                acceptAlert();
+                Thread.sleep(1000);
+
+
+                System.out.println("Test completed");
+
+
+            }
+        }catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+}

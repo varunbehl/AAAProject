@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Android-Native"
+           tests="1"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="87.433">
+  <properties />
+  
+  
+            <testcase name="ValidatekillProcessForCallsnew" time="87.433" classname="test.webmobile.TC_CRCancelCallsnew" />
+      
+</testsuite>

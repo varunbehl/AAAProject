@@ -1,0 +1,2932 @@
+package com.aaa.web.lib;
+
+import java.util.Hashtable;
+import java.util.List;
+
+import com.aaa.web.page.DIMCDPage;
+import com.aaa.web.page.LoginPage;
+import com.aaa.accelerators.ActionEngine;
+
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+
+public class DIMCDLib extends ActionEngine {
+    List<WebElement> CommentsMCDWindow = null;
+    String spotStatus;
+    String assignStatus;
+    String facilityStatus;
+    String dispatchStatus;
+    String enrouteStatus;
+    String locationStatus;
+    String clearStatus;
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: clickOnAssign
+     * description ::
+     * date :: 05-Nov-2017
+     * author ::
+     */
+    public void clickOnAssign() throws Throwable {
+        Thread.sleep(3000);
+        waitForVisibilityOfElement(DIMCDPage.btnAsignCallinMCD, "Assign Call Link");
+        click(DIMCDPage.btnAsignCallinMCD, "Assign Call Link");
+    }
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: validateAssign
+     * description ::
+     * date :: 05-Nov-2017
+     * author ::
+     */
+    public void validateAssign() throws Throwable {
+        Thread.sleep(3000);
+        waitForVisibilityOfElement(DIMCDPage.btnAsignCallinMCD, "Assign Call Link");
+        isElementPresent(DIMCDPage.btnAsignCallinMCD, "Assign Call Link");
+    }
+
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: selectFacility
+     * description ::
+     * date :: 05-Nov-2017
+     * author ::
+     */
+    public void selectFacility() throws Throwable {
+        Thread.sleep(3000);
+        boolean isFacilityBVisible = isVisibleOnly(DIMCDPage.selectFacility, "Select Facility");
+        if (isFacilityBVisible) {
+            waitForVisibilityOfElement(DIMCDPage.selectFacility, "Select Facility");
+            click(DIMCDPage.selectFacility, "Select facility");
+        }
+        boolean isFacilityZVisible = isVisibleOnly(DIMCDPage.selectFacilityZ, "Select Facility");
+        if (isFacilityZVisible) {
+            waitForVisibilityOfElement(DIMCDPage.selectFacilityZ, "Select Facility");
+            click(DIMCDPage.selectFacilityZ, "Select facility");
+        }
+        boolean FacilityBVisible = isVisibleOnly(DIMCDPage.selectFacilityB, "Select Facility");
+        if (FacilityBVisible) {
+            waitForVisibilityOfElement(DIMCDPage.selectFacilityB, "Select Facility");
+            click(DIMCDPage.selectFacilityB, "Select facility");
+        }
+    }
+
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: selectDispatch
+     * description ::
+     * date :: 05-Nov-2017
+     * author ::
+     */
+    public void selectDispatch() throws Throwable {
+        Thread.sleep(3000);
+        waitForVisibilityOfElement(DIMCDPage.btnDispatchUpdateinMCD, "Dispatch Update");
+        click(DIMCDPage.btnDispatchUpdateinMCD, "Select Dispatch");
+    }
+
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: selectEnroute
+     * description ::
+     * date :: 05-Nov-2017
+     * author ::
+     */
+    public void selectEnroute() throws Throwable {
+        Thread.sleep(3000);
+        waitForVisibilityOfElement(DIMCDPage.btnEnrouteUpdateinMCD, "Enroute Update");
+        click(DIMCDPage.btnEnrouteUpdateinMCD, "Select btnEnrouteUpdateinMCD");
+    }
+
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: selectEnrouteTime
+     * description ::
+     * date :: 05-Nov-2017
+     * author ::
+     */
+    public void selectEnrouteTime() throws Throwable {
+        Thread.sleep(3000);
+        waitForVisibilityOfElement(DIMCDPage.selEnrouteTimeinMCD, "Enroute Time");
+        click(DIMCDPage.selEnrouteTimeinMCD, "Select enroute Time");
+    }
+
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: selectOnLocation
+     * description ::
+     * date :: 05-Nov-2017
+     * author ::
+     */
+    public void selectOnLocation() throws Throwable {
+        Thread.sleep(3000);
+        waitForVisibilityOfElement(DIMCDPage.btnOnLocationUpdateinMCD, "On Location Update");
+        click(DIMCDPage.btnOnLocationUpdateinMCD, "Select On Location");
+    }
+
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: selectClearCall
+     * description ::
+     * date :: 05-Nov-2017
+     * author ::
+     */
+    public void selectClearCall() throws Throwable {
+        Thread.sleep(3000);
+        waitForVisibilityOfElement(DIMCDPage.btnClearCallUpdateinMCD, "Clear call Update");
+        click(DIMCDPage.btnClearCallUpdateinMCD, "Select clear call");
+    }
+
+    public void selectCancelinClearCall() throws Throwable {
+        Thread.sleep(3000);
+        waitForVisibilityOfElement(DIMCDPage.cancelinMCDClearCall, "Select Cancel");
+        click(DIMCDPage.cancelinMCDClearCall, "Select Cancel");
+    }
+
+    public void selectServiceNotEnroute() throws Throwable {
+        Thread.sleep(3000);
+        waitForVisibilityOfElement(DIMCDPage.cancelCallServiceNotEnroute, "Cancel Service Not EnRoute");
+        click(DIMCDPage.cancelCallServiceNotEnroute, "Cancel Service Not EnRoute");
+
+    }
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: selectExitCode
+     * description ::
+     * date :: 05-Nov-2017
+     * author ::
+     */
+    public void selectExitCode() throws Throwable {
+        Thread.sleep(3000);
+        waitForVisibilityOfElement(DIMCDPage.selectPacesetterCodeJumpStart, "enter Pace setter code information");
+        click(DIMCDPage.selectPacesetterCodeJumpStart, "Select select Pacesetter Code Jump Start");
+    }
+
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: clickOnContinue
+     * description ::
+     * date :: 05-Nov-2017
+     * author ::
+     */
+    public void clickOnContinue() throws Throwable {
+        Thread.sleep(3000);
+        waitForVisibilityOfElement(DIMCDPage.continueButton, "continue call clearing");
+        click(DIMCDPage.continueButton, "click on continue call clearing");
+        Thread.sleep(6000);
+    }
+
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: clickAndEnterBatteryTestedInformation
+     * description ::
+     * date :: 05-Nov-2017
+     * author ::
+     */
+    public void clickAndEnterBatteryTestedInformation(String odoMeterReading, String comments) throws Throwable {
+        Thread.sleep(3000);
+        waitForVisibilityOfElement(DIMCDPage.batteryTestedYes, "battery tested yes");
+        click(DIMCDPage.batteryTestedYes, "click on battery tested yes");
+        click(DIMCDPage.batteryFailedTestNo, "click on battery failed test NO");
+        type(DIMCDPage.odometerReading, odoMeterReading, "ODOMETER Reading");
+        type(DIMCDPage.enterComments, comments, "Done a Jump Start");
+    }
+
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: clickOnSubmit
+     * description ::
+     * date :: 05-Nov-2017
+     * author ::
+     */
+    public void clickOnSubmit() throws Throwable {
+        Thread.sleep(3000);
+        boolean continueButtonVisible = isVisibleOnly(DIMCDPage.continueButton, "Continue Button");
+        if (continueButtonVisible) {
+            click(DIMCDPage.continueButton, "click on Continue Button");
+            waitForVisibilityOfElement(DIMCDPage.enterComments, "Cancelled call QA ");
+            type(DIMCDPage.enterComments, "Cancelled call QA ", "Cancelled call QA ");
+        }
+        boolean submitButtonVisible = isVisibleOnly(DIMCDPage.submitButton, "submit Button");
+        if (submitButtonVisible) {
+            waitForVisibilityOfElement(DIMCDPage.submitButton, "submit Button");
+            click(DIMCDPage.submitButton, "click on submit Button");
+            Thread.sleep(10000);
+            if (isVisibleOnly(LoginPage.errorAlertOK, "Okay Button")) {
+                click(LoginPage.errorAlertOK, "Okay Button");
+            }
+        }
+
+
+    }
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: capturePaceCodeInDispatch
+     * description ::
+     * date :: 05-Nov-2017
+     * author ::
+     */
+    public void capturePaceCodeInDispatch(String paceSetterCode) throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.lblPaceSetterCodeInMCD, "Pacesetter code in dispatch");
+        String pacecodeindispatch = getText(DIMCDPage.lblPaceSetterCodeInMCD, "Pacesetter code in dispatch");
+        //assertTrue(pacecodeindispatch.contains(dataBean.getValue(data, "Pacecodeindispatch")), "Excpeted pacesetter code has been displayed in dispacth");
+        //assertTrue(pacecodeindispatch.equalsIgnoreCase(dataBean.getValue(data,"Pacecodeindispatch")),"Excpeted pacesetter code has been displayed in dispacth");
+        String currentPaceCode[] = pacecodeindispatch.split("-");
+        String PaceCodeValue = currentPaceCode[0]; //L302
+        String PaceCodeText = currentPaceCode[1]; //No Crank
+        //L302 No Crank - Bat Svc (non-AAA Bat)
+        String getPaceCode = paceSetterCode;
+        assertTrue(PaceCodeValue.contains(getPaceCode), "PaceCode is same");
+        assertTrue(PaceCodeText.contains(getPaceCode), getPaceCode + "PaceCode is same");
+    }
+
+    /**
+     * param ::
+     * return ::void
+     * throws :: throwable
+     * methodName :: clickOnCloseCallButton
+     * description ::
+     * date :: 19-Dec-2017
+     * author ::Abhiram Vajrapu
+     */
+    public void clickOnCloseCallButton() throws Throwable {
+        Thread.sleep(3000);
+        waitForVisibilityOfElement(DIMCDPage.btnCloseCall, "Close Call");
+        click(DIMCDPage.btnCloseCall, "Close Call");
+    }
+
+
+    /**
+     * param ::
+     * return ::void
+     * throws :: throwable
+     * methodName :: clickOnCloseCallButton
+     * description ::
+     * date :: 19-Dec-2017
+     * author ::Abhiram Vajrapu
+     */
+    public void clickOnPaceSetterResolutionCode() throws Throwable {
+        Thread.sleep(3000);
+        waitForVisibilityOfElement(DIMCDPage.selPaceSetterResolutionCode, "Select PaceSetter Resolution Code");
+        click(DIMCDPage.selPaceSetterResolutionCode, "Select PaceSetter Resolution Code");
+    }
+
+    /**
+     * param ::
+     * return ::void
+     * throws :: throwable
+     * methodName :: labelCallCleared
+     * description ::
+     * date :: 19-Dec-2017
+     * author ::Abhiram Vajrapu
+     */
+    public void labelCallCleared() throws Throwable {
+        boolean visibilityOfCallClear = isVisibleOnly(DIMCDPage.lblCallClearedStatus, "Call Cleared");
+        if (visibilityOfCallClear) {
+            assertTrue(visibilityOfCallClear, "Call Cleared value is available");
+            String callClearedStatus = getText(DIMCDPage.lblCallClearedStatus, "Call Cleared value is available");
+        } else {
+            assertFalse(visibilityOfCallClear, "all Cleared value is not available");
+        }
+    }
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: enterReason
+     * description ::
+     * date :: 20-Dec-2017
+     * author ::
+     */
+    public void enterReason(String reason) throws Throwable {
+        Thread.sleep(3000);
+        waitForVisibilityOfElement(DIMCDPage.txtReason, "Enter Reason");
+        type(DIMCDPage.txtReason, reason, "Enter Reason");
+    }
+
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: enterReason
+     * description ::
+     * date :: 20-Dec-2017
+     * author ::
+     */
+    public void clickOnMCDCloseWindow() throws Throwable {
+        Thread.sleep(3000);
+        waitForVisibilityOfElement(DIMCDPage.btnWindowCloseInMCD, "Close MCD Window");
+        click(DIMCDPage.btnWindowCloseInMCD, "Close MCD Window");
+    }
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: clickOnUpdate
+     * description ::
+     * date :: 29-Dec-2017
+     * author ::Nidhi
+     */
+    public void clickOnUpdate() throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.btnUpdateOnStatusUpdate, "Status Update Tab");
+        click(DIMCDPage.btnUpdateOnStatusUpdate, "Status Update Tab");
+    }
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: enterReasonOnStatusUpdateTab
+     * description ::
+     * date :: 29-Dec-2017
+     * author ::Nidhi
+     */
+    public void enterReasonOnStatusUpdateTab(String Class) throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.txtReasonOnStatusUpdate, "reason on status update tab");
+        Thread.sleep(3000);
+        type(DIMCDPage.txtReasonOnStatusUpdate, Class, "reason on status update tab");
+        String combineKeys3 = Keys.chord(Keys.TAB);
+        sendKeys(combineKeys3, "Tab");
+        Thread.sleep(3000);
+    }
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: enterStatusOnStatusUpdateTab
+     * description ::
+     * date :: 29-Dec-2017
+     * author ::Nidhi
+     */
+
+    public void enterStatusOnStatusUpdateTab(String Class) throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.txtStatusOfStatusUpdateInMCD, "reason on status update tab");
+        type(DIMCDPage.txtStatusOfStatusUpdateInMCD, Class, "reason on status update tab");
+    }
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: clickOnStatusUpdateTab
+     * description ::
+     * date :: 29-Dec-2017
+     * author ::Nidhi
+     */
+    public void clickOnStatusUpdateTab() throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.tabStatusUpdateInMCD, "update button");
+        click(DIMCDPage.tabStatusUpdateInMCD, "update button");
+    }
+
+    /**
+     * description ::TO click on ETA button On MCD Window
+     * date :: 29-Dec-2017
+     *
+     * @throws Throwable
+     * @author: Madhukar
+     */
+    public void clickOnETAButtonOnMCDWindow() throws Throwable {
+        boolean ETA = isVisibleOnly(DIMCDPage.btnETAinMCD, "ETA Button");
+        if (ETA) {
+            click(DIMCDPage.btnETAinMCD, "ETA Button");
+        } else {
+            assertFalse(ETA, "ETA Button is not visible");
+        }
+    }
+
+    /**
+     * description ::To set the time for ETA
+     * date :: 29-Dec-2017
+     *
+     * @throws Throwable
+     * @author: Madhukar
+     */
+    public void setTimeForETA() throws Throwable {
+        boolean setTime = isVisibleOnly(DIMCDPage.setTimeForETA, "Set time for ETA");
+        if (setTime) {
+            click(DIMCDPage.setTimeForETA, "Set time for ETA");
+        } else {
+            assertFalse(setTime, "set time for eta is not found");
+        }
+    }
+
+    /**
+     * description ::To click on status update Tab on MCD Window
+     * date :: 29-Dec-2017
+     *
+     * @throws Throwable
+     * @author: Madhukar
+     */
+    public void clickOnStatusUpdateTabOnMCDWindow() throws Throwable {
+        boolean statusUpdateTab = isVisibleOnly(DIMCDPage.tabStatusUpdateInMCD, "Status Update Tab");
+        if (statusUpdateTab) {
+            click(DIMCDPage.tabStatusUpdateInMCD, "Status Update Tab");
+        } else {
+            assertFalse(statusUpdateTab, "Status Update Tab is not visible");
+        }
+    }
+
+    /**
+     * description ::To enter the status in status update tab on MCD Window
+     * date :: 29-Dec-2017
+     *
+     * @param statusForStatusUpdate
+     * @throws Throwable
+     * @author: Madhukar
+     */
+    public void enterStatusInStatusUpdateTab(String statusForStatusUpdate) throws Throwable {
+        boolean statusupdate = isVisibleOnly(DIMCDPage.txtStatusOfStatusUpdateInMCD, "status Text box");
+        if (statusupdate) {
+            click(DIMCDPage.txtStatusOfStatusUpdateInMCD, "status Text box");
+            type(DIMCDPage.txtStatusOfStatusUpdateInMCD, statusForStatusUpdate, "Update status in StatusUpdate Tab");
+        } else {
+            assertFalse(statusupdate, "unable to enter status");
+        }
+
+    }
+
+    /**
+     * description ::To enter Reason in status update tab on MCD Window
+     * date :: 29-Dec-2017
+     *
+     * @param reasonForStatusUpdate
+     * @throws Throwable
+     */
+    public void enterReasonInStatusUpdateTab(String reasonForStatusUpdate) throws Throwable {
+        boolean reason = isVisibleOnly(DIMCDPage.txtReasonOfStatusUpdateInMCD, "status Text box");
+        if (reason) {
+            Thread.sleep(4000);
+            click(DIMCDPage.txtReasonOfStatusUpdateInMCD, "Reason in StatusUpdate Tab");
+            Thread.sleep(2000);
+            type(DIMCDPage.txtReasonOfStatusUpdateInMCD, reasonForStatusUpdate, "Reason in StatusUpdate Tab");
+            Thread.sleep(4000);
+
+        } else {
+            assertFalse(reason, "unable to enter status");
+        }
+
+    }
+
+    /**
+     * Description:To click on update button of Status Update button on Profile window
+     * date:29-12-2017
+     *
+     * @throws Throwable
+     * @author: Madhukar
+     */
+    public void clickOnUpdateButtonInStatusUpdateTab() throws Throwable {
+        boolean update = isVisibleOnly(DIMCDPage.btnUpdateOfStatusUpdateTabInMCD, "Update Button");
+        if (update) {
+            click(DIMCDPage.btnUpdateOfStatusUpdateTabInMCD, "Update Button");
+        } else {
+            assertFalse(update, "Update Button Not visible");
+        }
+    }
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: selectFacilityOnAssignTabInMCD
+     * description ::
+     * date :: 01-Jan-2018
+     * author ::Nidhi
+     */
+    public void selectFacilityOnAssignTabInMCD() throws Throwable {
+        Thread.sleep(3000);
+        waitForVisibilityOfElement(DIMCDPage.selectFacilityOnAssignTabInMCD, "Select Facility");
+        click(DIMCDPage.selectFacilityOnAssignTabInMCD, "Select facility");
+    }
+
+    /**
+     * Description:This method is used to select second facility on Assign tab
+     * Date:03-01-2018
+     *
+     * @throws Throwable
+     * @author : Madhukar
+     */
+    public void selectSecondFacilityOnAssignTabInMCD() throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.selectSecondFacilityOnAssignTabInMCD, "select facility");
+        boolean facility = isVisibleOnly(DIMCDPage.selectSecondFacilityOnAssignTabInMCD, "select facility");
+        if (facility) {
+            click(DIMCDPage.selectSecondFacilityOnAssignTabInMCD, "select facility");
+        } else {
+            assertFalse(facility, "facility is not available");
+        }
+    }
+
+    /**
+     * Description:This method is used to select second facility on Dispatch tab
+     * Date:03-01-2018
+     *
+     * @throws Throwable
+     * @author : Madhukar
+     */
+    public void selectSecondFacilityOnDispatchTabInMCD() throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.selectSecondFacilityOnDispatchTabInMCD, "select facility");
+        boolean facility = isVisibleOnly(DIMCDPage.selectSecondFacilityOnDispatchTabInMCD, "select facility");
+        if (facility) {
+            click(DIMCDPage.selectSecondFacilityOnDispatchTabInMCD, "select facility");
+        } else {
+            assertFalse(facility, "facility is not available");
+        }
+    }
+
+    /**
+     * description ::To enter Reason in status update tab on MCD Window
+     * date ::  03-Jan-2018
+     * author ::Nidhi
+     *
+     * @param reasonForRedFlagStatusUpdate
+     * @throws Throwable
+     */
+    public void enterReasonForRedFlagInStatusUpdateTab(String reasonForRedFlagStatusUpdate) throws Throwable {
+        boolean reason = isVisibleOnly(DIMCDPage.txtReasonOfStatusUpdateInMCD, "status Text box");
+        if (reason) {
+            click(DIMCDPage.txtReasonOfStatusUpdateInMCD, "Reason in StatusUpdate Tab");
+            type(DIMCDPage.txtReasonOfStatusUpdateInMCD, reasonForRedFlagStatusUpdate, "Reason in StatusUpdate Tab");
+        } else {
+            assertFalse(reason, "unable to enter status");
+        }
+
+    }
+
+    /**
+     * Description:This method is used to verify Member FirstName On SummaryTab
+     * date ::  11-Jan-2018
+     *
+     * @return
+     * @throws Throwable
+     */
+    public boolean verifyMemberFirstNameOnSummaryTab() throws Throwable {
+        boolean firstName = isVisibleOnly(DIMCDPage.lblMemberFirstNameOnSummaryTabinMCD, "Member First Name");
+        return firstName;
+    }
+
+    /**
+     * Description:This method is used to verify Member LastName On SummaryTab
+     * date ::  11-Jan-2018
+     *
+     * @return
+     * @throws Throwable
+     */
+    public boolean verifyMemberLastNameOnSummaryTab() throws Throwable {
+        boolean lastName = isVisibleOnly(DIMCDPage.lblMemberLastNameOnSummaryTabinMCD, "Member Last Name");
+        return lastName;
+    }
+
+    /**
+     * Description:This method is used to verify Member Number On SummaryTab
+     * date ::  11-Jan-2018
+     *
+     * @return
+     * @throws Throwable
+     */
+    public boolean verifyMemberNumberOnSummaryTab() throws Throwable {
+        boolean memberNumber = isVisibleOnly(DIMCDPage.lblMemberNumberOnSummaryTabinMCD, "Member Number");
+        return memberNumber;
+    }
+
+    /**
+     * Description:This method is used to verify Member Address On SummaryTab
+     * date ::  11-Jan-2018
+     *
+     * @return
+     * @throws Throwable
+     */
+    public boolean verifyMemberAddressOnSummaryTab() throws Throwable {
+        boolean memberAddress = isVisibleOnly(DIMCDPage.lblMemberAddressOnSummaryTabinMCD, "Member Address");
+        return memberAddress;
+    }
+
+    /**
+     * Description:This method is used to verify Member City On SummaryTab
+     * date ::  11-Jan-2018
+     *
+     * @return
+     * @throws Throwable
+     */
+    public boolean verifyMemberCityOnSummaryTab() throws Throwable {
+        boolean memberCity = isVisibleOnly(DIMCDPage.lblMemberCityOnSummaryTabinMCD, "Member City");
+        return memberCity;
+    }
+
+    /**
+     * Description:This method is used to verify Member state On SummaryTab
+     * date ::  11-Jan-2018
+     *
+     * @return
+     * @throws Throwable
+     */
+    public boolean verifyMemberStateOnSummaryTab() throws Throwable {
+        boolean memberState = isVisibleOnly(DIMCDPage.lblMemberStateOnSummaryTabinMCD, "Member State");
+        return memberState;
+    }
+
+    /**
+     * Description:This method is used to verify Member Zip On SummaryTab
+     * date ::  11-Jan-2018
+     *
+     * @return
+     * @throws Throwable
+     */
+    public boolean verifyMemberZipOnSummaryTab() throws Throwable {
+        boolean memberZip = isVisibleOnly(DIMCDPage.lblMemberZipOnSummaryTabinMCD, "Member Zip");
+        return memberZip;
+    }
+
+    /**
+     * Description:This method is used to verify BreakDown location On SummaryTab
+     * date ::  11-Jan-2018
+     *
+     * @return
+     * @throws Throwable
+     */
+    public boolean verifyBreakDownLocationOnSummaryTab() throws Throwable {
+        boolean breakdwnLoc = isVisibleOnly(DIMCDPage.lblBreakdownAddressLocationOnSummaryTabinMCD, "BreakDown Location");
+        return breakdwnLoc;
+    }
+
+    /**
+     * Description:This method is used to verify vehicle year On SummaryTab
+     * date ::  11-Jan-2018
+     *
+     * @return
+     * @throws Throwable
+     */
+    public boolean verifyVehicleYearOnSummaryTab() throws Throwable {
+        boolean year = isVisibleOnly(DIMCDPage.lblVehicleYearOnSummaryTabinMCD, "Vehicle year");
+        return year;
+    }
+
+    /**
+     * Description:This method is used to verify vehicle make On SummaryTab
+     * date ::  11-Jan-2018
+     *
+     * @return
+     * @throws Throwable
+     */
+    public boolean verifyVehicleMakeOnSummaryTab() throws Throwable {
+        boolean make = isVisibleOnly(DIMCDPage.lblVehicleMakeOnSummaryTabinMCD, "Vehicle Make");
+        return make;
+    }
+
+
+    /**
+     * Description:This method is used to verify vehicle Model On SummaryTab
+     * date ::  11-Jan-2018
+     *
+     * @return
+     * @throws Throwable
+     */
+    public boolean verifyVehicleModelOnSummaryTab() throws Throwable {
+        boolean model = isVisibleOnly(DIMCDPage.lblVehicleModelOnSummaryTabinMCD, "Vehicle Model");
+        return model;
+    }
+
+    /**
+     * Description:This method is used to verify vehicle Color On SummaryTab
+     * date ::  11-Jan-2018
+     *
+     * @return
+     * @throws Throwable
+     */
+    public boolean verifyVehicleColorOnSummaryTab() throws Throwable {
+        boolean color = isVisibleOnly(DIMCDPage.lblVehicleColorOnSummaryTabinMCD, "Vehicle Color");
+        return color;
+    }
+
+    /**
+     * Description:This method is used to verify Pacesetter code  On SummaryTab
+     * date ::  11-Jan-2018
+     *
+     * @return
+     * @throws Throwable
+     */
+    public boolean verifyPaceSetterCodeOnSummaryTab() throws Throwable {
+        boolean pacesetter = isVisibleOnly(DIMCDPage.lblPaceSetterCodeOnSummaryTabinMCD, "Pacesetter Code");
+        return pacesetter;
+    }
+
+
+    /**
+     * Description:This method is used to verify Trouble Code On SummaryTab
+     * date ::  11-Jan-2018
+     *
+     * @return
+     * @throws Throwable
+     */
+    public boolean verifyTroubleCodeOnSummaryTab() throws Throwable {
+        boolean troubleCode = isVisibleOnly(DIMCDPage.lblTroubleCodeOnSummaryTabinMCD, "Trouble Code");
+        return troubleCode;
+    }
+
+    /**
+     * Description:This method is used to verify Function Code On SummaryTab
+     * date ::  11-Jan-2018
+     *
+     * @return
+     * @throws Throwable
+     */
+    public boolean verifyFunctionCodeOnSummaryTab() throws Throwable {
+        boolean functionCode = isVisibleOnly(DIMCDPage.lblFunctionCodeOnSummaryTabinMCD, "Function Code");
+        return functionCode;
+    }
+
+    /**
+     * Description:This method is used to verify Faclity Id and Name On SummaryTab
+     * date ::  11-Jan-2018
+     *
+     * @return
+     * @throws Throwable
+     */
+    public boolean verifyFaclityIdandNameOnSummaryTab() throws Throwable {
+        boolean faclity = isVisibleOnly(DIMCDPage.lblFacilityIdAndNameOnSummaryTabinMCD, "facility name and id");
+        return faclity;
+    }
+
+    /**
+     * Description:This method is used to verify Truck load button On SummaryTab
+     * date ::  11-Jan-2018
+     *
+     * @return
+     * @throws Throwable
+     */
+    public boolean verifyTruckLoadButtonOnSummaryTab() throws Throwable {
+        boolean truckLoad = isVisibleOnly(DIMCDPage.btnTruckLoadOnSummaryTabinMCD, "truck load button");
+        return truckLoad;
+    }
+
+    /**
+     * Description:This method is used to on Member Tab In MCD Window
+     * date ::  11-Jan-2018
+     *
+     * @return
+     * @throws Throwable
+     */
+    public void clickOnMemberTabInMCDWindow() throws Throwable {
+        boolean memberTab = isVisibleOnly(DIMCDPage.lnkMemberTabinMCD, "Member Tab");
+        if (memberTab) {
+            click(DIMCDPage.lnkMemberTabinMCD, "Member Tab");
+        } else {
+            assertFalse(memberTab, "member tab is not found");
+        }
+    }
+
+    /**
+     * Description:This method is used to verify Member Number on Member tab
+     * date ::  11-Jan-2018
+     *
+     * @return
+     * @throws Throwable
+     */
+    public boolean verifyMemberNumberOnMemberTab() throws Throwable {
+        boolean memberNumber = isVisibleOnly(DIMCDPage.lblMemberNumberOnMemberTabinMCD, "Member Number");
+        return memberNumber;
+    }
+
+    /**
+     * Description:This method is used to verify Member First Name on Member tab
+     * date ::  11-Jan-2018
+     *
+     * @return
+     * @throws Throwable
+     */
+    public boolean verifyMemberFirstNameOnMemberTab() throws Throwable {
+        boolean firstName = isVisibleOnly(DIMCDPage.lblMemberFirstNameOnMemberTabinMCD, "Member First Name");
+        return firstName;
+    }
+
+    /**
+     * Description:This method is used to verify Member Last Name on Member tab
+     * date ::  11-Jan-2018
+     *
+     * @return
+     * @throws Throwable
+     */
+    public boolean verifyMemberLastNameOnMemberTab() throws Throwable {
+        boolean lastName = isVisibleOnly(DIMCDPage.lblMemberLastNameOnMemberTabinMCD, "Member Last Name");
+        return lastName;
+    }
+
+    /**
+     * Description:This method is used to verify Member Address on Member tab
+     * date ::  11-Jan-2018
+     *
+     * @return
+     * @throws Throwable
+     */
+    public boolean verifyMemberAddressOnMemberTab() throws Throwable {
+        boolean address = isVisibleOnly(DIMCDPage.lblMemberAddressOnMemberTabinMCD, "Member Address");
+        return address;
+    }
+
+    /**
+     * Description:This method is used to verify Member Level on Member tab
+     * date ::  11-Jan-2018
+     *
+     * @return
+     * @throws Throwable
+     */
+    public boolean verifyMemberLevelOnMemberTab() throws Throwable {
+        boolean level = isVisibleOnly(DIMCDPage.lblMemberLevelOnMemberTabinMCD, "Level");
+        return level;
+    }
+
+    /**
+     * Description:This method is used to verify Member status on Member tab
+     * date ::  11-Jan-2018
+     *
+     * @return
+     * @throws Throwable
+     */
+    public boolean verifyMemberStatusOnMemberTab() throws Throwable {
+        boolean status = isVisibleOnly(DIMCDPage.lblMemberStatusOnMemberTabinMCD, "Status");
+        return status;
+    }
+
+    /**
+     * Description:This method is used to verify Expiration on Member tab
+     * date ::  11-Jan-2018
+     *
+     * @return
+     * @throws Throwable
+     */
+    public boolean verifyMemberExpirationOnMemberTab() throws Throwable {
+        boolean expiration = isVisibleOnly(DIMCDPage.lblMemberExpirationDateOnMemberTabinMCD, "Expiration");
+        return expiration;
+    }
+
+    /**
+     * Description:This method is used to verify Calls Used on Member tab
+     * date ::  11-Jan-2018
+     *
+     * @return
+     * @throws Throwable
+     */
+    public boolean verifyMemberCallsUsedOnMemberTab() throws Throwable {
+        boolean callsUsed = isVisibleOnly(DIMCDPage.lblMemberCallsUsedOnMemberTabinMCD, "Calls Used");
+        return callsUsed;
+    }
+
+    /**
+     * Description:This method is used to verify Calls Allowed on Member tab
+     * date ::  11-Jan-2018
+     *
+     * @return
+     * @throws Throwable
+     */
+    public boolean verifyMemberCallsAllowedOnMemberTab() throws Throwable {
+        boolean callsAllowed = isVisibleOnly(DIMCDPage.lblMemberCallsAllowedOnMemberTabinMCD, "Calls Allowed");
+        return callsAllowed;
+    }
+
+    /**
+     * Description:This method is used to verify Long Tow is  Allowed on Member tab
+     * date ::  11-Jan-2018
+     *
+     * @return
+     * @throws Throwable
+     */
+    public boolean verifyLongTowAllowedOnMemberTab() throws Throwable {
+        boolean towAllowed = isVisibleOnly(DIMCDPage.lblLongTowAllowedOnMemberTabinMCD, "Long Tow Allowed");
+        return towAllowed;
+    }
+
+    /**
+     * Description:This method is used to verify Phone Number on Member tab
+     * date ::  11-Jan-2018
+     *
+     * @return
+     * @throws Throwable
+     */
+    public boolean verifyMemberPhoneNumberOnMemberTab() throws Throwable {
+        boolean phoneNo = isVisibleOnly(DIMCDPage.lblMemberPhoneNumberOnMemberTabinMCD, "Phone Number");
+        return phoneNo;
+    }
+
+
+    /**
+     * Description:This method is used to on Service Tab In MCD Window
+     * date ::  11-Jan-2018
+     *
+     * @return
+     * @throws Throwable
+     */
+    public void clickOnServiceTabInMCDWindow() throws Throwable {
+        boolean memberTab = isVisibleOnly(DIMCDPage.lnkServiceTabinMCD, "Service Tab");
+        if (memberTab) {
+            click(DIMCDPage.lnkServiceTabinMCD, "Service Tab");
+        } else {
+            assertFalse(memberTab, "Service tab is not found");
+        }
+    }
+
+    /**
+     * Description:This method is used to verify PaceSetter code on service tab
+     * date ::  11-Jan-2018
+     *
+     * @return
+     * @throws Throwable
+     */
+    public boolean verifyPacesetterCodeOnServiceTab() throws Throwable {
+        boolean pacesetterCode = isVisibleOnly(DIMCDPage.lblPaceSetterCodeOnServiceTabinMCD, "Pacesetter Code");
+        return pacesetterCode;
+    }
+
+    /**
+     * Description:This method is used to verify Trouble code on service tab
+     * date ::  11-Jan-2018
+     *
+     * @return
+     * @throws Throwable
+     */
+    public boolean verifyTroubleCodeOnServiceTab() throws Throwable {
+        boolean troubleCode = isVisibleOnly(DIMCDPage.lblTroubleCodeOnServiceTabinMCD, "Trouble Code");
+        return troubleCode;
+    }
+
+    /**
+     * Description:This method is used to verify Sevice Type Info on service tab
+     * date ::  11-Jan-2018
+     *
+     * @return
+     * @throws Throwable
+     */
+    public boolean verifyServiceTypeinfoOnServiceTab() throws Throwable {
+        boolean serviceType = isVisibleOnly(DIMCDPage.lblServiceTypeInfoOnServiceTabinMCD, "Sevice Type Info");
+        return serviceType;
+    }
+
+    /**
+     * Description:This method is used to verify Facility Name And number On ServiceTab
+     * date ::  11-Jan-2018
+     *
+     * @return
+     * @throws Throwable
+     */
+    public boolean verifyFacilityNameAndnumberOnServiceTab() throws Throwable {
+        boolean facilityNameAndNumber = isVisibleOnly(DIMCDPage.lblFacilityNameAndNumberOnServiceTabinMCD, "Facility Name And Number");
+        return facilityNameAndNumber;
+    }
+
+    /**
+     * Description:This method is used to verify ShowBatteryServiceHistory Button On Service Tab
+     * date ::  11-Jan-2018
+     *
+     * @return
+     * @throws Throwable
+     */
+    public boolean verifyShowBatteryServiceHistoryButtonOnServiceTab() throws Throwable {
+        boolean batteryService = isVisibleOnly(DIMCDPage.btnShowBatteryServiceHistory, "Battery Service history button");
+        return batteryService;
+    }
+
+    /**
+     * Description:This method is used to on Locations Tab In MCD Window
+     * date ::  11-Jan-2018
+     *
+     * @return
+     * @throws Throwable
+     */
+    public void clickOnLocationsTabInMCDWindow() throws Throwable {
+        boolean locationsTab = isVisibleOnly(DIMCDPage.lnkLocationsTabinMCD, "Locations Tab");
+        if (locationsTab) {
+            click(DIMCDPage.lnkLocationsTabinMCD, "Locations Tab");
+        } else {
+            assertFalse(locationsTab, "Locations tab is not found");
+        }
+    }
+
+    /**
+     * Description:This method is used to verify BreakDown Location On Service Tab
+     * date ::  11-Jan-2018
+     *
+     * @return
+     * @throws Throwable
+     */
+    public boolean verifyBreakDownLocationOnLocationsTab() throws Throwable {
+        boolean breakDownLoc = isVisibleOnly(DIMCDPage.lblBreakDownLocationOnLocationsTabinMCD, "BreakDown Location");
+        return breakDownLoc;
+    }
+
+    /**
+     * Description:This method is used to verify Tow Destination On Service Tab
+     * date ::  11-Jan-2018
+     *
+     * @return
+     * @throws Throwable
+     */
+    public boolean verifyTowDestinationOnLocationsTab() throws Throwable {
+        boolean towdestination = isVisibleOnly(DIMCDPage.lblTowDestinationOnLocationsTabinMCD, "Tow Destination ");
+        return towdestination;
+    }
+
+    /**
+     * Description:This method is used to on Vehicle Tab In MCD Window
+     * date ::  11-Jan-2018
+     *
+     * @return
+     * @throws Throwable
+     */
+    public void clickOnVehicleTabInMCDWindow() throws Throwable {
+        boolean locationsTab = isVisibleOnly(DIMCDPage.lnkVehicleTabinMCD, "Vehicle Tab");
+        if (locationsTab) {
+            click(DIMCDPage.lnkVehicleTabinMCD, "Vehicle Tab");
+        } else {
+            assertFalse(locationsTab, "Vehicle tab is not found");
+        }
+    }
+
+    /**
+     * Description:This method is used to verify vehicle type on vehicle tab
+     * date ::  11-Jan-2018
+     *
+     * @return
+     * @throws Throwable
+     */
+    public boolean verifyVehicleTypeOnVehicleTab() throws Throwable {
+        boolean type = isVisibleOnly(DIMCDPage.lblVehicleTypeOnVehicleTabinMCD, "Vehicle Type");
+        return type;
+    }
+
+    /**
+     * Description:This method is used to verify vehicle year on vehicle tab
+     * date ::  11-Jan-2018
+     *
+     * @return
+     * @throws Throwable
+     */
+    public boolean verifyVehicleYearOnVehicleTab() throws Throwable {
+        boolean year = isVisibleOnly(DIMCDPage.lblVehicleYearOnVehicleTabinMCD, "Vehicle year");
+        return year;
+    }
+
+    /**
+     * Description:This method is used to verify vehicle make on vehicle tab
+     * date ::  11-Jan-2018
+     *
+     * @return
+     * @throws Throwable
+     */
+    public boolean verifyVehicleMakeOnVehicleTab() throws Throwable {
+        boolean make = isVisibleOnly(DIMCDPage.lblVehicleMakeOnVehicleTabinMCD, "Vehicle make");
+        return make;
+    }
+
+    /**
+     * Description:This method is used to verify vehicle model on vehicle tab
+     * date ::  11-Jan-2018
+     *
+     * @return
+     * @throws Throwable
+     */
+    public boolean verifyVehicleModelOnVehicleTab() throws Throwable {
+        boolean make = isVisibleOnly(DIMCDPage.lblVehicleModelOnVehicleTabinMCD, "Vehicle model");
+        return make;
+    }
+
+    /**
+     * Description:This method is used to verify vehicle color on vehicle tab
+     * date ::  11-Jan-2018
+     *
+     * @return
+     * @throws Throwable
+     */
+    public boolean verifyVehicleColorOnVehicleTab() throws Throwable {
+        boolean make = isVisibleOnly(DIMCDPage.lblVehicleColorOnVehicleTabinMCD, "Vehicle Color");
+        return make;
+    }
+
+
+    /**
+     * param ::
+     * return ::void
+     * throws :: throwable
+     * methodName :: clickOnSP
+     * description ::
+     * date :: 12-Jan-2018
+     * author ::
+     */
+    public void clickOnSP() throws Throwable {
+        Thread.sleep(3000);
+        waitForVisibilityOfElement(DIMCDPage.btnSPOnMCDWindow, "Clicked on SP button");
+        click(DIMCDPage.btnSPOnMCDWindow, "Clicked on SP button");
+    }
+
+
+    /**
+     * param ::
+     * return ::void
+     * throws :: throwable
+     * methodName :: clickOnTW
+     * description ::
+     * date :: 12-Jan-2018
+     * author ::
+     */
+    public void clickOnTW() throws Throwable {
+        Thread.sleep(3000);
+        waitForVisibilityOfElement(DIMCDPage.btnTWOnMCDWindow, "Clicked on TW button");
+        click(DIMCDPage.btnTWOnMCDWindow, "Clicked on TW button");
+    }
+
+    /**
+     * param ::
+     * return ::void
+     * throws :: throwable
+     * methodName :: clickOnMemberHome
+     * description ::
+     * date :: 12-Jan-2018
+     * author ::
+     */
+    public void clickOnMemberHome() throws Throwable {
+        Thread.sleep(3000);
+        waitForVisibilityOfElement(DIMCDPage.btnMemberHomeOnMCDWindow, "Clicked on Member Home button");
+        click(DIMCDPage.btnMemberHomeOnMCDWindow, "Clicked on Member Home button");
+    }
+
+    /**
+     * param ::
+     * return ::void
+     * throws :: throwable
+     * methodName :: clickOnNoTowPerformed
+     * description ::
+     * date :: 12-Jan-2018
+     * author ::
+     */
+    public void clickOnNoTowPerformed() throws Throwable {
+        Thread.sleep(3000);
+        waitForVisibilityOfElement(DIMCDPage.btnNoTowPerformedOnMCDWindow, "Clicked on No Tow Performed button");
+        click(DIMCDPage.btnNoTowPerformedOnMCDWindow, "Clicked on No Tow Performed button");
+    }
+
+    /**
+     * param ::
+     * return ::void
+     * throws :: throwable
+     * methodName :: clickOnRepairFacility
+     * description ::
+     * date :: 12-Jan-2018
+     * author ::
+     */
+    public void clickOnRepairFacility() throws Throwable {
+        Thread.sleep(3000);
+        waitForVisibilityOfElement(DIMCDPage.btnRepairFacilityOnMCDWindow, "Clicked on Repair Facility button");
+        click(DIMCDPage.btnRepairFacilityOnMCDWindow, "Clicked on Repair Facility button");
+    }
+
+    /**
+     * param ::
+     * return ::void
+     * throws :: throwable
+     * methodName :: clickOnRepairFacility
+     * description ::
+     * date :: 12-Jan-2018
+     * author ::
+     */
+    public void clickOnOtherLocation() throws Throwable {
+        Thread.sleep(3000);
+        waitForVisibilityOfElement(DIMCDPage.btnOtherLocationOnMCDWindow, "Clicked on Other Location button");
+        click(DIMCDPage.btnOtherLocationOnMCDWindow, "Clicked on Other Location button");
+    }
+
+    /**
+     * param ::
+     * return ::void
+     * throws :: throwable
+     * methodName :: clickOnRepairFacility
+     * description ::
+     * date :: 12-Jan-2018
+     * author ::
+     */
+    public void clickOnOriginalTowDestination() throws Throwable {
+        Thread.sleep(3000);
+        waitForVisibilityOfElement(DIMCDPage.btnOriginalTowDestinationOnMCDWindow, "Clicked on Original Tow Destination button");
+        click(DIMCDPage.btnOriginalTowDestinationOnMCDWindow, "Clicked on Original Tow Destination button");
+    }
+
+    /**
+     * param ::
+     * return ::void
+     * throws :: throwable
+     * methodName :: clickOnNoGo
+     * description ::
+     * date :: 12-Jan-2018
+     * author ::
+     */
+    public void clickOnNoGo() throws Throwable {
+        Thread.sleep(3000);
+        waitForVisibilityOfElement(DIMCDPage.btnNOGOOnMCDWindow, "Clearing Screen");
+        click(DIMCDPage.btnNOGOOnMCDWindow, "Clicked on No Go button");
+    }
+
+
+    /**
+     * param ::
+     * return ::void
+     * throws :: throwable
+     * methodName :: clickOnNoGo
+     * description ::
+     * date :: 12-Jan-2018
+     * author ::
+     */
+    public void clickOnNoService() throws Throwable {
+        Thread.sleep(3000);
+        waitForVisibilityOfElement(DIMCDPage.btnNOServiceOnMCDWindow, "Clicked on No Service button");
+        click(DIMCDPage.btnNOServiceOnMCDWindow, "Clicked on No Service button");
+    }
+
+    /**
+     * param ::
+     * return ::void
+     * throws :: throwable
+     * methodName :: clickOnSubmitButton
+     * description ::
+     * date :: 12-Jan-2018
+     * author ::
+     */
+    public void clickOnSubmitButton() throws Throwable {
+        Thread.sleep(3000);
+        waitForVisibilityOfElement(DIMCDPage.submitButton, "submit Button");
+        click(DIMCDPage.submitButton, "click on submit Button");
+    }
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: enterCommentsOnMCDWindow
+     * description ::
+     * date :: 12-Jan-2018
+     * author ::
+     */
+
+    public void enterCommentsOnMCDWindow(String comments) throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.txtCommentOnMCDWindow, "Comments entered");
+        type(DIMCDPage.txtCommentOnMCDWindow, comments, "Comments entered");
+    }
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: enterAddressOnMCDWindow
+     * description ::
+     * date :: 12-Jan-2018
+     * author ::
+     */
+
+    public void enterAddressOnMCDWindow(String address) throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.txtAddressOnMCDWindow, "Address entered");
+        type(DIMCDPage.txtAddressOnMCDWindow, address, "Address entered");
+    }
+
+    /**
+     * param ::
+     * return ::void
+     * throws :: throwable
+     * methodName :: clickOnSearchIcon
+     * description ::
+     * date :: 12-Jan-2018
+     * author ::
+     */
+    public void clickOnSearchIcon() throws Throwable {
+        Thread.sleep(3000);
+        waitForVisibilityOfElement(DIMCDPage.iconSearchAddressOnMCDWindow, "Clicked on Search Icon");
+        click(DIMCDPage.iconSearchAddressOnMCDWindow, "Clicked on Search Icon");
+    }
+
+    /**
+     * param ::
+     * return ::void
+     * throws :: throwable
+     * methodName :: clickOnFirstLinkOnAddress
+     * description ::
+     * date :: 12-Jan-2018
+     * author ::
+     */
+    public void clickOnFirstLinkOnAddress() throws Throwable {
+        Thread.sleep(3000);
+        waitForVisibilityOfElement(DIMCDPage.lnkClickOnFirstLink, "Clicked on First Link");
+        click(DIMCDPage.lnkClickOnFirstLink, "Clicked on First Link");
+    }
+
+
+    /**
+     * param ::
+     * return ::void
+     * throws :: throwable
+     * methodName :: lblCallSpottedStatus
+     * description ::
+     * date :: 16-Jan-2018
+     * author ::Abhiram Vajrapu
+     */
+    public void lblCallSpottedStatus() throws Throwable {
+        getText(DIMCDPage.lblCallSpottedStatus, "Call Spotted Status is available");
+    }
+
+    /**
+     * param ::
+     * return ::void
+     * throws :: throwable
+     * methodName :: lblCallAssignedStatus
+     * description ::
+     * date :: 16-Jan-2018
+     * author ::Abhiram Vajrapu
+     */
+    public void lblCallAssignedStatus() throws Throwable {
+        getText(DIMCDPage.lblCallAssignedStatus, "Call Assigned Status is available");
+    }
+
+    /**
+     * param ::
+     * return ::void
+     * throws :: throwable
+     * methodName :: lblCallDispatchedStatus
+     * description ::
+     * date :: 16-Jan-2018
+     * author ::Abhiram Vajrapu
+     */
+    public void lblCallDispatchedStatus() throws Throwable {
+        getText(DIMCDPage.lblCallDispatchedStatus, "Call Dispatched Status is available");
+    }
+
+    /**
+     * param ::
+     * return ::void
+     * throws :: throwable
+     * methodName :: lblCallENRouteStatus
+     * description ::
+     * date :: 16-Jan-2018
+     * author ::Abhiram Vajrapu
+     */
+    public void lblCallENRouteStatus() throws Throwable {
+        getText(DIMCDPage.lblCallENRouteStatus, "Call EN-Route Status is available");
+    }
+
+    /**
+     * param ::
+     * return ::void
+     * throws :: throwable
+     * methodName :: lblCallOnLocationStatus
+     * description ::
+     * date :: 16-Jan-2018
+     * author ::Abhiram Vajrapu
+     */
+    public void lblCallOnLocationStatus() throws Throwable {
+        getText(DIMCDPage.lblCallOnLocationStatus, "Call On-Location Status is available");
+    }
+
+    /**
+     * param ::
+     * return ::void
+     * throws :: throwable
+     * methodName :: lblCallTowStatus
+     * description ::
+     * date :: 16-Jan-2018
+     * author ::Abhiram Vajrapu
+     */
+    public void lblCallTowStatus() throws Throwable {
+        getText(DIMCDPage.lblCallTowStatus, "Call Tow Status is available");
+    }
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: enterfacilityOnStatusUpdateWindow
+     * description ::
+     * date :: 17-Jan-2018
+     * author :: Abhiram
+     */
+
+    public void enterfacilityOnStatusUpdateWindow(String reSpotFacilityID) throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.txtFacilityInStautusUpdateWindow, "Spot Facility entered");
+        type(DIMCDPage.txtFacilityInStautusUpdateWindow, reSpotFacilityID, "Spot Facility entered");
+    }
+
+
+    /**
+     * param ::
+     * return ::void
+     * throws :: throwable
+     * methodName :: clickOnDropDownOnFacilityOnStatusUpdateWindow
+     * description ::
+     * date :: 17-Jan-2018
+     * author ::Abhiram
+     */
+    public void clickOnDropDownOnFacilityOnStatusUpdateWindow() throws Throwable {
+        Thread.sleep(3000);
+        waitForVisibilityOfElement(DIMCDPage.dropDownFacilityInStautusUpdateWindow, "Clicked on Facility");
+        click(DIMCDPage.dropDownFacilityInStautusUpdateWindow, "Clicked on Facility");
+    }
+
+
+    /**
+     * param ::
+     * return ::void
+     * throws :: throwable
+     * methodName :: dropDownReasonInStautusUpdateWindow
+     * description ::
+     * date :: 17-Jan-2018
+     * author ::Abhiram
+     */
+    public void dropDownReasonInStautusUpdateWindow() throws Throwable {
+        Thread.sleep(3000);
+        waitForVisibilityOfElement(DIMCDPage.dropDownReasonInStautusUpdateWindow, "Clicked on Reason");
+        click(DIMCDPage.dropDownReasonInStautusUpdateWindow, "Clicked on Reason");
+    }
+
+    /**
+     * Description:This method is used to verify Function Code On ServiceTab
+     * date ::  18-Jan-2018
+     *
+     * @return
+     * @throws Throwable
+     * @author :Madhukar
+     */
+    public boolean verifyFunctionCodeOnServiceTab() throws Throwable {
+        boolean functionCode = isVisibleOnly(DIMCDPage.lblFunctionCodeOnServiceTabinMCD, "FunctionCode");
+        return functionCode;
+    }
+
+    /**
+     * Description:This method is used to TruckLoad Button On ServiceTab
+     * date ::  18-Jan-2018
+     *
+     * @return
+     * @throws Throwable
+     * @author :Madhukar
+     */
+    public boolean verifyTruckLoadButtonOnServiceTab() throws Throwable {
+        boolean truckLoadButton = isVisibleOnly(DIMCDPage.btnTruckLoadOnServiceTabinMCD, "Truck Load Button");
+        return truckLoadButton;
+    }
+
+    /**
+     * Description:This method is used to LongTowUsed On MemberTab
+     * date ::  18-Jan-2018
+     *
+     * @return
+     * @throws Throwable
+     * @author :Madhukar
+     */
+    public boolean verifyLongTowUsedOnMemberTab() throws Throwable {
+        boolean longTowUsed = isVisibleOnly(DIMCDPage.lblLongTowUsedOnMemberTabinMCD, "LongTowUsed");
+        return longTowUsed;
+    }
+
+    /**
+     * Description:This method is used to DOB On MemberTab
+     * date ::  18-Jan-2018
+     *
+     * @return
+     * @throws Throwable
+     * @author :Madhukar
+     */
+    public boolean verifyDOBOnMemberTab() throws Throwable {
+        boolean dOB = isVisibleOnly(DIMCDPage.lblDOBOnMemberTabinMCD, "DOB On MemberTab");
+        return dOB;
+    }
+
+    /**
+     * param ::
+     * return ::void
+     * throws :: throwable
+     * methodName :: splitFacilityNameAndNumberOnServiceTabinDIMCD
+     * description ::
+     * date :: 16-Jan-2018
+     * author ::Abhiram Vajrapu
+     */
+    public String splitFacilityNameAndNumberOnServiceTabinDIMCD() throws Throwable {
+
+        String facilityNameAndFacilityNumber = getText(DIMCDPage.lblFacilityNameAndNumberOnServiceTabinDIMCD, "Facility Name and ID is available");
+        String currentPaceCode[] = facilityNameAndFacilityNumber.split("-");
+        String facilityName = currentPaceCode[0]; //facilityname
+        String facilityNumber = currentPaceCode[1]; //facilitynumber
+        return facilityNumber;
+    }
+
+    /**
+     * Description:This method is used to verify Language preference on Member tab
+     * date ::  18-Jan-2018
+     *
+     * @return
+     * @throws Throwable
+     */
+    public boolean verifyLanguagepreferenceOnMemberTab() throws Throwable {
+        boolean languagePreference = isVisibleOnly(DIMCDPage.lblLanguagePreferenceOnMemberTabinMCD, "Language preference");
+        return languagePreference;
+    }
+
+    /**
+     * Description:This method is used to verify ETA Time on MCD window
+     * Date:19-01-2018
+     *
+     * @return
+     * @throws Throwable
+     */
+    public String verifyETATimeOnMCDWindow() throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.lblETATimeOnMCDWindow, "ETA Time on MCD Page");
+        String etaTimeAndDate = getText(DIMCDPage.lblETATimeOnMCDWindow, "ETA Time on MCD Page");
+        String etaTime = etaTimeAndDate.substring(11, 16);
+        return etaTime;
+    }
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: validateComentsInMCDWindow
+     * description :: This method validates the comments in MCD wndow
+     * date :: 20-Dec-2018
+     * author :: Sachin
+     */
+
+    public void validateComentsInMCDWindow(String comments) throws Throwable {
+        CommentsMCDWindow = getWebElementList(DIMCDPage.lblCommentsInMCDWindow, "Comments MCD Window");
+        if (CommentsMCDWindow != null) {
+            boolean flow = true;
+            String commentsCol = "";
+            for (int i = 0; i <= CommentsMCDWindow.size() - 1; i++) {
+                commentsCol = CommentsMCDWindow.get(i).getText().toString();
+
+                boolean existsVal = commentsCol.equalsIgnoreCase(comments);
+
+                if (existsVal) {
+                    assertTrue(commentsCol.equalsIgnoreCase(comments), "Comments entered displayed in MCD window" + commentsCol);
+                    flow = false;
+                    break;
+                }
+            }
+            if (flow) {
+                assertTrue(false, "Comments entered not displayed in MCD window" + commentsCol);
+            }
+        }
+    }
+
+    /**
+     * Description:This method is used to verify Member Level on Member tab
+     * date ::  11-Jan-2018
+     *
+     * @return
+     * @throws Throwable
+     */
+    public boolean verifyMemberTypeOnMemberTab() throws Throwable {
+        boolean type = isVisibleOnly(DIMCDPage.lblMemberTypeOnMemberTabinMCD, "Type");
+        return type;
+    }
+
+    /**
+     * * param :: NA
+     * * return ::boolean
+     * * throws :: throwable
+     * * methodName :: verifyAddressAvailableInTowDestination
+     * * description ::
+     * * retrivedTime :: 22-Jan-2018
+     * * author :: Abhiram
+     */
+    public boolean verifyAddressAvailableForOtherLocationInMCDWindow() throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.txtMessageNoDataAvailableForOtherLocationInMCDWindow, "Existing Address are Not Visible in MCD Window");
+        boolean mcdWindowAddressAvailable = isVisibleOnly(DIMCDPage.txtMessageNoDataAvailableForOtherLocationInMCDWindow, "Existing Address are Not Visible in MCD Window");
+        return mcdWindowAddressAvailable;
+    }
+
+    /**
+     * param ::
+     * return ::void
+     * throws :: throwable
+     * methodName :: clickOnEnterAddressManuallyForOtherLocationInMCDWindow
+     * description ::
+     * date :: 23-Jan-2018
+     * author ::Abhiram
+     */
+    public void clickOnEnterAddressManuallyForOtherLocationInMCDWindow() throws Throwable {
+        Thread.sleep(3000);
+        waitForVisibilityOfElement(DIMCDPage.linkEnterAddreddManuallyForOttherLocationInMCDWindow, "Clicked on Enter Address Manually");
+        click(DIMCDPage.linkEnterAddreddManuallyForOttherLocationInMCDWindow, "Clicked on Enter Address Manually");
+    }
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: enterCrossStreet1ForOtherLocationInMCDWindow
+     * description ::
+     * date :: 23-Jan-2018
+     * author :: Abhiram
+     */
+
+    public void enterCrossStreet1ForOtherLocationInMCDWindow(String crossStreet1) throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.txtEnterCrossStreeet1ForOtherLocationInMCDWindow, "cross Street 1 entered");
+        type(DIMCDPage.txtEnterCrossStreeet1ForOtherLocationInMCDWindow, crossStreet1, "cross Street 1 entered");
+    }
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: enterCrossStreet2ForOtherLocationInMCDWindow
+     * description ::
+     * date :: 23-Jan-2018
+     * author :: Abhiram
+     */
+
+    public void enterCrossStreet2ForOtherLocationInMCDWindow(String crossStreet2) throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.txtEnterCrossStreeet2ForOtherLocationInMCDWindow, "cross Street 2 entered");
+        type(DIMCDPage.txtEnterCrossStreeet2ForOtherLocationInMCDWindow, crossStreet2, "cross Street 2 entered");
+    }
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: enterLocationForOtherLocationInMCDWindow
+     * description ::
+     * date :: 23-Jan-2018
+     * author :: Abhiram
+     */
+
+    public void enterLocationForOtherLocationInMCDWindow(String location) throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.txtEnterLocationForOtherLocationInMCDWindow, "Location entered");
+        type(DIMCDPage.txtEnterLocationForOtherLocationInMCDWindow, location, "Location entered");
+    }
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: enterCityForOtherLocationInMCDWindow
+     * description ::
+     * date :: 23-Jan-2018
+     * author :: Abhiram
+     */
+
+    public void enterCityForOtherLocationInMCDWindow(String city) throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.txtEnterCityForOtherLocationInMCDWindow, "City entered");
+        type(DIMCDPage.txtEnterCityForOtherLocationInMCDWindow, city, "City entered");
+    }
+
+    /**
+     * Description:This method is used to verify vehicle color on vehicle tab
+     * date ::  11-Jan-2018
+     *
+     * @return
+     * @throws Throwable
+     */
+    public boolean verifyBatteryQuestionnaireInMCDWindow() throws Throwable {
+        boolean batteryQuestionnaire = isVisibleOnly(DIMCDPage.lblBatteryQuestionnaireInMCDWindow, "Battery Questionnaire");
+        return batteryQuestionnaire;
+    }
+
+    /**
+     * Description:This method is used to verify Status update dropdown on Status Update Tab
+     * Date:29-01-2018
+     *
+     * @return
+     * @throws Throwable
+     * @Author : Madhukar
+     */
+    public boolean verifyDropDownButtonOfStatusOnStatusUpdateTab() throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.drpdwnStatusOnStatusUpdateTabInMCDWindow, "Status Drop Down On Status Update Tab");
+        boolean statusDropDown = isVisibleOnly(DIMCDPage.drpdwnStatusOnStatusUpdateTabInMCDWindow, "Status Drop Down On Status Update Tab");
+        return statusDropDown;
+    }
+
+    /**
+     * Description:This method is used to verify Reason textbox on Status Update Tab
+     * Date:29-01-2018
+     *
+     * @return
+     * @throws Throwable
+     * @Author : Madhukar
+     */
+    public boolean verifyReasonTextBoxOnStatusUpdateTab() throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.txtReasonOfStatusUpdateInMCD, "Reason On Status Update Tab");
+        boolean reason = isVisibleOnly(DIMCDPage.txtReasonOfStatusUpdateInMCD, "Reason On Status Update Tab");
+        return reason;
+    }
+
+    /**
+     * Description:This method is used to verify Facility TextBox on Status Update Tab
+     * Date:29-01-2018
+     *
+     * @return
+     * @throws Throwable
+     * @Author : Madhukar
+     */
+    public boolean verifyFacilityTextBoxOnStatusUpdateTab() throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.txtFacilityInStautusUpdateWindow, "Facility On Status Update Tab");
+        boolean Facility = isVisibleOnly(DIMCDPage.txtFacilityInStautusUpdateWindow, "Facility On Status Update Tab");
+        return Facility;
+    }
+
+    /**
+     * Description:This method is used to verify truck textBox on Status Update Tab
+     * Date:29-01-2018
+     *
+     * @return
+     * @throws Throwable
+     * @Author : Madhukar
+     */
+    public boolean verifyTruckTextBoxOnStatusUpdateTab() throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.txtTruckInStautusUpdateTab, "Truck On Status Update Tab");
+        boolean Truck = isVisibleOnly(DIMCDPage.txtTruckInStautusUpdateTab, "Truck On Status Update Tab");
+        return Truck;
+    }
+
+    /**
+     * Description:This method is used to verify Zone textBox on Status Update Tab
+     * Date:29-01-2018
+     *
+     * @return
+     * @throws Throwable
+     * @Author : Madhukar
+     */
+    public boolean verifyZoneTextBoxOnStatusUpdateTab() throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.txtZoneInStautusUpdateTab, "Zone On Status Update Tab");
+        boolean Zone = isVisibleOnly(DIMCDPage.txtZoneInStautusUpdateTab, "Zone On Status Update Tab");
+        return Zone;
+    }
+
+    /**
+     * Description:This method is used to verify Tech textBox on Status Update Tab
+     * Date:29-01-2018
+     *
+     * @return
+     * @throws Throwable
+     * @Author : Madhukar
+     */
+    public boolean verifyTechTextBoxOnStatusUpdateTab() throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.txtTechInStautusUpdateTab, "Tech On Status Update Tab");
+        boolean Tech = isVisibleOnly(DIMCDPage.txtTechInStautusUpdateTab, "Tech On Status Update Tab");
+        return Tech;
+    }
+
+    /**
+     * Description:This method is used to verify ETA textBox on Status Update Tab
+     * Date:29-01-2018
+     *
+     * @return
+     * @throws Throwable
+     * @Author : Madhukar
+     */
+    public boolean verifyETATextBoxOnStatusUpdateTab() throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.txtETAInStautusUpdateTab, "ETA On Status Update Tab");
+        boolean ETA = isVisibleOnly(DIMCDPage.txtETAInStautusUpdateTab, "ETA On Status Update Tab");
+        return ETA;
+    }
+
+    /**
+     * Description:This method is used to verify Date textBox on Status Update Tab
+     * Date:29-01-2018
+     *
+     * @return
+     * @throws Throwable
+     * @Author : Madhukar
+     */
+    public boolean verifyDateTextBoxOnStatusUpdateTab() throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.txtDateInStautusUpdateTab, "Date Field On Status Update Tab");
+        boolean Date = isVisibleOnly(DIMCDPage.txtDateInStautusUpdateTab, "Date Field Status Update Tab");
+        return Date;
+    }
+
+    /**
+     * Description:This method is used to verify Time textBox on Status Update Tab
+     * Date:29-01-2018
+     *
+     * @return
+     * @throws Throwable
+     * @Author : Madhukar
+     */
+    public boolean verifyTimeTextBoxOnStatusUpdateTab() throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.txtTimeInStautusUpdateTab, "Time On Status Update Tab");
+        boolean time = isVisibleOnly(DIMCDPage.txtTimeInStautusUpdateTab, "Time On Status Update Tab");
+        return time;
+    }
+
+    /**
+     * Description:This method is used to verify comments field on Status Update Tab
+     * Date:29-01-2018
+     *
+     * @return
+     * @throws Throwable
+     * @Author : Madhukar
+     */
+    public boolean verifyCommentsOnStatusUpdateTab() throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.txtCommentsInStautusUpdateTab, "Comments On Status Update Tab");
+        boolean comments = isVisibleOnly(DIMCDPage.txtCommentsInStautusUpdateTab, "Comments On Status Update Tab");
+        return comments;
+    }
+
+    /**
+     * Description:This method is used to verify cancel button on Status Update Tab
+     * Date:29-01-2018
+     *
+     * @return
+     * @throws Throwable
+     * @Author : Madhukar
+     */
+    public boolean verifyCancelButtoOnStatusUpdateTab() throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.btnCancelOfStatusUpdateTabInMCD, "Cancel Button On Status Update Tab");
+        boolean cancelButton = isVisibleOnly(DIMCDPage.btnCancelOfStatusUpdateTabInMCD, "Cancel Button On Status Update Tab");
+        return cancelButton;
+    }
+
+    /**
+     * Description:This method is used to verify update button on Status Update Tab
+     * Date:29-01-2018
+     *
+     * @return
+     * @throws Throwable
+     * @Author : Madhukar
+     */
+    public boolean verifyUpdateButtoOnStatusUpdateTab() throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.btnUpdateOfStatusUpdateTabInMCD, "Update Button On Status Update Tab");
+        boolean Update = isVisibleOnly(DIMCDPage.btnUpdateOfStatusUpdateTabInMCD, "Update Button On Status Update Tab");
+        return Update;
+    }
+    /**
+     * Description:This method is used to click on status dropdown on Status Update Tab
+     * Date:29-01-2018
+     *
+     * @return
+     * @throws Throwable
+     * @Author : Madhukar
+     */
+    public void clickOnStatusDropdownOnStatusUpdateTab() throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.drpdwnStatusOnStatusUpdateTabInMCDWindow, "Status Dropdown Button and List Of Status Update Codes are available");
+        click(DIMCDPage.drpdwnStatusOnStatusUpdateTabInMCDWindow, "Status Dropdown Button and List Of Status Update Codes are available");
+    }
+
+    /**
+     * Description:This method is used to click on Reason dropdown on Status Update Tab
+     * Date:29-01-2018
+     *
+     * @return
+     * @throws Throwable
+     * @Author : Madhukar
+     */
+    public void clickOnReasonDropdownOnStatusUpdateTab() throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.txtReasonOnStatusUpdate, "Reason TextBox");
+        click(DIMCDPage.txtReasonOnStatusUpdate, "Reason TextBox");
+        click(DIMCDPage.drpdwnReasonOnStatusUpdateTabInMCDWindow, "Reason Dropdown and List of Reason Codes are available");
+    }
+
+    /**
+     * Description:This method is used to get call status on MCD window
+     * Date:29-01-2018
+     *
+     * @return
+     * @throws Throwable
+     * @Author : Madhukar
+     */
+    public String getCallStatusOnMCDwindow() throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.lblCallStatusOnMCDWindow, "Call Status");
+        String status = getText(DIMCDPage.lblCallStatusOnMCDWindow, "Call Status");
+        return status;
+    }
+
+    /**
+     * Description:This method is used to  verify No Truck Error Message on Status Update Tab
+     * Date:29-01-2018
+     *
+     * @return
+     * @throws Throwable
+     * @Author : Madhukar
+     */
+    public void verifyNoTruckErrorMessage() throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.noTruckErrorText, "No Truck Error Message");
+        getText(DIMCDPage.noTruckErrorText, "No Truck Error Message");
+        click(DIMCDPage.btnOKForNoTruckError, "OK Button For No Truck Error Message");
+    }
+    /**
+     * Description:This method is used to enter TruckID on Status Update Tab
+     * Date:29-01-2018
+     *
+     * @return
+     * @throws Throwable
+     * @Author : Madhukar
+     */
+    public void enterTruckIDOnStatusUpdateTab(String truckID) throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.txtTruckInStautusUpdateTab, "Truck ID");
+        type(DIMCDPage.txtTruckInStautusUpdateTab, truckID, "Truck ID");
+    }
+    /**
+     * Description:This method is used to verify reason dropdown is grayed out on Status Update Tab
+     * Date:29-01-2018
+     *
+     * @return
+     * @throws Throwable
+     * @Author : Madhukar
+     */
+    public boolean verifyReasonDropdownIsGrayedOutOnStatusTab() throws Throwable {
+        boolean reasonDrpDwn = isElementPresent(DIMCDPage.drpdwnReasonGrayedOnStatusUpdateTabInMCDWindow, "Reason dropdown is Grayed out");
+        return reasonDrpDwn;
+    }
+    /**
+     * Description:This method is used to verify ETA Alert text on Status Update Tab
+     * Date:29-01-2018
+     *
+     * @return
+     * @throws Throwable
+     * @Author : Madhukar
+     */
+    public boolean verifyETAAlertOnStatusTab() throws Throwable {
+        boolean etaAlert = isElementPresent(DIMCDPage.txtETAFieldAlert, "ETA Mandatory Field Alert");
+        return etaAlert;
+    }
+    /**
+     * Description:This method is used to enter ETA time on Status Update Tab
+     * Date:29-01-2018
+     *
+     * @return
+     * @throws Throwable
+     * @Author : Madhukar
+     */
+    public void enterETATimeOnStatusUpdateTab(String eta)throws Throwable{
+        waitForVisibilityOfElement(DIMCDPage.txtETAInStautusUpdateTab, "ETA On Status Update Tab");
+        type(DIMCDPage.txtETAInStautusUpdateTab,eta,"ETA On Status Update Tab");
+
+    }
+
+    /**
+     * Description:This method is used to verify whether ETA Time is Updated on MCD Window
+     * Date:29-01-2018
+     *
+     * @return
+     * @throws Throwable
+     * @Author : Madhukar
+     */
+    public void verifyETAIsUpdatedOnMCDWindow()throws Throwable{
+        waitForVisibilityOfElement(DIMCDPage.lblETATimeOnMCDWindow, "ETA Time on MCD Page");
+        getText(DIMCDPage.lblETATimeOnMCDWindow, "ETA Time on MCD Page");
+    }
+
+    public boolean verifyReasonTextBoxIsGrayedOutStatusTab() throws Throwable {
+        boolean reason = isElementPresent(DIMCDPage.txtReasonGrayedout, "Reason Textbox is grayed out ");
+        return reason;
+    }
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: clickOnPaymentButtonOnOCDWindow
+     * description ::
+     * date :: 29-Jan-2018
+     * author :: Abhiram
+     */
+    public void clickOnPaymentButtonOnOCDWindow() throws Throwable {
+        Thread.sleep(3000);
+        waitForVisibilityOfElement(DIMCDPage.btnPaymentOnMCDWindow, "Payment Button");
+        mouseHover(DIMCDPage.btnPaymentOnMCDWindow,"Hover on Payment Button");
+        mouseDoubleClick(DIMCDPage.btnPaymentOnMCDWindow,"Hover on Payment Button");
+    }
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: enterServiceAndChargesOnMCDWindow
+     * description ::
+     * date :: 29-Jan-2018
+     * author :: Abhiram
+     */
+    public void enterServiceAndChargesOnMCDWindow(String serviceType) throws Throwable {
+        Thread.sleep(3000);
+        waitForVisibilityOfElement(DIMCDPage.drpDwnServicesAndChargesInMCDWindow, "Enter Payment Charges");
+        type(DIMCDPage.drpDwnServicesAndChargesInMCDWindow,serviceType, "Enter Payment Charges");
+        Thread.sleep(3000);
+        String combineKeys3 = Keys.chord(Keys.TAB);
+        sendKeys(combineKeys3, "Tab");
+    }
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: clickOnDropDownValueServiceAndChargesOnMCDWindow
+     * description ::
+     * date :: 29-Jan-2018
+     * author :: Abhiram
+     */
+    public void clickOnDropDownValueServiceAndChargesOnMCDWindow() throws Throwable {
+        Thread.sleep(3000);
+        waitForVisibilityOfElement(DIMCDPage.drpDwnServicesAndChargesValueOnMCDWindow, "Click Value Payment Charges");
+        click(DIMCDPage.drpDwnServicesAndChargesValueOnMCDWindow, "Click Value Payment Charges");
+    }
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: clickOnSaveButtonInServiceAndChargesOnMCDWindow
+     * description ::
+     * date :: 29-Jan-2018
+     * author :: Abhiram
+     */
+    public void clickOnSaveButtonInServiceAndChargesOnMCDWindow() throws Throwable {
+        Thread.sleep(3000);
+        waitForVisibilityOfElement(DIMCDPage.btnSaveInServiceAndChargesInMCDWindow, "Click Save Button On Service And Charges");
+        click(DIMCDPage.btnSaveInServiceAndChargesInMCDWindow, "Click Save Button On Service And Charges");
+    }
+
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: enterCostInServiceAndChargesInMCDWindow
+     * description ::
+     * date :: 29-Jan-2018
+     * author :: Abhiram
+     */
+
+    public void enterCostInServiceAndChargesInMCDWindow(String cost) throws Throwable {
+        Thread.sleep(2000);
+        waitForVisibilityOfElement(DIMCDPage.txtCostInServiceAndChargesInMCDWindow, "Enter Cost");
+        type(DIMCDPage.txtCostInServiceAndChargesInMCDWindow, cost, "Enter Cost");
+    }
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: enterCostInServiceAndChargesInMCDWindow
+     * description ::
+     * date :: 29-Jan-2018
+     * author :: Abhiram
+     */
+
+    public void enterCashCollectedInServiceAndChargesInMCDWindow(String cashCollected) throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.txtCashCollectedInServiceAndChargesInMCDWindow, "Enter Cash Collected");
+        type(DIMCDPage.txtCashCollectedInServiceAndChargesInMCDWindow, cashCollected, "Enter Cash Collected");
+    }
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: clickOnCloseButtonInServiceAndChargesOnMCDWindow
+     * description ::
+     * date :: 29-Jan-2018
+     * author :: Abhiram
+     */
+    public void clickOnCloseButtonInServiceAndChargesOnMCDWindow() throws Throwable {
+        Thread.sleep(3000);
+        waitForVisibilityOfElement(DIMCDPage.btnCloseInSericeAndChargesInMCDWindow, "Click Close Button On Service And Charges");
+        click(DIMCDPage.btnCloseInSericeAndChargesInMCDWindow, "Click Close Button On Service And Charges");
+    }
+
+    /**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: verifyErrorMessageAtReasonInMCDWindow
+     * description ::
+     * date :: 29-Jan-2018
+     * author :: Abhiram
+     */
+    public boolean verifyErrorMessageAtReasonInMCDWindow() throws Throwable {
+        boolean errorMessage = isVisibleOnly(DIMCDPage.errorMessageAtEnterReasonOnMCDWindow, "Error");
+        return errorMessage;
+    }
+
+    /**
+     * Description:This method is used to get Pacesetter code  On SummaryTab
+     * date ::  29-Jan-2018
+     * @return
+     * @throws Throwable
+     */
+    public String getPaceSetterCodeOnSummaryTab() throws Throwable {
+        String pacesetter = getText(DIMCDPage.lblPaceSetterCodeOnSummaryTabinMCD, "Pacesetter Code");
+        return pacesetter;
+    }
+    /**
+     * Description:This method is used to get Pacesetter code  On SummaryTab
+     * date ::  29-Jan-2018
+     * @return
+     * @throws Throwable
+     */
+    public String getTroubleCodeOnSummaryTab() throws Throwable {
+        String troubleCode = getText(DIMCDPage.lblTroubleCodeOnSummaryTabinMCD, "Trouble Code");
+        return troubleCode;
+    }
+
+    /**
+     * Description:This method is used to verify Member Level on Member getMemberLevelOnMemberTabtab
+     * date ::  11-Jan-2018
+     * @return
+     * @throws Throwable
+     */
+    public String getMemberLevelOnMemberTab() throws Throwable {
+        String level = getText(DIMCDPage.lblMemberLevelOnMemberTabinMCD, "Level");
+        return level;
+    }
+
+    public void enterAddressDetailsManuallyinMCD(String address,String crossStreet, String secondCrossStreet, String city ) throws Throwable {
+        clickOnEnterAddressManuallyForOtherLocationInMCDWindow();
+        enterLocationForOtherLocationInMCDWindow(address);
+        enterCrossStreet1ForOtherLocationInMCDWindow(crossStreet);
+        enterCrossStreet2ForOtherLocationInMCDWindow(secondCrossStreet);
+        enterCityForOtherLocationInMCDWindow(city);
+    }
+
+    public void clickonSubmitandVerifyClearCallLabel() throws Throwable {
+        clickOnSubmitButton();
+        Thread.sleep(5000);
+        labelCallCleared();
+    }
+
+    public void closeErrorAlert() throws Throwable {
+        waitForVisibilityOfElement(LoginPage.errorAlertOK,"OK Button");
+        if(isVisibleOnly(LoginPage.errorAlertOK,"OK Button"))
+        {
+            assertTrue(isVisibleOnly(LoginPage.errorAlertOK,"Error alert"), ":OK Button");
+            click(LoginPage.errorAlertOK,"Error alert OK button");
+        }else{
+            assertFalse(isVisibleOnly(LoginPage.errorAlertOK,"Error alert"), ":OK Button");
+        }
+    }
+
+    public void selectExitCodeandEnterReasonandClickonContinue(String reason) throws Throwable {
+        boolean errorMessage = false;
+        selectExitCode();
+        clickOnContinue();
+        Thread.sleep(3000);
+        errorMessage = verifyErrorMessageAtReasonInMCDWindow();
+        if(errorMessage)
+        {
+            closeErrorAlert();
+            clearData(DIMCDPage.txtReason);
+            enterReason(reason);
+            clickOnContinue();
+        }
+    }
+    public void batteyInfo(String batteryInfo, String odometerReading, String Comments) throws Throwable {
+        if (batteryInfo.equalsIgnoreCase("Info Input")) {
+            boolean batteryQuestionAvailable = verifyBatteryQuestionnaireInMCDWindow();
+            if (batteryQuestionAvailable) {
+                if (batteryInfo.equalsIgnoreCase("Info Input")) {
+                    clickAndEnterBatteryTestedInformation(odometerReading, Comments);
+                    Thread.sleep(5000);
+                    clickonSubmitandVerifyClearCallLabel();
+                }
+            } else {
+                //clickonSubmitandVerifyClearCallLabel();
+                labelCallCleared();
+            }
+        }
+    }
+    public void towConfirmation(String TowConfirmation,String TowConfComment,String TowConfEnterAddress,String MCDLocationAddress,String MCDcrossStreet, String MCDsecondCrossStreet, String MCDCity, String TowConfEnterOtherAddress) throws Throwable {
+        boolean verifyAddressAvailableForOtherLocationInMCDWindow = false;
+        switch (TowConfirmation ){
+            case "NoTowPerform" :
+                clickOnNoTowPerformed();
+                Thread.sleep(5000);
+                clickonSubmitandVerifyClearCallLabel();
+                break;
+            case "Original" :
+                clickOnOriginalTowDestination();
+                Thread.sleep(5000);
+                clickonSubmitandVerifyClearCallLabel();
+                break;
+            case "MemberHome" :
+                clickOnMemberHome();
+                enterCommentsOnMCDWindow(TowConfComment);
+                Thread.sleep(5000);
+                clickonSubmitandVerifyClearCallLabel();
+                break;
+            case "RepairFacility" :
+                clickOnRepairFacility();
+                enterAddressOnMCDWindow(TowConfEnterAddress);
+                clickOnSearchIcon();
+                Thread.sleep(4000);
+                verifyAddressAvailableForOtherLocationInMCDWindow = verifyAddressAvailableForOtherLocationInMCDWindow();
+                if(verifyAddressAvailableForOtherLocationInMCDWindow)
+                {
+
+                    enterAddressDetailsManuallyinMCD(MCDLocationAddress, MCDcrossStreet, MCDsecondCrossStreet, MCDCity);
+                }
+                else
+                {
+                    clickOnFirstLinkOnAddress();
+                }
+                enterCommentsOnMCDWindow(TowConfComment);
+                Thread.sleep(5000);
+                clickonSubmitandVerifyClearCallLabel();
+                break;
+            case "Other" :
+                clickOnOtherLocation();
+                enterAddressOnMCDWindow(TowConfEnterOtherAddress);
+                clickOnSearchIcon();
+                Thread.sleep(4000);
+                verifyAddressAvailableForOtherLocationInMCDWindow = verifyAddressAvailableForOtherLocationInMCDWindow();
+                if(verifyAddressAvailableForOtherLocationInMCDWindow)
+                {
+                    enterAddressDetailsManuallyinMCD(MCDLocationAddress, MCDcrossStreet, MCDsecondCrossStreet, MCDCity);
+
+                }
+                else
+                {
+                    clickOnFirstLinkOnAddress();
+                }
+                enterCommentsOnMCDWindow(TowConfComment);
+                Thread.sleep(5000);
+                clickonSubmitandVerifyClearCallLabel();
+                break;
+            default :
+                break;
+        }
+        //clickonSubmitandVerifyClearCallLabel();
+    }
+
+    public void resolutionCode(String ResolutionCode, String Reason,String batteryInfo) throws Throwable {
+        switch (ResolutionCode ){
+            case "Go" :
+                selectExitCodeandEnterReasonandClickonContinue(Reason);
+                labelCallCleared();
+                break;
+            case "NoGo" :
+                clickOnNoGo();
+                selectExitCodeandEnterReasonandClickonContinue(Reason);
+                break;
+            case "NoService" :
+                clickOnNoService();
+                selectExitCodeandEnterReasonandClickonContinue(Reason);
+                if(batteryInfo.isEmpty())
+                {
+                    //clickonSubmitandVerifyClearCallLabel();
+                    labelCallCleared();
+                }
+
+                break;
+            default :
+                break;
+        }
+    }
+
+    public void statusUpdateAsCL(String StatusUpdateCL) throws Throwable
+    {
+        if (StatusUpdateCL.equalsIgnoreCase("CL")) {
+            Thread.sleep(2000);
+            selectClearCall();
+        }
+    }
+    public boolean verifyOkErrorAlert() throws Throwable {
+        //waitForVisibilityOfElement(LoginPage.btnErrorAlertOK,"OK Button");
+        boolean okErrorAlertAvailable = isVisibleOnly(LoginPage.btnErrorAlertOK, "Existing Vehicles are Not Visible");
+        return okErrorAlertAvailable;
+    }
+    public void closeErrorAlertOKButton() throws Throwable {
+        //waitForVisibilityOfElement(LoginPage.btnErrorAlertOK,"OK Button");
+        if(isVisibleOnly(LoginPage.btnErrorAlertOK,"OK Button"))
+        {
+            click(LoginPage.btnErrorAlertOK,"Error alert OK button");
+        }
+    }
+    public void statusUpdateAsTW(String StatusUpdateTW) throws Throwable
+    {
+        if (StatusUpdateTW.equalsIgnoreCase("TW")) {
+            clickOnTW();
+            Thread.sleep(2000);
+            closeErrorAlertOKButton();
+            boolean noTowLableAvailable = verifyOkErrorAlert();
+            if(!noTowLableAvailable) {
+                lblCallTowStatus();
+            }
+        }
+    }
+    public void statusUpdateAsOL(String StatusUpdateOL) throws Throwable
+    {
+        if (StatusUpdateOL.equalsIgnoreCase("OL")) {
+            selectOnLocation();
+            Thread.sleep(2000);
+            lblCallOnLocationStatus();
+        }
+    }
+
+    public void statusUpdateAsETA(String StatusUpdateETA) throws Throwable
+    {
+        if (StatusUpdateETA.equalsIgnoreCase("ETA")) {
+            clickOnETAButtonOnMCDWindow();
+            setTimeForETA();
+        }
+    }
+    public void statusUpdateAsER(String StatusUpdateER) throws Throwable
+    {
+        if (StatusUpdateER.equalsIgnoreCase("ER")) {
+            selectEnroute();
+            selectEnrouteTime();
+            Thread.sleep(2000);
+            lblCallENRouteStatus();
+        }
+    }
+    public void statusUpdateAsDI(String StatusUpdateDI) throws Throwable
+    {
+        if (StatusUpdateDI.equalsIgnoreCase("DI")) {
+            selectDispatch();
+            Thread.sleep(2000);
+            lblCallDispatchedStatus();
+        }
+    }
+    public void statusUpdateAsAS(String StatusUpdateAS) throws Throwable
+    {
+        if (StatusUpdateAS.equalsIgnoreCase("AS")) {
+            clickOnAssign();
+            selectFacility();
+            Thread.sleep(2000);
+            lblCallAssignedStatus();
+        }
+    }
+    public void statusUpdateAsSP(String StatusUpdateSP) throws Throwable
+    {
+        switch (StatusUpdateSP) {
+            case "SP" :
+                lblCallSpottedStatus();
+                break;
+            default :
+                break;
+        }
+    }
+
+    public void verifyFacilityAndEnterReasonAndReSpot(String SPEnterReason, String FacilityID) throws Throwable {
+	    	/*String facilityNumberBeforeReport = splitFacilityNameAndNumberOnServiceTabinDIMCD();
+            reporter.failureReport("Facility Number Before Respot","Facility Number Before Respot is:: " + facilityNumberBeforeReport);*/
+        clickOnSP();
+        enterReasonOnStatusUpdateTab(SPEnterReason);
+        enterfacilityOnStatusUpdateWindow(FacilityID);
+        clickOnUpdate();
+            /*splitFacilityNameAndNumberOnServiceTabinDIMCD();
+            String facilityNumberAfterReport = splitFacilityNameAndNumberOnServiceTabinDIMCD();
+            reporter.failureReport("Facility Number After Respot","Facility Number After Respot is:: " + facilityNumberAfterReport);*/
+        lblCallSpottedStatus();
+    }
+
+    public void paymentForRAPCall(String cost,String cashCollected,String serviceType) throws Throwable
+    {
+        Thread.sleep(4000);
+        clickOnPaymentButtonOnOCDWindow();
+        enterServiceAndChargesOnMCDWindow(serviceType);
+        //clickOnDropDownValueServiceAndChargesOnMCDWindow();
+        enterCostInServiceAndChargesInMCDWindow(cost);
+        enterCashCollectedInServiceAndChargesInMCDWindow(cashCollected);
+        clickOnSaveButtonInServiceAndChargesOnMCDWindow();
+        clickOnCloseButtonInServiceAndChargesOnMCDWindow();
+
+    }
+
+    /**
+     * param ::
+     * return ::void
+     * throws :: throwable
+     * methodName :: captureTroubleCodeInDispatch
+     * description ::
+     * date :: 29-jan-2018
+     * author ::Varun
+     */
+    public String captureTroubleCodeInDispatch() throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.lblTroubleCodeOnSummaryTabinMCD, "Trouble code in Summary");
+        String troubleCodeindispatch = getText(DIMCDPage.lblTroubleCodeOnSummaryTabinMCD, "Trouble code in Summary");
+        //assertTrue(pacecodeindispatch.contains(dataBean.getValue(data, "Pacecodeindispatch")), "Excpeted pacesetter code has been displayed in dispacth");
+        //assertTrue(pacecodeindispatch.equalsIgnoreCase(dataBean.getValue(data,"Pacecodeindispatch")),"Excpeted pacesetter code has been displayed in dispacth");
+       /* String currentPaceCode[] = pacecodeindispatch.split("-");
+        String PaceCodeValue = currentPaceCode[0]; //L302
+        String PaceCodeText = currentPaceCode[1]; //No Crank
+        //L302 No Crank - Bat Svc (non-AAA Bat)
+        String getPaceCode = troubleCode;
+        assertTrue(PaceCodeValue.contains(getPaceCode), "PaceCode is same");
+        assertTrue(PaceCodeText.contains(getPaceCode), getPaceCode + "PaceCode is same");*/
+        return troubleCodeindispatch;
+    }
+
+    /**
+     * param ::
+     * return ::void
+     * throws :: throwable
+     * methodName :: captureTroubleCodeInDropdownDispatch
+     * description ::
+     * date :: 29-jan-2018
+     * author ::Varun
+     */
+    public String captureTroubleCodeInDropdownDispatch() throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.txtTroubleCodeDropdown, "Trouble code in dispatch dropdown");
+        String troubleCodeDrpdwndispatch = getAttributeByValue(DIMCDPage.txtTroubleCodeDropdown, "Trouble code in dispatch dropdown ");
+        //assertTrue(pacecodeindispatch.contains(dataBean.getValue(data, "Pacecodeindispatch")), "Excpeted pacesetter code has been displayed in dispacth");
+        //assertTrue(pacecodeindispatch.equalsIgnoreCase(dataBean.getValue(data,"Pacecodeindispatch")),"Excpeted pacesetter code has been displayed in dispacth");
+       /* String currentPaceCode[] = pacecodeindispatch.split("-");
+        String PaceCodeValue = currentPaceCode[0]; //L302
+        String PaceCodeText = currentPaceCode[1]; //No Crank
+        //L302 No Crank - Bat Svc (non-AAA Bat)
+        String getPaceCode = troubleCode;
+        assertTrue(PaceCodeValue.contains(getPaceCode), "PaceCode is same");
+        assertTrue(PaceCodeText.contains(getPaceCode), getPaceCode + "PaceCode is same");*/
+        return troubleCodeDrpdwndispatch;
+    }
+    /**
+     * param ::
+     * return ::void
+     * throws :: throwable
+     * methodName :: capturePaceSetterCodeDispatchSummary
+     * description ::
+     * date :: 30-jan-2018
+     * author ::Varun
+     */
+    public String capturePaceSetterCodeDispatchSummary() throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.txtPaceSetterCodeSummaryTab, "PaceSetter code in Summary");
+        String paceSetterCode = getText(DIMCDPage.txtPaceSetterCodeSummaryTab, "PaceSetter code in Summary ");
+        //assertTrue(pacecodeindispatch.contains(dataBean.getValue(data, "Pacecodeindispatch")), "Excpeted pacesetter code has been displayed in dispacth");
+        //assertTrue(pacecodeindispatch.equalsIgnoreCase(dataBean.getValue(data,"Pacecodeindispatch")),"Excpeted pacesetter code has been displayed in dispacth");
+       /* String currentPaceCode[] = pacecodeindispatch.split("-");
+        String PaceCodeValue = currentPaceCode[0]; //L302
+        String PaceCodeText = currentPaceCode[1]; //No Crank
+        //L302 No Crank - Bat Svc (non-AAA Bat)
+        String getPaceCode = troubleCode;
+        assertTrue(PaceCodeValue.contains(getPaceCode), "PaceCode is same");
+        assertTrue(PaceCodeText.contains(getPaceCode), getPaceCode + "PaceCode is same");*/
+        return paceSetterCode;
+    }
+    /**
+     * param ::
+     * return ::void
+     * throws :: throwable
+     * methodName :: captureReasonDispatchDrpDwn
+     * description ::
+     * date :: 30-jan-2018
+     * author ::Varun
+     */
+    public String captureReasonDispatchDrpDwn() throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.txtReason, "Reason in dropdown");
+        String reasonCode = getText(DIMCDPage.txtReason, "Reason in dropdown ");
+        //assertTrue(pacecodeindispatch.contains(dataBean.getValue(data, "Pacecodeindispatch")), "Excpeted pacesetter code has been displayed in dispacth");
+        //assertTrue(pacecodeindispatch.equalsIgnoreCase(dataBean.getValue(data,"Pacecodeindispatch")),"Excpeted pacesetter code has been displayed in dispacth");
+       /* String currentPaceCode[] = pacecodeindispatch.split("-");
+        String PaceCodeValue = currentPaceCode[0]; //L302
+        String PaceCodeText = currentPaceCode[1]; //No Crank
+        //L302 No Crank - Bat Svc (non-AAA Bat)
+        String getPaceCode = troubleCode;
+        assertTrue(PaceCodeValue.contains(getPaceCode), "PaceCode is same");
+        assertTrue(PaceCodeText.contains(getPaceCode), getPaceCode + "PaceCode is same");*/
+        return reasonCode;
+    }
+
+    /**
+     * param ::
+     * return ::void
+     * throws :: throwable
+     * methodName :: clickPaymentonAPD
+     * description ::
+     * date :: 30-jan-2018
+     * author ::Varun
+     */
+    public void clickPaymentonAPD() throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.iconPaymentOnMCDWindow, "Payment icon");
+        click(DIMCDPage.iconPaymentOnMCDWindow, "Payment Icon");
+
+    }
+
+    /**
+     * param ::
+     * return ::void
+     * throws :: throwable
+     * methodName :: selectServicesDrpDwnOnPaymentonAPD
+     * description ::
+     * date :: 30-jan-2018
+     * author ::Varun
+     */
+    public void selectServicesDrpDwnOnPaymentonAPD(String services) throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.drpdwnServicesOnPaymentOfMCD, "Services Dropdown");
+        click(DIMCDPage.drpdwnServicesOnPaymentOfMCD, "Services Dropdown");
+        type(DIMCDPage.drpdwnServicesOnPaymentOfMCD,services,"Services and Charges dropdown");
+
+    }
+    /**
+     * param ::
+     * return ::void
+     * throws :: throwable
+     * methodName :: enterCashCollectedOnPaymentonAPD
+     * description ::
+     * date :: 30-jan-2018
+     * author ::Varun
+     */
+    public void enterCashCollectedOnPaymentonAPD(String services) throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.txtCashCollectedAPD, "Cash Collected");
+        click(DIMCDPage.txtCashCollectedAPD, "Cash Collected");
+        type(DIMCDPage.txtCashCollectedAPD,services,"Cash Collected");
+
+    }
+    /**
+     * param ::
+     * return ::void
+     * throws :: throwable
+     * methodName :: enterServiceCostOnPaymentonAPD
+     * description ::
+     * date :: 30-jan-2018
+     * author ::Varun
+     */
+    public void enterServiceCostOnPaymentonAPD(String services) throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.txtCostAPD, "Service Cost");
+        click(DIMCDPage.txtCostAPD, "Service Cost");
+        type(DIMCDPage.txtCostAPD,services,"Service Cost");
+
+    }
+    /**
+     * param ::
+     * return ::void
+     * throws :: throwable
+     * methodName :: clickSaveBtnOnPaymentonAPD
+     * description ::
+     * date :: 30-jan-2018
+     * author ::Varun
+     */
+    public void clickSaveBtnOnPaymentonAPD() throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.btnAPDSave, "Save");
+        click(DIMCDPage.btnAPDSave, "Save");
+
+
+    }
+    /**
+     * param ::
+     * return ::void
+     * throws :: throwable
+     * methodName :: clickCloseBtnOnPaymentonAPD
+     * description ::
+     * date :: 30-jan-2018
+     * author ::Varun
+     */
+    public void clickCloseBtnOnPaymentonAPD() throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.btnCloseAPD, "Close");
+        click(DIMCDPage.btnCloseAPD, "Close");
+
+
+    }
+    /**
+     * param ::
+     * return ::void
+     * throws :: throwable
+     * methodName :: clickSubmitBtnOnPaymentonAPD
+     * description ::
+     * date :: 30-jan-2018
+     * author ::Varun
+     */
+    public void clickSubmitBtnOnPaymentonAPD() throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.btnSubmitAPD, "Submit");
+        click(DIMCDPage.btnSubmitAPD, "Submit");
+
+
+    }
+
+    /**
+     * Description:This method is used to enter comments in status update tab.
+     * Date:30-01-2018
+     *
+     * @param comments
+     * @throws Throwable
+     * @Author : Madhukar
+     */
+
+    public void enterCommentsOnStatusUpdateTab(String comments) throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.txtCommentsInStautusUpdateTab, "Comments Field");
+        type(DIMCDPage.txtCommentsInStautusUpdateTab, comments, "Comments Field");
+    }
+
+    /**
+     * Description:This method is used to click on status history link on MCD Window
+     * Date:30-01-2018
+     *
+     * @throws Throwable
+     * @Author : Madhukar
+     */
+    public void clickOnStatusHistoryLinkOnMCDWindow() throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.lnkStatusHistory, "Status History Link");
+        click(DIMCDPage.lnkStatusHistory, "Status History Link");
+    }
+
+    /**
+     * Description:This method is used to get the call status from status history tab on MCD Window
+     * Date:30-01-2018
+     *
+     * @throws Throwable
+     * @Author : Madhukar
+     */
+    public void getStatusFromStatusHistoryTab() throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.lblStatusOnStatusHistoryTab, "Update Status");
+        getText(DIMCDPage.lblStatusOnStatusHistoryTab, "Update Status");
+
+    }
+
+    /**
+     * Description:This method is used to get the reason from status history tab on MCD Window
+     * Date:30-01-2018
+     *
+     * @throws Throwable
+     * @Author : Madhukar
+     */
+    public void getReasonFromStatusHistoryTab() throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.lblReasonOnStatusHistoryTab, "Reason");
+        getText(DIMCDPage.lblReasonOnStatusHistoryTab, "Reason");
+    }
+
+    /**
+     * Description:This method is used to click plus icon to view comments on status history tab
+     * Date:30-01-2018
+     *
+     * @throws Throwable
+     * @Author : Madhukar
+     */
+    public void clickOnPlusIconInStatusHistoryTab() throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.lnkPlusIconForCommentsOnStatusHistoryTab, "Plus Icon");
+        click(DIMCDPage.lnkPlusIconForCommentsOnStatusHistoryTab, "Plus Icon");
+    }
+
+    /**
+     * Description:This method is used to view and verify comments on status history tab
+     * Date:30-01-2018
+     *
+     * @return
+     * @throws Throwable
+     * @Author : Madhukar
+     */
+    public String verifyCommentsFromStatusHistoryTab() throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.lblPlusIconForCommentsSectionOnStatusHistoryTab, "Comments");
+        String comments = getText(DIMCDPage.lblPlusIconForCommentsSectionOnStatusHistoryTab, "Comments");
+        return comments;
+    }
+
+    /**
+     * Description:This method is used to get Facility ID And Name On Summary Tab Of MCD Window
+     * Date:30-01-2018
+     *
+     * @return
+     * @throws Throwable
+     * @Author : Madhukar
+     */
+    public String getFacilityIDAndNameOnSummaryTabOfMCDWindow() throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.lblFacilityIdAndNameOnSummaryTabinMCD, "FacilityIdAndName");
+        String facilityNameAndID = getText(DIMCDPage.lblFacilityIdAndNameOnSummaryTabinMCD, "FacilityIdAndName");
+        return facilityNameAndID;
+    }
+
+    /**
+     * Description:This method is used to maximize MCD Window
+     * Date:30-01-2018
+     *
+     * @throws Throwable
+     * @Author : Madhukar
+     */
+    public void maximizeMCDWindow() throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.lnkMaximizeMCDWindow, "PoppedOut Window");
+        click(DIMCDPage.lnkMaximizeMCDWindow, "PoppedOut Window");
+    }
+
+    /**
+     * Description:This method is used to minimize MCD Window
+     * Date:30-01-2018
+     *
+     * @throws Throwable
+     * @Author : Madhukar
+     */
+    public void minimizeMCDWindow() throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.lnkMinimizeMCDWindow, "Pop in Window");
+        click(DIMCDPage.lnkMinimizeMCDWindow, "Pop in Window");
+    }
+
+    /**
+     * param ::
+     * return ::void
+     * throws :: throwable
+     * methodName :: clearCallID
+     * description ::
+     * date :: 30-jan-2018
+     * author ::Varun
+     */
+    public void clearCallID(String clearType,String TowConfirmation,String TowConfComment,String TowConfEnterAddress,String MCDLocationAddress,String MCDcrossStreet, String MCDsecondCrossStreet, String MCDCity, String TowConfEnterOtherAddress) throws Throwable {
+        switch (clearType) {
+            case "GO":
+                spotStatus = getCallStatusOnMCDwindow();
+                //getCallStatusOnMCDwindow();
+                clickOnAssign();
+                Thread.sleep(1000);
+                assignStatus=getCallStatusOnMCDwindow();
+                assertTrue(spotStatus!=assignStatus,"Status changed from   "+spotStatus+" To "+assignStatus);
+                selectFacility();
+                Thread.sleep(1000);
+                facilityStatus=getCallStatusOnMCDwindow();
+                assertTrue(facilityStatus!=assignStatus,"Status changed from   "+assignStatus+" To "+facilityStatus);
+                selectDispatch();
+                Thread.sleep(1000);
+                dispatchStatus=getCallStatusOnMCDwindow();
+                assertTrue(facilityStatus!=dispatchStatus,"Status changed from  "+facilityStatus+" To "+dispatchStatus);
+                selectEnroute();
+                selectEnrouteTime();
+                Thread.sleep(1000);
+                enrouteStatus=getCallStatusOnMCDwindow();
+                assertTrue(enrouteStatus!=dispatchStatus,"Status changed from  "+dispatchStatus+" To "+enrouteStatus);
+                selectOnLocation();
+                Thread.sleep(1000);
+                locationStatus=getCallStatusOnMCDwindow();
+                assertTrue(locationStatus!=enrouteStatus,"Status changed from  "+enrouteStatus+" To "+locationStatus);
+                Thread.sleep(1000);
+                selectClearCall();
+                selectExitCode();
+                enterReason("03");
+                clickOnContinue();
+                clickOnSubmit();
+                clearStatus=getCallStatusOnMCDwindow();
+                assertTrue(locationStatus!=clearStatus,"Status changed from  "+locationStatus+" To "+clearStatus);
+                clickOnMCDCloseWindow();
+                Thread.sleep(2000);
+                break;
+            case "NoGo":
+                spotStatus = getCallStatusOnMCDwindow();
+                //getCallStatusOnMCDwindow();
+                clickOnAssign();
+                Thread.sleep(1000);
+                assignStatus = getCallStatusOnMCDwindow();
+                assertTrue(spotStatus!=assignStatus,"Status changed from   "+spotStatus+" To "+assignStatus);
+                selectFacility();
+                Thread.sleep(1000);
+                facilityStatus=getCallStatusOnMCDwindow();
+                assertTrue(facilityStatus!=assignStatus,"Status changed from   "+assignStatus+" To "+facilityStatus);
+                selectDispatch();
+                Thread.sleep(1000);
+                dispatchStatus=getCallStatusOnMCDwindow();
+                assertTrue(facilityStatus!=dispatchStatus,"Status changed from  "+facilityStatus+" To "+dispatchStatus);
+                selectEnroute();
+                selectEnrouteTime();
+                Thread.sleep(1000);
+                enrouteStatus=getCallStatusOnMCDwindow();
+                assertTrue(enrouteStatus!=facilityStatus,"Status changed from  "+dispatchStatus+" To "+enrouteStatus);
+                selectOnLocation();
+                Thread.sleep(1000);
+                locationStatus=getCallStatusOnMCDwindow();
+                assertTrue(locationStatus!=enrouteStatus,"Status changed from  "+enrouteStatus+" To "+locationStatus);
+                selectClearCall();
+                // selectClearCall();
+                clickOnNoGo();
+                selectExitCode();
+                enterReason("03");
+                clickOnContinue();
+                //clickOnOriginalTowDestination();
+                clickOnNoTowPerformed();
+                clickOnSubmit();
+                Thread.sleep(1000);
+                getCallStatusOnMCDwindow();
+                clickOnMCDCloseWindow();
+                Thread.sleep(2000);
+                getCallStatusOnMCDwindow();
+                break;
+
+            default:
+                break;
+        }
+    }
+
+
+
+    /**
+     * Description:This method is used to verify Member Level on Member getMemberLevelOnSummaryTabtab
+     * date ::  30-Jan-2018
+     * @return
+     * @throws Throwable
+     */
+    public String getMemberLevelOnSummaryTab() throws Throwable {
+        Thread.sleep(1000);
+        String memberLevel = getText(DIMCDPage.lblMemberLevelOnSummaryTab, "Member Level on Summary Tab");
+        return memberLevel;
+    }
+
+
+    public String getCallTakerName()throws  Throwable{
+        waitForVisibilityOfElement(DIMCDPage.txtCallTaker,"Call Taker Name");
+        String callTaker = getText(DIMCDPage.txtCallTaker,"Call Taker Name");
+        return callTaker;
+    }
+
+    public String getphoneNumber()throws  Throwable{
+        waitForVisibilityOfElement(DIMCDPage.phoneNumberONMCD,"Phone Number");
+        String phoneNumber = getText(DIMCDPage.phoneNumberONMCD,"Phone Number");
+        String phoneNum[] = phoneNumber.split(" ");
+        String phone1 = phoneNum[0].substring(1,4);
+        String phone2[] = phoneNum[1].split("-");
+        String phone3 = phone2[0];
+        String phone4 = phone2[1];
+
+    /*String phoneString1=getText(DIMCDPage.phoneNumberONMCD,"Phone Number").substring(1,3);
+    String phoneString2=getText(DIMCDPage.phoneNumberONMCD,"Phone Number").substring(6,8);
+    String phoneString3=getText(DIMCDPage.phoneNumberONMCD,"Phone Number").substring(10,13);*/
+        Thread.sleep(3000);
+        String phoneNumberFromResults=phone1+phone3+ phone4;
+        return phoneNumberFromResults;
+    }
+
+    /**
+     * param ::
+     * return ::void
+     * throws :: throwable
+     * methodName :: mousehoverAndClickOnPencil
+     * description ::
+     * date :: 29-Jan-2018
+     * author ::
+     */
+    public void mousehoverAndClickOnPencil() throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.imgPencilIcon, "Pencil icon on MCD Window");
+        mouseHover(DIMCDPage.imgPencilIcon, "Pencil icon on MCD Window");
+        getText(DIMCDPage.editIconOnPencilIcon, "edit icon on Pencil icon in MCD Window");
+        Thread.sleep(3000);
+        click(DIMCDPage.imgPencilIcon, "Pencil icon on MCD Window");
+
+    }
+
+    /**
+     * param ::
+     * return ::void
+     * throws :: throwable
+     * methodName :: clickOnAddButton
+     * description ::
+     * date :: 31-Jan-2018
+     * author ::Ravi
+     */
+    public void clickOnAddButton() throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.btnAdd, "Click on add button");
+        click(DIMCDPage.btnAdd, "click on add button ");
+
+    }
+
+
+    /**
+     * param ::
+     * return ::void
+     * throws :: throwable
+     * methodName :: enterAddCommentAndSave
+     * description ::
+     * date :: 31-Jan-2018
+     * author ::Ravi
+     */
+    public void enterAddCommentAndSave(String AddComment) throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.txtAddComment, "wait for txt Add Comment");
+        type(DIMCDPage.txtAddComment, AddComment, "Add Comment from testdata");
+        Thread.sleep(2000);
+        click(DIMCDPage.btnSave, "save button");
+
+    }
+
+    /**
+     * param ::
+     * return ::void
+     * throws :: throwable
+     * methodName :: clickOnCommentedData
+     * description ::
+     * date :: 31-Jan-2018
+     * author ::Ravi
+     */
+    public void clickOnCommentedData() throws Throwable {
+        waitForVisibilityOfElement(DIMCDPage.commentedData, "Click on commented data");
+        getText(DIMCDPage.commentedData, "click on commented Data ");
+    }
+
+
+
+}

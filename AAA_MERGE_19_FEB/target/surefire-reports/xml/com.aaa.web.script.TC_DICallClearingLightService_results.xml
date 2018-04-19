@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Android-Native"
+           tests="1"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="0.677">
+  <properties />
+  
+  
+            <testcase name="clearCallLightServices" time="0.677" classname="com.aaa.web.script.TC_DICallClearingLightService" />
+      
+</testsuite>

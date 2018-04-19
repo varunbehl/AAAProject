@@ -1,0 +1,149 @@
+package com.aaa.web.script;
+
+import com.aaa.accelerators.ActionEngine;
+
+import com.aaa.utilities.TestUtil;
+
+import com.aaa.web.lib.*;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import java.util.Hashtable;
+
+
+public class TC_CRLiveCallSearch extends ActionEngine{
+
+    @DataProvider
+    public Object[][] getTestDataFor_liveCallSearch() {
+        return TestUtil.getData("liveCallSearch", TestData, "D3CallRecieving");
+    }
+
+    @Test(dataProvider = "getTestDataFor_liveCallSearch")
+    public void liveCallSearch(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("1703: TS-Live Call Search");
+                LoginLib login = new LoginLib();
+                CRHomeLib crHomeLib = new CRHomeLib();
+                CRSearchCallsLib crSearchCall = new CRSearchCallsLib();
+                CRVehicleTriageLib crVehicleTriageLib= new CRVehicleTriageLib();
+                login.login(data.get("LoginName"), data.get("Password"));
+                Thread.sleep(10000);
+                crHomeLib.messageDialogBoxClose();
+                Thread.sleep(10000);
+                crSearchCall.clickOnSearchCalls();
+
+                crSearchCall.clickOnClearOnSearchCallsWindow();
+                String expectedStrDate= crSearchCall.getStartDateSearchDetails();
+                crSearchCall.clickOnSearchBtnOnSearchCallsWindow();
+
+
+                crSearchCall.verifyStartAndEndDateOnSearchCallWindow(data, expectedStrDate);
+
+                crSearchCall.clickSearchAgainOnSearchCalls();
+                crSearchCall.clickOnClearOnSearchCallsWindow();
+
+                crSearchCall.enterCallIdOnSearchCallsWindow(data.get("CallID"));
+                crSearchCall.clickOnSearchBtnOnSearchCallsWindow();
+                crSearchCall.searchAndSelectCallIDOnSearCallWindow(data);
+                crSearchCall.clickSearchAgainOnSearchCalls();
+                crSearchCall.clickOnClearOnSearchCallsWindow();
+
+                crSearchCall.enterStartTimeOnSearchCallsWindow(data.get("StartTime"));
+                crSearchCall.enterEndTimeOnSearchCallsWindow(data.get("EndTime"));
+                crSearchCall.clickOnSearchBtnOnSearchCallsWindow();
+                crSearchCall.getDateFromMemberPageandChangeFormat(data);
+                crVehicleTriageLib.handleScriptErrorInVehicleTriagePage();
+                Thread.sleep(3000);
+                crSearchCall.clickOnSearchCalls();
+                crSearchCall.clickOnClearOnSearchCallsWindow();
+                 //crSearchCall.validateDate(data);
+               // crSearchCall.clickSearchAgainOnSearchCalls();
+
+                crSearchCall.enterStartDateOnSearchCallsWindow(data.get("StartDate"));
+                crSearchCall.enterRAPNumberOnSearchCallsWindow(data.get("RAP"));
+                crSearchCall.clickOnSearchBtnOnSearchCallsWindow();
+                Thread.sleep(4000);
+                crSearchCall.searchAndSelectRAPOnSearCallWindow(data);
+                crSearchCall.clickSearchAgainOnSearchCalls();
+                crSearchCall.clickOnClearOnSearchCallsWindow();
+
+                crSearchCall.enterCallTakerOnSearchCallsWindow(data.get("CallTaker"));
+                crSearchCall.clickOnSearchBtnOnSearchCallsWindow();
+                crSearchCall.clickSearchAgainOnSearchCalls();
+                crSearchCall.clickOnClearOnSearchCallsWindow();
+
+                crSearchCall.enterStartDateOnSearchCallsWindow(data.get("StartDate"));
+                crSearchCall.enterFacilityOnSearchCallsWindow(data.get("Facility"));
+                crSearchCall.clickOnSearchBtnOnSearchCallsWindow();
+                crSearchCall.searchAndSelectFacilityOnSearCallWindow(data);
+                crSearchCall.clickSearchAgainOnSearchCalls();
+                crSearchCall.clickOnClearOnSearchCallsWindow();
+
+                crSearchCall.enterStartDateOnSearchCallsWindow(data.get("StartDate"));
+                crSearchCall.enterTruckOnSearchCallsWindow(data.get("TruckID"));
+                crSearchCall.clickOnSearchBtnOnSearchCallsWindow();
+                crSearchCall.searchAndSelectTruckIDOnSearCallWindow(data);
+                crSearchCall.clickSearchAgainOnSearchCalls();
+                crSearchCall.clickOnClearOnSearchCallsWindow();
+
+                crSearchCall.enterStartDateOnSearchCallsWindow(data.get("StartDate"));
+                crSearchCall.enterPhoneNumberOnSearchCallsWindow(data.get("PhoneNumber"));
+                crSearchCall.clickOnSearchBtnOnSearchCallsWindow();
+                crSearchCall.clickCallIDLinkOnSearchCallsWindow();
+                crVehicleTriageLib.handleScriptErrorInVehicleTriagePage();
+                crSearchCall.clickCallSummaryIconOnMemberspage(data);
+                crVehicleTriageLib.handleScriptErrorInVehicleTriagePage();
+                crSearchCall.clickOnSearchCalls();
+
+
+                crSearchCall.enterClubNumberOnSearchCallsWindow(data.get("ClubNumber"));
+                crSearchCall.clickOnSearchBtnOnSearchCallsWindow();
+                crSearchCall.searchAndSelectClubNumberOnSearCallWindow(data);
+                crSearchCall.clickSearchAgainOnSearchCalls();
+                crSearchCall.clickOnClearOnSearchCallsWindow();
+
+                crSearchCall.enterMemberLastNameSearchOnSearchCallsWindow(data.get("MemberLastName"));
+                crSearchCall.clickOnSearchBtnOnSearchCallsWindow();
+                crSearchCall.searchAndSelectMemberLastNameOnSearCallWindow(data);
+                crSearchCall.clickSearchAgainOnSearchCalls();
+                crSearchCall.clickOnClearOnSearchCallsWindow();
+
+                crSearchCall.enterMemberNumberOnSearchCallsWindow(data.get("MemberNumber"));
+                crSearchCall.clickOnSearchBtnOnSearchCallsWindow();
+                crSearchCall.searchAndSelectMemberNumberOnSearCallWindow(data);
+                crSearchCall.clickSearchAgainOnSearchCalls();
+                crSearchCall.clickOnClearOnSearchCallsWindow();
+
+                crSearchCall.enterYearVehicleInforationOnSearchCallsWindow(data.get("VehicleYear"));
+                crSearchCall.enterMakeVehicleInforationOnSearchCallsWindow(data.get("VehicleMake"));
+                Thread.sleep(3000);
+                crSearchCall.enterModelVehicleInforationOnSearchCallsWindow(data.get("VehicleModel"));
+                Thread.sleep(3000);
+                crSearchCall.clickOnSearchBtnOnSearchCallsWindow();
+                crSearchCall.searchAndSelectVehicleYearOnSearCallWindow(data);
+                crSearchCall.searchAndSelectVehicleMakeOnSearCallWindow(data);
+                crSearchCall.searchAndSelectVehicleModelOnSearCallWindow(data);
+                crSearchCall.clickSearchAgainOnSearchCalls();
+                crSearchCall.clickOnClearOnSearchCallsWindow();
+
+                crSearchCall.enterLocationOnSearchCallsWindow(data.get("BKDownStreetAddress"));
+                crSearchCall.enterCityOnSearchCallsWindow(data.get("BKDownCityLocation"));
+                crSearchCall.clickOnSearchBtnOnSearchCallsWindow();
+                crSearchCall.searchAndSelectLocationOnSearCallWindow(data);
+                crSearchCall.searchAndSelectCityOnSearCallWindow(data);
+                crSearchCall.clickSearchAgainOnSearchCalls();
+                crSearchCall.clickOnClearOnSearchCallsWindow();
+                crSearchCall.clickCloseBtnOnSearchCallwindow();
+                acceptAlert();
+                crHomeLib.logout();
+                acceptAlert();
+
+                System.out.println("Test completed");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+}

@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE suite SYSTEM 'http://testng.org/testng-1.0.dtd'>
+<suite name='AAA Automation test suite'>
+
+	<parameter name='suiteExecuted' value='Regression' />
+	<parameter name='executionType' value='Sequential' />
+	<listeners>
+		<listener class-name="org.uncommons.reportng.HTMLReporter" />
+		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+		<listener class-name="com.aaa.utilities.AssignTestPriorityTransformer" />
+	</listeners>
+	
+
+   <test name="chromeWindowsLocal" preserve-order='true'>
+        <parameter name="browser" value="chrome"></parameter>
+        <parameter name="automationName" value="selenium"></parameter>
+        <parameter name="browserVersion" value="60"></parameter>
+        <parameter name="platformName" value="windows 10"></parameter>
+        <parameter name="environment" value="local"></parameter>
+        <parameter name="seleniumgridurl" value="local"></parameter>
+        <classes>
+          <class name="com.aaa.web.script.TC_CRPhoneTempDelete">
+			 <methods>						 
+					<include name="memberContactInfoSearch"/>										
+			 </methods>
+		</class>		
+   </classes>
+</test>
+</suite>

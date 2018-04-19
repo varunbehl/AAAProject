@@ -1,0 +1,162 @@
+package com.aaa.web.script;
+
+import com.aaa.utilities.TestUtil;
+import com.aaa.web.lib.*;
+import com.aaa.web.page.CRLocationsPage;
+import com.aaa.web.page.CRVehicleTriagePage;
+
+import freemarker.template.SimpleDate;
+
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Hashtable;
+
+import jxl.write.DateFormat;
+
+
+public class TC_CRHistoryCallSaveScript extends LoginLib {
+    @DataProvider
+    public Object[][] getTestDataFor_HistoryCallSave() {
+        return TestUtil.getData("HistoryCallSave",TestData, "D3CallRecieving");
+    }
+
+    @Test(dataProvider = "getTestDataFor_HistoryCallSave")
+    public void HistoryCallSave(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("CR ERS History Call Save");
+                CRHomeLib home = new CRHomeLib();
+                CRMemberSearchLib member = new CRMemberSearchLib();
+                CRVehicleTriageLib vehicle = new CRVehicleTriageLib();
+                CRLocationsLib locations = new CRLocationsLib();
+                CRServiceLib service = new CRServiceLib();
+
+
+                LoginRoleLib loginRole = new LoginRoleLib();
+
+
+                home.verifyandClickLogout();
+                navigateToApplication("CR");
+                login(dataBean.getValue(data,"LoginName"),dataBean.getValue(data,"Password"));
+                home.messageDialogBoxClose();
+                home.workFlowSelectionForHistory();
+                String Member = "";
+                if (data.get("Member").equals("db")){
+        	        //fetch member details from db
+        	        //generating a random number everytime to fetch a new record everytime
+        	        int rownum = IntRandomNumberGenerator(50,1000);
+        	        //member from db
+        	        Member = CommonDb.selectRandomMemberFromDB(data.get("dbServer"),data.get("dbqueryFileName"),data.get("colomnName"),rownum);
+        	        System.out.println("member : "+Member);
+                }
+                else
+                {
+                	Member = data.get("Membersearch");
+                }
+                home.memberSearchTextBox(Member);
+                //home.memberSearchTextBox(dataBean.getValue(data,"Membersearch"));
+                member.memberNumClick();
+                //member.clickOnMemberIdForHistoryCallSave();
+                //Enter primary phone number
+                member.enterMemberContactInfoPrimaryPhoneNumber(dataBean.getValue(data, "PhoneNumber"));
+                //enter prime phone type
+                member.membContInfoEnterPrimPhoneTypeCellular();
+               //enter prime phone radio button
+                member.clickPrimRadioBtnRowOne();
+                //member.enterPhoneNumber(dataBean.getValue(data,"PhoneNumber"));
+                locations.breakdownLocTabSel();
+                if(isElementPresent(CRLocationsPage.linkBrkDowLocAddr, "breakdown location address"))
+                {
+                	locations.clickonBrkdownLocLink();
+                	locations.brkdownLocationCode(dataBean.getValue(data, "Breakdownlocationcode"));
+                }
+                else
+                {
+                	locations.enterTxtinBrkDowLocSrch(dataBean.getValue(data, "Breakdownaddress"));
+                	locations.brkDowLocSrchBtn();
+                    locations.brkdowLocAddrLink();
+                    locations.brkdownLocationCode(dataBean.getValue(data, "Breakdownlocationcode"));
+                }
+                //locations.searchBreakDownLocation(dataBean.getValue(data,"Breakdownlocationcode"));
+                //vehicle.selectVehicleModel();
+              //enter vehicle information
+                vehicle.vehicletriageTabsel();
+                if(isElementPresent(CRVehicleTriagePage.linkVehicleModel, "vehicle model"))
+                {
+                	vehicle.Vehicleinfolink();
+                	vehicle.Vehicletype(dataBean.getValue(data, "Vehicletype"));
+                	vehicle.enterVehicleColor(dataBean.getValue(data, "Vehiclecolor"));
+                }
+                else
+                {
+                	vehicle.Entervehicleinfomanually(dataBean.getValue(data, "Vehiclemodel"));
+                	vehicle.clickVehicleSearchButton();
+                	vehicle.availableVehicleaftersrch();
+                	vehicle.vehicleColor(dataBean.getValue(data, "Vehiclecolor"));
+                }
+
+                vehicle.selectJumpStartFromBattery();
+                service.clickOnServiceTab();
+                service.enterCallTypeinServices(dataBean.getValue(data, "callType"));
+                home.saveButton();
+                service.saveClearHistoryCallWindow();
+                service.verifyCallHistoryCallWindowFields();
+                service.verifyCalendarDropdown();
+                String currentDate=getCurrentDate();
+                String nextDay=getNextDay(currentDate);
+                System.out.println("************date:"+nextDay);
+                service.enterDateInSaveClearHistoryCall(nextDay);
+                service.enterTruckIDInSaveClearHistoryCall(dataBean.getValue(data,"TruckID"));
+                service.enterClearingCodeInSaveClearHistoryCall(dataBean.getValue(data,"clearingcode"));
+                service.enterPaceSetterReasonInSaveClearHistoryCall(dataBean.getValue(data,"Pacesetter"));
+                service.clickOnSaveHistoryCallSaveButton();
+                service.verifyCalendarErrorTextOfHistorycall();
+                SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy ");
+                Date date = new Date();
+                String date1 = dateFormat.format(date);
+                System.out.println("************date:"+date1);
+                service.enterDateInSaveClearHistoryCall(date1);
+                service.enterTruckIDInSaveClearHistoryCall(dataBean.getValue(data,"TruckID"));
+                service.enterClearingCodeInSaveClearHistoryCall(dataBean.getValue(data,"clearingcode"));
+                service.enterPaceSetterReasonInSaveClearHistoryCall(dataBean.getValue(data,"Pacesetter"));
+                service.clickGaragePaymentInfoButton();
+                service.verifyGaragePaymentInForWindow();
+                service.closeGaragePaymentInForWindow();
+                service.clickOnSaveHistoryCallSaveButton();
+                service.verifyCallId();
+                service.clickOnRemainInCall();
+                service.verifyWorkFlow();
+                service.verifyCallStatusText();
+                home.saveButton();
+                service.verifyDisabledFieldsOnSaveClearHistoryCall();
+                service.closeButton();
+                home.verifyandClickLogout();
+                System.out.println("Test completed");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+    public String getNextDay(String curDate)throws Exception{
+        final SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
+        final Date date = format.parse(curDate);
+        final Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.add(Calendar.DAY_OF_YEAR, 1);
+        return format.format(calendar.getTime());
+    }
+
+    public String getCurrentDate(){
+        final SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+        Date date = new Date();
+        String currentdate=sdf.format(date);
+        return currentdate;
+    }
+}
+

@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE suite SYSTEM 'http://testng.org/testng-1.0.dtd'>
+<suite name='AAA Automation test suite'>
+
+	<parameter name='suiteExecuted' value='Regression' />
+	<parameter name='executionType' value='Sequential' />
+	<listeners>
+		<listener class-name="org.uncommons.reportng.HTMLReporter" />
+		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+		<listener class-name="com.aaa.utilities.AssignTestPriorityTransformer" />
+	</listeners>
+	
+
+   <test name="chromeWindowsLocal" preserve-order='true'>
+        <parameter name="browser" value="chrome"></parameter>
+        <parameter name="automationName" value="selenium"></parameter>
+        <parameter name="browserVersion" value="60"></parameter>
+        <parameter name="platformName" value="windows 10"></parameter>
+        <parameter name="environment" value="local"></parameter>
+        <parameter name="seleniumgridurl" value="local"></parameter>
+        <classes>
+          
+           <!-- Sprint 3 -->
+            
+             <class name="com.aaa.web.script.TC_CRLocations">
+             	<methods>
+                    <include name="membershipKnownLocations"/>
+                    <include name="verifyAddressWithLongitudeAndLatitude"/>
+                    <include name="verifyCityAlias"/>
+                    <include name="verifyFieldsWithCrossStreet"/>
+                    <include name="verifyLandMark"/>
+                    <include name="verifyLocationFields"/>
+                    <include name="verifyManualEntryAddressLookUp"/>
+                    <include name="verifyManualEntryCrossStreet"/>
+                    <include name="verifyManualEntryOfLandMark"/>
+                    <include name="verifyManualEntryOfSpecialCharactersOnAddress"/>
+                    <include name="verifyPointsOfInterest"/>
+                    <include name="verifySpecialCharactersOnAddress"/>
+                    <include name="verifyTheEmptyFields"/>
+                    <include name="verifyWildCardSearch"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRVehicleSearch">
+                <methods>
+                    <include name="CRVehicleSearch"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRLiveCallSearch">
+                <methods>
+                    <include name="liveCallSearch"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRTriage">
+                <methods>
+                    <include name="ValidateBatteryTriageQuestions"/>
+                    <include name="ValidateEngineTriageQuestions"/>
+                    <include name="ValidateFlatTireTriageQuestions"/>
+                    <include name="ValidateFuelTriageQuestions"/>
+                    <include name="ValidateKeyslTriageQuestions"/>
+                    <include name="ValidateShortCutslTriageQuestions"/>
+                    <include name="ValidateTowlTriageQuestions"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRPacesetterAndTroubleCodeMapping">
+                <methods>
+                    <include name="crPacesetterAndTroubleCodeMapping"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_CRD3AutoSpotgrid">
+                <methods>
+                    <include name="autoSpotGridForBattery"/>
+                    <include name="autoSpotGridForFullService"/>
+                    <include name="autoSpotGridForJumpStart"/>
+                    <include name="autoSpotGridForLightServiceFlatTyre"/>
+                    <include name="autoSpotGridForLightServicesFuel"/>
+                    <include name="autoSpotGridForLockOutServices"/>
+                    <include name="autoSpotGridForRVVehicle"/>
+                    <include name="autoSpotGridForSpecialEquipement"/>
+                </methods>
+            </class>
+             <class name="com.aaa.web.script.TC_DIQueueSelection">
+                <methods>
+                    <include name="DIQueueSelection"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_DIProfileBeyondETATab">
+             <methods>
+                    <include name="profileBeyondETATab"/>
+                    <include name="profileBeyondETATabOnPoppedOutWindow"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_DIProfileCallSorting">
+            	<methods>
+                    <include name="profileCallSorting"/>
+                </methods>
+            </class>
+            <class name="com.aaa.web.script.TC_DIProfileRedFlagCallsTab">
+            	<methods>
+                    <include name="verifyCallWithoutRedFlag"/>
+                    <include name="verifyCallWithRedFlag"/>
+                </methods>
+            </class>
+                       
+		<!--Clear Calls  -->
+		<!-- <class name="com.aaa.web.script.TC_DIClearCall">
+                <methods>
+                    <include name="ClearCalls"/>
+                </methods>
+            </class> -->
+
+   </classes>
+
+</test>
+
+</suite>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  <title>TestNG reports</title>
+
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" />  
+    <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="testng-reports.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.setOnLoadCallback(drawTable);
+      var suiteTableInitFunctions = new Array();
+      var suiteTableData = new Array();
+    </script>
+    <!--
+      <script type="text/javascript" src="jquery-ui/js/jquery-ui-1.8.16.custom.min.js"></script>
+     -->
+  </head>
+
+  <body>
+    <div class="top-banner-root">
+      <span class="top-banner-title-font">Test results</span>
+      <br/>
+      <span class="top-banner-font-1">1 suite</span>
+    </div> <!-- top-banner-root -->
+    <div class="navigator-root">
+      <div class="navigator-suite-header">
+        <span>All suites</span>
+        <a href="#" class="collapse-all-link" title="Collapse/expand all the suites">
+          <img class="collapse-all-icon" src="collapseall.gif">
+          </img> <!-- collapse-all-icon -->
+        </a> <!-- collapse-all-link -->
+      </div> <!-- navigator-suite-header -->
+      <div class="suite">
+        <div class="rounded-window">
+          <div class="suite-header light-rounded-window-top">
+            <a href="#" class="navigator-link" panel-name="suite-AAA1_Automation_test_suite">
+              <span class="suite-name border-passed">AAA1 Automation test suite</span>
+            </a> <!-- navigator-link -->
+          </div> <!-- suite-header light-rounded-window-top -->
+          <div class="navigator-suite-content">
+            <div class="suite-section-title">
+              <span>Info</span>
+            </div> <!-- suite-section-title -->
+            <div class="suite-section-content">
+              <ul>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="test-xml-AAA1_Automation_test_suite">
+                    <span>C:\Automation\GoogleSheet\AAA_MERGE_19_FEB\TestNG_XML\testngRAPDI_1.xml</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="testlist-AAA1_Automation_test_suite">
+                    <span class="test-stats">1 test</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="group-AAA1_Automation_test_suite">
+                    <span>0 groups</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="times-AAA1_Automation_test_suite">
+                    <span>Times</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="reporter-AAA1_Automation_test_suite">
+                    <span>Reporter output</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="ignored-methods-AAA1_Automation_test_suite">
+                    <span>Ignored methods</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="chronological-AAA1_Automation_test_suite">
+                    <span>Chronological view</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+              </ul>
+            </div> <!-- suite-section-content -->
+            <div class="result-section">
+              <div class="suite-section-title">
+                <span>Results</span>
+              </div> <!-- suite-section-title -->
+              <div class="suite-section-content">
+                <ul>
+                  <li>
+                    <span class="method-stats">1 method,   1 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-AAA1_Automation_test_suite" class="hide-methods passed suite-AAA1_Automation_test_suite"> (hide)</a> <!-- hide-methods passed suite-AAA1_Automation_test_suite -->
+                      <a href="#" panel-name="suite-AAA1_Automation_test_suite" class="show-methods passed suite-AAA1_Automation_test_suite"> (show)</a> <!-- show-methods passed suite-AAA1_Automation_test_suite -->
+                    </span>
+                    <div class="method-list-content passed suite-AAA1_Automation_test_suite">
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-AAA1_Automation_test_suite" title="com.aaa.e2e.script.RAP_DI" hash-for-method="RAPDIEnd2End(1, 2, false)">RAPDIEnd2End(1, 2, false)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content passed suite-AAA1_Automation_test_suite -->
+                  </li>
+                </ul>
+              </div> <!-- suite-section-content -->
+            </div> <!-- result-section -->
+          </div> <!-- navigator-suite-content -->
+        </div> <!-- rounded-window -->
+      </div> <!-- suite -->
+    </div> <!-- navigator-root -->
+    <div class="wrapper">
+      <div class="main-panel-root">
+        <div panel-name="suite-AAA1_Automation_test_suite" class="panel AAA1_Automation_test_suite">
+          <div class="suite-AAA1_Automation_test_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.aaa.e2e.script.RAP_DI</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="RAPDIEnd2End(1, 2, false)">
+                  </a> <!-- RAPDIEnd2End(1, 2, false) -->
+                  <span class="method-name">RAPDIEnd2End</span>
+                  <span class="parameters">(1, 2, false)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-AAA1_Automation_test_suite-class-passed -->
+        </div> <!-- panel AAA1_Automation_test_suite -->
+        <div panel-name="test-xml-AAA1_Automation_test_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">C:\Automation\GoogleSheet\AAA_MERGE_19_FEB\TestNG_XML\testngRAPDI_1.xml</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;AAA1 Automation test suite&quot;&gt;
+  &lt;parameter name=&quot;suiteExecuted&quot; value=&quot;Regression&quot;/&gt;
+  &lt;parameter name=&quot;executionType&quot; value=&quot;Sequential&quot;/&gt;
+  &lt;listeners&gt;
+    &lt;listener class-name=&quot;org.uncommons.reportng.HTMLReporter&quot;/&gt;
+    &lt;listener class-name=&quot;org.uncommons.reportng.JUnitXMLReporter&quot;/&gt;
+    &lt;listener class-name=&quot;com.aaa.utilities.AssignTestPriorityTransformer&quot;/&gt;
+  &lt;/listeners&gt;
+  &lt;test name=&quot;Android-Native&quot;&gt;
+    &lt;parameter name=&quot;app&quot; value=&quot;AAA.apk&quot;/&gt;
+    &lt;parameter name=&quot;appPackage&quot; value=&quot;com.aaa.android.discounts&quot;/&gt;
+    &lt;parameter name=&quot;platformNameMobile&quot; value=&quot;Android&quot;/&gt;
+    &lt;parameter name=&quot;deviceName&quot; value=&quot;Samsung_Galaxy_S6&quot;/&gt;
+    &lt;parameter name=&quot;autoStart&quot; value=&quot;web&quot;/&gt;
+    &lt;parameter name=&quot;appActivity&quot; value=&quot;com.aaa.android.discounts.ui.sso.LoginFragmentActivity&quot;/&gt;
+    &lt;parameter name=&quot;seleniumgridurl&quot; value=&quot;local&quot;/&gt;
+    &lt;parameter name=&quot;environment&quot; value=&quot;local&quot;/&gt;
+    &lt;parameter name=&quot;appiumUrl&quot; value=&quot;http://127.0.0.1:4723/wd/hub&quot;/&gt;
+    &lt;parameter name=&quot;browserVersion&quot; value=&quot;60&quot;/&gt;
+    &lt;parameter name=&quot;platformVersion&quot; value=&quot;6.1&quot;/&gt;
+    &lt;parameter name=&quot;browser&quot; value=&quot;chrome&quot;/&gt;
+    &lt;parameter name=&quot;automationName&quot; value=&quot;selenium&quot;/&gt;
+    &lt;parameter name=&quot;browserName&quot; value=&quot;chrome&quot;/&gt;
+    &lt;parameter name=&quot;udid&quot; value=&quot;02157df2d2788f19&quot;/&gt;
+    &lt;parameter name=&quot;platformName&quot; value=&quot;windows 10&quot;/&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;com.aaa.e2e.script.RAP_DI&quot;&gt;
+        &lt;parameter name=&quot;EndRow&quot; value=&quot;2&quot;/&gt;
+        &lt;parameter name=&quot;nextTestJoin&quot; value=&quot;false&quot;/&gt;
+        &lt;parameter name=&quot;StartRow&quot; value=&quot;1&quot;/&gt;
+        &lt;methods&gt;
+          &lt;include name=&quot;RAPDIEnd2End&quot;/&gt;
+        &lt;/methods&gt;
+      &lt;/class&gt; &lt;!-- com.aaa.e2e.script.RAP_DI --&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Android-Native --&gt;
+&lt;/suite&gt; &lt;!-- AAA1 Automation test suite --&gt;
+            </pre>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="testlist-AAA1_Automation_test_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Tests for AAA1 Automation test suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <ul>
+              <li>
+                <span class="test-name">Android-Native (1 class)</span>
+              </li>
+            </ul>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="group-AAA1_Automation_test_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Groups for AAA1 Automation test suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="times-AAA1_Automation_test_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Times for AAA1 Automation test suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="times-div">
+              <script type="text/javascript">
+suiteTableInitFunctions.push('tableData_AAA1_Automation_test_suite');
+function tableData_AAA1_Automation_test_suite() {
+var data = new google.visualization.DataTable();
+data.addColumn('number', 'Number');
+data.addColumn('string', 'Method');
+data.addColumn('string', 'Class');
+data.addColumn('number', 'Time (ms)');
+data.addRows(1);
+data.setCell(0, 0, 0)
+data.setCell(0, 1, 'RAPDIEnd2End')
+data.setCell(0, 2, 'com.aaa.e2e.script.RAP_DI')
+data.setCell(0, 3, 1351373);
+window.suiteTableData['AAA1_Automation_test_suite']= { tableData: data, tableDiv: 'times-div-AAA1_Automation_test_suite'}
+return data;
+}
+              </script>
+              <span class="suite-total-time">Total running time: 22 minutes</span>
+              <div id="times-div-AAA1_Automation_test_suite">
+              </div> <!-- times-div-AAA1_Automation_test_suite -->
+            </div> <!-- times-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="reporter-AAA1_Automation_test_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Reporter output for AAA1 Automation test suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="ignored-methods-AAA1_Automation_test_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">0 ignored methods</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="chronological-AAA1_Automation_test_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Methods in chronological order</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.aaa.e2e.script.RAP_DI</div> <!-- chronological-class-name -->
+              <div class="configuration-suite before">
+                <span class="method-name">beforeSuite(org.testng.TestRunner@5974b233, Sequential, Regression)</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- configuration-suite before -->
+              <div class="configuration-class before">
+                <span class="method-name">beforeClass(selenium, chrome, 60, local, windows 10, Android, AAA.apk, 6.1, com.aaa.android.discounts, web, loca...)</span>
+                <span class="method-start">47 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">RAPDIEnd2End(1, 2, false)</span>
+                <span class="method-start">18550 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod(public void com.aaa.e2e.script.RAP_DI.RAPDIEnd2End(int,java.lang.String,boolean) throws java.lang.Th...)</span>
+                <span class="method-start">18550 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-class after">
+                <span class="method-name">afterClass(chrome)</span>
+                <span class="method-start">1369924 ms</span>
+              </div> <!-- configuration-class after -->
+              <div class="configuration-method after">
+                <span class="method-name">afterMethod</span>
+                <span class="method-start">1369924 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-suite after">
+                <span class="method-name">afterSuite(org.testng.TestRunner@5974b233, Sequential, Regression)</span>
+                <span class="method-start">1372064 ms</span>
+              </div> <!-- configuration-suite after -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+      </div> <!-- main-panel-root -->
+    </div> <!-- wrapper -->
+  </body>
+</html>

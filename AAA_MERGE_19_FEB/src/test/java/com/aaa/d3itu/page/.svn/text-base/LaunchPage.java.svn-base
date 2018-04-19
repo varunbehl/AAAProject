@@ -1,0 +1,19 @@
+package com.aaa.d3itu.page;
+import org.openqa.selenium.By;
+
+public class LaunchPage {
+    public static By environment;
+    public static By submit;
+   
+
+    static {
+    	environment = By.className("android.widget.EditText");
+    	submit = By.className("android.widget.Button");
+       
+    }
+}
+
+
+
+
+

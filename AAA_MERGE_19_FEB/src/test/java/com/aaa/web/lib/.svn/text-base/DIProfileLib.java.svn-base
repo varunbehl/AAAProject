@@ -1,0 +1,41 @@
+package com.aaa.web.lib;
+import java.util.Hashtable;
+import java.util.List;
+
+import com.aaa.web.page.DIMCDPage;
+import com.aaa.web.page.DIProfilePage;
+import com.aaa.web.page.LoginPage;
+import com.aaa.accelerators.ActionEngine;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import com.aaa.web.page.CRHomePage;
+import com.aaa.web.page.DIHomePage;
+import com.aaa.accelerators.ActionEngine;
+import com.aaa.web.page.DIMCDPage;
+import org.openqa.selenium.Keys;
+
+
+public class DIProfileLib extends ActionEngine {
+
+
+    /**
+     * Description:To select priority from ID on Profile Window
+     * date:29-12-2017
+     *
+     * @param priority
+     * @throws Throwable
+     * @author: madhukar
+     */
+    public void selectPriority(String priority) throws Throwable {
+        mouseClick(DIProfilePage.drpdwnPriority, "Select priority");
+        selectByValue(DIProfilePage.drpdwnPriority, priority, "Select priority");
+        click(DIProfilePage.lblPriority,"Status Label");
+    }
+
+    public void selectOrder(String order) throws Throwable {
+        mouseClick(DIProfilePage.drpdwnOrder, "Select order");
+        selectByVisibleText(DIProfilePage.drpdwnOrder, order, "Select order");
+        click(DIProfilePage.lblOrder,"Order Label");
+    }
+
+}

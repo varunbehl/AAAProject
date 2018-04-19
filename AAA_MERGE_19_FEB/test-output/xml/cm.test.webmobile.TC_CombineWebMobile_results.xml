@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Android-Native"
+           tests="1"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="95.174">
+  <properties />
+  
+  
+            <testcase name="verifyPushNotifications" time="95.174" classname="cm.test.webmobile.TC_CombineWebMobile" />
+      
+</testsuite>

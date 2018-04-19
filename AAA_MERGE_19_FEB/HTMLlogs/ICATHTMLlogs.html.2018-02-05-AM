@@ -1,0 +1,3767 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>ICAT - HTML Logs</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Mon Feb 05 11:57:03 IST 2018<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>1373</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">Suite time ==============&gt;05_Feb_2018_11_57_03_854</td>
+</tr>
+
+<tr>
+<td>1401</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>1402</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = emBaseUrl</td>
+</tr>
+
+<tr>
+<td>1402</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">---------------------</td>
+</tr>
+
+<tr>
+<td>1402</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">-----Before Class----</td>
+</tr>
+
+<tr>
+<td>1402</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">---------------------</td>
+</tr>
+
+<tr>
+<td>1402</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">Execution Start Time :: 1517812023799</td>
+</tr>
+
+<tr>
+<td>1403</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">browser name :: chrome Browser version :: 60 platform ::windows 10</td>
+</tr>
+
+<tr>
+<td>1403</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>1403</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = clientName</td>
+</tr>
+
+<tr>
+<td>1404</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>1404</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = deviceName</td>
+</tr>
+
+<tr>
+<td>1404</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>1404</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = iterationMode</td>
+</tr>
+
+<tr>
+<td>1405</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>1405</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = suiteName</td>
+</tr>
+
+<tr>
+<td>1405</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>1405</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = onErrorAction</td>
+</tr>
+
+<tr>
+<td>1406</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>1406</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = singleThreadExecution</td>
+</tr>
+
+<tr>
+<td>1406</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>1407</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = AUT</td>
+</tr>
+
+<tr>
+<td>1407</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>1407</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = baseUrl</td>
+</tr>
+
+<tr>
+<td>1407</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>1408</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = showroomUrl</td>
+</tr>
+
+<tr>
+<td>1408</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>1408</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = emBaseUrl</td>
+</tr>
+
+<tr>
+<td>1408</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>1409</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = ncBaseUrl</td>
+</tr>
+
+<tr>
+<td>1409</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>1409</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = baseUrl2</td>
+</tr>
+
+<tr>
+<td>1410</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>1410</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = Waittime</td>
+</tr>
+
+<tr>
+<td>1410</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>1410</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = DynamicWait</td>
+</tr>
+
+<tr>
+<td>1411</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>1411</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = MinWait</td>
+</tr>
+
+<tr>
+<td>1411</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>1411</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = browserName</td>
+</tr>
+
+<tr>
+<td>1412</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>1412</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = version</td>
+</tr>
+
+<tr>
+<td>1412</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>1412</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = platform</td>
+</tr>
+
+<tr>
+<td>1413</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>1413</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = reportFormat</td>
+</tr>
+
+<tr>
+<td>1413</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>1413</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = locationResult</td>
+</tr>
+
+<tr>
+<td>1414</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>1414</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = folderScreenShot</td>
+</tr>
+
+<tr>
+<td>1414</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>1415</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = locationClientLogo</td>
+</tr>
+
+<tr>
+<td>1415</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>1415</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = locationMobileLogo</td>
+</tr>
+
+<tr>
+<td>1416</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>1416</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = showroomClientLogo</td>
+</tr>
+
+<tr>
+<td>1416</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>1416</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = locationCompanyLogo</td>
+</tr>
+
+<tr>
+<td>1417</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>1417</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = locationFailedLogo</td>
+</tr>
+
+<tr>
+<td>1418</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>1418</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = locationMinusLogo</td>
+</tr>
+
+<tr>
+<td>1418</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>1418</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = locationPassedLogo</td>
+</tr>
+
+<tr>
+<td>1419</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>1419</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = locationPlusLogo</td>
+</tr>
+
+<tr>
+<td>1419</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>1419</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = locationWarningLogo</td>
+</tr>
+
+<tr>
+<td>1420</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>1420</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = onSuccessScreenshot</td>
+</tr>
+
+<tr>
+<td>1421</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>1421</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = userName</td>
+</tr>
+
+<tr>
+<td>1421</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>1421</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = accessKey</td>
+</tr>
+
+<tr>
+<td>1422</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>1422</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = cloudImplicitWait</td>
+</tr>
+
+<tr>
+<td>1422</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>1422</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = cloudPageLoadTimeOut</td>
+</tr>
+
+<tr>
+<td>1423</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>1423</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = locationCssFolder</td>
+</tr>
+
+<tr>
+<td>1423</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>1423</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = locationJsFolder</td>
+</tr>
+
+<tr>
+<td>1424</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>1424</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = locationImagesFolder</td>
+</tr>
+
+<tr>
+<td>1424</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>1424</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = callReceivingURL</td>
+</tr>
+
+<tr>
+<td>1425</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>1425</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = dispatchURL</td>
+</tr>
+
+<tr>
+<td>1425</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>1425</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = RSOWebURL</td>
+</tr>
+
+<tr>
+<td>1426</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>1426</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = RSOWebURLMestag</td>
+</tr>
+
+<tr>
+<td>1427</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">local</td>
+</tr>
+
+<tr>
+<td>1427</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">Selenium Grid URLlocal</td>
+</tr>
+
+<tr>
+<td>5572</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">Driver launch ::chrome</td>
+</tr>
+
+<tr>
+<td>5572</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message"></td>
+</tr>
+
+<tr>
+<td>5577</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.BrowserContext category">com.aaa.report.BrowserContext</td>
+<td title="Message">New BrowserContext Instance Was Created And Placed In Map : BrowserContext.mapBrowserContext</td>
+</tr>
+
+<tr>
+<td>5577</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.BrowserContext category">com.aaa.report.BrowserContext</td>
+<td title="Message">&lt;BrowserContext&gt;&lt;Name&gt; chrome&lt;/Name&gt;&lt;Version&gt; windows 10&lt;/Version&gt;&lt;Platform&gt;local&lt;/Platform&gt;&lt;/BrowserContext&gt;</td>
+</tr>
+
+<tr>
+<td>5577</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.BrowserContext category">com.aaa.report.BrowserContext</td>
+<td title="Message">BrowserContext Info Being returned: &lt;BrowserContext&gt;&lt;Name&gt; chrome&lt;/Name&gt;&lt;Version&gt; windows 10&lt;/Version&gt;&lt;Platform&gt;local&lt;/Platform&gt;&lt;/BrowserContext&gt;</td>
+</tr>
+
+<tr>
+<td>5577</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.BrowserContext category">com.aaa.report.BrowserContext</td>
+<td title="Message">&lt;BrowserContext&gt;&lt;Name&gt; chrome&lt;/Name&gt;&lt;Version&gt; windows 10&lt;/Version&gt;&lt;Platform&gt;local&lt;/Platform&gt;&lt;/BrowserContext&gt;</td>
+</tr>
+
+<tr>
+<td>5577</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.BrowserContext category">com.aaa.report.BrowserContext</td>
+<td title="Message">BrowserContext Info Being returned: &lt;BrowserContext&gt;&lt;Name&gt; chrome&lt;/Name&gt;&lt;Version&gt; windows 10&lt;/Version&gt;&lt;Platform&gt;local&lt;/Platform&gt;&lt;/BrowserContext&gt;</td>
+</tr>
+
+<tr>
+<td>5593</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.CReporterWeb category">com.aaa.report.CReporterWeb</td>
+<td title="Message">resultDir = results\CHROME-windows 10-local_2018-02-05_11_57_08_074</td>
+</tr>
+
+<tr>
+<td>5595</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.CReporterWeb category">com.aaa.report.CReporterWeb</td>
+<td title="Message">Current Logo Name : logos/logo.png</td>
+</tr>
+
+<tr>
+<td>5664</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.CReporterWeb category">com.aaa.report.CReporterWeb</td>
+<td title="Message">logos\logo.pngcopied to results\CHROME-windows 10-local_2018-02-05_11_57_08_074\screenshots</td>
+</tr>
+
+<tr>
+<td>5664</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.CReporterWeb category">com.aaa.report.CReporterWeb</td>
+<td title="Message">Current Logo Name : logos/gallop_logo.png</td>
+</tr>
+
+<tr>
+<td>5729</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.CReporterWeb category">com.aaa.report.CReporterWeb</td>
+<td title="Message">logos\gallop_logo.pngcopied to results\CHROME-windows 10-local_2018-02-05_11_57_08_074\screenshots</td>
+</tr>
+
+<tr>
+<td>5729</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.CReporterWeb category">com.aaa.report.CReporterWeb</td>
+<td title="Message">Current Logo Name : logos/failed.ico</td>
+</tr>
+
+<tr>
+<td>5745</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.CReporterWeb category">com.aaa.report.CReporterWeb</td>
+<td title="Message">logos\failed.icocopied to results\CHROME-windows 10-local_2018-02-05_11_57_08_074\screenshots</td>
+</tr>
+
+<tr>
+<td>5746</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.CReporterWeb category">com.aaa.report.CReporterWeb</td>
+<td title="Message">Current Logo Name : logos/Minus.ico</td>
+</tr>
+
+<tr>
+<td>5873</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.CReporterWeb category">com.aaa.report.CReporterWeb</td>
+<td title="Message">logos\Minus.icocopied to results\CHROME-windows 10-local_2018-02-05_11_57_08_074\screenshots</td>
+</tr>
+
+<tr>
+<td>5873</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.CReporterWeb category">com.aaa.report.CReporterWeb</td>
+<td title="Message">Current Logo Name : logos/passed.ico</td>
+</tr>
+
+<tr>
+<td>5935</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.CReporterWeb category">com.aaa.report.CReporterWeb</td>
+<td title="Message">logos\passed.icocopied to results\CHROME-windows 10-local_2018-02-05_11_57_08_074\screenshots</td>
+</tr>
+
+<tr>
+<td>5935</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.CReporterWeb category">com.aaa.report.CReporterWeb</td>
+<td title="Message">Current Logo Name : logos/Plus.ico</td>
+</tr>
+
+<tr>
+<td>6006</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.CReporterWeb category">com.aaa.report.CReporterWeb</td>
+<td title="Message">logos\Plus.icocopied to results\CHROME-windows 10-local_2018-02-05_11_57_08_074\screenshots</td>
+</tr>
+
+<tr>
+<td>6007</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.CReporterWeb category">com.aaa.report.CReporterWeb</td>
+<td title="Message">Current Logo Name : logos/warning.ico</td>
+</tr>
+
+<tr>
+<td>6141</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.CReporterWeb category">com.aaa.report.CReporterWeb</td>
+<td title="Message">logos\warning.icocopied to results\CHROME-windows 10-local_2018-02-05_11_57_08_074\screenshots</td>
+</tr>
+
+<tr>
+<td>6142</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.CReporterWeb category">com.aaa.report.CReporterWeb</td>
+<td title="Message">Current Logo Name : logos/css</td>
+</tr>
+
+<tr>
+<td>6195</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.CReporterWeb category">com.aaa.report.CReporterWeb</td>
+<td title="Message">Current Logo Name : logos/images</td>
+</tr>
+
+<tr>
+<td>6217</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.CReporterWeb category">com.aaa.report.CReporterWeb</td>
+<td title="Message">Current Logo Name : logos/js</td>
+</tr>
+
+<tr>
+<td>6296</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.CReporterWeb category">com.aaa.report.CReporterWeb</td>
+<td title="Message">instance member browserContext was set to : </td>
+</tr>
+
+<tr>
+<td>6296</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.BrowserContext category">com.aaa.report.BrowserContext</td>
+<td title="Message">&lt;BrowserContext&gt;&lt;Name&gt; chrome&lt;/Name&gt;&lt;Version&gt; windows 10&lt;/Version&gt;&lt;Platform&gt;local&lt;/Platform&gt;&lt;/BrowserContext&gt;</td>
+</tr>
+
+<tr>
+<td>6296</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.CReporterWeb category">com.aaa.report.CReporterWeb</td>
+<td title="Message">&lt;BrowserContext&gt;&lt;Name&gt; chrome&lt;/Name&gt;&lt;Version&gt; windows 10&lt;/Version&gt;&lt;Platform&gt;local&lt;/Platform&gt;&lt;/BrowserContext&gt;</td>
+</tr>
+
+<tr>
+<td>6296</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.CReporterWeb category">com.aaa.report.CReporterWeb</td>
+<td title="Message">Instance Of CReporter Created</td>
+</tr>
+
+<tr>
+<td>6297</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.CReporterWeb category">com.aaa.report.CReporterWeb</td>
+<td title="Message">reporter was placed into CReporter.mapBrowserContextReporter</td>
+</tr>
+
+<tr>
+<td>25319</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">---------------------</td>
+</tr>
+
+<tr>
+<td>25319</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">---End Before Class--</td>
+</tr>
+
+<tr>
+<td>25319</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">---------------------</td>
+</tr>
+
+<tr>
+<td>25880</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">******getData*******: crCancelCalls</td>
+</tr>
+
+<tr>
+<td>25896</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">Test Starts from row -&gt; 384</td>
+</tr>
+
+<tr>
+<td>25898</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">Total cols in test -&gt; 36</td>
+</tr>
+
+<tr>
+<td>25898</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">Total rows in test -&gt; 1</td>
+</tr>
+
+<tr>
+<td>25918</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>25918</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = emBaseUrl</td>
+</tr>
+
+<tr>
+<td>25919</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>25919</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = ncBaseUrl</td>
+</tr>
+
+<tr>
+<td>25919</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>25919</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = callReceivingURL</td>
+</tr>
+
+<tr>
+<td>25920</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>25920</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = dispatchURL</td>
+</tr>
+
+<tr>
+<td>25921</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>25921</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = RSOWebURL</td>
+</tr>
+
+<tr>
+<td>25921</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>25921</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = RSOWebURLMestag</td>
+</tr>
+
+<tr>
+<td>25924</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>25924</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = emBaseUrl</td>
+</tr>
+
+<tr>
+<td>25924</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>25924</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = ncBaseUrl</td>
+</tr>
+
+<tr>
+<td>25925</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>25925</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = callReceivingURL</td>
+</tr>
+
+<tr>
+<td>25925</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>25925</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = dispatchURL</td>
+</tr>
+
+<tr>
+<td>25926</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>25926</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = RSOWebURL</td>
+</tr>
+
+<tr>
+<td>25926</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>25926</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = RSOWebURLMestag</td>
+</tr>
+
+<tr>
+<td>25929</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>25929</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = emBaseUrl</td>
+</tr>
+
+<tr>
+<td>25929</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>25930</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = ncBaseUrl</td>
+</tr>
+
+<tr>
+<td>25930</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>25930</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = callReceivingURL</td>
+</tr>
+
+<tr>
+<td>25931</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>25931</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = dispatchURL</td>
+</tr>
+
+<tr>
+<td>25931</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>25931</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = RSOWebURL</td>
+</tr>
+
+<tr>
+<td>25931</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>25932</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = RSOWebURLMestag</td>
+</tr>
+
+<tr>
+<td>25935</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>25935</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = emBaseUrl</td>
+</tr>
+
+<tr>
+<td>25935</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>25935</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = ncBaseUrl</td>
+</tr>
+
+<tr>
+<td>25936</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>25936</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = callReceivingURL</td>
+</tr>
+
+<tr>
+<td>25936</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>25936</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = dispatchURL</td>
+</tr>
+
+<tr>
+<td>25937</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>25937</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = RSOWebURL</td>
+</tr>
+
+<tr>
+<td>25937</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>25937</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = RSOWebURLMestag</td>
+</tr>
+
+<tr>
+<td>25940</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>25940</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = emBaseUrl</td>
+</tr>
+
+<tr>
+<td>25940</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>25940</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = ncBaseUrl</td>
+</tr>
+
+<tr>
+<td>25941</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>25941</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = callReceivingURL</td>
+</tr>
+
+<tr>
+<td>25941</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>25941</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = dispatchURL</td>
+</tr>
+
+<tr>
+<td>25941</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>25942</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = RSOWebURL</td>
+</tr>
+
+<tr>
+<td>25942</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>25942</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = RSOWebURLMestag</td>
+</tr>
+
+<tr>
+<td>25945</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>25945</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = emBaseUrl</td>
+</tr>
+
+<tr>
+<td>25945</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>25945</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = ncBaseUrl</td>
+</tr>
+
+<tr>
+<td>25946</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>25946</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = callReceivingURL</td>
+</tr>
+
+<tr>
+<td>25946</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>25946</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = dispatchURL</td>
+</tr>
+
+<tr>
+<td>25947</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>25947</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = RSOWebURL</td>
+</tr>
+
+<tr>
+<td>25947</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>25947</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = RSOWebURLMestag</td>
+</tr>
+
+<tr>
+<td>25948</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>25948</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = emBaseUrl</td>
+</tr>
+
+<tr>
+<td>25948</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>25948</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = ncBaseUrl</td>
+</tr>
+
+<tr>
+<td>25948</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>25948</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = callReceivingURL</td>
+</tr>
+
+<tr>
+<td>25949</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>25949</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = dispatchURL</td>
+</tr>
+
+<tr>
+<td>25949</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>25949</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = RSOWebURL</td>
+</tr>
+
+<tr>
+<td>25950</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>25950</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = RSOWebURLMestag</td>
+</tr>
+
+<tr>
+<td>25951</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>25951</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = emBaseUrl</td>
+</tr>
+
+<tr>
+<td>25951</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>25951</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = ncBaseUrl</td>
+</tr>
+
+<tr>
+<td>25952</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>25952</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = callReceivingURL</td>
+</tr>
+
+<tr>
+<td>25952</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>25952</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = dispatchURL</td>
+</tr>
+
+<tr>
+<td>25952</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>25953</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = RSOWebURL</td>
+</tr>
+
+<tr>
+<td>25954</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>25954</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = RSOWebURLMestag</td>
+</tr>
+
+<tr>
+<td>25955</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">++++++++++++++++++++++++++++Navigate to URL start+++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>25959</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">++++++++++++++++++++++++++++CR+++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>27959</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">++++++++++++++++++++++++++++https://qaautoap1.national.aaa.com:8443/D3Calls/login.jsp+++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>27959</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">++++++++++++++++++++++++++++CR+++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>51871</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>51871</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class namecom.aaa.web.lib.LoginLibMethod name : enterUserName</td>
+</tr>
+
+<tr>
+<td>51871</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : enterUserName  ::  Locator : User Name Text Field</td>
+</tr>
+
+<tr>
+<td>51924</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>51925</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>51925</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class name : com.aaa.web.lib.LoginLibMethod name : enterUserName</td>
+</tr>
+
+<tr>
+<td>51925</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : Type  ::  Locator : User Name :: Data :autocr1</td>
+</tr>
+
+<tr>
+<td>51925</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Waiting for element :</td>
+</tr>
+
+<tr>
+<td>51925</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Locator is Visible :: By.id: login-name</td>
+</tr>
+
+<tr>
+<td>51956</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Cleared the existing Locator data : </td>
+</tr>
+
+<tr>
+<td>52014</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Typed the Locator data :: autocr1</td>
+</tr>
+
+<tr>
+<td>52014</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>52014</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>52015</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>52015</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class namecom.aaa.web.lib.LoginLibMethod name : enterPassword</td>
+</tr>
+
+<tr>
+<td>52015</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : enterPassword  ::  Locator : Login password Text Field</td>
+</tr>
+
+<tr>
+<td>52053</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>52054</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>52054</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class name : com.aaa.web.lib.LoginLibMethod name : enterPassword</td>
+</tr>
+
+<tr>
+<td>52054</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : Type  ::  Locator : Password text field :: Data :auto123!!</td>
+</tr>
+
+<tr>
+<td>52054</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Waiting for element :</td>
+</tr>
+
+<tr>
+<td>52055</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Locator is Visible :: By.id: login-password</td>
+</tr>
+
+<tr>
+<td>52090</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Cleared the existing Locator data : </td>
+</tr>
+
+<tr>
+<td>52148</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Typed the Locator data :: auto123!!</td>
+</tr>
+
+<tr>
+<td>52148</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>52148</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>52149</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>52149</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class namecom.aaa.web.lib.LoginLibMethod name : loginButton</td>
+</tr>
+
+<tr>
+<td>52149</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : loginButton  ::  Locator : Login button</td>
+</tr>
+
+<tr>
+<td>52189</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>52190</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>52190</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class namecom.aaa.web.lib.LoginLibMethod name : loginButton</td>
+</tr>
+
+<tr>
+<td>52190</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : click  ::  Locator : Login Button</td>
+</tr>
+
+<tr>
+<td>52190</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Waiting for element</td>
+</tr>
+
+<tr>
+<td>52191</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Locator is Visible :: By.id: login-login-btn</td>
+</tr>
+
+<tr>
+<td>52223</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Clicked on the Locator</td>
+</tr>
+
+<tr>
+<td>76327</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">identified the element :: By.id: login-login-btn</td>
+</tr>
+
+<tr>
+<td>76327</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>81330</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>81330</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class name :: com.aaa.web.lib.CRHomeLib Method name :: allErrorAlertsNoButton</td>
+</tr>
+
+<tr>
+<td>81330</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : allErrorAlertsNoButton  ::  Locator : : Confirmation alert</td>
+</tr>
+
+<tr>
+<td>87104</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>87104</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class name :: com.aaa.web.lib.CRHomeLib Method name :: allErrorAlertsNoButton</td>
+</tr>
+
+<tr>
+<td>87105</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : allErrorAlertsNoButton  ::  Locator : Undefined Error</td>
+</tr>
+
+<tr>
+<td>90127</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>90128</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class name :: com.aaa.web.lib.CRHomeLib Method name :: messageDialogBoxClose</td>
+</tr>
+
+<tr>
+<td>90128</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : messageDialogBoxClose  ::  Locator : Message Alert Close</td>
+</tr>
+
+<tr>
+<td>98453</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>98453</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class namecom.aaa.web.lib.CRHomeLibMethod name : logout</td>
+</tr>
+
+<tr>
+<td>98453</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : logout  ::  Locator : logOut link</td>
+</tr>
+
+<tr>
+<td>98512</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>101513</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>101513</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class name :: com.aaa.web.lib.CRHomeLib Method name :: logout</td>
+</tr>
+
+<tr>
+<td>101513</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : logout  ::  Locator : logOut link</td>
+</tr>
+
+<tr>
+<td>101583</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>103137</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">All spinners are not closed</td>
+</tr>
+
+<tr>
+<td>103138</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>103138</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class namecom.aaa.web.lib.CRHomeLibMethod name : logout</td>
+</tr>
+
+<tr>
+<td>103138</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : click  ::  Locator : logOut link</td>
+</tr>
+
+<tr>
+<td>103138</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Waiting for element</td>
+</tr>
+
+<tr>
+<td>103138</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Locator is Visible :: By.id: d3ui-unified-header-logout</td>
+</tr>
+
+<tr>
+<td>103168</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Clicked on the Locator</td>
+</tr>
+
+<tr>
+<td>103239</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">identified the element :: By.id: d3ui-unified-header-logout</td>
+</tr>
+
+<tr>
+<td>103239</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>105240</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>105240</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class namecom.aaa.web.lib.CRHomeLibMethod name : logout</td>
+</tr>
+
+<tr>
+<td>105240</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : logout  ::  Locator : logOut</td>
+</tr>
+
+<tr>
+<td>105296</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>105297</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>105297</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class namecom.aaa.web.lib.CRHomeLibMethod name : logout</td>
+</tr>
+
+<tr>
+<td>105297</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : click  ::  Locator : Logout button</td>
+</tr>
+
+<tr>
+<td>105298</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Waiting for element</td>
+</tr>
+
+<tr>
+<td>105298</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Locator is Visible :: By.id: confirmation-yes-btn</td>
+</tr>
+
+<tr>
+<td>105333</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Clicked on the Locator</td>
+</tr>
+
+<tr>
+<td>105431</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">identified the element :: By.id: confirmation-yes-btn</td>
+</tr>
+
+<tr>
+<td>105432</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>120511</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">After method executing...</td>
+</tr>
+
+<tr>
+<td>120512</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">The value of the path is C:\Automation\AAA_Autmation\29 jan\TestData\TestData.xlsx</td>
+</tr>
+
+<tr>
+<td>120512</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">The value of test case descriptionnull</td>
+</tr>
+
+<tr>
+<td>120513</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">After class executing...</td>
+</tr>
+
+<tr>
+<td>120659</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">Driver quit ::chrome</td>
+</tr>
+
+<tr>
+<td>120660</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>120661</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = emBaseUrl</td>
+</tr>
+
+<tr>
+<td>120661</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">---------------------</td>
+</tr>
+
+<tr>
+<td>120661</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">-----Before Class----</td>
+</tr>
+
+<tr>
+<td>120661</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">---------------------</td>
+</tr>
+
+<tr>
+<td>120661</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">Execution Start Time :: 1517812023799</td>
+</tr>
+
+<tr>
+<td>120661</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">browser name :: chrome Browser version :: 60 platform ::windows 10</td>
+</tr>
+
+<tr>
+<td>120661</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">local</td>
+</tr>
+
+<tr>
+<td>120661</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">Selenium Grid URLlocal</td>
+</tr>
+
+<tr>
+<td>122539</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">Driver launch ::chrome</td>
+</tr>
+
+<tr>
+<td>122539</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message"></td>
+</tr>
+
+<tr>
+<td>122539</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.BrowserContext category">com.aaa.report.BrowserContext</td>
+<td title="Message">&lt;BrowserContext&gt;&lt;Name&gt; chrome&lt;/Name&gt;&lt;Version&gt; windows 10&lt;/Version&gt;&lt;Platform&gt;local&lt;/Platform&gt;&lt;/BrowserContext&gt;</td>
+</tr>
+
+<tr>
+<td>122539</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.BrowserContext category">com.aaa.report.BrowserContext</td>
+<td title="Message">BrowserContext Info Being returned: &lt;BrowserContext&gt;&lt;Name&gt; chrome&lt;/Name&gt;&lt;Version&gt; windows 10&lt;/Version&gt;&lt;Platform&gt;local&lt;/Platform&gt;&lt;/BrowserContext&gt;</td>
+</tr>
+
+<tr>
+<td>138850</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">---------------------</td>
+</tr>
+
+<tr>
+<td>138850</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">---End Before Class--</td>
+</tr>
+
+<tr>
+<td>138850</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">---------------------</td>
+</tr>
+
+<tr>
+<td>138852</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">******getData*******: crCancelCalls</td>
+</tr>
+
+<tr>
+<td>138860</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">Test Starts from row -&gt; 384</td>
+</tr>
+
+<tr>
+<td>138861</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">Total cols in test -&gt; 36</td>
+</tr>
+
+<tr>
+<td>138861</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.TestEngineWeb category">com.aaa.accelerators.TestEngineWeb</td>
+<td title="Message">Total rows in test -&gt; 1</td>
+</tr>
+
+<tr>
+<td>138869</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>138869</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = emBaseUrl</td>
+</tr>
+
+<tr>
+<td>138869</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>138869</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = ncBaseUrl</td>
+</tr>
+
+<tr>
+<td>138870</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>138870</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = callReceivingURL</td>
+</tr>
+
+<tr>
+<td>138870</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>138870</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = dispatchURL</td>
+</tr>
+
+<tr>
+<td>138870</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>138870</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = RSOWebURL</td>
+</tr>
+
+<tr>
+<td>138871</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>138871</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = RSOWebURLMestag</td>
+</tr>
+
+<tr>
+<td>138871</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>138871</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = emBaseUrl</td>
+</tr>
+
+<tr>
+<td>138871</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>138871</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = ncBaseUrl</td>
+</tr>
+
+<tr>
+<td>138872</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>138872</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = callReceivingURL</td>
+</tr>
+
+<tr>
+<td>138872</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>138872</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = dispatchURL</td>
+</tr>
+
+<tr>
+<td>138872</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>138872</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = RSOWebURL</td>
+</tr>
+
+<tr>
+<td>138873</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>138873</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = RSOWebURLMestag</td>
+</tr>
+
+<tr>
+<td>138873</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>138873</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = emBaseUrl</td>
+</tr>
+
+<tr>
+<td>138873</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>138873</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = ncBaseUrl</td>
+</tr>
+
+<tr>
+<td>138873</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>138874</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = callReceivingURL</td>
+</tr>
+
+<tr>
+<td>138874</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>138874</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = dispatchURL</td>
+</tr>
+
+<tr>
+<td>138874</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>138874</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = RSOWebURL</td>
+</tr>
+
+<tr>
+<td>138874</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>138875</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = RSOWebURLMestag</td>
+</tr>
+
+<tr>
+<td>138875</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>138875</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = emBaseUrl</td>
+</tr>
+
+<tr>
+<td>138875</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>138875</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = ncBaseUrl</td>
+</tr>
+
+<tr>
+<td>138875</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>138875</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = callReceivingURL</td>
+</tr>
+
+<tr>
+<td>138876</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>138876</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = dispatchURL</td>
+</tr>
+
+<tr>
+<td>138876</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>138876</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = RSOWebURL</td>
+</tr>
+
+<tr>
+<td>138876</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>138876</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = RSOWebURLMestag</td>
+</tr>
+
+<tr>
+<td>138877</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>138877</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = emBaseUrl</td>
+</tr>
+
+<tr>
+<td>138877</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>138877</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = ncBaseUrl</td>
+</tr>
+
+<tr>
+<td>138877</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>138877</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = callReceivingURL</td>
+</tr>
+
+<tr>
+<td>138878</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>138878</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = dispatchURL</td>
+</tr>
+
+<tr>
+<td>138878</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>138878</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = RSOWebURL</td>
+</tr>
+
+<tr>
+<td>138878</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>138878</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = RSOWebURLMestag</td>
+</tr>
+
+<tr>
+<td>138879</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>138879</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = emBaseUrl</td>
+</tr>
+
+<tr>
+<td>138879</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>138879</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = ncBaseUrl</td>
+</tr>
+
+<tr>
+<td>138879</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>138879</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = callReceivingURL</td>
+</tr>
+
+<tr>
+<td>138879</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>138880</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = dispatchURL</td>
+</tr>
+
+<tr>
+<td>138880</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>138880</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = RSOWebURL</td>
+</tr>
+
+<tr>
+<td>138880</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>138880</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = RSOWebURLMestag</td>
+</tr>
+
+<tr>
+<td>138880</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>138881</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = emBaseUrl</td>
+</tr>
+
+<tr>
+<td>138881</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>138881</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = ncBaseUrl</td>
+</tr>
+
+<tr>
+<td>138881</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>138881</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = callReceivingURL</td>
+</tr>
+
+<tr>
+<td>138882</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>138882</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = dispatchURL</td>
+</tr>
+
+<tr>
+<td>138882</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>138882</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = RSOWebURL</td>
+</tr>
+
+<tr>
+<td>138882</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>138882</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = RSOWebURLMestag</td>
+</tr>
+
+<tr>
+<td>138883</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>138883</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = emBaseUrl</td>
+</tr>
+
+<tr>
+<td>138883</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>138883</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = ncBaseUrl</td>
+</tr>
+
+<tr>
+<td>138883</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>138883</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = callReceivingURL</td>
+</tr>
+
+<tr>
+<td>138884</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>138884</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = dispatchURL</td>
+</tr>
+
+<tr>
+<td>138884</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>138884</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = RSOWebURL</td>
+</tr>
+
+<tr>
+<td>138884</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">fileName = resources/cignitiReporter.properties</td>
+</tr>
+
+<tr>
+<td>138884</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.report.ConfigFileReadWrite category">com.aaa.report.ConfigFileReadWrite</td>
+<td title="Message">key = RSOWebURLMestag</td>
+</tr>
+
+<tr>
+<td>138885</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">++++++++++++++++++++++++++++Navigate to URL start+++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>138885</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">++++++++++++++++++++++++++++CR+++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>140885</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">++++++++++++++++++++++++++++https://qaautoap1.national.aaa.com:8443/D3Calls/login.jsp+++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>140885</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">++++++++++++++++++++++++++++CR+++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>166755</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>166755</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class namecom.aaa.web.lib.LoginLibMethod name : enterUserName</td>
+</tr>
+
+<tr>
+<td>166755</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : enterUserName  ::  Locator : User Name Text Field</td>
+</tr>
+
+<tr>
+<td>166826</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>166826</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>166827</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class name : com.aaa.web.lib.LoginLibMethod name : enterUserName</td>
+</tr>
+
+<tr>
+<td>166827</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : Type  ::  Locator : User Name :: Data :autocr1</td>
+</tr>
+
+<tr>
+<td>166827</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Waiting for element :</td>
+</tr>
+
+<tr>
+<td>166827</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Locator is Visible :: By.id: login-name</td>
+</tr>
+
+<tr>
+<td>166857</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Cleared the existing Locator data : </td>
+</tr>
+
+<tr>
+<td>166922</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Typed the Locator data :: autocr1</td>
+</tr>
+
+<tr>
+<td>166922</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>166922</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>166923</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>166924</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class namecom.aaa.web.lib.LoginLibMethod name : enterPassword</td>
+</tr>
+
+<tr>
+<td>166924</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : enterPassword  ::  Locator : Login password Text Field</td>
+</tr>
+
+<tr>
+<td>166962</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>166963</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>166963</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class name : com.aaa.web.lib.LoginLibMethod name : enterPassword</td>
+</tr>
+
+<tr>
+<td>166963</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : Type  ::  Locator : Password text field :: Data :auto123!!</td>
+</tr>
+
+<tr>
+<td>166963</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Waiting for element :</td>
+</tr>
+
+<tr>
+<td>166963</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Locator is Visible :: By.id: login-password</td>
+</tr>
+
+<tr>
+<td>166997</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Cleared the existing Locator data : </td>
+</tr>
+
+<tr>
+<td>167060</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Typed the Locator data :: auto123!!</td>
+</tr>
+
+<tr>
+<td>167060</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>167060</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>167061</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>167062</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class namecom.aaa.web.lib.LoginLibMethod name : loginButton</td>
+</tr>
+
+<tr>
+<td>167062</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : loginButton  ::  Locator : Login button</td>
+</tr>
+
+<tr>
+<td>167098</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>167099</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</td>
+</tr>
+
+<tr>
+<td>167099</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Class namecom.aaa.web.lib.LoginLibMethod name : loginButton</td>
+</tr>
+
+<tr>
+<td>167099</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Method : click  ::  Locator : Login Button</td>
+</tr>
+
+<tr>
+<td>167099</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Waiting for element</td>
+</tr>
+
+<tr>
+<td>167099</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Locator is Visible :: By.id: login-login-btn</td>
+</tr>
+
+<tr>
+<td>167132</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.aaa.accelerators.ActionEngine category">com.aaa.accelerators.ActionEngine</td>
+<td title="Message">Clicked on the Locator</td>
+</tr>

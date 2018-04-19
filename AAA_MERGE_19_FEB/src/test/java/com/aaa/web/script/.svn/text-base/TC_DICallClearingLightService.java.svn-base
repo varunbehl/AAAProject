@@ -1,0 +1,138 @@
+package com.aaa.web.script;
+
+import com.aaa.utilities.TestUtil;
+import com.aaa.web.lib.*;
+import com.aaa.web.page.CRServicePage;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+import com.aaa.e2e.script.CR_DI;
+
+import java.util.Hashtable;
+
+
+public class TC_DICallClearingLightService extends DILoginLib {
+    public static String callID;
+    public static String pacesetterCode;
+    public static String troubleCode;
+    public static String level;
+    public static String levelMCD;
+    public static int totalnumberOfSpecialEquipment;
+
+/*	*//**
+     * param :: String inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: loginWithValidUserNameAndInvalidPassword
+     * description :: valdUsernamewithInvalidPassword
+     * date :: 18-Dec-2017
+     * author :: Chandu Dendukuri
+     */
+    @DataProvider
+    public Object[][] getTestDataFor_clearCallLightServices() {
+        return TestUtil.getData("clearCallLightServices", TestData, "D3Dispatch");
+    }
+
+    @Test(dataProvider = "getTestDataFor_clearCallLightServices")
+
+    public void clearCallLightServices(Hashtable<String, String> data) throws Throwable {
+
+        try {
+
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("2094: TS-DI Call Clearing Light Service");
+
+                CRHomeLib home = new CRHomeLib();
+                LoginRoleLib role = new LoginRoleLib();
+                DIHomeLib diHome = new DIHomeLib();
+                CRHomeLib crHomeLib = new CRHomeLib();
+                CRMemberSearchLib member = new CRMemberSearchLib();
+                CRLocationsLib locations = new CRLocationsLib();
+                CRVehicleTriageLib crVehicleTriageLib = new CRVehicleTriageLib();
+                CRServiceLib services = new CRServiceLib();
+                CRTowDestinationLib tow = new CRTowDestinationLib();
+                CR_DI crDI = new CR_DI();
+                DISearchCallsLib diSearchCalls = new DISearchCallsLib();
+                DIMCDLib diMCD = new DIMCDLib();
+
+
+                navigateToApplication("CR");
+                login(data.get("CRLoginName"), data.get("Password"));
+                waitcloseAllBusyIcons();
+                home.messageDialogBoxClose();
+
+                crDI.crMemberSearchTab(data);
+                level= member.memberLevelVerification();
+                locations.breakdownLocTabSel();
+                locations.clickOnManualEntryLinkInLocation();
+                locations.enterNonMandatoryFieldsInLocations(data.get("LandMark"), data.get("Address"), data.get("crossStreet"), data.get("secondCrossStreet"), data.get("Zip"));
+                locations.enterAndSaveLocationMandatoryFields(data.get("StreetAddress"), data.get("City"), data.get("State"), data.get("LocationCode"));
+                Thread.sleep(2000);
+                locations.enterBKDownLocCode(data.get("LocationCode"));
+                Thread.sleep(2000);
+                locations.clickOnLocationCodeDropDown();
+                Thread.sleep(5000);
+
+                crVehicleTriageLib.clickOnVehicleTriageTab();
+                crVehicleTriageLib.clickOnManualEntryLinkOnVehicle();
+
+                Thread.sleep(1000);
+                crVehicleTriageLib.enterVehicleType(data.get("ReEnterType"));
+                crVehicleTriageLib.clickOnTheTypeSearchFromDropDown();
+                Thread.sleep(3000);
+                crVehicleTriageLib.handleScriptErrorInVehicleTriagePage();
+                crVehicleTriageLib.getMoreInfoTab();
+                crVehicleTriageLib.handleScriptErrorInVehicleTriagePage();
+                Thread.sleep(2000);
+                crVehicleTriageLib.enterVehicleYear(data.get("ReEnterYear"));
+                Thread.sleep(2000);
+                crVehicleTriageLib.enterVehicleMake(data.get("ReEnterMake"));
+                crVehicleTriageLib.enterVehicleModel(data.get("ReEnterModel"));
+                crVehicleTriageLib.enterVehicleColor(data.get("Color"));
+
+                Thread.sleep(3000);
+
+                crVehicleTriageLib.enterPaceSetterCodeManually(data.get("ProblemType"));
+                crHomeLib.allErrorAlerts();
+                crVehicleTriageLib.handleScriptErrorInVehicleTriagePage();
+
+                home.saveButton();
+                //getText(CRServicePage.lblscriptErorrMessage,"Script Error");
+                home.allErrorAlerts();
+               // member.confirmationAlert();
+                callID=services.getCallId();
+                services.closeCall();
+                home.allErrorAlerts();
+                home.logout();
+
+                navigateToApplication("DI");
+                waitcloseAllBusyIcons();
+                waitcloseAllBusyIcons();
+                login(data.get("DILoginName"),data.get("Password"));
+                role.clickOnProceedBtnInDispatchRoleLogin();
+                waitcloseAllBusyIcons();
+                diHome.clickOnCloseButtonOnQueueWindow();
+                diHome.clickOnSearchCallsLink();
+                diHome.enterCallIDInfo(callID);
+                diHome.clickOnSearchInSearchCalls();
+                diSearchCalls.selectSPStatusRowInSearchCallDispatch();
+                pacesetterCode = diMCD.getPaceSetterCodeOnSummaryTab();
+                Thread.sleep(3000);
+                levelMCD=diMCD.getMemberLevelOnSummaryTab();
+                assertTrue(level.equalsIgnoreCase(levelMCD),"Member ship is same");
+                String currentPaceCode[] = pacesetterCode.split("-");
+                String paceSetterCode = currentPaceCode[0]; //facilityname
+                assertTrue(data.get("ProblemType").contains(paceSetterCode),"pacesetter code that we  selected populates the reason code based on the mapping");
+                troubleCode=diMCD.getTroubleCodeOnSummaryTab();
+                assertTrue(troubleCode.contains(data.get("TroubleCode"))," trouble code displays based on the mapping");
+                diMCD.clearCallID(data.get("clearType"),data.get("TowConfirmation"),data.get("DITowConfComments"),data.get("DITowConfEnterAddress"),data.get("MCDLocationAddress"), data.get("MCDcrossStreet"), data.get("MCDsecondCrossStreet"), data.get("MCDCity"),data.get("DITowConfEnterOtherAddress"));
+                diHome.logOut();
+                Thread.sleep(5000);
+                acceptAlert();
+                acceptAlert();
+            }
+        }catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+}

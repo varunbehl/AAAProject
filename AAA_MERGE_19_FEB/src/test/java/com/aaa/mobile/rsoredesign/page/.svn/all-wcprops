@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/CignitiAutomation/!svn/ver/628/aaaAutomationCignitiOffShore/src/test/java/com/aaa/mobile/rsoredesign/page
+END
+RSORedesignSelectVehiclePage.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/CignitiAutomation/!svn/ver/628/aaaAutomationCignitiOffShore/src/test/java/com/aaa/mobile/rsoredesign/page/RSORedesignSelectVehiclePage.java
+END
+RSORedesignTowDestinationPage.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/CignitiAutomation/!svn/ver/628/aaaAutomationCignitiOffShore/src/test/java/com/aaa/mobile/rsoredesign/page/RSORedesignTowDestinationPage.java
+END
+RSORedesignContactInfoPage.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/CignitiAutomation/!svn/ver/628/aaaAutomationCignitiOffShore/src/test/java/com/aaa/mobile/rsoredesign/page/RSORedesignContactInfoPage.java
+END
+RSORedesignSelectVehicleSubPage.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/CignitiAutomation/!svn/ver/628/aaaAutomationCignitiOffShore/src/test/java/com/aaa/mobile/rsoredesign/page/RSORedesignSelectVehicleSubPage.java
+END
+RSORedesignTowDestinationSubPage.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/CignitiAutomation/!svn/ver/628/aaaAutomationCignitiOffShore/src/test/java/com/aaa/mobile/rsoredesign/page/RSORedesignTowDestinationSubPage.java
+END
+StandaloneMenuBarPage.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/CignitiAutomation/!svn/ver/628/aaaAutomationCignitiOffShore/src/test/java/com/aaa/mobile/rsoredesign/page/StandaloneMenuBarPage.java
+END
+RSORedesignBreakdownSubPage.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/CignitiAutomation/!svn/ver/628/aaaAutomationCignitiOffShore/src/test/java/com/aaa/mobile/rsoredesign/page/RSORedesignBreakdownSubPage.java
+END
+RSORedesignTriageSubPage.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/CignitiAutomation/!svn/ver/628/aaaAutomationCignitiOffShore/src/test/java/com/aaa/mobile/rsoredesign/page/RSORedesignTriageSubPage.java
+END
+StandaloneLoginPage.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/CignitiAutomation/!svn/ver/628/aaaAutomationCignitiOffShore/src/test/java/com/aaa/mobile/rsoredesign/page/StandaloneLoginPage.java
+END
+RSORedesignSetBreakdownLocationPage.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/CignitiAutomation/!svn/ver/628/aaaAutomationCignitiOffShore/src/test/java/com/aaa/mobile/rsoredesign/page/RSORedesignSetBreakdownLocationPage.java
+END
+RSORedesignTriagePage.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/CignitiAutomation/!svn/ver/628/aaaAutomationCignitiOffShore/src/test/java/com/aaa/mobile/rsoredesign/page/RSORedesignTriagePage.java
+END

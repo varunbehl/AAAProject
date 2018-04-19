@@ -1,0 +1,404 @@
+package com.aaa.web.script;
+
+import com.aaa.accelerators.ActionEngine;
+import com.aaa.utilities.TestUtil;
+import com.aaa.web.lib.*;
+
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import java.util.Hashtable;
+
+public class TC_CRSaveERSCallLightService extends ActionEngine{
+
+    /**
+     * param :: Hashtable with string inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: basicMemberCallLightServiceForFuelTrouble
+     * description :: basicMemberCallLightServiceForFuelTrouble
+     * date :: 18-Dec-2017
+     * author :: Abhiram Vajrapu - E004118
+     */
+    @DataProvider
+    public Object[][] getTestDataFor_basicMemberCallLightServiceForFuelTrouble()
+    {
+        return TestUtil.getData("basicMemberCallLightServiceForFuelTrouble", TestData, "D3CallRecieving");
+    }
+
+    @Test(dataProvider = "getTestDataFor_basicMemberCallLightServiceForFuelTrouble")
+    public void basicMemberCallLightServiceForFuelTrouble(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("CR-Save ERS Call Light Service");
+                LoginLib login = new LoginLib();
+                CRMemberSearchLib crMemberSearchLib =new CRMemberSearchLib();
+                CRHomeLib crHomeLib = new CRHomeLib();
+                CRLocationsLib crLocationsLib = new CRLocationsLib();
+                CRVehicleTriageLib crVehicleTriageLib = new CRVehicleTriageLib();
+                CRServiceLib ser=new CRServiceLib();
+                navigateToApplication("CR");
+                login.login(data.get("LoginName"),data.get("Password"));
+                crHomeLib.verifyHomeScreen();
+                String Member = "";
+                if (data.get("Member").equals("db")){
+        	        //fetch member details from db
+        	        //generating a random number everytime to fetch a new record everytime
+        	        int rownum = IntRandomNumberGenerator(50,1000);       
+        	        //member from db
+        	        Member = CommonDb.selectRandomMemberFromDB(data.get("dbServer"),data.get("dbqueryFileName"),data.get("colomnName"),rownum);
+        	        System.out.println("member : "+Member);
+                }
+                else
+                {
+                	Member = data.get("Membersearch");
+                }
+                crHomeLib.memberSearchTextBox(Member);
+                crMemberSearchLib.memberNumClick();
+                crMemberSearchLib.labelMemberLevelInMemberDetailsSection();
+                crLocationsLib.clickOnLocationTab();
+                crLocationsLib.enterTxtinBrkDowLocSrch(data.get("Breakdownaddress"));
+                crLocationsLib.brkDowLocSrchBtn();
+                crLocationsLib.brkdowLocAddrLink();
+                crLocationsLib.brkdownLocationCode(dataBean.getValue(data, "Breakdownlocationcode"));
+                crVehicleTriageLib.clickOnVehicleTriageTab();
+                crVehicleTriageLib.selectExistingVehicleModel();
+                crVehicleTriageLib.clickOnFuel();
+                crVehicleTriageLib.clickOnOutOfGas();
+                crHomeLib.saveButton();
+                ser.closeCall();
+                crHomeLib.logout();
+                System.out.println("Test completed");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * param :: Hashtable with string inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: plusOrPremierMemberCallLightServiceForFuelTrouble
+     * description :: plusOrPremierMemberCallLightServiceForFuelTrouble
+     * date :: 18-Dec-2017
+     * author :: Abhiram Vajrapu - E004118
+     */
+    @DataProvider
+    public Object[][] getTestDataFor_plusOrPremierMemberCallLightServiceForFuelTrouble()
+    {
+        return TestUtil.getData("plusOrPremierMemberCallLightServiceForFuelTrouble", TestData, "D3CallRecieving");
+    }
+
+    @Test(dataProvider = "getTestDataFor_plusOrPremierMemberCallLightServiceForFuelTrouble")
+    public void plusOrPremierMemberCallLightServiceForFuelTrouble(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("CR-Save ERS Call Light Service");
+                LoginLib login = new LoginLib();
+                CRMemberSearchLib crMemberSearchLib =new CRMemberSearchLib();
+                CRHomeLib crHomeLib = new CRHomeLib();
+                CRLocationsLib crLocationsLib = new CRLocationsLib();
+                CRVehicleTriageLib crVehicleTriageLib = new CRVehicleTriageLib();
+                CRServiceLib ser=new CRServiceLib();
+                navigateToApplication("CR");
+                login.login(data.get("LoginName"),data.get("Password"));
+                crHomeLib.verifyHomeScreen();
+                String Member = "";
+                if (data.get("Member").equals("db")){
+        	        //fetch member details from db
+        	        //generating a random number everytime to fetch a new record everytime
+        	        int rownum = IntRandomNumberGenerator(50,1000);       
+        	        //member from db
+        	        Member = CommonDb.selectRandomMemberFromDB(data.get("dbServer"),data.get("dbqueryFileName"),data.get("colomnName"),rownum);
+        	        System.out.println("member : "+Member);
+                }
+                else
+                {
+                	Member = data.get("Membersearch");
+                }
+                crHomeLib.memberSearchTextBox(Member);
+                crMemberSearchLib.memberNumClick();
+                crMemberSearchLib.labelMemberLevelInMemberDetailsSection();
+                crLocationsLib.clickOnLocationTab();
+                crLocationsLib.enterTxtinBrkDowLocSrch(data.get("Breakdownaddress"));
+                crLocationsLib.brkDowLocSrchBtn();
+                crLocationsLib.brkdowLocAddrLink();
+                crLocationsLib.brkdownLocationCode(dataBean.getValue(data, "Breakdownlocationcode"));
+                crVehicleTriageLib.clickOnVehicleTriageTab();
+                crVehicleTriageLib.selectExistingVehicleModel();
+                crVehicleTriageLib.clickOnFuel();
+                crVehicleTriageLib.clickOnOutOfGas();
+                crHomeLib.saveButton();
+                ser.closeCall();
+                crHomeLib.logout();
+                System.out.println("Test completed");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * param :: Hashtable with string inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: basicMemberCallLightServiceForFlatTireSpare
+     * description :: basicMemberCallLightServiceForFlatTireSpare
+     * date :: 18-Dec-2017
+     * author :: Abhiram Vajrapu - E004118
+     */
+    @DataProvider
+    public Object[][] getTestDataFor_basicMemberCallLightServiceForFlatTireSpare()
+    {
+        return TestUtil.getData("basicMemberCallLightServiceForFlatTireSpare", TestData, "D3CallRecieving");
+    }
+
+    @Test(dataProvider = "getTestDataFor_basicMemberCallLightServiceForFlatTireSpare")
+    public void basicMemberCallLightServiceForFlatTireSpare(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("CR-Save ERS Call Light Service");
+                LoginLib login = new LoginLib();
+                CRMemberSearchLib crMemberSearchLib =new CRMemberSearchLib();
+                CRHomeLib crHomeLib = new CRHomeLib();
+                CRLocationsLib crLocationsLib = new CRLocationsLib();
+                CRVehicleTriageLib crVehicleTriageLib = new CRVehicleTriageLib();
+                CRServiceLib ser=new CRServiceLib();
+                navigateToApplication("CR");
+                login.login(data.get("LoginName"),data.get("Password"));
+                crHomeLib.verifyHomeScreen();
+                String Member = "";
+                if (data.get("Member").equals("db")){
+        	        //fetch member details from db
+        	        //generating a random number everytime to fetch a new record everytime
+        	        int rownum = IntRandomNumberGenerator(50,1000);       
+        	        //member from db
+        	        Member = CommonDb.selectRandomMemberFromDB(data.get("dbServer"),data.get("dbqueryFileName"),data.get("colomnName"),rownum);
+        	        System.out.println("member : "+Member);
+                }
+                else
+                {
+                	Member = data.get("Membersearch");
+                }
+                crHomeLib.memberSearchTextBox(Member);
+                crMemberSearchLib.memberNumClick();
+                crMemberSearchLib.labelMemberLevelInMemberDetailsSection();
+                crLocationsLib.clickOnLocationTab();
+                crLocationsLib.enterTxtinBrkDowLocSrch(data.get("Breakdownaddress"));
+                crLocationsLib.brkDowLocSrchBtn();
+                crLocationsLib.brkdowLocAddrLink();
+                crLocationsLib.brkdownLocationCode(dataBean.getValue(data, "Breakdownlocationcode"));
+                crVehicleTriageLib.clickOnVehicleTriageTab();
+                crVehicleTriageLib.selectExistingVehicleModel();
+                crVehicleTriageLib.clickOnFlatTire();
+                crVehicleTriageLib.clickOnFlatTireFrontSide();
+                crVehicleTriageLib.clickOnFlatTireSpareTireYes();
+                crVehicleTriageLib.clickOnFlatTireLockingLugNuts();
+                crHomeLib.saveButton();
+                ser.closeCall();
+                System.out.println("Test completed");
+                crHomeLib.logout();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * param :: Hashtable with string inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: basicMemberCallLightServiceForKeyLocked
+     * description :: basicMemberCallLightServiceForKeyLocked
+     * date :: 18-Dec-2017
+     * author :: Abhiram Vajrapu - E004118
+     */
+    @DataProvider
+    public Object[][] getTestDataFor_basicMemberCallLightServiceForKeyLocked()
+    {
+        return TestUtil.getData("basicMemberCallLightServiceForKeyLocked", TestData, "D3CallRecieving");
+    }
+
+    @Test(dataProvider = "getTestDataFor_basicMemberCallLightServiceForKeyLocked")
+    public void basicMemberCallLightServiceForKeyLocked(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("CR-Save ERS Call Light Service");
+                LoginLib login = new LoginLib();
+                CRMemberSearchLib crMemberSearchLib =new CRMemberSearchLib();
+                CRHomeLib crHomeLib = new CRHomeLib();
+                CRLocationsLib crLocationsLib = new CRLocationsLib();
+                CRVehicleTriageLib crVehicleTriageLib = new CRVehicleTriageLib();
+                CRServiceLib ser=new CRServiceLib();
+                navigateToApplication("CR");
+                login.login(data.get("LoginName"),data.get("Password"));
+                crHomeLib.verifyHomeScreen();
+                String Member = "";
+                if (data.get("Member").equals("db")){
+        	        //fetch member details from db
+        	        //generating a random number everytime to fetch a new record everytime
+        	        int rownum = IntRandomNumberGenerator(50,1000);       
+        	        //member from db
+        	        Member = CommonDb.selectRandomMemberFromDB(data.get("dbServer"),data.get("dbqueryFileName"),data.get("colomnName"),rownum);
+        	        System.out.println("member : "+Member);
+                }
+                else
+                {
+                	Member = data.get("Membersearch");
+                }
+                crHomeLib.memberSearchTextBox(Member);
+                crMemberSearchLib.memberNumClick();
+                crMemberSearchLib.labelMemberLevelInMemberDetailsSection();
+                crLocationsLib.clickOnLocationTab();
+                crLocationsLib.enterTxtinBrkDowLocSrch(data.get("Breakdownaddress"));
+                crLocationsLib.brkDowLocSrchBtn();
+                crLocationsLib.brkdowLocAddrLink();
+                crLocationsLib.brkdownLocationCode(dataBean.getValue(data, "Breakdownlocationcode"));
+                crVehicleTriageLib.clickOnVehicleTriageTab();
+                crVehicleTriageLib.selectExistingVehicleModel();
+                crVehicleTriageLib.selectPaceSetterCode();
+                crHomeLib.saveButton();
+                ser.closeCall();
+                crHomeLib.logout();
+                System.out.println("Test completed");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * param :: Hashtable with string inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: plusMemberCallLightServiceForKeyLocked
+     * description :: plusMemberCallLightServiceForKeyLocked
+     * date :: 18-Dec-2017
+     * author :: Abhiram Vajrapu - E004118
+     */
+    @DataProvider
+    public Object[][] getTestDataFor_plusMemberCallLightServiceForKeyLocked()
+    {
+        return TestUtil.getData("plusMemberCallLightServiceForKeyLocked", TestData, "D3CallRecieving");
+    }
+
+    @Test(dataProvider = "getTestDataFor_plusMemberCallLightServiceForKeyLocked")
+    public void plusMemberCallLightServiceForKeyLocked(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("CR-Save ERS Call Light Service");
+                LoginLib login = new LoginLib();
+                CRMemberSearchLib crMemberSearchLib =new CRMemberSearchLib();
+                CRHomeLib crHomeLib = new CRHomeLib();
+                CRLocationsLib crLocationsLib = new CRLocationsLib();
+                CRVehicleTriageLib crVehicleTriageLib = new CRVehicleTriageLib();
+                CRServiceLib ser=new CRServiceLib();
+                navigateToApplication("CR");
+                login.login(data.get("LoginName"),data.get("Password"));
+                crHomeLib.verifyHomeScreen();
+                String Member = "";
+                if (data.get("Member").equals("db")){
+        	        //fetch member details from db
+        	        //generating a random number everytime to fetch a new record everytime
+        	        int rownum = IntRandomNumberGenerator(50,1000);       
+        	        //member from db
+        	        Member = CommonDb.selectRandomMemberFromDB(data.get("dbServer"),data.get("dbqueryFileName"),data.get("colomnName"),rownum);
+        	        System.out.println("member : "+Member);
+                }
+                else
+                {
+                	Member = data.get("Membersearch");
+                }
+                crHomeLib.memberSearchTextBox(Member);
+                crMemberSearchLib.memberNumClick();
+                crMemberSearchLib.labelMemberLevelInMemberDetailsSection();
+                crLocationsLib.clickOnLocationTab();
+                crLocationsLib.enterTxtinBrkDowLocSrch(data.get("Breakdownaddress"));
+                crLocationsLib.brkDowLocSrchBtn();
+                crLocationsLib.brkdowLocAddrLink();
+                crLocationsLib.brkdownLocationCode(dataBean.getValue(data, "Breakdownlocationcode"));
+                crVehicleTriageLib.clickOnVehicleTriageTab();
+                crVehicleTriageLib.selectExistingVehicleModel();
+                crVehicleTriageLib.selectPaceSetterCode();
+                crHomeLib.saveButton();
+                ser.closeCall();
+                crHomeLib.logout();
+                System.out.println("Test completed");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * param :: Hashtable with string inputs
+     * return ::void
+     * throws :: throwable
+     * methodName :: premierMemberCallLightServiceForKeyLocked
+     * description :: premierMemberCallLightServiceForKeyLocked
+     * date :: 18-Dec-2017
+     * author :: Abhiram Vajrapu - E004118
+     */
+    @DataProvider
+    public Object[][] getTestDataFor_premierMemberCallLightServiceForKeyLocked()
+    {
+        return TestUtil.getData("premierMemberCallLightServiceForKeyLocked", TestData, "D3CallRecieving");
+    }
+
+    @Test(dataProvider = "getTestDataFor_premierMemberCallLightServiceForKeyLocked")
+    public void premierMemberCallLightServiceForKeyLocked(Hashtable<String, String> data) throws Throwable {
+        try {
+            if (data.get("RunMode").equals("Y")) {
+                this.reporter.initTestCaseDescription("CR-Save ERS Call Light Service");
+                LoginLib login = new LoginLib();
+                CRMemberSearchLib crMemberSearchLib =new CRMemberSearchLib();
+                CRHomeLib crHomeLib = new CRHomeLib();
+                CRLocationsLib crLocationsLib = new CRLocationsLib();
+                CRVehicleTriageLib crVehicleTriageLib = new CRVehicleTriageLib();
+                CRServiceLib ser=new CRServiceLib();
+                navigateToApplication("CR");
+                login.login(data.get("LoginName"),data.get("Password"));
+                crHomeLib.verifyHomeScreen();
+                String Member = "";
+                if (data.get("Member").equals("db")){
+        	        //fetch member details from db
+        	        //generating a random number everytime to fetch a new record everytime
+        	        int rownum = IntRandomNumberGenerator(50,1000);       
+        	        //member from db
+        	        Member = CommonDb.selectRandomMemberFromDB(data.get("dbServer"),data.get("dbqueryFileName"),data.get("colomnName"),rownum);
+        	        System.out.println("member : "+Member);
+                }
+                else
+                {
+                	Member = data.get("Membersearch");
+                }
+                crHomeLib.memberSearchTextBox(Member);
+                crMemberSearchLib.memberNumClick();
+                crMemberSearchLib.labelMemberLevelInMemberDetailsSection();
+                crLocationsLib.clickOnLocationTab();
+                crLocationsLib.enterTxtinBrkDowLocSrch(data.get("Breakdownaddress"));
+                crLocationsLib.brkDowLocSrchBtn();
+                crLocationsLib.brkdowLocAddrLink();
+                crLocationsLib.brkdownLocationCode(dataBean.getValue(data, "Breakdownlocationcode"));
+                crVehicleTriageLib.clickOnVehicleTriageTab();
+                crVehicleTriageLib.selectExistingVehicleModel();
+                //crVehicleTriageLib.selectExistingVehicle();
+                crVehicleTriageLib.selectPaceSetterCode();
+                crHomeLib.saveButton();
+                ser.closeCall();
+                crHomeLib.logout();
+                System.out.println("Test completed");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+}

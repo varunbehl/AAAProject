@@ -1,0 +1,44 @@
+8
+
+dir
+1033
+https://certloadgen3.national.aaa.com/svn/CignitiAutomation/aaaAutomationCignitiOffShore/src/main/java
+https://certloadgen3.national.aaa.com/svn/CignitiAutomation
+
+
+
+2018-01-17T15:49:55.672261Z
+681
+CDendukuri
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+b79626d7-27ca-a047-864a-160d5a7d81c8
+
+com
+dir
+
+db.properties
+file
+
+
+
+
+2018-02-02T05:12:26.701000Z
+06620f720ea1258f5f8ddf55fcd502df
+2018-01-09T21:26:48.559275Z
+449
+mharish
+has-props
+

@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE suite SYSTEM 'http://testng.org/testng-1.0.dtd'>
+<suite name='AAA Automation test suite'>
+
+	<parameter name='suiteExecuted' value='Regression' />
+	<parameter name='executionType' value='Sequential' />
+	<listeners>
+		<listener class-name="org.uncommons.reportng.HTMLReporter" />
+		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+		<listener class-name="com.aaa.utilities.AssignTestPriorityTransformer" />
+	</listeners>
+	
+
+   <test name="chromeWindowsLocal" preserve-order='true'>
+        <parameter name="browser" value="chrome"></parameter>
+        <parameter name="automationName" value="selenium"></parameter>
+        <parameter name="browserVersion" value="60"></parameter>
+        <parameter name="platformName" value="windows 10"></parameter>
+        <parameter name="environment" value="local"></parameter>
+        <parameter name="seleniumgridurl" value="local"></parameter>
+        <classes>
+            <!--Sprint-1--><!--Count=7-->
+            <class name="com.aaa.web.script.TC_CRWorkFlowScript">
+            </class>
+
+            <class name="com.aaa.web.script.TC_CRCDXMemberLookUp">
+            </class>
+
+            <class name="com.aaa.web.script.TC_CRPhoneTypesScript">
+            </class>
+
+            <class name="com.aaa.web.script.TC_CRERSBattery">
+            </class>
+
+            <class name="com.aaa.web.script.TC_CRHistoryCallSaveScript">
+            </class>
+
+            <class name="com.aaa.web.script.TC_CRLoginScript">
+            </class>
+
+            <class name="com.aaa.web.script.TC_CRKeylock">
+            </class>
+
+            <!--Sprint-2--><!--Count=9-->
+            <class name="com.aaa.web.script.TC_CRSaveERSCallLightService">
+            </class>
+
+            <class name="com.aaa.web.script.TC_CRSaveAppointmentCall">
+            </class>
+
+            <class name="com.aaa.web.script.TC_CRManualEnterMembershipSave">
+            </class>
+
+            <class name="com.aaa.web.script.TC_CRPhoneTempDelete">
+            </class>
+
+            <class name="com.aaa.web.script.TC_CRScratchPad">
+            </class>
+
+            <class name="com.aaa.web.script.TC_CRTimeZone">
+            </class>
+
+            <class name="com.aaa.web.script.TC_CRLeaveCall">
+            </class>
+
+            <class name="com.aaa.web.script.TC_CREntitlements">
+            </class>
+
+            <class name="com.aaa.web.script.TC_CRCDXMemberLookUp">
+            </class>
+
+            <!--Sprint-3--><!--Count=6-->
+            <class name="com.aaa.web.script.TC_CRLocations">
+            </class>
+
+            <class name="com.aaa.web.script.TC_CRVehicleSearch">
+            </class>
+
+            <class name="com.aaa.web.script.TC_CRLiveCallSearch">
+            </class>
+
+            <class name="com.aaa.web.script.TC_CRTriage">
+            </class>
+
+            <class name="com.aaa.web.script.TC_CRPacesetterAndTroubleCodeMapping">
+            </class>
+
+            <class name="com.aaa.web.script.TC_CRD3AutoSpotgrid">
+            </class>
+
+            <!--Sprint4--><!--Count=15-->
+            <class name="com.aaa.web.script.TC_CRPTAScript">
+            </class>
+
+            <class name="com.aaa.web.script.TC_CRComments">
+            </class>
+
+            <class name="com.aaa.web.script.TC_CRTowDestination">
+            </class>
+
+            <class name="com.aaa.web.script.TC_CRSaveERSCallFullService">
+            </class>
+
+            <class name="com.aaa.web.script.TC_CRSaveRAPCall">
+            </class>
+
+            <class name="com.aaa.web.script.TC_CRFacilityPreference">
+            </class>
+
+            <class name="com.aaa.web.script.TC_CRManualSpot">
+            </class>
+
+            <class name="com.aaa.web.script.TC_CRRules">
+            </class>
+
+            <class name="com.aaa.web.script.TC_CRUpdateCalls">
+            </class>
+
+            <class name="com.aaa.web.script.TC_CRArchivedCallSearchScript">
+            </class>
+
+            <class name="com.aaa.web.script.TC_CRETA">
+            </class>
+
+            <class name="com.aaa.web.script.TC_CRRecentCalls">
+            </class>
+
+            <class name="com.aaa.web.script.TC_CRCashCallService">
+            </class>
+
+            <class name="com.aaa.web.script.TC_CRDuplicateCall">
+            </class>
+
+            <class name="com.aaa.web.script.TC_CRCancelCalls">
+            </class>
+        </classes>
+
+</test>
+
+</suite>
